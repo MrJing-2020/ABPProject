@@ -1,0 +1,79 @@
+﻿@using Abp.Authorization.Roles
+@using Abp.Web.Mvc.Extensions
+@using ABPProject.Authorization
+@model Abp.Application.Services.Dto.ListResultDto<ABPProject.Roles.Dto.RoleListDto>
+@{
+    ViewBag.ActiveMenu = "Roles"; //The menu item will be active for this page.
+    //IsGranted("权限名");//返回bool值，用来判断是否有某个权限，可用来控制按钮的显示
+}
+@section scripts
+{
+    @Html.IncludeScript("~/Views/Roles/Index.js")
+}
+<div>
+    <h1>@L("Roles")</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <button data-toggle="modal" data-target="#RoleCreateModal" class="btn btn-primary pull-right"><i class="fa fa-plus"></i>创建角色</button>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>昵称</th>
+                        <th>名字</th>
+                        <th>是否为静态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var role in Model.Items)
+                    {
+                        <tr>
+                            <td>@role.DisplayName</td>
+                            <td>@role.Name</td>
+                            <td>@(role.IsStatic ? "是" : "否")</td>
+                            <td class="text-right">
+                                <button type="button" class="btn btn-info">编辑</button>
+                                @if(IsGranted(PermissionNames.Pages))
+                                {
+                                    <button type="button" class="btn btn-success">删除</button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@*角色创建模态框*@
+<div class="modal fade" id="RoleCreateModal" tabindex="-1" role="dialog" aria-labelledby="UserCreateModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form name="userCreateForm" role="form" novalidate class="form-validation">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span>创建新角色</span>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>昵称</label>
+                        <input class="form-control" type="text" name="DisplayName" required maxlength="@AbpRoleBase.MaxDisplayNameLength" minlength="2">
+                    </div>
+                    <div class="form-group">
+                        <label>名字</label>
+                        <input type="text" name="Name" class="form-control" required maxlength="@AbpRoleBase.MaxNameLength" minlength="3">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="IsStatic" value="true" checked="checked"> 是否为静态
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
