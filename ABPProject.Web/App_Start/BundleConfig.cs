@@ -73,6 +73,24 @@ namespace ABPProject.Web
                 new ScriptBundle("~/Bundles/js")
                     .Include("~/js/main.js")
                 );
+
+            bundles.Add(
+                new ScriptBundle("~/Table/js")
+                    .Include(
+                    "~/Scripts/bootstrap-table.min.js",
+                    "~/Scripts/tableExport.js",
+                    "~/Scripts/bootstrap-editable.js",
+                    "~/Scripts/bootstrap-table-editable.js",
+                    "~/Scripts/bootstrap-table-export.js"
+                    )
+                );
+
+            bundles.Add(
+                new StyleBundle("~/Table/css")
+                    .Include(
+                    "~/Content/bootstrap-table.min.css"
+                    )
+                );
         }
     }
 }

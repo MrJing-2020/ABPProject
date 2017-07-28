@@ -10,6 +10,7 @@ using Abp.Web.Mvc;
 using Abp.Web.SignalR;
 using ABPProject.Api;
 using Hangfire;
+using Abp.Configuration.Startup;
 
 namespace ABPProject.Web
 {
@@ -35,6 +36,7 @@ namespace ABPProject.Web
             //{
             //    configuration.GlobalConfiguration.UseSqlServerStorage("Default");
             //});
+            Configuration.Modules.AbpWeb().AntiForgery.IsEnabled = false;
         }
 
         public override void Initialize()
