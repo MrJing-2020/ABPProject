@@ -5,10 +5,8 @@ using ABPProject.Authorization;
 namespace ABPProject.Web
 {
     /// <summary>
-    /// This class defines menus for the application.
-    /// It uses ABP's menu system.
-    /// When you add menu items here, they are automatically appear in angular application.
-    /// See Views/Layout/_TopMenu.cshtml file to know how to render menu.
+    /// 左侧导航栏菜单
+    /// 菜单名（MenuItemDefinition第一个参数）需要和视图页ViewBag.ActiveMenu的名字一样
     /// </summary>
     public class ABPProjectNavigationProvider : NavigationProvider
     {
@@ -17,7 +15,7 @@ namespace ABPProject.Web
             context.Manager.MainMenu
                 .AddItem(
                     new MenuItemDefinition(
-                        "Home",
+                        "Index",
                         L("HomePage"),
                         url: "",
                         icon: "fa fa-home",
@@ -26,18 +24,26 @@ namespace ABPProject.Web
                 ).AddItem(
                     new MenuItemDefinition(
                         "Tenants",
-                        L("Tenants"),
+                        L("CapitalPool"),
                         url: "Tenants",
                         icon: "fa fa-globe",
                         requiredPermissionName: PermissionNames.Pages_Tenants
-                        )
-                ).AddItem(
-                    new MenuItemDefinition(
-                        "Users",
-                        L("Users"),
-                        url: "Users",
-                        icon: "fa fa-users",
-                        requiredPermissionName: PermissionNames.Pages_Users
+                     ).AddItem(
+                            new MenuItemDefinition(
+                                "Tenants",
+                                L("Project"),
+                                url: "Tenants",
+                                icon: "fa fa-globe",
+                                requiredPermissionName: PermissionNames.Pages_Tenants
+                                )
+                        ).AddItem(
+                            new MenuItemDefinition(
+                                "Tenants",
+                                L("Capital"),
+                                url: "Tenants",
+                                icon: "fa fa-globe",
+                                requiredPermissionName: PermissionNames.Pages_Tenants
+                                )
                         )
                 ).AddItem(
                     new MenuItemDefinition(
@@ -45,14 +51,7 @@ namespace ABPProject.Web
                         L("Roles"),
                         url: "Roles",
                         icon: "fa fa-users",
-                        requiredPermissionName: PermissionNames.Pages_Users
-                        )
-                ).AddItem(
-                    new MenuItemDefinition(
-                        "About",
-                        L("About"),
-                        url: "About",
-                        icon: "fa fa-info"
+                        requiresAuthentication: true
                         )
                 );
         }

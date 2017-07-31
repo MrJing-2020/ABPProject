@@ -8,7 +8,7 @@ using ABPProject.CommonDto;
 
 namespace ABPProject.Web.Controllers
 {
-    [AbpMvcAuthorize(PermissionNames.Pages_Users)]
+    //[AbpMvcAuthorize(PermissionNames.Pages_Users)]
     public class RolesController : ABPProjectControllerBase
     {
         private readonly IRoleAppService _roleAppService;

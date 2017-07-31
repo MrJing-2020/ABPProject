@@ -159,7 +159,9 @@
     }
 
     $(function () {
+        console.log("执行前")
         initTable();
+        console.log("执行后")
         var _roleService = abp.services.app.role;
         var _$modal = $('#RoleCreateModal');
         var _$form = _$modal.find('form');
@@ -171,9 +173,7 @@
             if (!_$form.valid()) {
                 return;
             }
-
             var role = _$form.serializeFormToObject(); //serializeFormToObject is defined in main.js
-
             abp.ui.setBusy(_$modal);
             _roleService.createRole(role).done(function () {
                 _$modal.modal('hide');

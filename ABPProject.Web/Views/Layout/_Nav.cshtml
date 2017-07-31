@@ -1,0 +1,87 @@
+﻿@using Abp.Collections.Extensions
+@using ABPProject.Web.Views
+@model ABPProject.Web.Models.Layout.TopMenuViewModel
+@{
+    var calculateMenuUrl = new Func<string, string>((url) =>
+    {
+        if (string.IsNullOrEmpty(url))
+        {
+            return ApplicationPath;
+        }
+
+        if (UrlChecker.IsRooted(url))
+        {
+            return url;
+        }
+
+        return ApplicationPath + url;
+    });
+}
+<nav id="sidebar" role="navigation" class="navbar-default navbar-static-side">
+    <div class="sidebar-collapse menu-scroll">
+        <ul id="side-menu" class="nav">
+            <li class="user-panel">
+                <div class="thumb">
+                    <img src="~/images/48.jpg" alt="" class="img-circle" />
+                </div>
+                <div class="info">
+                    <p>Mr靖</p>
+                    <ul class="list-inline list-unstyled">
+                        <li>
+                            <a href="extra-profile.html" data-hover="tooltip" title="Profile"><i class="fa fa-user"></i></a>
+                        </li>
+                        <li>
+                            <a href="email-inbox.html" data-hover="tooltip" title="Mail"><i class="fa fa-envelope"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" data-hover="tooltip" title="Setting" data-toggle="modal" data-target="#modal-config"><i class="fa fa-cog"></i></a>
+                        </li>
+                        <li>
+                            <a href="extra-signin.html" data-hover="tooltip" title="Logout"><i class="fa fa-sign-out"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </li>
+            @foreach (var menuItem in Model.MainMenu.Items)
+            {
+                <li class="@(Model.ActiveMenuItemName == menuItem.Name ? "active" : "")">
+                    @if (menuItem.Items.IsNullOrEmpty())
+                    {
+                        <a href="@calculateMenuUrl(menuItem.Url)">
+                            @if (!string.IsNullOrWhiteSpace(menuItem.Icon))
+                            {
+                                <i class="@menuItem.Icon"><div class="icon-bg bg-orange"></div></i>
+                            }
+                            <span class="menu-title">@menuItem.DisplayName</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="#">
+                            @if (!string.IsNullOrWhiteSpace(menuItem.Icon))
+                            {
+                                <i class="@menuItem.Icon"><div class="icon-bg bg-pink"></div></i>
+                            }
+                            <span class="menu-title">@menuItem.DisplayName</span><span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            @foreach (var subMenuItem in menuItem.Items)
+                            {
+                                <li>
+                                    <a href="@calculateMenuUrl(subMenuItem.Url)">
+                                        @if (!string.IsNullOrWhiteSpace(subMenuItem.Icon))
+                                        {
+                                            <i class="@subMenuItem.Icon"></i>
+                                        }
+                                        <span class="submenu-title">@subMenuItem.DisplayName</span>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+</nav>

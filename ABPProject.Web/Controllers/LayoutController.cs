@@ -29,7 +29,7 @@ namespace ABPProject.Web.Controllers
         }
 
         [ChildActionOnly]
-        public PartialViewResult TopMenu(string activeMenu = "")
+        public PartialViewResult Nav(string activeMenu = "")
         {
             var model = new TopMenuViewModel
                         {
@@ -37,7 +37,7 @@ namespace ABPProject.Web.Controllers
                             ActiveMenuItemName = activeMenu
                         };
 
-            return PartialView("_TopMenu", model);
+            return PartialView("_Nav", model);
         }
 
         [ChildActionOnly]

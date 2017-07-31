@@ -23,6 +23,10 @@
     <text name="LogIn" value="登录" />
 
     <text name="LoginFailed" value="登录失败!" />
+    
+    <text name="CapitalPool" value="资金池" />
+    <text name="Project" value="项目" />
+    <text name="Capital" value="资金" />
 
 
   </texts>

@@ -16,61 +16,28 @@
     @Scripts.Render("~/Table/js")
     @Html.IncludeScript("~/Views/Roles/Index.js")
 }
-<div>
-    <h1>角色</h1>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="container">
-                <div id="toolbar">
-                    <button id="remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> 删除</button>
-                    <button data-toggle="modal" data-target="#RoleCreateModal" class="btn btn-primary"><i class="fa fa-plus"></i>创建角色</button>
-                </div>
-                <table id="table"
-                       data-toolbar="#toolbar"
-                       data-search="true"
-                       data-show-refresh="true"
-                       data-show-toggle="true"
-                       data-show-columns="true"
-                       data-show-export="true"
-                       data-detail-view="true"
-                       data-minimum-count-columns="2"
-                       data-show-pagination-switch="true"
-                       data-pagination="true"
-                       data-id-field="id"
-                       data-page-list="[10, 25, 50, 100, ALL]"
-                       data-show-footer="false"
-                       data-side-pagination="server"
-                       data-url="http://localhost:61759/api/services/app/role/GetPagedRole"
-                </table>
-            </div>
-            @*<table class="table">
-                <thead>
-                    <tr>
-                        <th>昵称</th>
-                        <th>名字</th>
-                        <th>是否为静态</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var role in Model.Items)
-                    {
-                        <tr>
-                            <td>@role.DisplayName</td>
-                            <td>@role.Name</td>
-                            <td>@(role.IsStatic ? "是" : "否")</td>
-                            <td class="text-right">
-                                <button type="button" class="btn btn-info">编辑</button>
-                                @if(IsGranted(PermissionNames.Pages))
-                                {
-                                    <button type="button" class="btn btn-success">删除</button>
-                                }
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>*@
-        </div>
+<div id="page-wrapper">
+    <div id="toolbar">
+        <button id="remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> 删除</button>
+        <button data-toggle="modal" data-target="#RoleCreateModal" class="btn btn-primary"><i class="fa fa-plus"></i>创建角色</button>
     </div>
+    <table id="table"
+           data-toolbar="#toolbar"
+           data-search="true"
+           data-show-refresh="true"
+           data-show-toggle="true"
+           data-show-columns="true"
+           data-show-export="true"
+           data-detail-view="true"
+           data-minimum-count-columns="2"
+           data-show-pagination-switch="true"
+           data-pagination="true"
+           data-id-field="id"
+           data-page-list="[10, 25, 50, 100, ALL]"
+           data-show-footer="false"
+           data-side-pagination="server"
+           data-url="http://localhost:61759/api/services/app/role/GetPagedRole"
+                </table>
 </div>
 
 @*角色创建模态框*@
