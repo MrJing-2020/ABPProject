@@ -39,13 +39,15 @@
     @Scripts.Render("~/Bundles/vendor/js/top")
 
 </head>
-<body class=" ">
+<body>
     <div>
         @Html.Partial("_TopBar")
         <div id="wrapper">
             @Html.Action("Nav", "Layout", new { activeMenu = ViewBag.ActiveMenu })
             @Html.Partial("_Right")
-            @RenderBody()
+            <div id="page-wrapper">
+                @RenderBody()
+            </div>
             @Html.Partial("_Footer")
         </div>
     </div>
@@ -77,7 +79,7 @@
     <script src="~/signalr/hubs"></script>
     @Html.IncludeScript("~/Abp/Framework/scripts/libs/abp.signalr.js")
 
-<!-- View specific scripts -->
+    <!-- View specific scripts -->
     @RenderSection("scripts", required: false)
 </body>
 </html>

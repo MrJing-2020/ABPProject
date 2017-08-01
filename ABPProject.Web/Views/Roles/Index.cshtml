@@ -13,34 +13,53 @@
 }
 @section scripts
 {
-    @*@Scripts.Render("~/Table/js")*@
+    @Scripts.Render("~/Table/js")
     @Html.IncludeScript("~/Views/Roles/Index.js")
-    <script> 
-
-    </script>
 }
-<div id="page-wrapper">
-    <div id="toolbar">
-        <button id="remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> 删除</button>
-        <button data-toggle="modal" data-target="#RoleCreateModal" class="btn btn-primary"><i class="fa fa-plus"></i>创建角色</button>
+
+<div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+    <div class="page-header pull-left">
+        <div class="page-title">角色</div>
     </div>
-    <table id="table"
-           data-toolbar="#toolbar"
-           data-search="true"
-           data-show-refresh="true"
-           data-show-toggle="true"
-           data-show-columns="true"
-           data-show-export="true"
-           data-detail-view="true"
-           data-minimum-count-columns="2"
-           data-show-pagination-switch="true"
-           data-pagination="true"
-           data-id-field="id"
-           data-page-list="[10, 25, 50, 100, ALL]"
-           data-show-footer="false"
-           data-side-pagination="server"
-           data-url="http://localhost:61759/api/services/app/role/GetPagedRole"
-                </table>
+    <ol class="breadcrumb page-breadcrumb pull-left">
+        <li><i class="fa fa-home"></i>&nbsp;<a href="index.html">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="hidden"><a href="#">角色</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="active">角色</li>
+    </ol>
+    <div class="btn btn-blue reportrange">
+        <i class="fa fa-calendar"></i>&nbsp;<span></span>&nbsp;report&nbsp;<i class="fa fa-angle-down"></i>
+        <input type="hidden" name="datestart" />
+        <input type="hidden" name="endstart" />
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="page-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container">
+                <div id="toolbar">
+                    <button id="remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> 删除</button>
+                    <button data-toggle="modal" data-target="#RoleCreateModal" class="btn btn-primary"><i class="fa fa-plus"></i>创建角色</button>
+                </div>
+                <table id="table"
+                       data-toolbar="#toolbar"
+                       data-search="true"
+                       data-show-refresh="true"
+                       data-show-toggle="true"
+                       data-show-columns="true"
+                       data-show-export="true"
+                       data-detail-view="true"
+                       data-minimum-count-columns="2"
+                       data-show-pagination-switch="true"
+                       data-pagination="true"
+                       data-id-field="id"
+                       data-page-list="[10, 25, 50, 100, ALL]"
+                       data-show-footer="false"
+                       data-side-pagination="server"
+                       data-url="http://localhost:61759/api/services/app/role/GetPagedRole"></table>
+            </div>
+        </div>
+    </div>
 </div>
 
 @*角色创建模态框*@

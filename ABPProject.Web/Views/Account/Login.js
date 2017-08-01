@@ -1,10 +1,9 @@
 ﻿(function () {
-
     $(function () {
-        $('#LoginButton').click(function (e) {
+        $('html').click(function (e) {
             e.preventDefault();
             abp.ui.setBusy(
-                $('#LoginArea'),
+                $('.bs-component'),
                 abp.ajax({
                     url: abp.appPath + 'Account/Login',
                     type: 'POST',
@@ -31,5 +30,4 @@
 
         $('#LoginForm input:first-child').focus();
     });
-
 })();

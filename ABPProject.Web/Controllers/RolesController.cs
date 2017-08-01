@@ -21,18 +21,10 @@ namespace ABPProject.Web.Controllers
             var output = await _roleAppService.GetRoles();
             return View(output);
         }
-
-        public ActionResult PagedList(int? page)
+        public ActionResult PagedList(PageParams pageArg)
         {
-            var pageSize = 5;
-            var pageNumber = page ?? 1;
-            var pageArg = new PagedInputDto
-            {
-                SkipCount = (pageNumber - 1) * pageSize, 
-                MaxResultCount = pageSize
-            };
             var result = _roleAppService.GetPagedRole(pageArg);
-            return View(result);
+            return Json(result);
         }
     }
 }

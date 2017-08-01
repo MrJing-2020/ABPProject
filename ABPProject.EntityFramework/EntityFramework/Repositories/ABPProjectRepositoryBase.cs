@@ -12,7 +12,6 @@ namespace ABPProject.EntityFramework.Repositories
         {
 
         }
-
         //add common methods for all repositories
     }
 

@@ -55,10 +55,15 @@
                 ]
             ],
             method: "POST",
+            queryParamsType: undefined,
             queryParams: function (params) {
+                console.log(params)
                 return JSON.stringify({
-                    "SkipCount": 0,
-                    "MaxResultCount": 10
+                    "PageSize": params.limit,
+                    "PageNumber": params.offset,
+                    "SortOrder": params.order,
+                    "SearchText": params.search == null ? "" : params.search,
+                    "SortName": params.sort == null ? "" : params.sort,
                 })
             },
             responseHandler: function (res) {
@@ -155,13 +160,12 @@
         return '$' + total;
     }
     function getHeight() {
-        return $(window).height() - $('h1').outerHeight(true);
+        //return $(window).height() - $('h1').outerHeight(true
+        return $(window).height() - 100;
     }
 
     $(function () {
-        console.log("执行前")
         initTable();
-        console.log("执行后")
         var _roleService = abp.services.app.role;
         var _$modal = $('#RoleCreateModal');
         var _$form = _$modal.find('form');
@@ -173,7 +177,9 @@
             if (!_$form.valid()) {
                 return;
             }
+
             var role = _$form.serializeFormToObject(); //serializeFormToObject is defined in main.js
+
             abp.ui.setBusy(_$modal);
             _roleService.createRole(role).done(function () {
                 _$modal.modal('hide');
