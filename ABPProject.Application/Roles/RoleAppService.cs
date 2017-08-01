@@ -61,10 +61,20 @@ namespace ABPProject.Roles
             await _roleManager.SetGrantedPermissionsAsync(role, grantedPermissions);
         }
 
-        public PagedResultDto<RoleListDto> GetPagedRole(PagedInputDto input)
+        public PagedResultDto<RoleListDto> GetPagedRole(PageParams pageArg )
         {
-            var count = _roleRepository.Count();
-            var roles = _roleRepository.GetAll().OrderBy(m=>m.DisplayName).PageBy(input);
+            PageArgDto input = new PageArgDto(pageArg);
+            int count = 0;
+            if (!string.IsNullOrEmpty(input.SearchText))
+            {
+                count = _roleRepository.Count(m => m.Name.Contains(input.SearchText) || m.DisplayName.Contains(input.SearchText));
+            }
+            else
+            {
+                count = _roleRepository.Count();
+            }
+            var roles = input.SortOrder == "desc" ? _roleRepository.GetAll().OrderByDescending(m => input.SortName).PageBy(input.PageInput) : 
+                _roleRepository.GetAll().OrderBy(m => input.SortName).PageBy(input.PageInput);
             return new PagedResultDto<RoleListDto>(count, roles.MapTo<List<RoleListDto>>());
         }
     }

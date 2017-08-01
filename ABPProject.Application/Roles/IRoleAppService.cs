@@ -11,6 +11,6 @@ namespace ABPProject.Roles
         Task UpdateRolePermissions(UpdateRolePermissionsInput input);
         Task<ListResultDto<RoleListDto>> GetRoles();
         Task CreateRole(EditUserInput input);
-        PagedResultDto<RoleListDto> GetPagedRole(PagedInputDto input);
+        PagedResultDto<RoleListDto> GetPagedRole(PageParams input);
     }
 }

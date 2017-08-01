@@ -13,6 +13,7 @@ namespace ABPProject.Web
             //~/Bundles/vendor/css
             bundles.Add(
                 new StyleBundle("~/Bundles/vendor/css")
+                    .Include("~/css/main.css", new CssRewriteUrlTransform())
                     .Include("~/Content/themes/base/all.css", new CssRewriteUrlTransform())
                     .Include("~/Content/bootstrap-paper.min.css", new CssRewriteUrlTransform())
                     .Include("~/Content/toastr.min.css", new CssRewriteUrlTransform())
@@ -35,18 +36,29 @@ namespace ABPProject.Web
                 new ScriptBundle("~/Bundles/vendor/js/bottom")
                     .Include(
                         "~/Scripts/json2.min.js",
+
                         "~/Scripts/jquery-2.2.0.min.js",
-                        "~/Scripts/jquery.validate.min.js",
+                        "~/Scripts/jquery-ui-1.11.4.min.js",
+
+                        "~/Scripts/bootstrap.min.js",
+
+                        "~/Scripts/moment-with-locales.min.js",
+                        "~/Content/vendors/jquery-validate/jquery.validate.min.js",
+                        "~/Scripts/messages_zh.js",
+                        "~/Scripts/jquery.blockUI.js",
                         "~/Scripts/toastr.min.js",
                         "~/Scripts/sweetalert/sweet-alert.min.js",
                         "~/Scripts/others/spinjs/spin.js",
                         "~/Scripts/others/spinjs/jquery.spin.js",
+
                         "~/Abp/Framework/scripts/abp.js",
                         "~/Abp/Framework/scripts/libs/abp.jquery.js",
                         "~/Abp/Framework/scripts/libs/abp.toastr.js",
                         "~/Abp/Framework/scripts/libs/abp.blockUI.js",
                         "~/Abp/Framework/scripts/libs/abp.spin.js",
-                        "~/Abp/Framework/scripts/libs/abp.sweet-alert.js"
+                        "~/Abp/Framework/scripts/libs/abp.sweet-alert.js",
+
+                        "~/Scripts/jquery.signalR-2.2.1.min.js"
                     )
                 );
 
@@ -54,8 +66,9 @@ namespace ABPProject.Web
             bundles.Add(
                 new StyleBundle("~/Bundles/css")
                     .Include(
+                    //"~/css/main.css",
                     "~/Content/css/css1.css",
-                    "~/Content/css/css2.css",
+                    //"~/Content/css/css2.css",
                     "~/Content/vendors/jquery-ui-1.10.4.custom/css/ui-lightness/jquery-ui-1.10.4.custom.min.css",
                     "~/Content/vendors/font-awesome/css/font-awesome.min.css",
                     "~/Content/vendors/bootstrap/css/bootstrap.min.css",
@@ -64,7 +77,7 @@ namespace ABPProject.Web
                     "~/Content/vendors/sco.message/sco.message.css",
                     "~/Content/vendors/intro.js/introjs.css",
                     "~/Content/vendors/animate.css/animate.css",
-                    //"~/Content/vendors/jquery-pace/pace.css",
+                    "~/Content/vendors/jquery-pace/pace.css",
                     "~/Content/vendors/iCheck/skins/all.css",
                     "~/Content/vendors/jquery-notific8/jquery.notific8.min.css",
                     "~/Content/vendors/bootstrap-daterangepicker/daterangepicker-bs3.css",
@@ -76,13 +89,11 @@ namespace ABPProject.Web
             bundles.Add(
                 new ScriptBundle("~/Bundles/js")
                     .Include(
-                    "~/Content/js/jquery-1.10.2.min.js",
+                    "~/js/main.js",
+                    //"~/Content/js/jquery-1.10.2.min.js",
                     "~/Content/js/jquery-migrate-1.2.1.min.js",
                     "~/Content/js/jquery-ui.js",
-                    "~/Content/vendors/bootstrap/js/bootstrap.min.js",
                     "~/Content/vendors/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js",
-                    "~/Content/js/html5shiv.js",
-                    "~/Content/js/respond.min.js",
                     "~/Content/vendors/metisMenu/jquery.metisMenu.js",
                     "~/Content/vendors/slimScroll/jquery.slimscroll.js",
                     "~/Content/vendors/jquery-cookie/jquery.cookie.js",
@@ -91,7 +102,7 @@ namespace ABPProject.Web
                     "~/Content/vendors/jquery-notific8/jquery.notific8.min.js",
                     "~/Content/vendors/jquery-highcharts/highcharts.js",
                     "~/Content/js/jquery.menu.js",
-                    "~/Content/vendors/jquery-pace/pace.min.js",
+                    //"~/Content/vendors/jquery-pace/pace.min.js",
                     "~/Content/vendors/holder/holder.js",
                     "~/Content/vendors/responsive-tabs/responsive-tabs.js",
                     "~/Content/vendors/jquery-news-ticker/jquery.newsTicker.min.js",
@@ -100,12 +111,6 @@ namespace ABPProject.Web
                     "~/Content/vendors/bootstrap-daterangepicker/daterangepicker.js",
                     "~/Content/js/main.js",
                     "~/Content/vendors/intro.js/intro.js",
-                    "~/Content/vendors/flot-chart/jquery.flot.js",
-                    "~/Content/vendors/flot-chart/jquery.flot.categories.js",
-                    "~/Content/vendors/flot-chart/jquery.flot.tooltip.js",
-                    "~/Content/vendors/flot-chart/jquery.flot.resize.js",
-                    "~/Content/vendors/flot-chart/jquery.flot.fillbetween.js",
-                    "~/Content/vendors/flot-chart/jquery.flot.spline.js",
                     "~/Content/vendors/calendar/zabuto_calendar.min.js",
                     "~/Content/vendors/sco.message/sco.message.js",
                     "~/Content/vendors/intro.js/intro.js",
@@ -113,7 +118,6 @@ namespace ABPProject.Web
                     )
                 );
 
-            //bootstrap table相关
             bundles.Add(
                 new ScriptBundle("~/Table/js")
                     .Include(
@@ -123,7 +127,8 @@ namespace ABPProject.Web
                     "~/Scripts/bootstrap-table-editable.js",
                     "~/Scripts/bootstrap-table-export.js"
                     )
-                );
+            );
+
             bundles.Add(
                 new StyleBundle("~/Table/css")
                     .Include(
