@@ -68,7 +68,7 @@
             },
             responseHandler: function (res) {
                 var data = {
-                    "total": 2,
+                    "total": res.result.totalCount,
                     "rows": res.result.items
                 }
                 $.each(data.rows, function (i, row) {

@@ -20,7 +20,7 @@ namespace ABPProject.CommonDto
         {
             PagedInputDto tempData = new PagedInputDto();
             tempData.MaxResultCount = param.PageSize;
-            tempData.SkipCount = param.PageNumber >= 0 ? (param.PageNumber - 1) * param.PageSize : 0;
+            tempData.SkipCount = param.PageNumber > 0 ? (param.PageNumber - 1) * param.PageSize : 0;
             PageInput = tempData;
             SearchText = param.SearchText;
             SortName = param.SortName;
