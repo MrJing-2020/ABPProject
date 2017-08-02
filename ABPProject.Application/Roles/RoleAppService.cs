@@ -75,7 +75,7 @@ namespace ABPProject.Roles
             }
             var roles = input.SortOrder == "desc" ? _roleRepository.GetAll().OrderByDescending(m => input.SortName).PageBy(input.PageInput) : 
                 _roleRepository.GetAll().OrderBy(m => input.SortName).PageBy(input.PageInput);
-            return new PagedResultDto<RoleListDto>(count, roles.ToList().MapTo<List<RoleListDto>>());
+            return new PagedResultDto<RoleListDto>(count, roles.MapTo<List<RoleListDto>>());
         }
     }
 }
