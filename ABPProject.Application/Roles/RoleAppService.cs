@@ -65,16 +65,27 @@ namespace ABPProject.Roles
         {
             PageArgDto input = new PageArgDto(pageArg);
             int count = 0;
+            IQueryable<Role> roles = null;
             if (!string.IsNullOrEmpty(input.SearchText))
             {
-                count = _roleRepository.Count(m => m.Name.Contains(input.SearchText) || m.DisplayName.Contains(input.SearchText));
+                roles= _roleRepository.GetAll().Where(m => m.Name.Contains(input.SearchText) || m.DisplayName.Contains(input.SearchText));
+                count = roles.Count();
             }
             else
             {
+                roles = _roleRepository.GetAll();
                 count = _roleRepository.Count();
             }
-            var roles = input.SortOrder == "desc" ? _roleRepository.GetAll().OrderByDescending(m => input.SortName).PageBy(input.PageInput) : 
-                _roleRepository.GetAll().OrderBy(m => input.SortName).PageBy(input.PageInput);
+            if (!string.IsNullOrEmpty(input.SortName))
+            {
+                roles = input.SortOrder == "desc" ? roles.OrderByDescending(m => input.SortName).PageBy(input.PageInput) :
+                roles.OrderBy(m => input.SortName).PageBy(input.PageInput);
+            }
+            else
+            {
+                roles= roles.OrderBy(m=>m.CreationTime).PageBy(input.PageInput);
+            }
+            var list = roles.ToList();
             return new PagedResultDto<RoleListDto>(count, roles.MapTo<List<RoleListDto>>());
         }
     }
