@@ -33,65 +33,73 @@
     </div>
     <div class="clearfix"></div>
 </div>
-<div class="page-content">
-    <div class="row panel">
-        <div class="col-md-12 panel">
-            <div class="panel-body" >
-                <div id="toolbar">
-                    <button id="remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> 删除</button>
-                    <button data-toggle="modal" data-target="#RoleCreateModal" class="btn btn-primary"><i class="fa fa-plus"></i>创建角色</button>
+<div class="page-content" id="app">
+    <div id="tab-general">
+        <div>
+            <div class="panel">
+                <div class="panel-body">
+                    <ul class="closeable-tabs nav nav-tabs">
+                        <li class="active">
+                            <a href="#itemlist" data-toggle="tab">列表</a>
+                        </li>
+                        <li id="tab-edit">
+                            <a href="#createItem"  data-toggle="tab" >新增角色</a>
+                        </li>
+                    </ul>
+                    <div id="myCloseableTabContent" class="tab-content">
+                        <div id="itemlist" class="tab-pane fade in active table-content-cum" style="min-height:550px">
+                            <div id="toolbar">
+                                <button id="remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> 删除</button>
+                                <button data-toggle="modal" id="createNewItem" data-target="#RoleCreateModal" class="btn btn-primary"><i class="fa fa-plus"></i>创建角色</button>
+                            </div>
+                            <table id="table"
+                                   data-toolbar="#toolbar"
+                                   data-search="true"
+                                   data-show-refresh="true"
+                                   data-show-toggle="true"
+                                   data-show-columns="true"
+                                   data-show-export="true"
+                                   data-detail-view="true"
+                                   data-minimum-count-columns="2"
+                                   data-pagination="true"
+                                   data-id-field="id"
+                                   data-page-list="[10, 25, 50, 100, ALL]"
+                                   data-show-footer="false"
+                                   data-side-pagination="server"
+                                   data-url="/Roles/PagedList"></table>
+                        </div>
+                        <div id="createItem" class="tab-pane fade">
+                            <form name="userCreateForm" id="userCreateForm" role="form" novalidate class="form-validation">
+                                <input v-model="formItem.id" class="form-control" type="hidden" name="id" id="id">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">
+                                        <span>创建新角色</span>
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label>昵称</label>
+                                        <input v-model="formItem.displayName" class="form-control" type="text" name="DisplayName" required maxlength="@AbpRoleBase.MaxDisplayNameLength" minlength="2">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>名字</label>
+                                        <input v-model="formItem.name" type="text" name="Name" class="form-control" required maxlength="@AbpRoleBase.MaxNameLength" minlength="3">
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input v-model="formItem.isStatic" type="checkbox" name="IsStatic" value="true" checked="checked"> 是否为静态
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default submit-cancel">取消</button>
+                                    <button type="submit" id="form-submit" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <table id="table"
-                       data-toolbar="#toolbar"
-                       data-search="true"
-                       data-show-refresh="true"
-                       data-show-toggle="true"
-                       data-show-columns="true"
-                       data-show-export="true"
-                       data-detail-view="true"
-                       data-minimum-count-columns="2"
-                       data-show-pagination-switch="true"
-                       data-pagination="true"
-                       data-id-field="id"
-                       data-page-list="[10, 25, 50, 100, ALL]"
-                       data-show-footer="false"
-                       data-side-pagination="server"
-                       data-url="http://localhost:61759/api/services/app/role/GetPagedRole"></table>
             </div>
-        </div>
-    </div>
-</div>
-
-@*角色创建模态框*@
-<div class="modal fade" id="RoleCreateModal" tabindex="-1" role="dialog" aria-labelledby="UserCreateModalLabel" data-backdrop="static">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form name="userCreateForm" role="form" novalidate class="form-validation">
-                <div class="modal-header">
-                    <h4 class="modal-title">
-                        <span>创建新角色</span>
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>昵称</label>
-                        <input class="form-control" type="text" name="DisplayName" required maxlength="@AbpRoleBase.MaxDisplayNameLength" minlength="2">
-                    </div>
-                    <div class="form-group">
-                        <label>名字</label>
-                        <input type="text" name="Name" class="form-control" required maxlength="@AbpRoleBase.MaxNameLength" minlength="3">
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="IsStatic" value="true" checked="checked"> 是否为静态
-                        </label>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="submit" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
-                </div>
-            </form>
         </div>
     </div>
 </div>

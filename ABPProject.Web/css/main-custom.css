@@ -1,3 +1,9 @@
 ﻿#topbar .navbar-header #logo span.logo-text {
     font-size: 19px !important;
 }
+#myCloseableTabContent {
+    padding-top: 2px;
+}
+.fixed-table-pagination {
+    margin: 0 10px;
+}

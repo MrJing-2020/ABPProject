@@ -7,10 +7,6 @@ namespace ABPProject.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.IgnoreList.Clear();
-
-            //VENDOR RESOURCES
-
-            //~/Bundles/vendor/css
             bundles.Add(
                 new StyleBundle("~/Bundles/vendor/css")
                     .Include("~/css/main.css", new CssRewriteUrlTransform())
@@ -21,8 +17,6 @@ namespace ABPProject.Web
                     .Include("~/Content/flags/famfamfam-flags.css", new CssRewriteUrlTransform())
                     .Include("~/Content/font-awesome.min.css", new CssRewriteUrlTransform())
                 );
-
-            //~/Bundles/vendor/js/top (These scripts should be included in the head of the page)
             bundles.Add(
                 new ScriptBundle("~/Bundles/vendor/js/top")
                     .Include(
@@ -30,18 +24,14 @@ namespace ABPProject.Web
                         "~/Scripts/modernizr-2.8.3.js"
                     )
                 );
-
-            //~/Bundles/vendor/bottom (Included in the bottom for fast page load)
             bundles.Add(
                 new ScriptBundle("~/Bundles/vendor/js/bottom")
                     .Include(
+                        "~/Scripts/vue.js",
                         "~/Scripts/json2.min.js",
-
                         "~/Scripts/jquery-2.2.0.min.js",
                         "~/Scripts/jquery-ui-1.11.4.min.js",
-
                         "~/Scripts/bootstrap.min.js",
-
                         "~/Scripts/moment-with-locales.min.js",
                         "~/Content/vendors/jquery-validate/jquery.validate.min.js",
                         "~/Scripts/messages_zh.js",
@@ -117,15 +107,16 @@ namespace ABPProject.Web
                     "~/Content/js/index.js"
                     )
                 );
-
             bundles.Add(
                 new ScriptBundle("~/Table/js")
                     .Include(
+                    "~/Content/js/ui-tabs.js",
                     "~/Scripts/bootstrap-table.min.js",
                     "~/Scripts/tableExport.js",
                     "~/Scripts/bootstrap-editable.js",
                     "~/Scripts/bootstrap-table-editable.js",
-                    "~/Scripts/bootstrap-table-export.js"
+                    "~/Scripts/bootstrap-table-export.js",
+                    "~/Scripts/bootstrap-table-zh-CN.js"
                     )
             );
 

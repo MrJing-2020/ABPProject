@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using ABPProject.Authorization;
 using ABPProject.CommonDto;
 using Abp.Linq.Extensions;
+using ABPProject.Extend;
 
 namespace ABPProject.Roles
 {
@@ -36,13 +37,24 @@ namespace ABPProject.Roles
                 );
         }
 
+        /// <summary>
+        /// 根据id获取角色
+        /// </summary>
+        /// <param name="id">角色Id</param>
+        /// <returns></returns>
+        public async Task<EditUserInput> GetRoleById(OneParam param)
+        {
+            var roles = await _roleRepository.GetAsync(param.id);
+            return roles.MapTo<EditUserInput>();
+        }
+
         //权限设置
         [AbpAuthorize(PermissionNames.Pages)]
-        public async Task CreateRole(EditUserInput input)
+        public async Task EditRole(EditUserInput input)
         {
             var role = input.MapTo<Role>();
             role.TenantId = AbpSession.TenantId;
-            CheckErrors(await _roleManager.CreateAsync(role));
+            await _roleRepository.InsertOrUpdateAsync(role);
         }
 
         /// <summary>
@@ -61,6 +73,11 @@ namespace ABPProject.Roles
             await _roleManager.SetGrantedPermissionsAsync(role, grantedPermissions);
         }
 
+        /// <summary>
+        /// 角色分页控制器服务/API接口
+        /// </summary>
+        /// <param name="pageArg"></param>
+        /// <returns></returns>
         public PagedResultDto<RoleListDto> GetPagedRole(PageParams pageArg )
         {
             PageArgDto input = new PageArgDto(pageArg);
@@ -68,7 +85,7 @@ namespace ABPProject.Roles
             IQueryable<Role> roles = null;
             if (!string.IsNullOrEmpty(input.SearchText))
             {
-                roles= _roleRepository.GetAll().Where(m => m.Name.Contains(input.SearchText) || m.DisplayName.Contains(input.SearchText));
+                roles = _roleRepository.GetAll().Where(m => m.Name.Contains(input.SearchText) || m.DisplayName.Contains(input.SearchText));
                 count = roles.Count();
             }
             else
@@ -78,14 +95,16 @@ namespace ABPProject.Roles
             }
             if (!string.IsNullOrEmpty(input.SortName))
             {
-                roles = input.SortOrder == "desc" ? roles.OrderByDescending(m => input.SortName).PageBy(input.PageInput) :
-                roles.OrderBy(m => input.SortName).PageBy(input.PageInput);
+                //将首字母转成大写
+                input.SortName = input.SortName.Substring(0, 1).ToUpper() + input.SortName.Substring(1);
+                roles = input.SortOrder == "desc" ? roles.OrderBy(input.SortName,true).PageBy(input.PageInput) :
+                roles.OrderBy(input.SortName).PageBy(input.PageInput);
             }
             else
             {
-                roles= roles.OrderBy(m=>m.CreationTime).PageBy(input.PageInput);
+                //默认按时间降序
+                roles= roles.OrderByDescending(m=>m.CreationTime).PageBy(input.PageInput);
             }
-            var list = roles.ToList();
             return new PagedResultDto<RoleListDto>(count, roles.MapTo<List<RoleListDto>>());
         }
     }

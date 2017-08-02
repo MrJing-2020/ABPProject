@@ -19,20 +19,20 @@ $(function () {
     });
     //END JQUERY SLIMSCROLL
     //BEGIN CLOSETAB
-        $(".closeTab").click(function () {
-            //there are multiple elements which has .closeTab icon so close the tab whose close icon is clicked
-            var tabContentId = $(this).parent().attr("href");
-            $(this).parents('li').remove(); //remove li of tab
-            var closetabID = $(this).parents('a').attr('href');
-            $(closetabID).remove();         //remove tabcontent
+    $(".closeTab").click(function () {
+        //there are multiple elements which has .closeTab icon so close the tab whose close icon is clicked
+        var tabContentId = $(this).parent().attr("href");
+        $(this).parents('li').remove(); //remove li of tab
+        var closetabID = $(this).parents('a').attr('href');
+        $(closetabID).remove();         //remove tabcontent
 
-            $('.closeable-tabs a:first').tab('show'); // Select first tab
+        $('.closeable-tabs a:first').tab('show'); // Select first tab
 
-            var tabId = $('#myTabCloseable a:first').attr('href'); // Select id to active first tab
-            $(tabid).show();   // Show tabcontent first
+        var tabId = $('#myTabCloseable a:first').attr('href'); // Select id to active first tab
+        $(tabId).show();   // Show tabcontent first
 
-            $(tabContentId).remove(); //remove respective tab content
-        });
+        $(tabContentId).remove(); //remove respective tab content
+    });
     //BEGIN CLOSETAB
 });
 

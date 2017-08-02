@@ -26,5 +26,13 @@
     if ($.blockUI) {
         $.blockUI.defaults.baseZ = 2000;
     }
+    //$.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['zh-CN']);
 
+    $(document).on('click', '.submit-cancel', function (e) {
+        $(".closeable-tabs a:first").trigger("click");
+    });
+    $("#createNewItem").click(function () {
+        $("#tab-edit a:first").trigger("click");
+        _$form.find('input:not([type=hidden]):first').focus();
+    });
 })(jQuery);

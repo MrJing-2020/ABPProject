@@ -120,9 +120,11 @@
   <ItemGroup>
     <Compile Include="ABPProjectApplicationModule.cs" />
     <Compile Include="ABPProjectAppServiceBase.cs" />
+    <Compile Include="CommonDto\OneParam.cs" />
     <Compile Include="CommonDto\PageArgDto.cs" />
     <Compile Include="CommonDto\PagedInputDto.cs" />
     <Compile Include="CommonDto\PageParams.cs" />
+    <Compile Include="Extend\QueryableExtensions.cs" />
     <Compile Include="MultiTenancy\Dto\CreateTenantInput.cs" />
     <Compile Include="MultiTenancy\ITenantAppService.cs" />
     <Compile Include="MultiTenancy\Dto\TenantListDto.cs" />
