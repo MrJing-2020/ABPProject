@@ -33,6 +33,5 @@
     });
     $("#createNewItem").click(function () {
         $("#tab-edit a:first").trigger("click");
-        _$form.find('input:not([type=hidden]):first').focus();
     });
 })(jQuery);

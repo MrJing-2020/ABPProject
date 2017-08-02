@@ -95,7 +95,7 @@
                 });
                 this.$table.on('check.bs.table uncheck.bs.table ' +
                     'check-all.bs.table uncheck-all.bs.table', function () {
-                        this.$remove.prop('disabled', !this.$table.bootstrapTable('this.getSelections').length);
+                        this.$remove.prop('disabled', !this.$table.bootstrapTable('getSelections').length);
                         this.selections = this.getIdSelections();
                     });
                 this.$remove.click(function () {
@@ -115,7 +115,7 @@
             },
             init() {
                 this.$table = $('#table');
-                this.$remove = $("#remove")
+                this.$remove = $('#remove')
                 this.initTable();
                 this.operateEvents = {
                     'click .edit-item': function (e, value, row, index) {
