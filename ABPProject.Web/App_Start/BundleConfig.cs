@@ -28,6 +28,7 @@ namespace ABPProject.Web
                 new ScriptBundle("~/Bundles/vendor/js/bottom")
                     .Include(
                         "~/Scripts/vue.js",
+                        //"~/Views/Roles/Index.js",
                         "~/Scripts/json2.min.js",
                         "~/Scripts/jquery-2.2.0.min.js",
                         "~/Scripts/jquery-ui-1.11.4.min.js",
