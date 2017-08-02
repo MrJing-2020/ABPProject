@@ -481,6 +481,7 @@
     <Content Include="Content\vendors\iCheck\skins\line\all.css" />
     <Content Include="Content\vendors\iCheck\skins\minimal\all.css" />
     <Content Include="Content\vendors\iCheck\skins\minimal\grey%402x.png" />
+    <Content Include="Content\vendors\iCheck\skins\minimal\grey.png" />
     <Content Include="Content\vendors\iCheck\skins\polaris\polaris.css" />
     <Content Include="Content\vendors\iCheck\skins\square\all.css" />
     <Content Include="Content\vendors\intro.js\intro.js" />

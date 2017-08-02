@@ -16,26 +16,24 @@
     @Scripts.Render("~/Table/js")
     @Html.IncludeScript("~/Views/Roles/Index.js")
 }
-
-<div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
-    <div class="page-header pull-left">
-        <div class="page-title">角色</div>
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+        <div class="page-header pull-left">
+            <div class="page-title">角色</div>
+        </div>
+        <ol class="breadcrumb page-breadcrumb pull-left">
+            <li><i class="fa fa-home"></i>&nbsp;<a href="index.html">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+            <li class="hidden"><a href="#">角色</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+            <li class="active">角色</li>
+        </ol>
+        <div class="btn btn-blue reportrange">
+            <i class="fa fa-calendar"></i>&nbsp;<span></span>&nbsp;report&nbsp;<i class="fa fa-angle-down"></i>
+            <input type="hidden" name="datestart" />
+            <input type="hidden" name="endstart" />
+        </div>
+        <div class="clearfix"></div>
     </div>
-    <ol class="breadcrumb page-breadcrumb pull-left">
-        <li><i class="fa fa-home"></i>&nbsp;<a href="index.html">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-        <li class="hidden"><a href="#">角色</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-        <li class="active">角色</li>
-    </ol>
-    <div class="btn btn-blue reportrange">
-        <i class="fa fa-calendar"></i>&nbsp;<span></span>&nbsp;report&nbsp;<i class="fa fa-angle-down"></i>
-        <input type="hidden" name="datestart" />
-        <input type="hidden" name="endstart" />
-    </div>
-    <div class="clearfix"></div>
-</div>
-<div class="page-content" id="app">
-    <div id="tab-general">
-        <div>
+    <div class="page-content" id="aogdhlo">
+        <div id="tab-general">
             <div class="panel">
                 <div class="panel-body">
                     <ul class="closeable-tabs nav nav-tabs">
@@ -43,14 +41,14 @@
                             <a href="#itemlist" data-toggle="tab">列表</a>
                         </li>
                         <li id="tab-edit">
-                            <a href="#createItem"  data-toggle="tab" >新增角色</a>
+                            <a href="#createItem" data-toggle="tab">新增角色</a>
                         </li>
                     </ul>
                     <div id="myCloseableTabContent" class="tab-content">
                         <div id="itemlist" class="tab-pane fade in active table-content-cum" style="min-height:550px">
                             <div id="toolbar">
                                 <button id="remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> 删除</button>
-                                <button data-toggle="modal" id="createNewItem" data-target="#RoleCreateModal" class="btn btn-primary"><i class="fa fa-plus"></i>创建角色</button>
+                                <button v-on:click="test" data-toggle="modal" id="createNewItem" data-target="#RoleCreateModal" class="btn btn-primary"><i class="fa fa-plus"></i>创建角色</button>
                             </div>
                             <table id="table"
                                    data-toolbar="#toolbar"
@@ -91,15 +89,19 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default submit-cancel">取消</button>
-                                    <button type="submit" id="form-submit" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
-                                </div>
+                                @*<div class="modal-footer">
+                                        <button type="button" class="btn btn-default submit-cancel">取消</button>
+                                        <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
+                                    </div>*@
                             </form>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default submit-cancel">取消</button>
+                                <button class="btn btn-primary blue" v-on:click="test"><i class="fa fa-save"></i> <span>保存</span></button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+

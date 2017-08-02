@@ -39,17 +39,15 @@
     @Scripts.Render("~/Bundles/vendor/js/top")
 
 </head>
-<body>
-    <div>
-        @Html.Partial("_TopBar")
-        <div id="wrapper">
-            @Html.Action("Nav", "Layout", new { activeMenu = ViewBag.ActiveMenu })
-            @Html.Partial("_Right")
-            <div id="page-wrapper">
-                @RenderBody()
-            </div>
-            @Html.Partial("_Footer")
+<body >
+    @Html.Partial("_TopBar")
+    <div id="wrapper">
+        @Html.Action("Nav", "Layout", new { activeMenu = ViewBag.ActiveMenu })
+        @Html.Partial("_Right")
+        <div id="page-wrapper">
+            @RenderBody()
         </div>
+        @Html.Partial("_Footer")
     </div>
 
     @Scripts.Render("~/Bundles/vendor/js/bottom")
