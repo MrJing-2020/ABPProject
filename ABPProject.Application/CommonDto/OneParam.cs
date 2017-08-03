@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace ABPProject.CommonDto
 {
+    /// <summary>
+    /// 参数为Id（应对post接口无法接受 非对象 单参数的问题）
+    /// </summary>
     public class OneParam
     {
-        public int id { get; set; }
+        public int Id { get; set; }
     }
 }

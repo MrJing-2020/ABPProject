@@ -31,7 +31,7 @@
     $(document).on('click', '.submit-cancel', function (e) {
         $(".closeable-tabs a:first").trigger("click");
     });
-    $("#createNewItem").click(function () {
+    $(document).on('click', '#createNewItem', function (e) {
         $("#tab-edit a:first").trigger("click");
     });
 })(jQuery);

@@ -7,11 +7,15 @@ using Abp.Domain.Repositories;
 using ABPProject.Authorization;
 using ABPProject.Users.Dto;
 using Microsoft.AspNet.Identity;
+using ABPProject.CommonDto;
+using System.Linq;
+using ABPProject.Extend;
+using Abp.Linq.Extensions;
 
 namespace ABPProject.Users
 {
     /* THIS IS JUST A SAMPLE. */
-    //[AbpAuthorize(PermissionNames.Pages_Users)]
+    [AbpAuthorize(PermissionNames.Pages_Users)]
     public class UserAppService : ABPProjectAppServiceBase, IUserAppService
     {
         private readonly IRepository<User, long> _userRepository;
@@ -96,7 +100,7 @@ namespace ABPProject.Users
                 );
         }
 
-        [AbpAuthorize(PermissionNames.Pages)]
+        //[AbpAuthorize(PermissionNames.Pages)]
         public async Task CreateUser(CreateUserInput input)
         {
             var user = input.MapTo<User>();
@@ -117,6 +121,41 @@ namespace ABPProject.Users
         public async Task AddToOrganizationUnit(long userId, long ouId)
         {
             await UserManager.AddToOrganizationUnitAsync(userId,ouId);
+        }
+
+        /// <summary>
+        /// 角色分页控制器服务/API接口
+        /// </summary>
+        /// <param name="pageArg"></param>
+        /// <returns></returns>
+        public PagedResultDto<UserListDto> GetPagedUser(PageParams pageArg)
+        {
+            PageArgDto input = new PageArgDto(pageArg);
+            int count = 0;
+            IQueryable<User> users = null;
+            if (!string.IsNullOrEmpty(input.SearchText))
+            {
+                users = _userRepository.GetAll().Where(m => m.FullName.Contains(input.SearchText) || m.UserName.Contains(input.SearchText)||m.EmailAddress.Contains(input.SearchText));
+                count = users.Count();
+            }
+            else
+            {
+                users = _userRepository.GetAll();
+                count = _userRepository.Count();
+            }
+            if (!string.IsNullOrEmpty(input.SortName))
+            {
+                //将首字母转成大写
+                input.SortName = input.SortName.Substring(0, 1).ToUpper() + input.SortName.Substring(1);
+                users = input.SortOrder == "desc" ? users.OrderBy(input.SortName, true).PageBy(input.PageInput) :
+                users.OrderBy(input.SortName).PageBy(input.PageInput);
+            }
+            else
+            {
+                //默认按时间降序
+                users = users.OrderByDescending(m => m.CreationTime).PageBy(input.PageInput);
+            }
+            return new PagedResultDto<UserListDto>(count, users.MapTo<List<UserListDto>>());
         }
     }
 }

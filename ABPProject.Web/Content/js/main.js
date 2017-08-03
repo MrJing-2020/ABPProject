@@ -31,16 +31,22 @@ $(function () {
     //END TOPBAR DROPDOWN
 
     //BEGIN CHECKBOX & RADIO
-    if($('#demo-checkbox-radio').length <= 0){
-        $('input[type="checkbox"]:not(".switch")').iCheck({
-            checkboxClass: 'icheckbox_minimal-grey',
-            increaseArea: '20%' // optional
-        });
-        $('input[type="radio"]:not(".switch")').iCheck({
-            radioClass: 'iradio_minimal-grey',
-            increaseArea: '20%' // optional
-        });
-    }
+    //if($('#demo-checkbox-radio').length <= 0){
+    //    $('input[type="checkbox"]:not(".switch")').iCheck({
+    //        checkboxClass: 'icheckbox_minimal-grey',
+    //        increaseArea: '20%' // optional
+    //    });
+    //    $('input[type="radio"]:not(".switch")').iCheck({
+    //        radioClass: 'iradio_minimal-grey',
+    //        increaseArea: '20%' // optional
+    //    });
+    //}
+    //$('input').iCheck({
+    //    checkboxClass: 'icheckbox_minimal-blue',
+    //    radioClass: 'iradio_minimal-blue',
+    //    increaseArea: '10%'
+    //});
+
     //END CHECKBOX & RADIO
 
     //BEGIN TOOTLIP

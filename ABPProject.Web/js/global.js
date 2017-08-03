@@ -1,8 +1,10 @@
-﻿var $table = $('#table'),
-    $remove = $('#remove'),
-    tableItemSelections = [];
+﻿getSelections = [];
+var g_table
+var g_remove
 function initTable(tableParams) {
-    $table.bootstrapTable({
+    g_table = tableParams.table;
+    g_remove = tableParams.remove;
+    g_table.bootstrapTable({
         columns: tableParams.columns,
         method: "POST",
         queryParams: function (params) {
@@ -24,23 +26,67 @@ function initTable(tableParams) {
             });
             return data
         },
+        detailFormatter: function (index, row) {
+            var html;
+            if (tableParams.detailFormatter == null) {
+                html = [];
+                $.each(row, function (key, value) {
+                    html.push('<p><b>' + key + ':</b> ' + value + '</p>');
+                });
+                return html.join('');
+            }
+            else {
+                html = tableParams.detailFormatter(index, row);
+                return html
+            }
+        }
     });
-    $table.on('check.bs.table uncheck.bs.table ' +
+    g_table.on('check.bs.table uncheck.bs.table ' +
         'check-all.bs.table uncheck-all.bs.table', function () {
-            $remove.prop('disabled', !$table.bootstrapTable('getSelections').length);
-            tableItemSelections = getIdSelections();
+            g_remove.prop('disabled', !g_table.bootstrapTable('getSelections').length);
+            getSelections = $.map(g_table.bootstrapTable('getSelections'), function (row) {
+                 return row.id
+            });
         });
-    $remove.click(function () {
-        var ids = getIdSelections();
-        $table.bootstrapTable('remove', {
-            field: 'id',
-            values: ids
+    g_remove.click(function () {
+        var ids = $.map(g_table.bootstrapTable('getSelections'), function (row) {
+            return row.id
         });
-        $remove.prop('disabled', true);
+        console.log(tableParams)
+        if (tableParams.delete != null) {
+            tableParams.delete(
+                {
+                    ids: ids,
+                    callBack: function () {
+                        g_table.bootstrapTable('remove', {
+                            field: 'id',
+                            values: ids
+                        });
+                        g_remove.prop('disabled', true);
+                    }
+                }
+            );
+        }
+        else {
+            g_table.bootstrapTable('remove', {
+                field: 'id',
+                values: ids
+            });
+            g_remove.prop('disabled', true);
+        }
     });
 }
 function getIdSelections() {
-    return $.map($table.bootstrapTable('getSelections'), function (row) {
+    return $.map(g_table.bootstrapTable('getSelections'), function (row) {
         return row.id
+    });
+}
+function initCheckBox() {
+    $('.check-radio-ickeck').iCheck({
+        labelHover: false,
+        cursor: true,
+        checkboxClass: 'icheckbox_minimal-blue',
+        radioClass: 'iradio_minimal-blue',
+        increaseArea: '10%'
     });
 }

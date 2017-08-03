@@ -53,6 +53,14 @@ namespace ABPProject.Web
                         icon: "fa fa-users",
                         requiresAuthentication: true
                         )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        "Users",
+                        L("Users"),
+                        url: "Users",
+                        icon: "fa fa-users",
+                        requiresAuthentication: true
+                        )
                 );
         }
 

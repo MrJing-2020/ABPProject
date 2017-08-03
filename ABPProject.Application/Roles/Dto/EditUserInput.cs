@@ -1,12 +1,7 @@
 ﻿using Abp.Authorization.Roles;
 using Abp.AutoMapper;
 using ABPProject.Authorization.Roles;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ABPProject.Roles.Dto
 {

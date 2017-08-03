@@ -2,7 +2,6 @@
 @using Abp.Web.Mvc.Extensions
 @using ABPProject.Authorization
 @using System.Web.Optimization
-@model Abp.Application.Services.Dto.ListResultDto<ABPProject.Roles.Dto.RoleListDto>
 @{
     ViewBag.ActiveMenu = "Roles"; //The menu item will be active for this page.
     //IsGranted("权限名");//返回bool值，用来判断是否有某个权限，可用来控制按钮的显示
@@ -14,7 +13,7 @@
 @section scripts
 {
     @Scripts.Render("~/Table/js")
-    @*@Html.IncludeScript("~/Views/Roles/Index.js")*@
+    @Html.IncludeScript("~/Views/Roles/Index.js")
 }
     <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
         <div class="page-header pull-left">
@@ -32,11 +31,11 @@
         </div>
         <div class="clearfix"></div>
     </div>
-    <div class="page-content" id="app">
+    <div class="page-content">
         <div id="tab-general">
             <div class="panel">
                 <div class="panel-body">
-                    <ul class="closeable-tabs nav nav-tabs">
+                    <ul class="closeable-tabs nav ul-edit nav-tabs responsive hidden-xs hidden-sm">
                         <li class="active">
                             <a href="#itemlist" data-toggle="tab">列表</a>
                         </li>
@@ -45,12 +44,12 @@
                         </li>
                     </ul>
                     <div id="myCloseableTabContent" class="tab-content">
-                        <div id="itemlist" class="tab-pane fade in active table-content-cum" style="min-height:550px">
+                        <div id="itemlist" class="tab-pane fade in active table-content-cum">
                             <div id="toolbar">
-                                <button id="remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> 删除</button>
-                                <button v-on:click="test" data-toggle="modal" id="createNewItem" data-target="#RoleCreateModal" class="btn btn-primary"><i class="fa fa-plus"></i>创建角色</button>
+                                <button id="table-remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> 删除</button>
+                                <button data-toggle="modal" id="createNewItem" data-target="#RoleCreateModal" class="btn btn-primary"><i class="fa fa-plus"></i>创建角色</button>
                             </div>
-                            <table id="table"
+                            <table id="table-data"
                                    data-toolbar="#toolbar"
                                    data-search="true"
                                    data-show-refresh="true"
@@ -67,7 +66,7 @@
                                    data-url="/Roles/PagedList"></table>
                         </div>
                         <div id="createItem" class="tab-pane fade">
-                            <form name="userCreateForm" id="userCreateForm" role="form" novalidate class="form-validation">
+                            <form name="editItemForm" id="editItemForm" role="form" novalidate class="form-validation">
                                 <input v-model="formItem.id" class="form-control" type="hidden" name="id" id="id">
                                 <div class="modal-header">
                                     <h4 class="modal-title">
@@ -77,27 +76,22 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label>昵称</label>
-                                        <input v-model="formItem.displayName" class="form-control" type="text" name="DisplayName" required maxlength="@AbpRoleBase.MaxDisplayNameLength" minlength="2">
+                                        <input v-model="formItem.displayName" class="form-control" type="text" name="displayName" required maxlength="@AbpRoleBase.MaxDisplayNameLength" minlength="2">
                                     </div>
                                     <div class="form-group">
                                         <label>名字</label>
-                                        <input v-model="formItem.name" type="text" name="Name" class="form-control" required maxlength="@AbpRoleBase.MaxNameLength" minlength="3">
+                                        <input v-model="formItem.name" type="text" name="name" class="form-control" required maxlength="@AbpRoleBase.MaxNameLength" minlength="3">
                                     </div>
                                     <div class="checkbox">
-                                        <label>
-                                            <input v-model="formItem.isStatic" type="checkbox" name="IsStatic" value="true" checked="checked"> 是否为静态
-                                        </label>
+                                        <input class="checkbox-custom" v-model="formItem.isStatic" type="checkbox" id="isStatic" name="isStatic">
+                                        <label for="isStatic" class="checkbox-lable-custom">是否静态</label>
                                     </div>
                                 </div>
-                                @*<div class="modal-footer">
-                                        <button type="button" class="btn btn-default submit-cancel">取消</button>
-                                        <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
-                                    </div>*@
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default submit-cancel">取消</button>
+                                    <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
+                                </div>
                             </form>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default submit-cancel">取消</button>
-                                <button class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
-                            </div>
                         </div>
                     </div>
                 </div>

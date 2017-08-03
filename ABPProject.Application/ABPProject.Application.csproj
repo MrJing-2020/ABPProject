@@ -120,6 +120,7 @@
   <ItemGroup>
     <Compile Include="ABPProjectApplicationModule.cs" />
     <Compile Include="ABPProjectAppServiceBase.cs" />
+    <Compile Include="CommonDto\ArrayParams.cs" />
     <Compile Include="CommonDto\OneParam.cs" />
     <Compile Include="CommonDto\PageArgDto.cs" />
     <Compile Include="CommonDto\PagedInputDto.cs" />

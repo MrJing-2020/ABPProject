@@ -13,5 +13,6 @@ namespace ABPProject.Roles
         Task EditRole(EditUserInput input);
         PagedResultDto<RoleListDto> GetPagedRole(PageParams input);
         Task<EditUserInput> GetRoleById(OneParam param);
+        Task DeleteRole(ArrayParams param);
     }
 }

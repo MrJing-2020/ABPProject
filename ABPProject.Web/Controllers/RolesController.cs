@@ -28,7 +28,7 @@ namespace ABPProject.Web.Controllers
         }
 
         /// <summary>
-        /// 分页获取role列表
+        /// 分页获取role列表(也可直接调用服务层接口)
         /// </summary>
         /// <param name="pageArg">{PageSize: 10, PageNumber: 0, SortOrder: "asc", SearchText: "", SortName: ""}</param>
         /// <returns></returns>

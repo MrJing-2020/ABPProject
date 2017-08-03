@@ -1,22 +1,27 @@
 ﻿(function () {
     $(function () {
-        var appVue = new Vue({
-            el: '#app',
+        var app = new Vue({
+            el: '#page-wrapper',
             data: {
-                formItem: null,
-                roleService: abp.services.app.role,
-                $table: null,
-                $remove: null,
+                formItem: {},
+                abpService: abp.services.app.role,
+                $table: $('#table-data'),
+                $remove: $('#table-remove'),
                 selections: [],
                 operateEvents: null
             },
-            created() {
+            //生命周期钩子（vue替换dom完成之后执行）
+            mounted() {
                 this.init()
             },
             methods: {
-                initTable() {
+                initTableData(params) {
                     var that = this;
-                    that.$table.bootstrapTable({
+                    initTable({
+                        //表格
+                        table: $('#table-data'),
+                        //批量删除按钮
+                        remove: $('#table-remove'),
                         columns: [
                             [
                                 {
@@ -61,115 +66,91 @@
                                     field: 'option',
                                     title: '操作',
                                     align: 'center',
-                                    events: this.operateEvents,
-                                    formatter: this.operateFormatter
+                                    events: params.operateEvents,
+                                    formatter: function (value, row, index) {
+                                        return [
+                                            '<button type="button" class="btn btn-info btn-xs edit-item">编辑</button>',
+                                            '<button type="button" class="btn btn-danger btn-xs remove-item">删除</button>',
+                                        ].join('');
+                                    }
                                 }
                             ]
                         ],
-                        method: "POST",
-                        queryParams: function (params) {
-                            return JSON.stringify({
-                                "PageSize": params.limit,
-                                "PageNumber": parseInt(params.offset / params.limit),
-                                "SortOrder": params.order,
-                                "SearchText": params.search == null ? "" : params.search,
-                                "SortName": params.sort == null ? "" : params.sort,
-                            })
-                        },
-                        responseHandler: function (res) {
-                            var data = {
-                                "total": res.result.totalCount,
-                                "rows": res.result.items
-                            }
-                            $.each(data.rows, function (i, row) {
-                                row.state = false
-                            });
-                            return data
-                        },
-                        detailFormatter: function (index, row) {
-                            var html = [];
-                            $.each(row, function (key, value) {
-                                html.push('<p><b>' + key + ':</b> ' + value + '</p>');
-                            });
-                            return html.join('');
-                        }
-                    });
-                    that.$table.on('check.bs.table uncheck.bs.table ' +
-                        'check-all.bs.table uncheck-all.bs.table', function () {
-                            that.$remove.prop('disabled', !that.$table.bootstrapTable('getSelections').length);
-                            that.selections = that.getIdSelections();
-                        });
-                    this.$remove.click(function () {
-                        var ids = that.getIdSelections();
-                        that.$table.bootstrapTable('remove', {
-                            field: 'id',
-                            values: ids
-                        });
-                        that.$remove.prop('disabled', true);
+                        delete: params.deleteItem
                     });
                 },
-                operateFormatter(value, row, index) {
-                    return [
-                        '<button type="button" class="btn btn-info btn-xs edit-item">编辑</button>',
-                        '<button type="button" class="btn btn-danger btn-xs remove-item">删除</button>',
-                    ].join('');
-                },
+                //初始化页面
                 init() {
-                    this.roleService = abp.services.app.role;
-                    this.$table = $('#table');
-                    this.$remove = $('#remove');
                     var that = this;
-                    this.operateEvents = {
+                    //按钮事件
+                    var operateEvents = {
                         'click .edit-item': function (e, value, row, index) {
-                            var data = { "id": row.id }
-                            abp.ui.setBusy($("html"));
-                            that.roleService.getRoleById(data).done(function (res) {
-                                console.log(res)
-                            }).always(function () {
-                                abp.ui.clearBusy($("html"));
-                            });
+                            that.getRoleById(row.id);
+                            $("#tab-edit a:first").trigger("click");
                         },
                         'click .remove-item': function (e, value, row, index) {
-                            that.$table.bootstrapTable('remove', {
-                                field: 'id',
-                                values: [row.id]
-                            });
+                            var ids = [row.id]
+                            that.deleteItem(
+                                {
+                                    ids: ids,
+                                    callBack: function () {
+                                        g_table.bootstrapTable('remove', {
+                                            field: 'id',
+                                            values: [row.id]
+                                        });
+                                    }
+                                }
+                            )
                         }
                     }
-                    this.initTable();
+                    that.initTableData({
+                        operateEvents: operateEvents,
+                        deleteItem: that.deleteItem
+                    });
                 },
+                //根据id获取详情
                 getRoleById(id) {
-                    var data = { "id": id }
+                    var that = this
+                    var postData = { "id": id }
                     abp.ui.setBusy($("html"));
-                    this.roleService.getRoleById(data).done(function (res) {
-                        console.log(res)
+                    this.abpService.getRoleById(postData).done(function (res) {
+                        that.formItem = res;
                     }).always(function () {
                         abp.ui.clearBusy($("html"));
                     });
                 },
+                createItem() {
+                    this.formItem = {};
+                    $("#tab-edit a:first").trigger("click");
+                },
+                //表单数据提交
                 subFormData(e) {
                     e.preventDefault();
-                    var _$form = $("#userCreateForm");
+                    var _$form = $("#editItemForm");
                     _$form.validate();
                     if (!_$form.valid()) {
                         return;
                     }
-                    var role = this.formItem;
+                    var postData = this.formItem;
                     abp.ui.setBusy($("html"));
-                    this.roleService.editRole(role).done(function () {
+                    this.abpService.editRole(postData).done(function () {
                         location.reload(true);
                     }).always(function () {
                         abp.ui.clearBusy($("html"));
                     });
                 },
-                getIdSelections() {
-                    var that = this;
-                    return $.map(that.$table.bootstrapTable('getSelections'), function (row) {
-                        return row.id
+                //删除一到多项
+                deleteItem(params) {
+                    var that = this
+                    var postData = { "ids": params.ids }
+                    abp.ui.setBusy($("html"));
+                    that.abpService.deleteRole(postData).done(function (res) {
+                        params.callBack()
+                    }).always(function () {
+                        abp.ui.clearBusy($("html"));
                     });
                 }
             }
         })
     })
-
 })();

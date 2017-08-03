@@ -9,6 +9,13 @@ namespace ABPProject.Web
             bundles.IgnoreList.Clear();
             bundles.Add(
                 new StyleBundle("~/Bundles/vendor/css")
+                    .Include("~/Content/toastr.min.css", new CssRewriteUrlTransform())
+                    .Include("~/Scripts/sweetalert/sweet-alert.css", new CssRewriteUrlTransform())
+                    .Include("~/Content/flags/famfamfam-flags.css", new CssRewriteUrlTransform())
+                    .Include("~/Content/font-awesome.min.css", new CssRewriteUrlTransform())
+                );
+            bundles.Add(
+                new StyleBundle("~/Bundles/loginpage/css")
                     .Include("~/css/main.css", new CssRewriteUrlTransform())
                     .Include("~/Content/themes/base/all.css", new CssRewriteUrlTransform())
                     .Include("~/Content/bootstrap-paper.min.css", new CssRewriteUrlTransform())
@@ -28,7 +35,6 @@ namespace ABPProject.Web
                 new ScriptBundle("~/Bundles/vendor/js/bottom")
                     .Include(
                         "~/Scripts/vue.js",
-                        //"~/Views/Roles/Index.js",
                         "~/Scripts/json2.min.js",
                         "~/Scripts/jquery-2.2.0.min.js",
                         "~/Scripts/jquery-ui-1.11.4.min.js",
@@ -49,7 +55,8 @@ namespace ABPProject.Web
                         "~/Abp/Framework/scripts/libs/abp.spin.js",
                         "~/Abp/Framework/scripts/libs/abp.sweet-alert.js",
 
-                        "~/Scripts/jquery.signalR-2.2.1.min.js"
+                        "~/Scripts/jquery.signalR-2.2.1.min.js",
+                        "~/js/global.js"
                     )
                 );
 
@@ -57,11 +64,8 @@ namespace ABPProject.Web
             bundles.Add(
                 new StyleBundle("~/Bundles/css")
                     .Include(
-                    //"~/css/main.css",
                     "~/Content/css/css1.css",
-                    //"~/Content/css/css2.css",
                     "~/Content/vendors/jquery-ui-1.10.4.custom/css/ui-lightness/jquery-ui-1.10.4.custom.min.css",
-                    "~/Content/vendors/font-awesome/css/font-awesome.min.css",
                     "~/Content/vendors/bootstrap/css/bootstrap.min.css",
                     "~/Content/vendors/intro.js/introjs.css",
                     "~/Content/vendors/calendar/zabuto_calendar.min.css",
@@ -81,15 +85,13 @@ namespace ABPProject.Web
                 new ScriptBundle("~/Bundles/js")
                     .Include(
                     "~/js/main.js",
-                    //"~/Content/js/jquery-1.10.2.min.js",
                     "~/Content/js/jquery-migrate-1.2.1.min.js",
-                    "~/Content/js/jquery-ui.js",
                     "~/Content/vendors/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js",
                     "~/Content/vendors/metisMenu/jquery.metisMenu.js",
                     "~/Content/vendors/slimScroll/jquery.slimscroll.js",
                     "~/Content/vendors/jquery-cookie/jquery.cookie.js",
                     "~/Content/vendors/iCheck/icheck.min.js",
-                    "~/Content/vendors/iCheck/custom.min.js",
+                    //"~/Content/vendors/iCheck/custom.min.js",
                     "~/Content/vendors/jquery-notific8/jquery.notific8.min.js",
                     "~/Content/vendors/jquery-highcharts/highcharts.js",
                     "~/Content/js/jquery.menu.js",

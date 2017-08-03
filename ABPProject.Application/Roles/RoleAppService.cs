@@ -15,6 +15,7 @@ using ABPProject.Extend;
 
 namespace ABPProject.Roles
 {
+    [AbpAuthorize(PermissionNames.Pages_Users)]
     public class RoleAppService : ABPProjectAppServiceBase,IRoleAppService
     {
         private readonly RoleManager _roleManager;
@@ -44,7 +45,7 @@ namespace ABPProject.Roles
         /// <returns></returns>
         public async Task<EditUserInput> GetRoleById(OneParam param)
         {
-            var roles = await _roleRepository.GetAsync(param.id);
+            var roles = await _roleRepository.GetAsync(param.Id);
             return roles.MapTo<EditUserInput>();
         }
 
@@ -106,6 +107,16 @@ namespace ABPProject.Roles
                 roles= roles.OrderByDescending(m=>m.CreationTime).PageBy(input.PageInput);
             }
             return new PagedResultDto<RoleListDto>(count, roles.MapTo<List<RoleListDto>>());
+        }
+
+        /// <summary>
+        /// 删除角色
+        /// </summary>
+        /// <param name="param">例：{ids: [14, 13]}</param>
+        /// <returns></returns>
+        public async Task DeleteRole(ArrayParams param)
+        {
+            await _roleRepository.DeleteAsync(m => param.Ids.Any(n => n == m.Id));
         }
     }
 }
