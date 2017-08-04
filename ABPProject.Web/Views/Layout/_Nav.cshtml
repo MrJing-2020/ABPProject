@@ -1,6 +1,6 @@
-﻿@using Abp.Collections.Extensions
+﻿@model Tuple<ABPProject.Web.Models.Layout.TopMenuViewModel, ABPProject.Sessions.Dto.GetCurrentLoginInformationsOutput> 
+@using Abp.Collections.Extensions
 @using ABPProject.Web.Views
-@model ABPProject.Web.Models.Layout.TopMenuViewModel
 @{
     var calculateMenuUrl = new Func<string, string>((url) =>
     {
@@ -22,10 +22,10 @@
         <ul id="side-menu" class="nav">
             <li class="user-panel">
                 <div class="thumb">
-                    <img src="~/images/48.jpg" alt="" class="img-circle" />
+                    <img src="~/images/myicon.png" class="img-circle" />
                 </div>
                 <div class="info">
-                    <p>Mr靖</p>
+                    <p>@(Model.Item2.User.UserName)</p>
                     <ul class="list-inline list-unstyled">
                         <li>
                             <a href="extra-profile.html" data-hover="tooltip" title="Profile"><i class="fa fa-user"></i></a>
@@ -43,44 +43,52 @@
                 </div>
                 <div class="clearfix"></div>
             </li>
-            @foreach (var menuItem in Model.MainMenu.Items)
+            @foreach (var menuItem in Model.Item1.MainMenu.Items)
             {
-                <li class="@(Model.ActiveMenuItemName == menuItem.Name ? "active" : "")">
-                    @if (menuItem.Items.IsNullOrEmpty())
+                
+                    if (menuItem.Items.IsNullOrEmpty())
                     {
-                        <a href="@calculateMenuUrl(menuItem.Url)">
-                            @if (!string.IsNullOrWhiteSpace(menuItem.Icon))
-                            {
-                                <i class="@menuItem.Icon"><div class="icon-bg bg-orange"></div></i>
-                            }
-                            <span class="menu-title">@menuItem.DisplayName</span>
-                        </a>
+                        <li class="@(Model.Item1.ActiveMenuItemName == menuItem.Name ? "active" : "")">
+                            <a href="@calculateMenuUrl(menuItem.Url)">
+                                @if (!string.IsNullOrWhiteSpace(menuItem.Icon))
+                                {
+                                    <i class="@menuItem.Icon"><div class="icon-bg bg-orange"></div></i>
+                                }
+                                <span class="menu-title">@menuItem.DisplayName</span>
+                            </a>
+                        </li>
                     }
                     else
                     {
-                        <a href="#">
-                            @if (!string.IsNullOrWhiteSpace(menuItem.Icon))
-                            {
-                                <i class="@menuItem.Icon"><div class="icon-bg bg-pink"></div></i>
-                            }
-                            <span class="menu-title">@menuItem.DisplayName</span><span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level">
-                            @foreach (var subMenuItem in menuItem.Items)
-                            {
-                                <li>
-                                    <a href="@calculateMenuUrl(subMenuItem.Url)">
-                                        @if (!string.IsNullOrWhiteSpace(subMenuItem.Icon))
-                                        {
-                                            <i class="@subMenuItem.Icon"></i>
-                                        }
-                                        <span class="submenu-title">@subMenuItem.DisplayName</span>
-                                    </a>
-                                </li>
-                            }
-                        </ul>
+                        var activeClass = "";
+                        <li class="@activeClass">
+                            <a href="#">
+                                @if (!string.IsNullOrWhiteSpace(menuItem.Icon))
+                                {
+                                    <i class="@menuItem.Icon"><div class="icon-bg bg-pink"></div></i>
+                                }
+                                <span class="menu-title">@menuItem.DisplayName</span><span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                @foreach (var subMenuItem in menuItem.Items)
+                                {
+                                    if (Model.Item1.ActiveMenuItemName == subMenuItem.Name)
+                                    {
+                                        activeClass = "active";
+                                    }
+                                    <li class="@activeClass">
+                                        <a href="@calculateMenuUrl(subMenuItem.Url)">
+                                            @if (!string.IsNullOrWhiteSpace(subMenuItem.Icon))
+                                            {
+                                                <i class="@subMenuItem.Icon"></i>
+                                            }
+                                            <span class="submenu-title">@subMenuItem.DisplayName</span>
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
                     }
-                </li>
             }
         </ul>
     </div>

@@ -27,11 +27,4 @@
         $.blockUI.defaults.baseZ = 2000;
     }
     //$.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['zh-CN']);
-
-    $(document).on('click', '.submit-cancel', function (e) {
-        $(".closeable-tabs a:first").trigger("click");
-    });
-    $(document).on('click', '#createNewItem', function (e) {
-        $("#tab-edit a:first").trigger("click");
-    });
 })(jQuery);

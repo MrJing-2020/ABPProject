@@ -1,14 +1,13 @@
 ﻿(function () {
     $(function () {
         var app = new Vue({
-            el: '#page-wrapper',
+            el: '#vue-app',
             data: {
                 formItem: {},
                 abpService: abp.services.app.role,
                 $table: $('#table-data'),
                 $remove: $('#table-remove'),
-                selections: [],
-                operateEvents: null
+                deleteId: null
             },
             //生命周期钩子（vue替换dom完成之后执行）
             mounted() {
@@ -22,6 +21,8 @@
                         table: $('#table-data'),
                         //批量删除按钮
                         remove: $('#table-remove'),
+                        //批量删除弹窗确认按钮
+                        delConfirmed: $('#deleleAll-confirmed'),
                         columns: [
                             [
                                 {
@@ -70,7 +71,8 @@
                                     formatter: function (value, row, index) {
                                         return [
                                             '<button type="button" class="btn btn-info btn-xs edit-item">编辑</button>',
-                                            '<button type="button" class="btn btn-danger btn-xs remove-item">删除</button>',
+                                            '<button type="button" class="btn btn-green btn-xs permission-item">权限</button>',
+                                            '<button type="button" data-toggle="modal" data-target="#del-confirm" class="btn btn-danger btn-xs remove-item">删除</button>'
                                         ].join('');
                                     }
                                 }
@@ -89,18 +91,7 @@
                             $("#tab-edit a:first").trigger("click");
                         },
                         'click .remove-item': function (e, value, row, index) {
-                            var ids = [row.id]
-                            that.deleteItem(
-                                {
-                                    ids: ids,
-                                    callBack: function () {
-                                        g_table.bootstrapTable('remove', {
-                                            field: 'id',
-                                            values: [row.id]
-                                        });
-                                    }
-                                }
-                            )
+                            that.deleteId = [row.id]
                         }
                     }
                     that.initTableData({
@@ -118,10 +109,6 @@
                     }).always(function () {
                         abp.ui.clearBusy($("html"));
                     });
-                },
-                createItem() {
-                    this.formItem = {};
-                    $("#tab-edit a:first").trigger("click");
                 },
                 //表单数据提交
                 subFormData(e) {
@@ -148,7 +135,28 @@
                         params.callBack()
                     }).always(function () {
                         abp.ui.clearBusy($("html"));
+                        $(".del-confirm").modal('hide');
                     });
+                },
+                //切换到编辑页面
+                createItem() {
+                    this.formItem = {};
+                    $("#tab-edit a:first").trigger("click");
+                },
+                //确认删除
+                delConfirmed() {
+                    var that = this;
+                    that.deleteItem(
+                        {
+                            ids: that.deleteId,
+                            callBack: function () {
+                                g_table.bootstrapTable('remove', {
+                                    field: 'id',
+                                    values: that.deleteId
+                                });
+                            }
+                        }
+                    )
                 }
             }
         })

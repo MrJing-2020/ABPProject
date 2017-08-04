@@ -31,23 +31,23 @@
         </div>
         <div class="clearfix"></div>
     </div>
-    <div class="page-content">
+    <div class="page-content" id="vue-app">
         <div id="tab-general">
             <div class="panel">
                 <div class="panel-body">
-                    <ul class="closeable-tabs nav ul-edit nav-tabs responsive hidden-xs hidden-sm">
-                        <li class="active">
+                    <ul id="content-tab" class="nav ul-edit nav-tabs responsive hidden-xs hidden-sm">
+                        <li id="tab-list" class="active">
                             <a href="#itemlist" data-toggle="tab">列表</a>
                         </li>
                         <li id="tab-edit">
                             <a href="#createItem" data-toggle="tab">新增角色</a>
                         </li>
                     </ul>
-                    <div id="myCloseableTabContent" class="tab-content">
-                        <div id="itemlist" class="tab-pane fade in active table-content-cum">
+                    <div id="myCloseableTabContent" class="tab-content pan mtl mbn responsive hidden-xs hidden-sm">
+                        <div id="itemlist" class="tab-pane fade in active">
                             <div id="toolbar">
-                                <button id="table-remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> 删除</button>
-                                <button data-toggle="modal" id="createNewItem" data-target="#RoleCreateModal" class="btn btn-primary"><i class="fa fa-plus"></i>创建角色</button>
+                                <button data-toggle="modal" data-target="#deleleAll-confirm" id="table-remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> 删除</button>
+                                <button data-toggle="modal" v-on:click="createItem" id="createNewItem" class="btn btn-primary"><i class="fa fa-plus"></i>创建角色</button>
                             </div>
                             <table id="table-data"
                                    data-toolbar="#toolbar"
@@ -66,33 +66,72 @@
                                    data-url="/Roles/PagedList"></table>
                         </div>
                         <div id="createItem" class="tab-pane fade">
-                            <form name="editItemForm" id="editItemForm" role="form" novalidate class="form-validation">
-                                <input v-model="formItem.id" class="form-control" type="hidden" name="id" id="id">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">
-                                        <span>创建新角色</span>
-                                    </h4>
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">创建新角色</div>
+                                <div class="panel-body pan">
+                                    <form name="editItemForm" id="editItemForm" role="form" novalidate class="form-validation form-horizontal">
+                                        <input v-model="formItem.id" class="form-control" type="hidden" name="id" id="id">
+                                        <div class="form-body pal">
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">名称</label>
+                                                <div class="col-md-9">
+                                                    <input v-model="formItem.displayName" class="form-control" type="text" name="displayName" required maxlength="@AbpRoleBase.MaxDisplayNameLength" minlength="2">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">标识（唯一）</label>
+                                                <div class="col-md-9">
+                                                    <input v-model="formItem.name" type="text" name="name" class="form-control" required maxlength="@AbpRoleBase.MaxNameLength" minlength="3">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">是否静态</label>
+                                                <div class="col-md-9">
+                                                    <input class="checkbox-custom" v-model="formItem.isStatic" type="checkbox" id="isStatic" name="isStatic">
+                                                    <label for="isStatic" class="checkbox-lable-custom"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <button onclick="submitCancel()" type="button" class="btn btn-default submit-cancel">取消</button>
+                                                <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label>昵称</label>
-                                        <input v-model="formItem.displayName" class="form-control" type="text" name="displayName" required maxlength="@AbpRoleBase.MaxDisplayNameLength" minlength="2">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>名字</label>
-                                        <input v-model="formItem.name" type="text" name="name" class="form-control" required maxlength="@AbpRoleBase.MaxNameLength" minlength="3">
-                                    </div>
-                                    <div class="checkbox">
-                                        <input class="checkbox-custom" v-model="formItem.isStatic" type="checkbox" id="isStatic" name="isStatic">
-                                        <label for="isStatic" class="checkbox-lable-custom">是否静态</label>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default submit-cancel">取消</button>
-                                    <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
-                                </div>
-                            </form>
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="del-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-default-label" aria-hidden="true" class="modal fade del-confirm">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+                        <h4 id="modal-default-label" class="modal-title">提示</h4>
+                    </div>
+                    <div class="modal-body">确认删除吗？</div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+                        <button v-on:click="delConfirmed" type="button" id="del-confirmed" class="btn btn-primary">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="deleleAll-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-default-label" aria-hidden="true" class="modal fade del-confirm">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+                        <h4 id="modal-default-label" class="modal-title">提示</h4>
+                    </div>
+                    <div class="modal-body">您确认删除所有选中项吗？</div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+                        <button type="button" id="deleleAll-confirmed" class="btn btn-primary">确定</button>
                     </div>
                 </div>
             </div>

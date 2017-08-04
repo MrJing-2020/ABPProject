@@ -6,6 +6,8 @@ using Abp.Runtime.Session;
 using Abp.Threading;
 using ABPProject.Sessions;
 using ABPProject.Web.Models.Layout;
+using System;
+using ABPProject.Sessions.Dto;
 
 namespace ABPProject.Web.Controllers
 {
@@ -14,66 +16,40 @@ namespace ABPProject.Web.Controllers
         private readonly IUserNavigationManager _userNavigationManager;
         private readonly ISessionAppService _sessionAppService;
         private readonly IMultiTenancyConfig _multiTenancyConfig;
-        private readonly ILanguageManager _languageManager;
 
         public LayoutController(
             IUserNavigationManager userNavigationManager, 
             ISessionAppService sessionAppService, 
-            IMultiTenancyConfig multiTenancyConfig,
-            ILanguageManager languageManager)
+            IMultiTenancyConfig multiTenancyConfig)
         {
             _userNavigationManager = userNavigationManager;
             _sessionAppService = sessionAppService;
             _multiTenancyConfig = multiTenancyConfig;
-            _languageManager = languageManager;
         }
 
         [ChildActionOnly]
         public PartialViewResult Nav(string activeMenu = "")
         {
-            var model = new TopMenuViewModel
+            var loginInformations = AsyncHelper.RunSync(() => _sessionAppService.GetCurrentLoginInformations());
+            var menu = new TopMenuViewModel
                         {
                             MainMenu = AsyncHelper.RunSync(() => _userNavigationManager.GetMenuAsync("MainMenu", AbpSession.ToUserIdentifier())),
                             ActiveMenuItemName = activeMenu
                         };
 
-            return PartialView("_Nav", model);
+            return PartialView("_Nav", Tuple.Create<TopMenuViewModel, GetCurrentLoginInformationsOutput>(menu, loginInformations));
         }
 
         [ChildActionOnly]
-        public PartialViewResult LanguageSelection()
+        public PartialViewResult TopBar()
         {
-            var model = new LanguageSelectionViewModel
-                        {
-                            CurrentLanguage = _languageManager.CurrentLanguage,
-                            Languages = _languageManager.GetLanguages()
-                        };
-
-            return PartialView("_LanguageSelection", model);
+            return PartialView("_TopBar");
         }
 
         [ChildActionOnly]
-        public PartialViewResult UserMenuOrLoginLink()
+        public PartialViewResult Right()
         {
-            UserMenuOrLoginLinkViewModel model;
-
-            if (AbpSession.UserId.HasValue)
-            {
-                model = new UserMenuOrLoginLinkViewModel
-                {
-                    LoginInformations = AsyncHelper.RunSync(() => _sessionAppService.GetCurrentLoginInformations()),
-                    IsMultiTenancyEnabled = _multiTenancyConfig.IsEnabled,
-                };
-            }
-            else
-            {
-                model = new UserMenuOrLoginLinkViewModel
-                {
-                    IsMultiTenancyEnabled = _multiTenancyConfig.IsEnabled                    
-                };
-            }
-
-            return PartialView("_UserMenuOrLoginLink", model);
+            return PartialView("_Right");
         }
     }
 }

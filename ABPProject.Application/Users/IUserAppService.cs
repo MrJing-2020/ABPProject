@@ -15,5 +15,6 @@ namespace ABPProject.Users
         Task AddToRoles(long userId, params string[] roles);
         Task AddToRole(long userId, string roleName);
         PagedResultDto<UserListDto> GetPagedUser(PageParams pageArg);
+        Task DeleteUser(ArrayParams param);
     }
 }

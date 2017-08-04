@@ -6,7 +6,7 @@
     <text name="Tenants" value="租户" />
     <text name="Users" value="用户" />
     <text name="Roles" value="角色" />
-    <text name="WellcomeMessage" value="欢迎使用 ABPProject!" />
+    <text name="WellcomeMessage" value="欢迎使用!" />
     
     <text name="FormIsNotValidMessage" value="部分输入信息不符合要求，请检查并改正.." />
     <text name="TenantNameCanNotBeEmpty" value="租户名不能为空" />

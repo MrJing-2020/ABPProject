@@ -58,7 +58,7 @@ namespace ABPProject.Web
                         "Users",
                         L("Users"),
                         url: "Users",
-                        icon: "fa fa-users",
+                        icon: "fa fa-user",
                         requiresAuthentication: true
                         )
                 );

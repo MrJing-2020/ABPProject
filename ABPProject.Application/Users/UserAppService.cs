@@ -15,7 +15,7 @@ using Abp.Linq.Extensions;
 namespace ABPProject.Users
 {
     /* THIS IS JUST A SAMPLE. */
-    [AbpAuthorize(PermissionNames.Pages_Users)]
+    //[AbpAuthorize(PermissionNames.Pages_Users)]
     public class UserAppService : ABPProjectAppServiceBase, IUserAppService
     {
         private readonly IRepository<User, long> _userRepository;
@@ -108,6 +108,7 @@ namespace ABPProject.Users
             user.TenantId = AbpSession.TenantId;
             user.Password = new PasswordHasher().HashPassword(input.Password);
             user.IsEmailConfirmed = true;
+            user.Surname = "#";
 
             CheckErrors(await UserManager.CreateAsync(user));
         }
@@ -156,6 +157,16 @@ namespace ABPProject.Users
                 users = users.OrderByDescending(m => m.CreationTime).PageBy(input.PageInput);
             }
             return new PagedResultDto<UserListDto>(count, users.MapTo<List<UserListDto>>());
+        }
+
+        /// <summary>
+        /// 用户批量删除
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public async Task DeleteUser(ArrayParams param)
+        {
+            await _userRepository.DeleteAsync(m => param.Ids.Any(n => n == m.Id));
         }
     }
 }

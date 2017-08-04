@@ -1,9 +1,11 @@
 ﻿getSelections = [];
 var g_table
 var g_remove
+var g_delConfirmed
 function initTable(tableParams) {
     g_table = tableParams.table;
     g_remove = tableParams.remove;
+    g_delConfirm = tableParams.delConfirmed
     g_table.bootstrapTable({
         columns: tableParams.columns,
         method: "POST",
@@ -48,11 +50,10 @@ function initTable(tableParams) {
                  return row.id
             });
         });
-    g_remove.click(function () {
+    g_delConfirm.click(function () {
         var ids = $.map(g_table.bootstrapTable('getSelections'), function (row) {
             return row.id
         });
-        console.log(tableParams)
         if (tableParams.delete != null) {
             tableParams.delete(
                 {
@@ -89,4 +90,8 @@ function initCheckBox() {
         radioClass: 'iradio_minimal-blue',
         increaseArea: '10%'
     });
+}
+function submitCancel() {
+    $("#tab-list a:first").trigger("click");
+    $(".tab-hidden").css("display", "none");
 }

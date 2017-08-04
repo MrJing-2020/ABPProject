@@ -40,10 +40,10 @@
 
 </head>
 <body>
-    @Html.Partial("_TopBar")
+    @Html.Action("TopBar", "Layout")
     <div id="wrapper">
         @Html.Action("Nav", "Layout", new { activeMenu = ViewBag.ActiveMenu })
-        @Html.Partial("_Right")
+        @Html.Action("Right", "Layout")
         <div id="page-wrapper">
             @RenderBody()
         </div>

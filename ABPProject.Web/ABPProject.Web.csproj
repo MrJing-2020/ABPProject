@@ -791,6 +791,7 @@
     <Content Include="Content\flags\famfamfam-flags.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="images\myicon.png" />
     <Content Include="index.html" />
     <Content Include="js\global.js" />
     <Content Include="js\main.js" />
@@ -925,9 +926,7 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\About\Index.cshtml" />
-    <Content Include="Views\Shared\_TopBar.cshtml" />
-    <Content Include="Views\Layout\_LanguageSelection.cshtml" />
-    <Content Include="Views\Layout\_TopMenu.cshtml" />
+    <Content Include="Views\Layout\_TopBar.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Scripts\sweetalert\sweet-alert.scss" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -935,12 +934,11 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\RegisterResult.cshtml" />
     <Content Include="Views\Account\TenantSelection.cshtml" />
-    <Content Include="Views\Layout\_UserMenuOrLoginLink.cshtml" />
     <Content Include="Views\Tenants\Index.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Layout\_Nav.cshtml" />
-    <Content Include="Views\Shared\_Right.cshtml" />
+    <Content Include="Views\Layout\_Right.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

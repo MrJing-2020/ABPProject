@@ -15,7 +15,7 @@ using ABPProject.Extend;
 
 namespace ABPProject.Roles
 {
-    [AbpAuthorize(PermissionNames.Pages_Users)]
+    //[AbpAuthorize(PermissionNames.Pages_Users)]
     public class RoleAppService : ABPProjectAppServiceBase,IRoleAppService
     {
         private readonly RoleManager _roleManager;

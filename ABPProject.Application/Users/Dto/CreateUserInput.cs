@@ -16,9 +16,9 @@ namespace ABPProject.Users.Dto
         [StringLength(User.MaxNameLength)]
         public string Name { get; set; }
 
-        [Required]
-        [StringLength(User.MaxSurnameLength)]
-        public string Surname { get; set; }
+        //[Required]
+        //[StringLength(User.MaxSurnameLength)]
+        //public string Surname { get; set; }
 
         [Required]
         [EmailAddress]
