@@ -1,0 +1,108 @@
+﻿@using Abp.Authorization.Users
+@using Abp.Web.Mvc.Extensions
+@using System.Web.Optimization
+@model Abp.Application.Services.Dto.ListResultDto<ABPProject.Users.Dto.UserListDto>
+@{
+    ViewBag.ActiveMenu = "Users"; //The menu item will be active for this page.
+    //IsGranted("权限名");//返回bool值，用来判断是否有某个权限，可用来控制按钮的显示
+}
+@section styles
+{
+    @Styles.Render("~/Table/css")
+}
+@section scripts
+{
+    @Scripts.Render("~/Table/js")
+    @Html.IncludeScript("~/Views/Users/Index.js")
+}
+<div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+    <div class="page-header pull-left">
+        <div class="page-title">用户</div>
+    </div>
+    <ol class="breadcrumb page-breadcrumb pull-left">
+        <li><i class="fa fa-home"></i>&nbsp;<a href="index.html">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="hidden"><a href="#">用户</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="active">用户</li>
+    </ol>
+    <div class="btn btn-blue reportrange">
+        <i class="fa fa-calendar"></i>&nbsp;<span></span>&nbsp;report&nbsp;<i class="fa fa-angle-down"></i>
+        <input type="hidden" name="datestart" />
+        <input type="hidden" name="endstart" />
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="page-content" id="vue-app">
+    <div id="tab-general">
+        <div class="panel">
+            <div class="panel-body">
+                <ul id="content-tab" class="nav ul-edit nav-tabs responsive hidden-xs hidden-sm">
+                    <li class="active">
+                        <a href="#itemlist" data-toggle="tab">列表</a>
+                    </li>
+                    <li id="tab-edit">
+                        <a href="#createItem" data-toggle="tab">新增用户</a>
+                    </li>
+                </ul>
+                <div id="myCloseableTabContent" class="tab-content">
+                    <div id="itemlist" class="tab-pane fade in active table-content-cum">
+                        <div id="toolbar">
+                            <button id="table-remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> 删除</button>
+                            <button data-toggle="modal" v-on:click="createItem" id="createNewItem" class="btn btn-primary"><i class="fa fa-plus"></i>创建用户</button>
+                        </div>
+                        <table id="table-data"
+                               data-toolbar="#toolbar"
+                               data-search="true"
+                               data-show-refresh="true"
+                               data-show-toggle="true"
+                               data-show-columns="true"
+                               data-show-export="true"
+                               data-detail-view="true"
+                               data-minimum-count-columns="2"
+                               data-pagination="true"
+                               data-id-field="id"
+                               data-page-list="[10, 25, 50, 100, ALL]"
+                               data-show-footer="false"
+                               data-side-pagination="server"
+                               data-url="/Users/PagedList"></table>
+                    </div>
+                    <div id="createItem" class="tab-pane fade">
+                        <form name="editItemForm" id="editItemForm" role="form" novalidate class="form-validation">
+                            <input v-model="formItem.id" class="form-control" type="hidden" name="id" id="id">
+                            <div class="modal-header">
+                                <h4 class="modal-title">
+                                    <span>创建新用户</span>
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label>用户名</label>
+                                    <input v-model="formItem.userName" class="form-control" type="text" required maxlength="@AbpUserBase.MaxUserNameLength" minlength="2">
+                                </div>
+                                <div class="form-group">
+                                    <label>密码</label>
+                                    <input v-model="formItem.password" type="password" class="form-control" required maxlength="@ABPProject.Users.User.MaxPlainPasswordLength">
+                                </div>
+                                <div class="form-group">
+                                    <label>名字</label>
+                                    <input v-model="formItem.name" type="text" class="form-control" required maxlength="@ABPProject.Users.User.MaxNameLength" minlength="2">
+                                </div>
+                                <div class="form-group">
+                                    <label>邮箱</label>
+                                    <input v-model="formItem.emailAddress" type="email" class="form-control" maxlength="@AbpUserBase.MaxEmailAddressLength">
+                                </div>
+                                <div class="checkbox">
+                                    <input v-model="formItem.isActive" class="checkbox-custom"  type="checkbox" id="isActive" name="isActive">
+                                    <label for="isActive" class="checkbox-lable-custom">是否静态</label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button v-on:click="submitCancel" type="button" class="btn btn-default submit-cancel">取消</button>
+                                <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

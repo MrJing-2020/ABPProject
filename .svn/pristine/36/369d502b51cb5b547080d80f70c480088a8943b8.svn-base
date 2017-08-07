@@ -1,0 +1,101 @@
+﻿@using Abp.Authorization.Roles
+@using Abp.Web.Mvc.Extensions
+@using ABPProject.Authorization
+@using System.Web.Optimization
+@{
+    ViewBag.ActiveMenu = "Roles"; //The menu item will be active for this page.
+    //IsGranted("权限名");//返回bool值，用来判断是否有某个权限，可用来控制按钮的显示
+}
+@section styles
+{
+    @Styles.Render("~/Table/css")
+}
+@section scripts
+{
+    @Scripts.Render("~/Table/js")
+    @Html.IncludeScript("~/Views/Roles/Index.js")
+}
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+        <div class="page-header pull-left">
+            <div class="page-title">角色</div>
+        </div>
+        <ol class="breadcrumb page-breadcrumb pull-left">
+            <li><i class="fa fa-home"></i>&nbsp;<a href="index.html">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+            <li class="hidden"><a href="#">角色</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+            <li class="active">角色</li>
+        </ol>
+        <div class="btn btn-blue reportrange">
+            <i class="fa fa-calendar"></i>&nbsp;<span></span>&nbsp;report&nbsp;<i class="fa fa-angle-down"></i>
+            <input type="hidden" name="datestart" />
+            <input type="hidden" name="endstart" />
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="page-content" id="vue-app">
+        <div id="tab-general">
+            <div class="panel">
+                <div class="panel-body">
+                    <ul id="content-tab" class="nav ul-edit nav-tabs responsive hidden-xs hidden-sm">
+                        <li class="active">
+                            <a href="#itemlist" data-toggle="tab">列表</a>
+                        </li>
+                        <li id="tab-edit">
+                            <a href="#createItem" data-toggle="tab">新增角色</a>
+                        </li>
+                    </ul>
+                    <div id="myCloseableTabContent" class="tab-content">
+                        <div id="itemlist" class="tab-pane fade in active table-content-cum">
+                            <div id="toolbar">
+                                <button id="table-remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> 删除</button>
+                                <button data-toggle="modal" v-on:click="createItem" id="createNewItem" class="btn btn-primary"><i class="fa fa-plus"></i>创建角色</button>
+                            </div>
+                            <table id="table-data"
+                                   data-toolbar="#toolbar"
+                                   data-search="true"
+                                   data-show-refresh="true"
+                                   data-show-toggle="true"
+                                   data-show-columns="true"
+                                   data-show-export="true"
+                                   data-detail-view="true"
+                                   data-minimum-count-columns="2"
+                                   data-pagination="true"
+                                   data-id-field="id"
+                                   data-page-list="[10, 25, 50, 100, ALL]"
+                                   data-show-footer="false"
+                                   data-side-pagination="server"
+                                   data-url="/Roles/PagedList"></table>
+                        </div>
+                        <div id="createItem" class="tab-pane fade">
+                            <form name="editItemForm" id="editItemForm" role="form" novalidate class="form-validation">
+                                <input v-model="formItem.id" class="form-control" type="hidden" name="id" id="id">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">
+                                        <span>创建新角色</span>
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label>昵称</label>
+                                        <input v-model="formItem.displayName" class="form-control" type="text" name="displayName" required maxlength="@AbpRoleBase.MaxDisplayNameLength" minlength="2">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>名字</label>
+                                        <input v-model="formItem.name" type="text" name="name" class="form-control" required maxlength="@AbpRoleBase.MaxNameLength" minlength="3">
+                                    </div>
+                                    <div class="checkbox">
+                                        <input class="checkbox-custom" v-model="formItem.isStatic" type="checkbox" id="isStatic" name="isStatic">
+                                        <label for="isStatic" class="checkbox-lable-custom">是否静态</label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button v-on:click="submitCancel" type="button" class="btn btn-default submit-cancel">取消</button>
+                                    <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
