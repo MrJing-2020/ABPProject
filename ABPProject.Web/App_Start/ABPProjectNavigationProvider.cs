@@ -26,7 +26,7 @@ namespace ABPProject.Web
                     new MenuItemDefinition(
                         "Roles",
                         L("Roles"),
-                        url: "Roles",
+                        url: "Admin/Roles",
                         icon: "fa fa-users",
                         requiresAuthentication: true,
                         requiredPermissionName: PermissionNames.User
@@ -35,7 +35,7 @@ namespace ABPProject.Web
                     new MenuItemDefinition(
                         "Users",
                         L("Users"),
-                        url: "Users",
+                        url: "Admin/Users",
                         icon: "fa fa-user",
                         requiresAuthentication: true,
                         requiredPermissionName: PermissionNames.Role

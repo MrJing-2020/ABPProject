@@ -138,3 +138,5 @@ E:\GitRepository\ABPProject\ABPProject.WebApi\bin\Debug\System.Web.Http.WebHost.
 E:\GitRepository\ABPProject\ABPProject.WebApi\obj\Debug\ABPProject.WebApi.csprojResolveAssemblyReference.cache
 E:\GitRepository\ABPProject\ABPProject.WebApi\obj\Debug\ABPProject.WebApi.dll
 E:\GitRepository\ABPProject\ABPProject.WebApi\obj\Debug\ABPProject.WebApi.pdb
+E:\GitRepository\ABPProject\ABPProject.WebApi\bin\Debug\ABPProject.Application.dll.config
+E:\GitRepository\ABPProject\ABPProject.WebApi\bin\Debug\ABPProject.Core.dll.config

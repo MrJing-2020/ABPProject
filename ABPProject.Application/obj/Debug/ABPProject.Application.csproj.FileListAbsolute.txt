@@ -91,3 +91,4 @@ E:\GitRepository\ABPProject\ABPProject.Application\bin\Debug\System.Linq.Dynamic
 E:\GitRepository\ABPProject\ABPProject.Application\obj\Debug\ABPProject.Application.csprojResolveAssemblyReference.cache
 E:\GitRepository\ABPProject\ABPProject.Application\obj\Debug\ABPProject.Application.dll
 E:\GitRepository\ABPProject\ABPProject.Application\obj\Debug\ABPProject.Application.pdb
+E:\GitRepository\ABPProject\ABPProject.Application\bin\Debug\ABPProject.Core.dll.config

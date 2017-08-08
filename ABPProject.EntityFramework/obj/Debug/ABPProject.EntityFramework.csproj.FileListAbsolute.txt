@@ -113,3 +113,4 @@ E:\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migr
 E:\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.EntityFramework.csproj.GenerateResource.Cache
 E:\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.EntityFramework.dll
 E:\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.EntityFramework.pdb
+E:\GitRepository\ABPProject\ABPProject.EntityFramework\bin\Debug\ABPProject.Core.dll.config

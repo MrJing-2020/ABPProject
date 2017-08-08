@@ -120,3 +120,5 @@ E:\GitRepository\ABPProject\Tools\ABPProject.Migrator\bin\Debug\System.Linq.Dyna
 E:\GitRepository\ABPProject\Tools\ABPProject.Migrator\obj\Debug\ABPProject.Migrator.csprojResolveAssemblyReference.cache
 E:\GitRepository\ABPProject\Tools\ABPProject.Migrator\obj\Debug\ABPProject.Migrator.exe
 E:\GitRepository\ABPProject\Tools\ABPProject.Migrator\obj\Debug\ABPProject.Migrator.pdb
+E:\GitRepository\ABPProject\Tools\ABPProject.Migrator\bin\Debug\ABPProject.Core.dll.config
+E:\GitRepository\ABPProject\Tools\ABPProject.Migrator\bin\Debug\ABPProject.EntityFramework.dll.config
