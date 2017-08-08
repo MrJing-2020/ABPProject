@@ -4431,3 +4431,699 @@ DEBUG 2017-08-08 18:04:24,692 [6    ] Abp.Logging.LogHelper                    -
 DEBUG 2017-08-08 18:04:24,694 [6    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
 DEBUG 2017-08-08 18:04:34,758 [62   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"aceae1ac-1507-45f5-8eb0-104323239614","IpAddress":"::1","TenantId":null,"UserId":1,"ConnectTime":"2017-08-08T18:04:34.7557763+08:00","Properties":{}}
 DEBUG 2017-08-08 18:04:34,786 [134  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: aceae1ac-1507-45f5-8eb0-104323239614
+DEBUG 2017-08-08 19:46:53,290 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-08-08 19:46:53,338 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-08-08 19:46:53,349 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.Web.ABPProjectWebModule, ABPProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,352 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectDataModule, ABPProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,352 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,353 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,353 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,353 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,354 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,354 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectCoreModule, ABPProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,354 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectApplicationModule, ABPProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,355 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,355 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.Api.ABPProjectWebApiModule, ABPProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,355 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,356 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,356 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,356 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,356 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:53,361 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-08-08 19:46:53,581 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 19:46:53,581 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 19:46:53,581 [1    ] o.Configuration.LanguageManagementConfig - Converted ABPProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 19:46:53,581 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 19:46:53,995 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ABPProject.EntityFramework.ABPProjectDbContext, ABPProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:46:55,521 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-08-08 19:46:55,537 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-08-08 19:46:55,547 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-08-08 19:46:55,552 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ABPProject
+DEBUG 2017-08-08 19:46:55,553 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-08-08 19:46:55,656 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 19:46:55,760 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 11 classes define auto mapping attributes
+DEBUG 2017-08-08 19:46:55,760 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-08-08 19:46:55,766 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-08-08 19:46:55,766 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Users.Dto.CreateUserInput
+DEBUG 2017-08-08 19:46:55,766 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Users.Dto.UserListDto
+DEBUG 2017-08-08 19:46:55,767 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.EditUserInput
+DEBUG 2017-08-08 19:46:55,767 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.PermissionListDto
+DEBUG 2017-08-08 19:46:55,767 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.RoleListDto
+DEBUG 2017-08-08 19:46:55,767 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.OrganizationUnits.Dto.OuListDto
+DEBUG 2017-08-08 19:46:55,767 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-08-08 19:46:55,768 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-08-08 19:46:55,768 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-08-08 19:46:57,670 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-08-08 19:46:57,672 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-08-08 19:46:57,673 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-08-08 19:46:57,675 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.OrganizationUnits.IOuAppService' with service name 'app/ou'.
+DEBUG 2017-08-08 19:46:57,677 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+ERROR 2017-08-08 19:47:57,008 [6    ] BPProject.Web.Controllers.HomeController - ComponentActivator: could not instantiate ABPProject.EntityFramework.ABPProjectDbContext
+Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate ABPProject.EntityFramework.ABPProjectDbContext ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.Data.SqlClient.SqlException: 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: SQL Network Interfaces, error: 26 - 定位指定的服务器/实例时出错)
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   在 System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   在 System.Data.Entity.SqlServer.SqlProviderServices.CreateDatabaseFromScript(Nullable`1 commandTimeout, DbConnection sqlConnection, String createDatabaseScript)
+   在 System.Data.Entity.SqlServer.SqlProviderServices.DbCreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   在 System.Data.Entity.Core.Common.DbProviderServices.CreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   在 System.Data.Entity.Core.Objects.ObjectContext.CreateDatabase()
+   在 System.Data.Entity.Migrations.Utilities.DatabaseCreator.Create(DbConnection connection)
+   在 System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   在 System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   在 System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
+   在 System.Data.Entity.Internal.InternalContext.CreateDatabase(ObjectContext objectContext, DatabaseExistenceState existenceState)
+   在 System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
+   在 System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   在 System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   在 System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   在 System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   在 System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   在 System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   在 System.Data.Entity.Internal.InternalContext.ForceOSpaceLoadingForKnownEntityTypes()
+   在 System.Data.Entity.DbContext.System.Data.Entity.Infrastructure.IObjectContextAdapter.get_ObjectContext()
+   在 Abp.EntityFramework.AbpDbContext.RegisterToChanges()
+   在 Abp.Zero.EntityFramework.AbpZeroDbContext`3..ctor(String nameOrConnectionString)
+   在 ABPProject.EntityFramework.ABPProjectDbContext..ctor(String nameOrConnectionString) 位置 E:\GitRepository\ABPProject\ABPProject.EntityFramework\EntityFramework\ABPProjectDbContext.cs:行号 32
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   在 System.Reflection.RuntimeConstructorInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   在 Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   在 Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   在 Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   在 Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   在 Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   在 Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   在 Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   在 Castle.Windsor.WindsorContainer.Resolve(Type service, IDictionary arguments)
+   在 Castle.Windsor.WindsorContainer.Resolve(Type service, Object argumentsAsAnonymousType)
+   在 Abp.Dependency.IocManager.Resolve(Type type, Object argumentsAsAnonymousType)
+   在 Abp.EntityFramework.DefaultDbContextResolver.Resolve[TDbContext](String connectionString)
+   在 Abp.EntityFramework.Uow.TransactionScopeEfTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   在 Abp.EntityFramework.Uow.EfUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide)
+   在 Abp.EntityFramework.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide)
+   在 Abp.EntityFramework.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_12.get_Context_callback()
+   在 Castle.Proxies.Invocations.EfRepositoryBase`3_get_Context_15.InvokeMethodOnTarget()
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_12.get_Context()
+   在 Abp.EntityFramework.Repositories.EfRepositoryBase`3.get_Table()
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_12.get_Table_callback()
+   在 Castle.Proxies.Invocations.EfRepositoryBase`3_get_Table_15.InvokeMethodOnTarget()
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_12.get_Table()
+   在 Abp.EntityFramework.Repositories.EfRepositoryBase`3.InsertAsync(TEntity entity)
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_12.InsertAsync_callback(AuditLog entity)
+   在 Castle.Proxies.Invocations.EfRepositoryBase`3_InsertAsync_15.InvokeMethodOnTarget()
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_12.InsertAsync(AuditLog entity)
+   在 Abp.Auditing.AuditingStore.SaveAsync(AuditInfo auditInfo)
+   在 Abp.Auditing.AuditingStoreExtensions.<>c__DisplayClass0_0.<Save>b__0()
+   在 System.Threading.Tasks.Task`1.InnerInvoke()
+   在 System.Threading.Tasks.Task.Execute()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Nito.AsyncEx.AsyncContext.<>c__DisplayClass15_0.<Run>b__0(Task t)
+   在 System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   在 System.Threading.Tasks.Task.Execute()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Nito.AsyncEx.AsyncContext.Run(Func`1 action)
+   在 Abp.Auditing.AuditingStoreExtensions.Save(IAuditingStore auditingStore, AuditInfo auditInfo)
+   在 Abp.Auditing.AuditingHelper.Save(AuditInfo auditInfo)
+   在 Abp.Web.Mvc.Auditing.AbpMvcAuditFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+DEBUG 2017-08-08 19:47:57,312 [8    ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-08 19:47:57,313 [8    ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+WARN  2017-08-08 19:48:26,342 [9    ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate ABPProject.EntityFramework.ABPProjectDbContext ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.Data.SqlClient.SqlException: 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: SQL Network Interfaces, error: 26 - 定位指定的服务器/实例时出错)
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   在 System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   在 System.Data.Entity.SqlServer.SqlProviderServices.CreateDatabaseFromScript(Nullable`1 commandTimeout, DbConnection sqlConnection, String createDatabaseScript)
+   在 System.Data.Entity.SqlServer.SqlProviderServices.DbCreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   在 System.Data.Entity.Core.Common.DbProviderServices.CreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   在 System.Data.Entity.Core.Objects.ObjectContext.CreateDatabase()
+   在 System.Data.Entity.Migrations.Utilities.DatabaseCreator.Create(DbConnection connection)
+   在 System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   在 System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   在 System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
+   在 System.Data.Entity.Internal.InternalContext.CreateDatabase(ObjectContext objectContext, DatabaseExistenceState existenceState)
+   在 System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
+   在 System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   在 System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   在 System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   在 System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   在 System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   在 System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   在 System.Data.Entity.Internal.InternalContext.ForceOSpaceLoadingForKnownEntityTypes()
+   在 System.Data.Entity.DbContext.System.Data.Entity.Infrastructure.IObjectContextAdapter.get_ObjectContext()
+   在 Abp.EntityFramework.AbpDbContext.RegisterToChanges()
+   在 Abp.Zero.EntityFramework.AbpZeroDbContext`3..ctor(String nameOrConnectionString)
+   在 ABPProject.EntityFramework.ABPProjectDbContext..ctor(String nameOrConnectionString) 位置 E:\GitRepository\ABPProject\ABPProject.EntityFramework\EntityFramework\ABPProjectDbContext.cs:行号 32
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   在 System.Reflection.RuntimeConstructorInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   在 Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   在 Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   在 Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   在 Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   在 Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   在 Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   在 Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   在 Castle.Windsor.WindsorContainer.Resolve(Type service, IDictionary arguments)
+   在 Castle.Windsor.WindsorContainer.Resolve(Type service, Object argumentsAsAnonymousType)
+   在 Abp.Dependency.IocManager.Resolve(Type type, Object argumentsAsAnonymousType)
+   在 Abp.EntityFramework.DefaultDbContextResolver.Resolve[TDbContext](String connectionString)
+   在 Abp.EntityFramework.Uow.TransactionScopeEfTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   在 Abp.EntityFramework.Uow.EfUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide)
+   在 Abp.EntityFramework.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide)
+   在 Abp.EntityFramework.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context_callback()
+   在 Castle.Proxies.Invocations.EfRepositoryBase`3_get_Context_3.InvokeMethodOnTarget()
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context()
+   在 Abp.EntityFramework.Repositories.EfRepositoryBase`3.get_Table()
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table_callback()
+   在 Castle.Proxies.Invocations.EfRepositoryBase`3_get_Table_3.InvokeMethodOnTarget()
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table()
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll_callback()
+   在 Castle.Proxies.Invocations.EfRepositoryBase`3_GetAll_3.InvokeMethodOnTarget()
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll()
+   在 Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   在 Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   在 Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   在 Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   在 System.Threading.Tasks.Task`1.InnerInvoke()
+   在 System.Threading.Tasks.Task.Execute()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   在 Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   在 System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   在 System.Threading.Tasks.Task.Execute()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   在 Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   在 Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   在 Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate ABPProject.EntityFramework.ABPProjectDbContext ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.Data.SqlClient.SqlException: 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: SQL Network Interfaces, error: 26 - 定位指定的服务器/实例时出错)
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   在 System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   在 System.Data.Entity.SqlServer.SqlProviderServices.CreateDatabaseFromScript(Nullable`1 commandTimeout, DbConnection sqlConnection, String createDatabaseScript)
+   在 System.Data.Entity.SqlServer.SqlProviderServices.DbCreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   在 System.Data.Entity.Core.Common.DbProviderServices.CreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   在 System.Data.Entity.Core.Objects.ObjectContext.CreateDatabase()
+   在 System.Data.Entity.Migrations.Utilities.DatabaseCreator.Create(DbConnection connection)
+   在 System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   在 System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   在 System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
+   在 System.Data.Entity.Internal.InternalContext.CreateDatabase(ObjectContext objectContext, DatabaseExistenceState existenceState)
+   在 System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
+   在 System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   在 System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   在 System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   在 System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   在 System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   在 System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   在 System.Data.Entity.Internal.InternalContext.ForceOSpaceLoadingForKnownEntityTypes()
+   在 System.Data.Entity.DbContext.System.Data.Entity.Infrastructure.IObjectContextAdapter.get_ObjectContext()
+   在 Abp.EntityFramework.AbpDbContext.RegisterToChanges()
+   在 Abp.Zero.EntityFramework.AbpZeroDbContext`3..ctor(String nameOrConnectionString)
+   在 ABPProject.EntityFramework.ABPProjectDbContext..ctor(String nameOrConnectionString) 位置 E:\GitRepository\ABPProject\ABPProject.EntityFramework\EntityFramework\ABPProjectDbContext.cs:行号 32
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   在 System.Reflection.RuntimeConstructorInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   在 Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   在 Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   在 Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   在 Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   在 Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   在 Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   在 Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   在 Castle.Windsor.WindsorContainer.Resolve(Type service, IDictionary arguments)
+   在 Castle.Windsor.WindsorContainer.Resolve(Type service, Object argumentsAsAnonymousType)
+   在 Abp.Dependency.IocManager.Resolve(Type type, Object argumentsAsAnonymousType)
+   在 Abp.EntityFramework.DefaultDbContextResolver.Resolve[TDbContext](String connectionString)
+   在 Abp.EntityFramework.Uow.TransactionScopeEfTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   在 Abp.EntityFramework.Uow.EfUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide)
+   在 Abp.EntityFramework.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide)
+   在 Abp.EntityFramework.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context_callback()
+   在 Castle.Proxies.Invocations.EfRepositoryBase`3_get_Context_3.InvokeMethodOnTarget()
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context()
+   在 Abp.EntityFramework.Repositories.EfRepositoryBase`3.get_Table()
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table_callback()
+   在 Castle.Proxies.Invocations.EfRepositoryBase`3_get_Table_3.InvokeMethodOnTarget()
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table()
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll_callback()
+   在 Castle.Proxies.Invocations.EfRepositoryBase`3_GetAll_3.InvokeMethodOnTarget()
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll()
+   在 Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   在 Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   在 Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   在 Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   在 System.Threading.Tasks.Task`1.InnerInvoke()
+   在 System.Threading.Tasks.Task.Execute()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   在 Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   在 System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   在 System.Threading.Tasks.Task.Execute()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   在 Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   在 Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   在 Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+DEBUG 2017-08-08 19:48:26,358 [8    ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 19:48:26,358 [8    ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-08 19:48:32,147 [5    ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-08 19:48:32,178 [5    ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 19:48:32,178 [5    ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 19:48:32,178 [5    ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-08 19:49:25,494 [10   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"f17cd026-e1ec-4b77-99a9-a376063e890a","IpAddress":"::1","TenantId":null,"UserId":1,"ConnectTime":"2017-08-08T19:49:25.4836806+08:00","Properties":{}}
+DEBUG 2017-08-08 19:49:25,541 [16   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: f17cd026-e1ec-4b77-99a9-a376063e890a
+DEBUG 2017-08-08 19:49:28,297 [22   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: f17cd026-e1ec-4b77-99a9-a376063e890a
+DEBUG 2017-08-08 19:51:23,307 [9    ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-08 19:51:23,308 [9    ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 19:51:23,310 [9    ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 19:51:23,310 [9    ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-08 19:57:04,150 [20   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-08-08 19:57:04,170 [20   ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-08-08 19:57:04,178 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.Web.ABPProjectWebModule, ABPProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,181 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectDataModule, ABPProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,181 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,181 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,181 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,181 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,182 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,182 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectCoreModule, ABPProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,183 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectApplicationModule, ABPProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,183 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,183 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.Api.ABPProjectWebApiModule, ABPProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,183 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,184 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,184 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,184 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,184 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:04,188 [20   ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-08-08 19:57:04,336 [20   ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 19:57:04,336 [20   ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 19:57:04,336 [20   ] o.Configuration.LanguageManagementConfig - Converted ABPProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 19:57:04,336 [20   ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 19:57:04,669 [20   ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ABPProject.EntityFramework.ABPProjectDbContext, ABPProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 19:57:05,705 [20   ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-08-08 19:57:05,712 [20   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-08-08 19:57:05,717 [20   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-08-08 19:57:05,719 [20   ] Abp.Localization.LocalizationManager     - Initialized localization source: ABPProject
+DEBUG 2017-08-08 19:57:05,720 [20   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-08-08 19:57:05,793 [20   ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 19:57:05,837 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 11 classes define auto mapping attributes
+DEBUG 2017-08-08 19:57:05,837 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-08-08 19:57:05,840 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-08-08 19:57:05,840 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Users.Dto.CreateUserInput
+DEBUG 2017-08-08 19:57:05,840 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Users.Dto.UserListDto
+DEBUG 2017-08-08 19:57:05,840 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.EditUserInput
+DEBUG 2017-08-08 19:57:05,840 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.PermissionListDto
+DEBUG 2017-08-08 19:57:05,840 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.RoleListDto
+DEBUG 2017-08-08 19:57:05,840 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.OrganizationUnits.Dto.OuListDto
+DEBUG 2017-08-08 19:57:05,840 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-08-08 19:57:05,841 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-08-08 19:57:05,841 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-08-08 19:57:07,158 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-08-08 19:57:07,159 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-08-08 19:57:07,160 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-08-08 19:57:07,161 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.OrganizationUnits.IOuAppService' with service name 'app/ou'.
+DEBUG 2017-08-08 19:57:07,162 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-08-08 20:00:57,406 [19   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-08 20:00:57,406 [19   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 20:00:57,406 [19   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 20:00:57,406 [19   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-08 20:01:08,352 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-08-08 20:01:08,368 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-08-08 20:01:08,375 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.Web.ABPProjectWebModule, ABPProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,378 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectDataModule, ABPProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,379 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,379 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,379 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,379 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,380 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,380 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectCoreModule, ABPProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,380 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectApplicationModule, ABPProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,380 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,380 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.Api.ABPProjectWebApiModule, ABPProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,381 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,381 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,381 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,381 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,381 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:08,384 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-08-08 20:01:08,573 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:01:08,573 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:01:08,573 [1    ] o.Configuration.LanguageManagementConfig - Converted ABPProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:01:08,573 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:01:08,915 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ABPProject.EntityFramework.ABPProjectDbContext, ABPProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:01:10,133 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-08-08 20:01:10,140 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-08-08 20:01:10,148 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-08-08 20:01:10,150 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ABPProject
+DEBUG 2017-08-08 20:01:10,152 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-08-08 20:01:10,224 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 20:01:10,268 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 11 classes define auto mapping attributes
+DEBUG 2017-08-08 20:01:10,268 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-08-08 20:01:10,271 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-08-08 20:01:10,272 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Users.Dto.CreateUserInput
+DEBUG 2017-08-08 20:01:10,272 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Users.Dto.UserListDto
+DEBUG 2017-08-08 20:01:10,272 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.EditUserInput
+DEBUG 2017-08-08 20:01:10,272 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.PermissionListDto
+DEBUG 2017-08-08 20:01:10,272 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.RoleListDto
+DEBUG 2017-08-08 20:01:10,272 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.OrganizationUnits.Dto.OuListDto
+DEBUG 2017-08-08 20:01:10,272 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-08-08 20:01:10,273 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-08-08 20:01:10,273 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-08-08 20:01:11,632 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-08-08 20:01:11,633 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-08-08 20:01:11,635 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-08-08 20:01:11,636 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.OrganizationUnits.IOuAppService' with service name 'app/ou'.
+DEBUG 2017-08-08 20:01:11,639 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-08-08 20:01:30,078 [36   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"f8d36cf5-11d9-4b50-abce-c2d69a18764f","IpAddress":"::1","TenantId":null,"UserId":1,"ConnectTime":"2017-08-08T20:01:30.0702104+08:00","Properties":{}}
+DEBUG 2017-08-08 20:01:30,115 [26   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: f8d36cf5-11d9-4b50-abce-c2d69a18764f
+DEBUG 2017-08-08 20:03:10,322 [30   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-08 20:03:10,323 [30   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 20:03:10,324 [30   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 20:03:10,324 [30   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-08 20:03:13,219 [20   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-08-08 20:03:13,375 [20   ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.Web.ABPProjectWebModule, ABPProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectDataModule, ABPProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectCoreModule, ABPProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectApplicationModule, ABPProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.Api.ABPProjectWebApiModule, ABPProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:13,391 [20   ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-08-08 20:03:13,672 [20   ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:03:13,672 [20   ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:03:13,672 [20   ] o.Configuration.LanguageManagementConfig - Converted ABPProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:03:13,672 [20   ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:03:14,000 [20   ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ABPProject.EntityFramework.ABPProjectDbContext, ABPProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:03:14,547 [20   ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-08-08 20:03:14,547 [20   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-08-08 20:03:14,547 [20   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-08-08 20:03:14,547 [20   ] Abp.Localization.LocalizationManager     - Initialized localization source: ABPProject
+DEBUG 2017-08-08 20:03:14,547 [20   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-08-08 20:03:14,625 [20   ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 20:03:14,672 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 11 classes define auto mapping attributes
+DEBUG 2017-08-08 20:03:14,672 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-08-08 20:03:14,672 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-08-08 20:03:14,672 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Users.Dto.CreateUserInput
+DEBUG 2017-08-08 20:03:14,672 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Users.Dto.UserListDto
+DEBUG 2017-08-08 20:03:14,672 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.EditUserInput
+DEBUG 2017-08-08 20:03:14,672 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.PermissionListDto
+DEBUG 2017-08-08 20:03:14,672 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.RoleListDto
+DEBUG 2017-08-08 20:03:14,672 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.OrganizationUnits.Dto.OuListDto
+DEBUG 2017-08-08 20:03:14,672 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-08-08 20:03:14,672 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-08-08 20:03:14,672 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-08-08 20:03:15,985 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-08-08 20:03:16,000 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-08-08 20:03:16,000 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-08-08 20:03:16,000 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.OrganizationUnits.IOuAppService' with service name 'app/ou'.
+DEBUG 2017-08-08 20:03:16,000 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-08-08 20:03:17,477 [36   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"f8d36cf5-11d9-4b50-abce-c2d69a18764f","IpAddress":"::1","TenantId":null,"UserId":1,"ConnectTime":"2017-08-08T20:03:17.4459866+08:00","Properties":{}}
+DEBUG 2017-08-08 20:06:16,812 [37   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-08 20:06:16,812 [37   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 20:06:16,812 [37   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 20:06:16,812 [37   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-08 20:06:22,849 [31   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-08-08 20:06:22,865 [31   ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-08-08 20:06:22,872 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.Web.ABPProjectWebModule, ABPProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,874 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectDataModule, ABPProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,874 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,875 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,875 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,875 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,875 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,876 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectCoreModule, ABPProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,876 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectApplicationModule, ABPProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,876 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,876 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.Api.ABPProjectWebApiModule, ABPProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,876 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,876 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,876 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,877 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,877 [31   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:22,880 [31   ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-08-08 20:06:23,070 [31   ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:06:23,070 [31   ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:06:23,070 [31   ] o.Configuration.LanguageManagementConfig - Converted ABPProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:06:23,070 [31   ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:06:23,413 [31   ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ABPProject.EntityFramework.ABPProjectDbContext, ABPProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:06:24,496 [31   ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-08-08 20:06:24,496 [31   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-08-08 20:06:24,512 [31   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-08-08 20:06:24,512 [31   ] Abp.Localization.LocalizationManager     - Initialized localization source: ABPProject
+DEBUG 2017-08-08 20:06:24,512 [31   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-08-08 20:06:24,590 [31   ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 20:06:24,621 [31   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 11 classes define auto mapping attributes
+DEBUG 2017-08-08 20:06:24,621 [31   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-08-08 20:06:24,621 [31   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-08-08 20:06:24,621 [31   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Users.Dto.CreateUserInput
+DEBUG 2017-08-08 20:06:24,621 [31   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Users.Dto.UserListDto
+DEBUG 2017-08-08 20:06:24,621 [31   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.EditUserInput
+DEBUG 2017-08-08 20:06:24,621 [31   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.PermissionListDto
+DEBUG 2017-08-08 20:06:24,621 [31   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.RoleListDto
+DEBUG 2017-08-08 20:06:24,621 [31   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.OrganizationUnits.Dto.OuListDto
+DEBUG 2017-08-08 20:06:24,621 [31   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-08-08 20:06:24,621 [31   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-08-08 20:06:24,621 [31   ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-08-08 20:06:26,074 [31   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-08-08 20:06:26,074 [31   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-08-08 20:06:26,074 [31   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-08-08 20:06:26,074 [31   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.OrganizationUnits.IOuAppService' with service name 'app/ou'.
+DEBUG 2017-08-08 20:06:26,074 [31   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-08-08 20:06:26,516 [37   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"f8d36cf5-11d9-4b50-abce-c2d69a18764f","IpAddress":"::1","TenantId":null,"UserId":1,"ConnectTime":"2017-08-08T20:06:26.4693618+08:00","Properties":{}}
+DEBUG 2017-08-08 20:36:21,605 [32   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"0c31c948-52ab-4256-b2ca-9fe229467295","IpAddress":"::1","TenantId":null,"UserId":1,"ConnectTime":"2017-08-08T20:36:21.6056678+08:00","Properties":{}}
+DEBUG 2017-08-08 20:36:21,647 [41   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 0c31c948-52ab-4256-b2ca-9fe229467295
+DEBUG 2017-08-08 20:36:56,095 [6    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 0c31c948-52ab-4256-b2ca-9fe229467295
+DEBUG 2017-08-08 20:36:56,742 [9    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: f8d36cf5-11d9-4b50-abce-c2d69a18764f
+DEBUG 2017-08-08 20:49:27,358 [19   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-08-08 20:49:27,359 [19   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 20:49:27,360 [19   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 20:49:27,360 [19   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-08-08 20:51:42,041 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-08-08 20:51:42,062 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-08-08 20:51:42,070 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.Web.ABPProjectWebModule, ABPProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,073 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectDataModule, ABPProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,073 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,073 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,073 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,073 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,074 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,074 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectCoreModule, ABPProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,074 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.ABPProjectApplicationModule, ABPProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,074 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,074 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ABPProject.Api.ABPProjectWebApiModule, ABPProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,075 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,075 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,075 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,075 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,076 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:42,079 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-08-08 20:51:42,195 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:51:42,195 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:51:42,195 [1    ] o.Configuration.LanguageManagementConfig - Converted ABPProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:51:42,195 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-08-08 20:51:42,518 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ABPProject.EntityFramework.ABPProjectDbContext, ABPProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-08-08 20:51:43,518 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-08-08 20:51:43,525 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-08-08 20:51:43,530 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-08-08 20:51:43,532 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ABPProject
+DEBUG 2017-08-08 20:51:43,533 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-08-08 20:51:43,640 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-08-08 20:51:43,706 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 11 classes define auto mapping attributes
+DEBUG 2017-08-08 20:51:43,706 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-08-08 20:51:43,709 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-08-08 20:51:43,709 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Users.Dto.CreateUserInput
+DEBUG 2017-08-08 20:51:43,709 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Users.Dto.UserListDto
+DEBUG 2017-08-08 20:51:43,710 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.EditUserInput
+DEBUG 2017-08-08 20:51:43,710 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.PermissionListDto
+DEBUG 2017-08-08 20:51:43,710 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Roles.Dto.RoleListDto
+DEBUG 2017-08-08 20:51:43,710 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.OrganizationUnits.Dto.OuListDto
+DEBUG 2017-08-08 20:51:43,710 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-08-08 20:51:43,711 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-08-08 20:51:43,711 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ABPProject.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-08-08 20:51:45,162 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-08-08 20:51:45,163 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-08-08 20:51:45,164 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-08-08 20:51:45,165 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.OrganizationUnits.IOuAppService' with service name 'app/ou'.
+DEBUG 2017-08-08 20:51:45,166 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ABPProject.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-08-08 20:51:55,052 [48   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"6c5e027d-7431-48c9-b92f-840b29d10052","IpAddress":"::1","TenantId":null,"UserId":1,"ConnectTime":"2017-08-08T20:51:55.037305+08:00","Properties":{}}
+DEBUG 2017-08-08 20:51:55,096 [38   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 6c5e027d-7431-48c9-b92f-840b29d10052
