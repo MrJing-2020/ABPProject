@@ -940,6 +940,7 @@
     <Content Include="Views\Layout\_Nav.cshtml" />
     <Content Include="Views\Layout\_Right.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_LayoutMain.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
