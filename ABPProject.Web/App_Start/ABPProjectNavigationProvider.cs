@@ -13,15 +13,16 @@ namespace ABPProject.Web
         public override void SetNavigation(INavigationProviderContext context)
         {
             context.Manager.MainMenu
+                //.AddItem(
+                //    new MenuItemDefinition(
+                //        "Index",
+                //        L("HomePage"),
+                //        url: "",
+                //        icon: "fa fa-home",
+                //        requiresAuthentication: true
+                //        )
+                //)
                 .AddItem(
-                    new MenuItemDefinition(
-                        "Index",
-                        L("HomePage"),
-                        url: "",
-                        icon: "fa fa-home",
-                        requiresAuthentication: true
-                        )
-                ).AddItem(
                     new MenuItemDefinition(
                         "Roles",
                         L("Roles"),
