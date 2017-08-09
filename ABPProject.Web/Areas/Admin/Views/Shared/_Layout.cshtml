@@ -72,6 +72,11 @@
     <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
     <!-- SignalR scripts -->
     <script src="~/signalr/hubs"></script>
+    @*关闭signalr的自动连接*@
+    @*<script>
+        abp.signalr = abp.signalr || {};
+        abp.signalr.autoConnect = false;
+    </script>*@
     @Html.IncludeScript("~/Abp/Framework/scripts/libs/abp.signalr.js")
 
     <!-- View specific scripts -->

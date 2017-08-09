@@ -1,0 +1,101 @@
+/*reset 样式*/
+*,
+::before,
+::after{
+	margin: 0;
+	padding: 0;
+	/*清除移动端的默认效果    点击高亮效果*/
+	-webkit-tap-highlight-color: transparent;
+	/*设置所有的标签都是以边框开始计算宽度    100%*/
+	-webkit-box-sizing: border-box;
+	box-sizing:border-box;
+}
+body{
+	font-size: 12px;
+	font-family: "Microsoft YaHei",sans-serif;/*设备默认字体*/
+	color: #000;
+}
+a{
+	color: #333;
+}
+a:hover{
+	text-decoration: none;
+}
+ul,ol{
+	list-style: none;
+}
+input{
+	 /*border: none;*/
+	 outline:none;
+	 /*-webkit-appearance:none;清除移动端默认的表单样式*/
+}
+
+.f_left{
+	float: left;
+}
+.f_right{
+	float: right;
+}
+.clearfix::before,
+.clearfix::after{
+	content:"";
+	height:0;
+	line-height: 0;
+	display:block;
+	visibility:hidden;
+	clear:both;	
+}
+.show{
+	display: block;
+}
+.hideBack{
+	display: none;
+}
+
+a,button{outline: none ;cursor: pointer;}
+div,p,h1,h2,h3,h4,h5,span,a,li,em,i,td,strong,label{	}
+a{color: #000;}
+a:hover{text-decoration: none;color: #289ffb;}
+a,a:focus,a:visited,a:active{text-decoration:none}
+label,em,i{font-style: normal;font-weight: normal;}
+input,button{vertical-align: middle;outline: none;}
+ul{margin-bottom: 0;}
+ul li{list-style: none;}
+h1{font-size: 26px;padding: 2px 0 3px;}
+.block{display:block}
+.error{color:#f00}
+.cursor{cursor:pointer;}
+.f12{font-size:12px}
+.f14{font-size:14px}
+.f16{font-size:16px}
+.f18{font-size:18px}
+.f30{font-size:30px}
+.fb{font-weight:bold}
+.org,a.org,a.org:hover{color:#FF8429}
+.txtBlue{color: #289ffb;}
+.blue,.blue:hover{color: #289ffb;}
+.red{color:#f00}
+a.ul{text-decoration:underline}
+.mt5{margin-top:5px}
+.mt10{margin-top:10px}
+.mt15{margin-top:15px}
+.mt20{margin-top:20px}
+.mt25{margin-top:25px}
+.ml8{margin-left:8px}
+.ml15{margin-left:15px}
+.ml30{margin-left:30px}
+.mr10{margin-right:10px}
+.mr20{margin-right:20px}
+.nopt{margin:0}
+
+.col0{width:90px;}
+.col1{width:110px;margin-left:5px}
+.col2{width:230px;padding-left:10px;text-align:left;overflow:visible;line-height:40px;}
+.col3{width:105px}
+.col4{width:170px}
+.col5{width:110px;}
+
+
+
+
+

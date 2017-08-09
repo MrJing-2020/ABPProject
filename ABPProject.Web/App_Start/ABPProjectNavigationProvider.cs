@@ -40,6 +40,24 @@ namespace ABPProject.Web
                         requiresAuthentication: true,
                         requiredPermissionName: PermissionNames.Role
                         )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        "Project",
+                        L("Project"),
+                        url: "Admin/Project",
+                        icon: "fa fa-tags",
+                        requiresAuthentication: true,
+                        requiredPermissionName: PermissionNames.Project
+                        )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        "Product",
+                        L("Product"),
+                        url: "Admin/Product",
+                        icon: "fa fa-shopping-cart",
+                        requiresAuthentication: true,
+                        requiredPermissionName: PermissionNames.Product
+                        )
                 )
               //  .AddItem(
               //      new MenuItemDefinition(

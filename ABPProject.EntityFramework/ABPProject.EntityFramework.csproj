@@ -146,6 +146,14 @@
     <Compile Include="Migrations\201708070916394_ChangeUser.Designer.cs">
       <DependentUpon>201708070916394_ChangeUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708090358579_AddProject.cs" />
+    <Compile Include="Migrations\201708090358579_AddProject.Designer.cs">
+      <DependentUpon>201708090358579_AddProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708090702455_ModifiedProduct.cs" />
+    <Compile Include="Migrations\201708090702455_ModifiedProduct.Designer.cs">
+      <DependentUpon>201708090702455_ModifiedProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ABPProjectDataModule.cs" />
@@ -177,6 +185,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708070916394_ChangeUser.resx">
       <DependentUpon>201708070916394_ChangeUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708090358579_AddProject.resx">
+      <DependentUpon>201708090358579_AddProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708090702455_ModifiedProduct.resx">
+      <DependentUpon>201708090702455_ModifiedProduct.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

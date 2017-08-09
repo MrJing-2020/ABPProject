@@ -3,8 +3,9 @@ using Abp.Zero.EntityFramework;
 using ABPProject.Authorization.Roles;
 using ABPProject.MultiTenancy;
 using ABPProject.Users;
-using ABPProject.Prodect;
+using ABPProject.Products;
 using System.Data.Entity;
+using ABPProject.Projects;
 
 namespace ABPProject.EntityFramework
 {
@@ -12,6 +13,7 @@ namespace ABPProject.EntityFramework
     {
         //TODO: Define an IDbSet for your Entities...
         public IDbSet<Product> Products { get; set; }
+        public IDbSet<Project> Projects { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.

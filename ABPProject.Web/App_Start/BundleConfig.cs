@@ -128,7 +128,53 @@ namespace ABPProject.Web
                     .Include(
                     "~/Content/bootstrap-table.min.css"
                     )
-                );
+            );
+
+            bundles.Add(
+                new StyleBundle("~/Product/css")
+                .Include(
+                "~/css/base.css",
+                "~/css/common.css",
+                "~/css/font-awesome//4.5.0/css/font-awesome.min.css",
+                "~/css/layer/mobile/need/layer.css",
+                "~/css/layui/css/layui.css",
+                "~/Views/Product/index.css"
+                )
+            );
+
+            bundles.Add(
+                new ScriptBundle("~/Product/js")
+                .Include(
+                "~/js/jquery.min.js",
+                "~/css//layer/layer.js",
+                "~/css/layui/layui.js",
+                "~/js/common.js",
+                "~/Views/Product/index.js"
+                )
+            );
+
+            bundles.Add(
+                new StyleBundle("~/Home/css")
+                .Include(
+                "~/css/base.css",
+                //"~/css/common.css",
+                "~/css/font-awesome//4.5.0/css/font-awesome.min.css",
+                //"~/css/layer/mobile/need/layer.css",
+                //"~/css/layui/css/layui.css",
+                "~/Views/Home/index.css"
+                )
+            );
+
+            bundles.Add(
+                new ScriptBundle("~/Home/js")
+                .Include(
+                "~/js/jquery.min.js",
+                //"~/css//layer/layer.js",
+                //"~/css/layui/layui.js",
+                //"~/js/common.js",
+                "~/Views/Home/index.js"
+                )
+            );
         }
     }
 }

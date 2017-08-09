@@ -16,5 +16,15 @@
         public const string Role_Edit = "Role.Edit";
         public const string Role_Delete = "Role.Delete";
         public const string Role_SetPermission = "Role.SetPermission";
+
+        public const string Project = "Project";
+        public const string Project_Create = "Project.Create";
+        public const string Project_Edit = "Project.Edit";
+        public const string Project_Delete = "Project.Delete";
+
+        public const string Product = "Product";
+        public const string Product_Create = "Product.Create";
+        public const string Product_Edit = "Product.Edit";
+        public const string Product_Delete = "Product.Delete";
     }
 }

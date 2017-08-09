@@ -13,7 +13,7 @@
 @section scripts
 {
     @Scripts.Render("~/Table/js")
-    @Html.IncludeScript("~/Views/Roles/Index.js")
+    @Html.IncludeScript("~/Areas/Admin/Views/Roles/Index.js")
 }
     <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
         <div class="page-header pull-left">
@@ -66,7 +66,7 @@
                                    data-page-list="[10, 25, 50, 100, ALL]"
                                    data-show-footer="false"
                                    data-side-pagination="server"
-                                   data-url="/Roles/PagedList"></table>
+                                   data-url="/Admin/Roles/PagedList"></table>
                         </div>
                         <div id="createItem" class="tab-pane fade">
                             <div class="panel panel-primary">

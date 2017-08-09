@@ -68,15 +68,27 @@
     <text name="CapitalPool" value="资金池" />
     <text name="Project" value="项目" />
     <text name="Capital" value="资金" />
+    <text name="Product" value="产品" />
 
     <text name="P_User" value="用户管理" />
     <text name="P_UserCreate" value="用户创建" />
     <text name="P_UserDelete" value="用户删除" />
     <text name="P_UserSetRole" value="角色设置" />
+    
     <text name="P_Role" value="角色管理" />
     <text name="P_RoleCreate" value="角色创建" />
     <text name="P_RoleEdit" value="角色编辑" />
     <text name="P_RoleDelete" value="角色删除" />
     <text name="P_RoleSetPermission" value="权限设置" />
+  
+    <text name="P_Project" value="项目管理" />
+    <text name="P_ProjectCreate" value="项目创建" />
+    <text name="P_ProjectEdit" value="项目编辑" />
+    <text name="P_ProjectDelete" value="项目删除" />
+
+    <text name="P_Product" value="项目管理" />
+    <text name="P_ProductCreate" value="项目创建" />
+    <text name="P_ProductEdit" value="项目编辑" />
+    <text name="P_ProductDelete" value="项目删除" />
   </texts>
 </localizationDictionary>

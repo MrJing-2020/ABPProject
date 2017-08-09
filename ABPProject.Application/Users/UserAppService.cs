@@ -15,7 +15,7 @@ using Abp.Linq.Extensions;
 namespace ABPProject.Users
 {
     /* THIS IS JUST A SAMPLE. */
-    //[AbpAuthorize(PermissionNames.Pages_Users)]
+    [AbpAuthorize(PermissionNames.User)]
     public class UserAppService : ABPProjectAppServiceBase, IUserAppService
     {
         private readonly IRepository<User, long> _userRepository;
