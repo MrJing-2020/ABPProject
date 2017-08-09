@@ -19,6 +19,8 @@ obj/
 Upload/
 .svn/
 App_Data/
+Logs/
+Debug/
 
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
 !packages/*/build/
