@@ -10,4 +10,15 @@ $(function () {
     }, function () {
         $(this).find(".searchToggle").slideUp(0);
     })
+
+    $("#owl-demo").owlCarousel({
+        items: 1,
+        autoPlay: true
+    });
+    $(".fastLink > li").hover(function () {
+        $(this).addClass("selected").siblings().removeClass("selected");
+    }, function (ev) {
+        $(".fastLink > li:nth-child(3)").addClass("selected").siblings().removeClass("selected");
+    })
+
 })

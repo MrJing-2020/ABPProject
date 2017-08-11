@@ -26,5 +26,10 @@
         public const string Product_Create = "Product.Create";
         public const string Product_Edit = "Product.Edit";
         public const string Product_Delete = "Product.Delete";
+
+        public const string SalesOrder = "SalesOrder";
+        public const string SalesOrder_Create = "SalesOrder.Create";
+        public const string SalesOrder_Edit = "SalesOrder.Edit";
+        public const string SalesOrder_Delete = "SalesOrder.Delete";
     }
 }

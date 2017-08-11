@@ -57,6 +57,15 @@ namespace ABPProject.Authorization
             var productCreate = product.CreateChildPermission(PermissionNames.Product_Create, L("P_ProductCreate"));
             var productEdit = product.CreateChildPermission(PermissionNames.Product_Edit, L("P_ProductEdit"));
             var productDelete = product.CreateChildPermission(PermissionNames.Product_Delete, L("P_ProductDelete"));
+
+            var salesOrder = context.GetPermissionOrNull(PermissionNames.SalesOrder);
+            if (salesOrder == null)
+            {
+                salesOrder = context.CreatePermission(PermissionNames.SalesOrder, L("P_SalesOrder"));
+            }
+            var salesOrderCreate = salesOrder.CreateChildPermission(PermissionNames.SalesOrder_Create, L("P_SalesOrderCreate"));
+            var salesOrderEdit = salesOrder.CreateChildPermission(PermissionNames.SalesOrder_Edit, L("P_SalesOrderEdit"));
+            var salesOrderDelete = salesOrder.CreateChildPermission(PermissionNames.SalesOrder_Delete, L("P_SalesOrderDelete"));
         }
 
         private static ILocalizableString L(string name)

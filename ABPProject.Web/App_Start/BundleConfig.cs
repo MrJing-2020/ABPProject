@@ -85,13 +85,13 @@ namespace ABPProject.Web
                 new ScriptBundle("~/Bundles/js")
                     .Include(
                     "~/js/main.js",
+                    //"~/Content/js/jquery-1.10.2.min.js",
                     "~/Content/js/jquery-migrate-1.2.1.min.js",
                     "~/Content/vendors/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js",
+
                     "~/Content/vendors/metisMenu/jquery.metisMenu.js",
                     "~/Content/vendors/slimScroll/jquery.slimscroll.js",
                     "~/Content/vendors/jquery-cookie/jquery.cookie.js",
-                    "~/Content/vendors/iCheck/icheck.min.js",
-                    //"~/Content/vendors/iCheck/custom.min.js",
                     "~/Content/vendors/jquery-notific8/jquery.notific8.min.js",
                     "~/Content/vendors/jquery-highcharts/highcharts.js",
                     "~/Content/js/jquery.menu.js",
@@ -104,10 +104,9 @@ namespace ABPProject.Web
                     "~/Content/vendors/bootstrap-daterangepicker/daterangepicker.js",
                     "~/Content/js/main.js",
                     "~/Content/vendors/intro.js/intro.js",
+                    "~/Content/vendors/flot-chart/jquery.flot.js",
                     "~/Content/vendors/calendar/zabuto_calendar.min.js",
-                    "~/Content/vendors/sco.message/sco.message.js",
-                    "~/Content/vendors/intro.js/intro.js",
-                    "~/Content/js/index.js"
+                    "~/Content/vendors/sco.message/sco.message.js"
                     )
                 );
             bundles.Add(
@@ -138,6 +137,7 @@ namespace ABPProject.Web
                 "~/css/font-awesome//4.5.0/css/font-awesome.min.css",
                 "~/css/layer/mobile/need/layer.css",
                 "~/css/layui/css/layui.css",
+                "~/css/orange-blue.css",
                 "~/Views/Product/index.css"
                 )
             );
@@ -145,7 +145,8 @@ namespace ABPProject.Web
             bundles.Add(
                 new ScriptBundle("~/Product/js")
                 .Include(
-                "~/js/jquery.min.js",
+                "~/js/jquery-1.10.2.min.js",
+                "~/js/jquery.slimscroll.js",
                 "~/css//layer/layer.js",
                 "~/css/layui/layui.js",
                 "~/js/common.js",
@@ -161,6 +162,8 @@ namespace ABPProject.Web
                 "~/css/font-awesome//4.5.0/css/font-awesome.min.css",
                 //"~/css/layer/mobile/need/layer.css",
                 //"~/css/layui/css/layui.css",
+                "~/css/owl.carousel.css",
+                "~/css/owl.theme.css",
                 "~/Views/Home/index.css"
                 )
             );
@@ -172,6 +175,7 @@ namespace ABPProject.Web
                 //"~/css//layer/layer.js",
                 //"~/css/layui/layui.js",
                 //"~/js/common.js",
+                "~/js/owl.carousel.js",
                 "~/Views/Home/index.js"
                 )
             );

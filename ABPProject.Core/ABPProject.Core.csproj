@@ -120,6 +120,7 @@
     <Compile Include="Authorization\PermissionNames.cs" />
     <Compile Include="Authorization\Roles\AppRoleConfig.cs" />
     <Compile Include="Authorization\Roles\StaticRoleNames.cs" />
+    <Compile Include="ChatMessages\ChatMessage.cs" />
     <Compile Include="Editions\EditionManager.cs" />
     <Compile Include="Features\FeatureValueStore.cs" />
     <Compile Include="MultiTenancy\Tenant.cs" />

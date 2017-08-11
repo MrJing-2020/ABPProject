@@ -50,3 +50,6 @@
 #vue-app {
     padding-bottom:20px
 }
+.daterangepicker {
+    top: 91px !important;
+}

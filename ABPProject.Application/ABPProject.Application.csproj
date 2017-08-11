@@ -149,6 +149,7 @@
     <Compile Include="Roles\IRoleAppService.cs" />
     <Compile Include="Roles\Dto\UpdateRolePermissionsInput.cs" />
     <Compile Include="SalesOrders\Dto\EditSalesOrderInput.cs" />
+    <Compile Include="SalesOrders\Dto\EditSalesOrderItemDto.cs" />
     <Compile Include="SalesOrders\Dto\SalesOrderListDto.cs" />
     <Compile Include="SalesOrders\ISalesOrderAppService.cs" />
     <Compile Include="SalesOrders\SalesOrderAppService.cs" />

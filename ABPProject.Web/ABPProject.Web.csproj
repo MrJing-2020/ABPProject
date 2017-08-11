@@ -313,9 +313,10 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css" />
     <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
+    <Content Include="Areas\Admin\Views\Home\index.js" />
     <Content Include="Areas\Admin\Views\Product\index.js" />
-    <Content Include="Areas\Admin\Views\Project\index.js" />
     <Content Include="Areas\Admin\Views\Roles\index.js" />
+    <Content Include="Areas\Admin\Views\SalesOrder\index.js" />
     <Content Include="Areas\Admin\Views\Tenants\Index.js" />
     <Content Include="Areas\Admin\Views\Users\Index.js" />
     <Content Include="Content\bootstrap-paper.min.css" />
@@ -896,6 +897,9 @@
     <Content Include="css\main.min.css">
       <DependentUpon>main.css</DependentUpon>
     </Content>
+    <Content Include="css\orange-blue.css" />
+    <Content Include="css\owl.carousel.css" />
+    <Content Include="css\owl.theme.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="images\128.jpg" />
@@ -907,16 +911,30 @@
     <Content Include="Content\flags\famfamfam-flags.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="images\btn.png" />
+    <Content Include="images\crrc.png" />
+    <Content Include="images\fastlink.png" />
+    <Content Include="images\logos.png" />
     <Content Include="images\myicon.png" />
+    <Content Include="images\slide %281%29.jpg" />
+    <Content Include="images\slide %282%29.jpg" />
+    <Content Include="images\slide %283%29.jpg" />
+    <Content Include="images\slide %284%29.jpg" />
+    <Content Include="images\slide %285%29.jpg" />
+    <Content Include="images\slide %286%29.jpg" />
+    <Content Include="images\uico.png" />
     <Content Include="index.html" />
     <Content Include="js\common.js" />
     <Content Include="js\global.js" />
+    <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\main.js" />
     <Content Include="css\main.less" />
     <Content Include="css\main.css.map">
       <DependentUpon>main.css</DependentUpon>
     </Content>
+    <Content Include="js\owl.carousel.js" />
+    <Content Include="js\jquery.slimscroll.js" />
     <Content Include="log4net.config" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
@@ -960,6 +978,7 @@
     <Content Include="css\layui\font\iconfont.ttf" />
     <Content Include="css\layui\font\iconfont.woff" />
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SalesOrder\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap-table-editable.js" />
     <Content Include="Scripts\bootstrap-table-export.js" />
@@ -1017,6 +1036,8 @@
     <Content Include="Views\Account\Register.js" />
     <Content Include="Views\Home\index.css" />
     <Content Include="Views\Home\index.js" />
+    <Content Include="Views\Product\index.css" />
+    <Content Include="Views\Product\index.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1055,6 +1076,8 @@
     </Compile>
     <Compile Include="Models\Layout\TopMenuViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignalHub\ConnUserViewModel.cs" />
+    <Compile Include="SignalHub\MainHub.cs" />
     <Compile Include="Views\ABPProjectWebViewPageBase.cs" />
     <Compile Include="Views\UrlChecker.cs" />
   </ItemGroup>
@@ -1101,7 +1124,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\SalesOrder\" />
     <Folder Include="Content\vendors\jquery-ui-1.10.3.custom\css\ui-lightness\" />
   </ItemGroup>
   <ItemGroup>

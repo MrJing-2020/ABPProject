@@ -1,1 +1,77 @@
-﻿
+﻿@using Abp.Web.Mvc.Extensions
+@section scripts
+{
+    @Html.IncludeScript("~/Areas/Admin/Views/Home/Index.js")
+}
+
+<div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+    <div class="page-header pull-left">
+        <div class="page-title">Dashboard</div>
+    </div>
+    <ol class="breadcrumb page-breadcrumb pull-left">
+        <li><i class="fa fa-home"></i>&nbsp;<a href="index.html">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="hidden"><a href="#">Dashboard</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="active">Dashboard</li>
+    </ol>
+    <div class="btn btn-blue reportrange">
+        <i class="fa fa-calendar"></i>&nbsp;<span></span>&nbsp;report&nbsp;<i class="fa fa-angle-down"></i>
+        <input type="hidden" name="datestart" />
+        <input type="hidden" name="endstart" />
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="page-content">
+    <div id="tab-general">
+        <div class="row mbl">
+            <div class="col-lg-8">
+                <div class="portlet box prolet-primary">
+                    <div class="portlet-header">
+                        <div class="caption text-uppercase"> <i style="font-size: 17px; margin-top: 2px;" class="fa fa-comments"></i>Chats</div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="chat-scroller">
+                            <ul class="chats">
+                                <li class="in">
+                                    <img src="~/images/myicon.png" class="avatar img-responsive" />
+                                    <div class="message">
+                                        <span class="chat-arrow"></span><a href="#" class="chat-name">Admin</a>&nbsp;<span class="chat-datetime">at July 06, 2014 17:06</span><span class="chat-body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+                                    </div>
+                                </li>
+                                <li class="out">
+                                    <img src="~/images/myicon.png" class="avatar img-responsive" />
+                                    <div class="message">
+                                        <span class="chat-arrow"></span><a href="#" class="chat-name">Admin</a>&nbsp;<span class="chat-datetime">at July 06, 2014 18:06</span><span class="chat-body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+                                    </div>
+                                </li>
+                                <li class="in">
+                                    <img src="~/images/myicon.png" class="avatar img-responsive" />
+                                    <div class="message">
+                                        <span class="chat-arrow"></span><a href="#" class="chat-name">Admin</a>&nbsp;<span class="chat-datetime">at July 06, 2014 17:06</span><span class="chat-body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+                                    </div>
+                                </li>
+                                <li class="out">
+                                    <img src="~/images/myicon.png" class="avatar img-responsive" />
+                                    <div class="message">
+                                        <span class="chat-arrow"></span><a href="#" class="chat-name">Admin</a>&nbsp;<span class="chat-datetime">at July 06, 2014 18:06</span><span class="chat-body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+                                    </div>
+                                </li>
+                                <li class="in">
+                                    <img src="~/images/myicon.png" class="avatar img-responsive" />
+                                    <div class="message">
+                                        <span class="chat-arrow"></span><a href="#" class="chat-name">Admin</a>&nbsp;<span class="chat-datetime">at July 06, 2014 17:06</span><span class="chat-body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="chat-form">
+                            <div class="input-group">
+                                <input id="input-chat" type="text" placeholder="Type a message here..." class="form-control" /><span id="btn-chat" class="input-group-btn"><button type="button" class="btn btn-green"><i class="fa fa-check"></i></button></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

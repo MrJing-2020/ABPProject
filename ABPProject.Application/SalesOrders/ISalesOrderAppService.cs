@@ -13,5 +13,7 @@ namespace ABPProject.SalesOrders
     public interface ISalesOrderAppService: IApplicationService
     {
         PagedResultDto<SalesOrderListDto> GetPagedSalesOrder(PageParams pageArg);
+        Task DeleteSalesOrder(ArrayParams param);
+        EditSalesOrderInput GetSalesOrderById(OneParam param);
     }
 }

@@ -10,17 +10,27 @@ using System.Text;
 using System.Threading.Tasks;
 using ABPProject.Extend;
 using ABPProject.SalesOrders.Dto;
+using Abp.Domain.Uow;
+using ABPProject.Authorization;
+using Abp.Authorization;
 
 namespace ABPProject.SalesOrders
 {
+    //[AbpAuthorize(PermissionNames.SalesOrder)]
     public class SalesOrderAppService: ABPProjectAppServiceBase, ISalesOrderAppService
     {
         private readonly SalesOrderManager _salesOrderManager;
         private readonly IRepository<SalesOrder, int> _salesOrderRepository;
-        public SalesOrderAppService(SalesOrderManager salesOrderManager, IRepository<SalesOrder, int> salesOrderRepository)
+        private readonly IRepository<SalesOrderItem, int> _salesOrderItemRepository;
+
+        public SalesOrderAppService(
+            SalesOrderManager salesOrderManager, 
+            IRepository<SalesOrder, int> salesOrderRepository,
+            IRepository<SalesOrderItem, int> salesOrderItemRepository)
         {
             _salesOrderManager = salesOrderManager;
             _salesOrderRepository = salesOrderRepository;
+            _salesOrderItemRepository = salesOrderItemRepository;
         }
 
         public PagedResultDto<SalesOrderListDto> GetPagedSalesOrder(PageParams pageArg)
@@ -53,10 +63,12 @@ namespace ABPProject.SalesOrders
             return new PagedResultDto<SalesOrderListDto>(count, salesOrder.MapTo<List<SalesOrderListDto>>());
         }
 
-        public async Task<EditSalesOrderInput> GetSalesOrderById(OneParam param)
+        public EditSalesOrderInput GetSalesOrderById(OneParam param)
         {
-            var salesOrder = await _salesOrderRepository.GetAsync(param.Id);
-            return salesOrder.MapTo<EditSalesOrderInput>();
+            var salesOrder = _salesOrderRepository.GetAllIncluding(m=>m.SalesOrderItem).Where(m => m.Id == param.Id).FirstOrDefault();
+            var salesOrderDto = salesOrder.MapTo<EditSalesOrderInput>();
+            salesOrderDto.SalesOrderItems = salesOrder.SalesOrderItem.MapTo<List<EditSalesOrderItemDto>>();
+            return salesOrderDto;
         }
 
         //public async Task EditSalesOrder(EditSalesOrderInput input)
@@ -75,9 +87,11 @@ namespace ABPProject.SalesOrders
         //    }
         //}
 
+        [UnitOfWork]
         public async Task DeleteSalesOrder(ArrayParams param)
         {
             await _salesOrderRepository.DeleteAsync(m => param.Ids.Any(n => n == m.Id));
+            await _salesOrderItemRepository.DeleteAsync(m => param.Ids.Any(n => n == m.SalesOrderId));
         }
     }
 }

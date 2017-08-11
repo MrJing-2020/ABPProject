@@ -353,3 +353,29 @@
 .proPage{
 	margin: 20px 0;
 }
+
+/*--------------------chatBox------------------*/
+.chatBox {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 450px;
+    background-color: #3498db;
+    display: none;
+}
+.portlet{
+    margin-bottom: 0;
+}
+.portlet > .portlet-header, .portlet .portlet-body {
+    background-color: transparent;
+}
+.portlet .portlet-body{
+    padding-bottom: 5px;
+}
+.closeChat{
+    height: 18px;
+    line-height: 18px;
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+}

@@ -11,6 +11,7 @@ using Abp.Web.SignalR;
 using ABPProject.Api;
 using Hangfire;
 using Abp.Configuration.Startup;
+using System;
 
 namespace ABPProject.Web
 {
@@ -37,6 +38,11 @@ namespace ABPProject.Web
             //    configuration.GlobalConfiguration.UseSqlServerStorage("Default");
             //});
             Configuration.Modules.AbpWeb().AntiForgery.IsEnabled = false;
+
+            Configuration.Caching.Configure("connectionUser", cache =>
+            {
+                cache.DefaultSlidingExpireTime = TimeSpan.FromHours(8);
+            });
         }
 
         public override void Initialize()

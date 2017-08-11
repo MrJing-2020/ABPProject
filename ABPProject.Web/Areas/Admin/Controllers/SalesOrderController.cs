@@ -1,4 +1,6 @@
-﻿using ABPProject.CommonDto;
+﻿using Abp.Authorization;
+using ABPProject.Authorization;
+using ABPProject.CommonDto;
 using ABPProject.SalesOrders;
 using ABPProject.Web.Controllers;
 using System;
@@ -9,6 +11,7 @@ using System.Web.Mvc;
 
 namespace ABPProject.Web.Areas.Admin.Controllers
 {
+    [AbpAuthorize(PermissionNames.SalesOrder)]
     public class SalesOrderController : ABPProjectControllerBase
     {
         private readonly ISalesOrderAppService _salesOrderAppService;
@@ -16,7 +19,7 @@ namespace ABPProject.Web.Areas.Admin.Controllers
         {
             _salesOrderAppService = salesOrderAppService;
         }
-        // GET: Admin/SalesOrder
+
         public ActionResult Index()
         {
             return View();

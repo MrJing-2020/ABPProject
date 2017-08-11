@@ -154,6 +154,10 @@
     <Compile Include="Migrations\201708090702455_ModifiedProduct.Designer.cs">
       <DependentUpon>201708090702455_ModifiedProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708100133350_AddSalesOrder.cs" />
+    <Compile Include="Migrations\201708100133350_AddSalesOrder.Designer.cs">
+      <DependentUpon>201708100133350_AddSalesOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ABPProjectDataModule.cs" />
@@ -191,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708090702455_ModifiedProduct.resx">
       <DependentUpon>201708090702455_ModifiedProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708100133350_AddSalesOrder.resx">
+      <DependentUpon>201708100133350_AddSalesOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
