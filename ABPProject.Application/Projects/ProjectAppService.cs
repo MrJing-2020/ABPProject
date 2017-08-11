@@ -73,19 +73,9 @@ namespace ABPProject.Projects
 
         public async Task EditProject(EditProjectInput input)
         {
-            var id = input.Id;
-            if (id == null)
-            {
-                var project = input.MapTo<Project>();
-                await _projectRepository.InsertAsync(project);
-            }
-            else
-            {
-                var oldProject = await _projectRepository.GetAsync((int)id);
-                oldProject.Name = input.Name;
-                oldProject.Description = input.Description;
-                await _projectRepository.UpdateAsync(oldProject);
-            }
+            var project = input.MapTo<Project>();
+            await _projectRepository.InsertOrUpdateAsync(project);
+
         }
 
         public async Task DeleteProject(ArrayParams param)

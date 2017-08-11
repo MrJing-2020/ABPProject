@@ -15,7 +15,7 @@ using ABPProject.Extend;
 
 namespace ABPProject.Roles
 {
-    [AbpAuthorize(PermissionNames.Role)]
+    //[AbpAuthorize(PermissionNames.Role)]
     public class RoleAppService : ABPProjectAppServiceBase,IRoleAppService
     {
         private readonly RoleManager _roleManager;
@@ -80,13 +80,23 @@ namespace ABPProject.Roles
                     await _roleManager.UpdateAsync(roleUpdate);
                 }
             }
+            //var role = input.MapTo<Role>();
+            //await _roleRepository.InsertOrUpdateAsync(role);
         }
 
         public async Task<object> GetPermissionsByRole(OneParam param)
         {
             var rolePermissions = await _roleManager.GetGrantedPermissionsAsync(param.Id);
             var allPermissons = _permissionManager.GetAllPermissions().ToList();
-            return new { allPermissons = allPermissons.MapTo<List<PermissionListDto>>(), rolePermissions = rolePermissions.Select(m=>m.Name).ToList() };
+            var permissionGroup = new List<PermissionGroupDto>();
+            foreach (var item in allPermissons.Where(m=>m.Children.Count()>0))
+            {
+                PermissionGroupDto tempData = item.MapTo<PermissionGroupDto>();
+                tempData.PermissionGroups = item.Children.ToList().MapTo<List<PermissionListDto>>();
+                permissionGroup.Add(tempData);
+            }
+            return new { allPermissons = permissionGroup, rolePermissions = rolePermissions.Select(m=>m.Name).ToList() };
+            //return new { allPermissons = allPermissons.MapTo<List<PermissionListDto>>(), rolePermissions = rolePermissions.Select(m=>m.Name).ToList() };
         }
 
         /// <summary>

@@ -4,7 +4,7 @@
             el: '#vue-app',
             data: {
                 formItem: {},
-                abpService: abp.services.app.product,
+                abpService: abp.services.app.salesOrder,
                 $table: $('#table-data'),
                 $remove: $('#table-remove'),
                 deleteId: null
@@ -24,60 +24,53 @@
                         //批量删除弹窗确认按钮
                         delConfirmed: $('#deleleAll-confirmed'),
                         columns: [
-                            [
-                                {
-                                    field: 'state',
-                                    checkbox: true,
-                                    rowspan: 2,
-                                    align: 'center',
-                                    valign: 'middle'
-                                },
-                                {
-                                    title: 'ID',
-                                    field: 'id',
-                                    rowspan: 2,
-                                    align: 'center',
-                                    valign: 'middle',
-                                },
-                                {
-                                    title: '产品详情',
-                                    colspan: 4,
-                                    align: 'center'
+                            {
+                                field: 'state',
+                                checkbox: true,
+                                align: 'center',
+                                valign: 'middle'
+                            },
+                            {
+                                field: 'salesId',
+                                title: '订单编号',
+                                sortable: true,
+                                align: 'center'
+                            },
+                            {
+                                field: 'salesName',
+                                title: '客户',
+                                sortable: true,
+                                align: 'center'
+                            },
+                            {
+                                field: 'salesContractNum',
+                                title: '合同号',
+                                align: 'center'
+                            },
+                            {
+                                field: 'deliveryDate',
+                                title: '提交日期',
+                                align: 'center',
+                                formatter: function (value, row, index) {
+                                    return value.replace("T", " ").substring(0, value.lastIndexOf("."));
                                 }
-                            ],
-                            [
-                                {
-                                    field: 'name',
-                                    title: '名称',
-                                    sortable: true,
-                                    align: 'center'
-                                },
-                                {
-                                    field: 'description',
-                                    title: '描述',
-                                    align: 'center'
-                                },
-                                {
-                                    field: 'creationTime',
-                                    title: '创建时间',
-                                    sortable: true,
-                                    align: 'center'
-                                },
-                                {
-                                    field: 'option',
-                                    title: '操作',
-                                    align: 'center',
-                                    events: params.operateEvents,
-                                    formatter: function (value, row, index) {
-                                        return [
-                                            '<button type="button" class="btn btn-info btn-xs edit-item">编辑</button>',
-                                            '<button type="button" data-toggle="modal" data-target="#del-confirm" class="btn btn-danger btn-xs remove-item">删除</button>'
-                                        ].join('');
-                                    }
+                            },
+                            {
+                                field: 'option',
+                                title: '操作',
+                                align: 'center',
+                                events: params.operateEvents,
+                                formatter: function (value, row, index) {
+                                    return [
+                                        '<button type="button" class="btn btn-info btn-xs edit-item">编辑</button>',
+                                        '<button type="button" class="btn btn-green btn-xs detail-item">查看</button>',
+                                        '<button type="button" data-toggle="modal" data-target="#del-confirm" class="btn btn-danger btn-xs remove-item">删除</button>'
+                                    ].join('');
                                 }
-                            ]
+                            }
                         ],
-                        delete: params.deleteItem
+                        delete: params.deleteItem,
+                        detailFormatter: params.detailFormatter
                     });
                 },
                 //初始化页面
@@ -89,13 +82,28 @@
                             that.getSalesOrderById(row.id);
                             $("#tab-edit a:first").trigger("click");
                         },
+                        'click .detail-item': function (e, value, row, index) {
+                            that.getSalesOrderById(row.id);
+                            $("#tab-edit a:first").trigger("click");
+                        },
                         'click .remove-item': function (e, value, row, index) {
                             that.deleteId = [row.id]
                         }
                     }
+                    function detailFormatter(index, row) {
+                        html = [];
+                        $.map(row.salesOrderItems, function (obj, index) {
+                            html.push('<h4>订单行' + parseInt(index + 1) + '：</h4>')
+                            $.each(obj, function (key,value) {
+                                html.push('<p><b>' + key + ':</b> ' + value + '</p>');
+                            })
+                        });
+                        return html.join('');
+                    };
                     that.initTableData({
                         operateEvents: operateEvents,
-                        deleteItem: that.deleteItem
+                        deleteItem: that.deleteItem,
+                        detailFormatter: detailFormatter
                     });
                 },
 
@@ -125,7 +133,7 @@
                     }
                     var postData = this.formItem;
                     abp.ui.setBusy($("html"));
-                    this.abpService.editProduct(postData).done(function () {
+                    this.abpService.editSalesOrder(postData).done(function () {
                         location.reload(true);
                     }).always(function () {
                         abp.ui.clearBusy($("html"));

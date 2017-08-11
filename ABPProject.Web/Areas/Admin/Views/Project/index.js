@@ -61,7 +61,10 @@
                                     field: 'creationTime',
                                     title: '创建时间',
                                     sortable: true,
-                                    align: 'center'
+                                    align: 'center',
+                                    formatter: function (value, row, index) {
+                                        return value.replace("T", " ").substring(0, value.lastIndexOf("."));
+                                    }
                                 },
                                 {
                                     field: 'option',

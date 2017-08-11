@@ -315,6 +315,7 @@
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
     <Content Include="Areas\Admin\Views\Home\index.js" />
     <Content Include="Areas\Admin\Views\Product\index.js" />
+    <Content Include="Areas\Admin\Views\Project\index.js" />
     <Content Include="Areas\Admin\Views\Roles\index.js" />
     <Content Include="Areas\Admin\Views\SalesOrder\index.js" />
     <Content Include="Areas\Admin\Views\Tenants\Index.js" />
@@ -781,6 +782,8 @@
     <Content Include="Content\vendors\x-editable\select2\lib\select2.js" />
     <Content Include="css\base.css" />
     <Content Include="css\common.css" />
+    <Content Include="css\font-awesome\4.5.0\css\font-awesome.min.css" />
+    <Content Include="css\font-awesome\4.5.0\fonts\fontawesome-webfont.svg" />
     <Content Include="css\layer\layer.js" />
     <Content Include="css\layer\mobile\layer.js" />
     <Content Include="css\layer\mobile\need\layer.css" />
@@ -900,6 +903,7 @@
     <Content Include="css\orange-blue.css" />
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\owl.theme.css" />
+    <Content Include="css\swiper.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="images\128.jpg" />
@@ -911,17 +915,27 @@
     <Content Include="Content\flags\famfamfam-flags.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="images\back.png" />
     <Content Include="images\btn.png" />
     <Content Include="images\crrc.png" />
+    <Content Include="images\detail %281%29.jpg" />
+    <Content Include="images\detail %282%29.jpg" />
+    <Content Include="images\detail %283%29.jpg" />
     <Content Include="images\fastlink.png" />
+    <Content Include="images\loadings.gif" />
     <Content Include="images\logos.png" />
     <Content Include="images\myicon.png" />
+    <Content Include="images\next.png" />
+    <Content Include="images\prev.png" />
+    <Content Include="images\product.jpg" />
     <Content Include="images\slide %281%29.jpg" />
     <Content Include="images\slide %282%29.jpg" />
     <Content Include="images\slide %283%29.jpg" />
     <Content Include="images\slide %284%29.jpg" />
     <Content Include="images\slide %285%29.jpg" />
     <Content Include="images\slide %286%29.jpg" />
+    <Content Include="images\sw %281%29.jpg" />
+    <Content Include="images\sw %282%29.jpg" />
     <Content Include="images\uico.png" />
     <Content Include="index.html" />
     <Content Include="js\common.js" />
@@ -935,6 +949,7 @@
     </Content>
     <Content Include="js\owl.carousel.js" />
     <Content Include="js\jquery.slimscroll.js" />
+    <Content Include="js\swiper.min.js" />
     <Content Include="log4net.config" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
@@ -979,6 +994,10 @@
     <Content Include="css\layui\font\iconfont.woff" />
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SalesOrder\Index.cshtml" />
+    <Content Include="css\font-awesome\4.5.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="css\font-awesome\4.5.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="css\font-awesome\4.5.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="css\font-awesome\4.5.0\fonts\fontawesome-webfont.woff2" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap-table-editable.js" />
     <Content Include="Scripts\bootstrap-table-export.js" />
@@ -1034,8 +1053,11 @@
       <DependentUpon>Login.css</DependentUpon>
     </Content>
     <Content Include="Views\Account\Register.js" />
+    <Content Include="Views\Detail\index.css" />
+    <Content Include="Views\Detail\index.js" />
     <Content Include="Views\Home\index.css" />
     <Content Include="Views\Home\index.js" />
+    <Content Include="Views\Product\product.js" />
     <Content Include="Views\Product\index.css" />
     <Content Include="Views\Product\index.js" />
     <Content Include="Web.config">
@@ -1061,6 +1083,7 @@
     <Compile Include="Areas\Admin\Controllers\TenantsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
@@ -1096,6 +1119,8 @@
     <Content Include="Views\Layout\_Right.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Detail\Index.cshtml" />
+    <Content Include="Views\Product\IndexMain.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

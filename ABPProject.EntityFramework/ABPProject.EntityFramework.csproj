@@ -158,6 +158,22 @@
     <Compile Include="Migrations\201708100133350_AddSalesOrder.Designer.cs">
       <DependentUpon>201708100133350_AddSalesOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708110828482_ChangeProduct.cs" />
+    <Compile Include="Migrations\201708110828482_ChangeProduct.Designer.cs">
+      <DependentUpon>201708110828482_ChangeProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708110924001_ChangeSalesOrder.cs" />
+    <Compile Include="Migrations\201708110924001_ChangeSalesOrder.Designer.cs">
+      <DependentUpon>201708110924001_ChangeSalesOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708110932549_ChangeSalesOrder1.cs" />
+    <Compile Include="Migrations\201708110932549_ChangeSalesOrder1.Designer.cs">
+      <DependentUpon>201708110932549_ChangeSalesOrder1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708110934181_ChangeSalesOrder2.cs" />
+    <Compile Include="Migrations\201708110934181_ChangeSalesOrder2.Designer.cs">
+      <DependentUpon>201708110934181_ChangeSalesOrder2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ABPProjectDataModule.cs" />
@@ -198,6 +214,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708100133350_AddSalesOrder.resx">
       <DependentUpon>201708100133350_AddSalesOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708110828482_ChangeProduct.resx">
+      <DependentUpon>201708110828482_ChangeProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708110924001_ChangeSalesOrder.resx">
+      <DependentUpon>201708110924001_ChangeSalesOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708110932549_ChangeSalesOrder1.resx">
+      <DependentUpon>201708110932549_ChangeSalesOrder1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708110934181_ChangeSalesOrder2.resx">
+      <DependentUpon>201708110934181_ChangeSalesOrder2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

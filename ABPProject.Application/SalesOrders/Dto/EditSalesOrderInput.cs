@@ -46,6 +46,10 @@ namespace ABPProject.SalesOrders.Dto
         /// </summary>
         public  string PostCode { get; set; }
         /// <summary>
+        /// 配送方式
+        /// </summary>
+        public  string DistributionMode { get; set; }
+        /// <summary>
         /// 手机
         /// </summary>
         public  string MobilePhone { get; set; }
@@ -61,6 +65,12 @@ namespace ABPProject.SalesOrders.Dto
         /// 付款方式
         /// </summary>
         public  string PaymentMethod { get; set; }
+
+        #region 方便修改操作提交数据
+        public long? CreatorUserId { get; set; }
+        public DateTime CreationTime { get; set; } 
+        #endregion
+
         public List<EditSalesOrderItemDto> SalesOrderItems { get; set; }
 
     }

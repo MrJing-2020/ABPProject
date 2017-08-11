@@ -87,10 +87,10 @@
     <text name="P_ProjectEdit" value="项目编辑" />
     <text name="P_ProjectDelete" value="项目删除" />
 
-    <text name="P_Product" value="项目管理" />
-    <text name="P_ProductCreate" value="项目创建" />
-    <text name="P_ProductEdit" value="项目编辑" />
-    <text name="P_ProductDelete" value="项目删除" />
+    <text name="P_Product" value="产品管理" />
+    <text name="P_ProductCreate" value="产品创建" />
+    <text name="P_ProductEdit" value="产品编辑" />
+    <text name="P_ProductDelete" value="产品删除" />
   
     <text name="P_SalesOrder" value="销售订单管理" />
     <text name="P_SalesOrderCreate" value="销售订单创建" />

@@ -38,15 +38,19 @@
     @Scripts.Render("~/Bundles/vendor/js/top")
 
 </head>
-<body>
-    @Html.Action("TopBar", "Layout")
-    <div id="wrapper">
-        @Html.Action("Nav", "Layout", new { activeMenu = ViewBag.ActiveMenu })
-        @Html.Action("Right", "Layout")
-        <div id="page-wrapper">
-            @RenderBody()
+<body class=" ">
+    <div>
+        <a id="totop" href="#"><i class="fa fa-angle-up"></i></a>
+        @Html.Action("TopBar", "Layout")
+        <div id="wrapper">
+            @Html.Action("Nav", "Layout", new { activeMenu = ViewBag.ActiveMenu })
+            @Html.Action("Right", "Layout")
+            <div id="page-wrapper">
+                <div style="height:50px;"></div>
+                @RenderBody()
+            </div>
+            @*@Html.Partial("_Footer")*@
         </div>
-        @Html.Partial("_Footer")
     </div>
     @Scripts.Render("~/Bundles/vendor/js/bottom")
     @Scripts.Render("~/Bundles/js")
@@ -64,6 +68,9 @@
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA-145464-14', 'auto');
         ga('send', 'pageview');
+        $(function () {
+            var navHeight = document.documentElement.clientHeight;
+        })
     </script>
 
     <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->

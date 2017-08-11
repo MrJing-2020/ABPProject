@@ -1,4 +1,5 @@
 ﻿using Abp.AutoMapper;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace ABPProject.Projects.Dto
@@ -13,5 +14,6 @@ namespace ABPProject.Projects.Dto
 
         [Required]
         public string Description { get; set; }
+        public DateTime CreationTime { get; set; }
     }
 }

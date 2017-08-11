@@ -42,6 +42,7 @@ $(function (){
         "wheelStep": 30,
         "scrollTo": "100px"
     });
+
     $('.chat-form input#input-chat').on("keypress", function (e) {
 
         var $obj = $(this);
@@ -59,8 +60,8 @@ $(function (){
                 $obj.val(""); // CLEAR TEXT ON TEXTAREA
 
                 var element = "";
-                element += "<li class='in'>";
-                element += "<img class='avatar' src='https://s3.amazonaws.com/uifaces/faces/twitter/kolage/48.jpg'>";
+                element += "<li class='out'>";
+                element += "<img class='avatar' src='https://s3.amazonaws.com/uifaces/faces/twitter/mijustin/128.jpg'>";
                 element += "<div class='message'>";
                 element += "<span class='chat-arrow'></span>";
                 element += "<a class='chat-name' href='#'>Admin &nbsp;</a>";
@@ -99,8 +100,8 @@ $(function (){
             $obj.val(""); // CLEAR TEXT ON TEXTAREA
 
             var element = "";
-            element += "<li class='in'>";
-            element += "<img class='avatar' src='https://s3.amazonaws.com/uifaces/faces/twitter/kolage/48.jpg'>";
+            element += "<li class='out'>";
+            element += "<img class='avatar' src='https://s3.amazonaws.com/uifaces/faces/twitter/mijustin/128.jpg'>";
             element += "<div class='message'>";
             element += "<span class='chat-arrow'></span>";
             element += "<a class='chat-name' href='#'>Admin &nbsp;</a>";
@@ -122,4 +123,16 @@ $(function (){
             });
         }
     });
+
+    var funs = {
+        goPage: function (pageName) {
+            $("#mainWrap").load(pageName, function () {
+
+            })
+        }
+    }
+    $(".productName").on("click", function () {
+        funs.goPage("../Detail/Index");
+    })
+
 })

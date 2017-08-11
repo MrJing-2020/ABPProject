@@ -44,11 +44,28 @@
 .bs-bars.pull-left {
     margin-top:0px !important;
 }
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 #wrapper {
-    margin-top: 50px;
+    height: 100% !important;
+    width: 100%;
+}
+#page-wrapper {
+    /*height:100% !important;*/
+}
+.navbar-static-side {
+    height: 100%;
+    width: 100%;
+    position:fixed !important;
+    padding-top:50px !important;
 }
 #vue-app {
-    padding-bottom:20px
+    padding-bottom: 20px;
+    min-height: 100% !important;
 }
 .daterangepicker {
     top: 91px !important;

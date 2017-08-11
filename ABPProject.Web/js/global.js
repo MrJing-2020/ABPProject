@@ -1,4 +1,5 @@
-﻿getSelections = [];
+﻿;
+getSelections = [];
 var g_table
 var g_remove
 var g_delConfirmed
@@ -99,3 +100,4 @@ function submitCancel() {
     $("#tab-list a:first").trigger("click");
     $(".tab-hidden").css("display", "none");
 }
+;

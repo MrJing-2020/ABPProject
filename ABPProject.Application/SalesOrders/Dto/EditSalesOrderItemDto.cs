@@ -15,7 +15,7 @@ namespace ABPProject.SalesOrders.Dto
         /// <summary>
         /// 产品编号
         /// </summary>
-        public virtual string Inventid { get; set; }
+        public virtual string InventId { get; set; }
         /// <summary>
         /// 产品批次
         /// </summary>

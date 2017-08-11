@@ -13,5 +13,9 @@ namespace ABPProject.Web.Controllers
         {
             return View();
         }
+        public ActionResult IndexMain()
+        {
+            return View();
+        }
     }
 }

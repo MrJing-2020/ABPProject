@@ -70,9 +70,9 @@ namespace ABPProject.Web
                     "~/Content/vendors/intro.js/introjs.css",
                     "~/Content/vendors/calendar/zabuto_calendar.min.css",
                     "~/Content/vendors/sco.message/sco.message.css",
-                    "~/Content/vendors/intro.js/introjs.css",
+                    //"~/Content/vendors/intro.js/introjs.css",
                     "~/Content/vendors/animate.css/animate.css",
-                    "~/Content/vendors/jquery-pace/pace.css",
+                    //"~/Content/vendors/jquery-pace/pace.css",
                     "~/Content/vendors/iCheck/skins/all.css",
                     "~/Content/vendors/jquery-notific8/jquery.notific8.min.css",
                     "~/Content/vendors/bootstrap-daterangepicker/daterangepicker-bs3.css",
@@ -134,7 +134,7 @@ namespace ABPProject.Web
                 .Include(
                 "~/css/base.css",
                 "~/css/common.css",
-                "~/css/font-awesome//4.5.0/css/font-awesome.min.css",
+                "~/css/font-awesome/4.5.0/css/font-awesome.min.css",
                 "~/css/layer/mobile/need/layer.css",
                 "~/css/layui/css/layui.css",
                 "~/css/orange-blue.css",
@@ -158,10 +158,7 @@ namespace ABPProject.Web
                 new StyleBundle("~/Home/css")
                 .Include(
                 "~/css/base.css",
-                //"~/css/common.css",
-                "~/css/font-awesome//4.5.0/css/font-awesome.min.css",
-                //"~/css/layer/mobile/need/layer.css",
-                //"~/css/layui/css/layui.css",
+                "~/css/font-awesome/4.5.0/css/font-awesome.min.css",
                 "~/css/owl.carousel.css",
                 "~/css/owl.theme.css",
                 "~/Views/Home/index.css"
@@ -172,11 +169,23 @@ namespace ABPProject.Web
                 new ScriptBundle("~/Home/js")
                 .Include(
                 "~/js/jquery.min.js",
-                //"~/css//layer/layer.js",
-                //"~/css/layui/layui.js",
-                //"~/js/common.js",
                 "~/js/owl.carousel.js",
                 "~/Views/Home/index.js"
+                )
+            );
+
+            bundles.Add(
+                new StyleBundle("~/Detail/css").
+                Include(
+                "~/css/swiper.min.css",
+                "~/Views/Detail/index.css"
+                )
+            );
+
+            bundles.Add(
+                new ScriptBundle("~/Detail/js").Include(
+                "~/js/swiper.min.js",
+                "~/Views/Detail/index.js"
                 )
             );
         }

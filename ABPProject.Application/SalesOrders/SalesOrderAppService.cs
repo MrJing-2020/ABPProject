@@ -37,15 +37,14 @@ namespace ABPProject.SalesOrders
         {
             PageArgDto input = new PageArgDto(pageArg);
             int count = 0;
-            IQueryable<SalesOrder> salesOrder = null;
+            IQueryable<SalesOrder> salesOrder = _salesOrderRepository.GetAllIncluding(m => m.SalesOrderItem);
             if (!string.IsNullOrEmpty(input.SearchText))
             {
-                salesOrder = _salesOrderRepository.GetAll().Where(m => m.SalesName.Contains(input.SearchText) || m.SalesId.Contains(input.SearchText));
+                salesOrder = salesOrder.Where(m => m.SalesName.Contains(input.SearchText) || m.SalesId.Contains(input.SearchText));
                 count = salesOrder.Count();
             }
             else
             {
-                salesOrder = _salesOrderRepository.GetAll();
                 count = _salesOrderRepository.Count();
             }
             if (!string.IsNullOrEmpty(input.SortName))
@@ -60,7 +59,12 @@ namespace ABPProject.SalesOrders
                 //默认按时间降序
                 salesOrder = salesOrder.OrderByDescending(m => m.CreationTime).PageBy(input.PageInput);
             }
-            return new PagedResultDto<SalesOrderListDto>(count, salesOrder.MapTo<List<SalesOrderListDto>>());
+            var resultList = salesOrder.ToList().MapTo<List<SalesOrderListDto>>();
+            foreach (var item in resultList)
+            {
+                item.SalesOrderItems = salesOrder.Where(m => m.Id == item.Id).FirstOrDefault().SalesOrderItem.MapTo<List<SalesOrderItemListDto>>();
+            }
+            return new PagedResultDto<SalesOrderListDto>(count, resultList);
         }
 
         public EditSalesOrderInput GetSalesOrderById(OneParam param)
@@ -71,21 +75,13 @@ namespace ABPProject.SalesOrders
             return salesOrderDto;
         }
 
-        //public async Task EditSalesOrder(EditSalesOrderInput input)
-        //{
-        //    var id = input.Id;
-        //    if (id == null)
-        //    {
-        //        var salesOrder = input.MapTo<SalesOrder>();
-        //        await _salesOrderRepository.InsertAsync(salesOrder);
-        //    }
-        //    else
-        //    {
-        //        var oldSalesOrder = await _salesOrderRepository.GetAsync((int)id);
-        //        oldSalesOrder.Name = input.Name;
-        //        oldSalesOrder.Description = input.Description;
-        //    }
-        //}
+        public async Task EditSalesOrder(EditSalesOrderInput input)
+        {
+           var salesOrder = input.MapTo<SalesOrder>();
+           var salesOrderItems = input.SalesOrderItems.MapTo<SalesOrderItem>();
+           await _salesOrderRepository.InsertOrUpdateAsync(salesOrder);
+           await _salesOrderItemRepository.InsertOrUpdateAsync(salesOrderItems);
+        }
 
         [UnitOfWork]
         public async Task DeleteSalesOrder(ArrayParams param)

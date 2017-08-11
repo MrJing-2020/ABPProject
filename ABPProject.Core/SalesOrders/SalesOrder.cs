@@ -51,6 +51,10 @@ namespace ABPProject.SalesOrders
         /// </summary>
         public virtual string PostCode { get; set; }
         /// <summary>
+        /// 配送方式
+        /// </summary>
+        public virtual string DistributionMode { get; set; }
+        /// <summary>
         /// 手机
         /// </summary>
         public virtual string MobilePhone { get; set; }
