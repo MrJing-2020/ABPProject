@@ -5,8 +5,6 @@
             data: {
                 formItem: {},
                 abpService: abp.services.app.role,
-                $table: $('#table-data'),
-                $remove: $('#table-remove'),
                 deleteId: null,
                 setPermissionRoleId: null,
                 allPermissons: [],
@@ -111,11 +109,11 @@
                 getRoleById(id) {
                     var that = this
                     var postData = { "id": id }
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     this.abpService.getRoleById(postData).done(function (res) {
                         that.formItem = res;
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                     });
                 },
 
@@ -132,11 +130,11 @@
                         return;
                     }
                     var postData = this.formItem;
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     this.abpService.editRole(postData).done(function () {
                         location.reload(true);
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                     });
                 },
 
@@ -144,11 +142,11 @@
                 deleteItem(params) {
                     var that = this
                     var postData = { "ids": params.ids }
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     that.abpService.deleteRole(postData).done(function (res) {
                         params.callBack()
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                         $(".del-confirm").modal('hide');
                     });
                 },
@@ -177,23 +175,23 @@
                 getPermissionsByRole(id) {
                     var that = this
                     var postData = { "id": id }
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     this.abpService.getPermissionsByRole(postData).done(function (res) {
                         that.allPermissons = res.allPermissons;
                         that.rolePermissions = res.rolePermissions
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                     });
                 },
                 subSetPermission() {
                     var that = this
                     var postData = { "RoleId": that.setPermissionRoleId, "GrantedPermissionNames": that.rolePermissions }
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     this.abpService.updateRolePermissions(postData).done(function () {
                         that.setRoleUserId = null
                         submitCancel();
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                     });
                 }
             }

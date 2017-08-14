@@ -3,10 +3,8 @@
         var app = new Vue({
             el: '#vue-app',
             data: {
-                formItem: {},
+                formItem: { salesOrderItems :[{}] },
                 abpService: abp.services.app.salesOrder,
-                $table: $('#table-data'),
-                $remove: $('#table-remove'),
                 deleteId: null
             },
             //生命周期钩子（vue替换dom完成之后执行）
@@ -105,23 +103,25 @@
                         deleteItem: that.deleteItem,
                         detailFormatter: detailFormatter
                     });
+                    console.log(that.formItem)
                 },
 
                 //根据id获取详情
                 getSalesOrderById(id) {
                     var that = this
                     var postData = { "id": id }
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     this.abpService.getSalesOrderById(postData).done(function (res) {
                         that.formItem = res;
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                     });
                 },
 
                 //编辑和新增
                 createItem() {
                     this.formItem = {};
+                    this.formItem.salesOrderItems = [{}];
                     $("#tab-edit a:first").trigger("click");
                 },
                 subFormData(e) {
@@ -132,11 +132,11 @@
                         return;
                     }
                     var postData = this.formItem;
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     this.abpService.editSalesOrder(postData).done(function () {
                         location.reload(true);
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                     });
                 },
 
@@ -144,11 +144,11 @@
                 deleteItem(params) {
                     var that = this
                     var postData = { "ids": params.ids }
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     that.abpService.deleteSalesOrder(postData).done(function (res) {
                         params.callBack()
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                         $(".del-confirm").modal('hide');
                     });
                 },

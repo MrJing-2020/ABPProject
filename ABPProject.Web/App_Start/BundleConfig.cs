@@ -36,9 +36,10 @@ namespace ABPProject.Web
                     .Include(
                         "~/Scripts/vue.js",
                         "~/Scripts/json2.min.js",
-                        "~/Scripts/jquery-2.2.0.min.js",
+                        "~/Content/js/jquery-1.10.2.min.js",
+                        //"~/Scripts/jquery-2.2.0.min.js",
                         "~/Scripts/jquery-ui-1.11.4.min.js",
-                        "~/Scripts/bootstrap.min.js",
+                        "~/Content/vendors/bootstrap/js/bootstrap.min.js",
                         "~/Scripts/moment-with-locales.min.js",
                         "~/Content/vendors/jquery-validate/jquery.validate.min.js",
                         "~/Scripts/messages_zh.js",
@@ -75,6 +76,7 @@ namespace ABPProject.Web
                     //"~/Content/vendors/jquery-pace/pace.css",
                     "~/Content/vendors/iCheck/skins/all.css",
                     "~/Content/vendors/jquery-notific8/jquery.notific8.min.css",
+                    "~/Content/vendors/bootstrap-datepicker/css/bootstrap-datepicker.min.css",
                     "~/Content/vendors/bootstrap-daterangepicker/daterangepicker-bs3.css",
                     "~/css/main-custom.css"
                     )
@@ -88,7 +90,6 @@ namespace ABPProject.Web
                     //"~/Content/js/jquery-1.10.2.min.js",
                     "~/Content/js/jquery-migrate-1.2.1.min.js",
                     "~/Content/vendors/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js",
-
                     "~/Content/vendors/metisMenu/jquery.metisMenu.js",
                     "~/Content/vendors/slimScroll/jquery.slimscroll.js",
                     "~/Content/vendors/jquery-cookie/jquery.cookie.js",
@@ -101,6 +102,7 @@ namespace ABPProject.Web
                     "~/Content/vendors/jquery-news-ticker/jquery.newsTicker.min.js",
                     "~/Content/vendors/moment/moment.js",
                     "~/Content/vendors/bootstrap-datepicker/js/bootstrap-datepicker.js",
+                    "~/Content/vendors/bootstrap-datepicker/js/bootstrap-datepicker.zh-CN.min.js",
                     "~/Content/vendors/bootstrap-daterangepicker/daterangepicker.js",
                     "~/Content/js/main.js",
                     "~/Content/vendors/intro.js/intro.js",
@@ -137,7 +139,7 @@ namespace ABPProject.Web
                 "~/css/font-awesome/4.5.0/css/font-awesome.min.css",
                 "~/css/layer/mobile/need/layer.css",
                 "~/css/layui/css/layui.css",
-                "~/css/orange-blue.css",
+                "~/css/orange.css",
                 "~/Views/Product/index.css"
                 )
             );

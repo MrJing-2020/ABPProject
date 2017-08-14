@@ -29,6 +29,7 @@
     <text name="Capital" value="资金" />
     <text name="Product" value="产品" />
     <text name="SalesOrder" value="销售订单" />
+    <text name="PurchaseOrder" value="采购订单" />
 
     <text name="P_User" value="用户管理" />
     <text name="P_UserCreate" value="用户创建" />

@@ -47,7 +47,7 @@
                     <div id="itemlist" class="tab-pane fade in active">
                         <div id="toolbar">
                             <button data-toggle="modal" data-target="#deleleAll-confirm" id="table-remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> 删除</button>
-                            <button data-toggle="modal" v-on:click="createItem" id="createNewItem" class="btn btn-primary"><i class="fa fa-plus"></i>创建产品</button>
+                            <button data-toggle="modal" v-on:click="createItem" id="createNewItem" class="btn btn-primary"><i class="fa fa-plus"></i>创建销售订单</button>
                         </div>
                         <table id="table-data"
                                data-toolbar="#toolbar"
@@ -181,42 +181,44 @@
                                             </div>
                                         </div>
                                         <h3>商品</h3>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="inputAddress1" class="col-md-3 control-label">
-                                                        产品编号 <span class='require'>*</span>
-                                                    </label>
-                                                    <div class="col-md-9">
-                                                        <input v-model="formItem.inventId" type="text" class="form-control" />
+                                        <div v-for="salesOrderItem in formItem.salesOrderItems">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="inputAddress1" class="col-md-3 control-label">
+                                                            产品编号 <span class='require'>*</span>
+                                                        </label>
+                                                        <div class="col-md-9">
+                                                            <input v-model="salesOrderItem.inventId" type="text" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="inputAddress2" class="col-md-3 control-label">批次号</label>
+                                                        <div class="col-md-9">
+                                                            <input v-model="salesOrderItem.inventBatch" type="text" placeholder="" class="form-control" />
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="inputAddress2" class="col-md-3 control-label">批次号</label>
-                                                    <div class="col-md-9">
-                                                        <input v-model="formItem.inventBatch" type="text" placeholder="" class="form-control" />
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="inputStates" class="col-md-3 control-label">销售单价</label>
+                                                        <div class="col-md-9">
+                                                            <input v-model="salesOrderItem.purchCount" type="text" class="form-control" />
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="inputStates" class="col-md-3 control-label">销售单价</label>
-                                                    <div class="col-md-9">
-                                                        <input v-model="formItem.purchCount" type="text" class="form-control" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="inputCity" class="col-md-3 control-label">
-                                                        数量 <span class='require'>*</span>
-                                                    </label>
-                                                    <div class="col-md-9">
-                                                        <input v-model="formItem.purchPrice" type="text" class="form-control" />
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="inputCity" class="col-md-3 control-label">
+                                                            数量 <span class='require'>*</span>
+                                                        </label>
+                                                        <div class="col-md-9">
+                                                            <input v-model="salesOrderItem.purchPrice" type="text" class="form-control" />
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

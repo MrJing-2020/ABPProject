@@ -49,6 +49,7 @@ namespace ABPProject.Authorization
             var projectEdit = project.CreateChildPermission(PermissionNames.Project_Edit, L("P_ProjectEdit"));
             var projectDelete = project.CreateChildPermission(PermissionNames.Project_Delete, L("P_ProjectDelete"));
 
+            //产品模块相关
             var product = context.GetPermissionOrNull(PermissionNames.Product);
             if (product == null)
             {
@@ -58,6 +59,7 @@ namespace ABPProject.Authorization
             var productEdit = product.CreateChildPermission(PermissionNames.Product_Edit, L("P_ProductEdit"));
             var productDelete = product.CreateChildPermission(PermissionNames.Product_Delete, L("P_ProductDelete"));
 
+            //销售订单模块相关
             var salesOrder = context.GetPermissionOrNull(PermissionNames.SalesOrder);
             if (salesOrder == null)
             {
@@ -66,6 +68,16 @@ namespace ABPProject.Authorization
             var salesOrderCreate = salesOrder.CreateChildPermission(PermissionNames.SalesOrder_Create, L("P_SalesOrderCreate"));
             var salesOrderEdit = salesOrder.CreateChildPermission(PermissionNames.SalesOrder_Edit, L("P_SalesOrderEdit"));
             var salesOrderDelete = salesOrder.CreateChildPermission(PermissionNames.SalesOrder_Delete, L("P_SalesOrderDelete"));
+
+            //销售订单模块相关
+            var purchaseOrder = context.GetPermissionOrNull(PermissionNames.PurchaseOrder);
+            if (purchaseOrder == null)
+            {
+                purchaseOrder = context.CreatePermission(PermissionNames.PurchaseOrder, L("P_PurchaseOrder"));
+            }
+            var purchaseOrderCreate = purchaseOrder.CreateChildPermission(PermissionNames.PurchaseOrder_Create, L("P_PurchaseOrderCreate"));
+            var purchaseOrderEdit = purchaseOrder.CreateChildPermission(PermissionNames.PurchaseOrder_Edit, L("P_PurchaseOrderEdit"));
+            var purchaseOrderDelete = purchaseOrder.CreateChildPermission(PermissionNames.PurchaseOrder_Delete, L("P_PurchaseOrderDelete"));
         }
 
         private static ILocalizableString L(string name)

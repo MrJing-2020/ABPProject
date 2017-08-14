@@ -51,5 +51,15 @@ namespace ABPProject.Web.Controllers
         {
             return PartialView("_Right");
         }
+        [ChildActionOnly]
+        public PartialViewResult ProductTop()
+        {
+            return PartialView("_ProductTop");
+        }
+        [ChildActionOnly]
+        public PartialViewResult Chatbox()
+        {
+            return PartialView("_Chat");
+        }
     }
 }

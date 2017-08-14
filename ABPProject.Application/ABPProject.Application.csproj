@@ -143,6 +143,12 @@
     <Compile Include="Projects\IProjectAppService.cs" />
     <Compile Include="Projects\ProjectAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseOrders\Dto\EditPurchaseOrderInput.cs" />
+    <Compile Include="PurchaseOrders\Dto\EditPurchaseOrderItemDto.cs" />
+    <Compile Include="PurchaseOrders\Dto\PurchaseOrderItemListDto.cs" />
+    <Compile Include="PurchaseOrders\Dto\PurchaseOrderListDto.cs" />
+    <Compile Include="PurchaseOrders\IPurchaseOrderAppService.cs" />
+    <Compile Include="PurchaseOrders\PurchaseOrderAppService.cs" />
     <Compile Include="Roles\Dto\EditUserInput.cs" />
     <Compile Include="Roles\Dto\PermissionGroupDto.cs" />
     <Compile Include="Roles\Dto\PermissionListDto.cs" />

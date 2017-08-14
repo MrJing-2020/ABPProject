@@ -5,8 +5,6 @@
             data: {
                 formItem: {},
                 abpService: abp.services.app.product,
-                $table: $('#table-data'),
-                $remove: $('#table-remove'),
                 deleteId: null
             },
             //生命周期钩子（vue替换dom完成之后执行）
@@ -103,11 +101,11 @@
                 getProductById(id) {
                     var that = this
                     var postData = { "id": id }
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     this.abpService.getProductById(postData).done(function (res) {
                         that.formItem = res;
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                     });
                 },
 
@@ -124,11 +122,11 @@
                         return;
                     }
                     var postData = this.formItem;
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     this.abpService.editProduct(postData).done(function () {
                         location.reload(true);
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                     });
                 },
 
@@ -136,11 +134,11 @@
                 deleteItem(params) {
                     var that = this
                     var postData = { "ids": params.ids }
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     that.abpService.deleteProduct(postData).done(function (res) {
                         params.callBack()
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                         $(".del-confirm").modal('hide');
                     });
                 },

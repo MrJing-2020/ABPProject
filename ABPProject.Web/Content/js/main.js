@@ -1,4 +1,4 @@
-$(function () {
+﻿$(function () {
     //BEGIN MENU SIDEBAR
     $('#sidebar').css('min-height', '100%');
     $('#side-menu').metisMenu();
@@ -443,12 +443,12 @@ $(function () {
     $('.reportrange').daterangepicker(
         {
             ranges: {
-                'Today': [moment(), moment()],
-                'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
-                'Last 7 Days': [moment().subtract('days', 6), moment()],
-                'Last 30 Days': [moment().subtract('days', 29), moment()],
-                'This Month': [moment().startOf('month'), moment().endOf('month')],
-                'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+                '今天': [moment(), moment()],
+                '昨天': [moment().subtract('days', 1), moment().subtract('days', 1)],
+                '最近7天': [moment().subtract('days', 6), moment()],
+                '最近30天': [moment().subtract('days', 29), moment()],
+                '这个月': [moment().startOf('month'), moment().endOf('month')],
+                '上个月': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
             },
             startDate: moment().subtract('days', 29),
             endDate: moment(),
@@ -462,6 +462,7 @@ $(function () {
     );
     $('.reportrange span').html(moment().subtract('days', 29).format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
     //END PLUGINS DATE RANGE PICKER
+    $('.datepicker-default').datepicker();
 });
 
 

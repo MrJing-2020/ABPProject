@@ -27,7 +27,7 @@ $(function () {
         if (e.which == 13) {
             var content = $obj.val();
             showMessageISend(content);
-            mainHub.server.sendMessage(5, content);
+            mainHub.server.sendMessage(3, content);
         }
     });
     $('.chat-form span#btn-chat').on("click", function (e) {
@@ -36,7 +36,7 @@ $(function () {
         var $me = $obj.parents('.portlet-body').find('ul.chats');
         var content = $obj.val();
         showMessageISend(content)
-        mainHub.server.sendMessage(5,content);
+        mainHub.server.sendMessage(3,content);
     });
 
     function toChatEnd() {

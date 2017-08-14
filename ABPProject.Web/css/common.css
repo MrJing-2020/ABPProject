@@ -139,6 +139,9 @@
 	height: 86px;
 	margin-right: 80px;
 }
+.btns > a:hover{
+    color: #fff;
+}
 .hotSearch{
 	margin: 15px 0 5px;
 }

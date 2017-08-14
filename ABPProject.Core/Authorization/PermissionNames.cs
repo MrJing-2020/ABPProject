@@ -31,5 +31,10 @@
         public const string SalesOrder_Create = "SalesOrder.Create";
         public const string SalesOrder_Edit = "SalesOrder.Edit";
         public const string SalesOrder_Delete = "SalesOrder.Delete";
+
+        public const string PurchaseOrder = "PurchaseOrder";
+        public const string PurchaseOrder_Create = "PurchaseOrder.Create";
+        public const string PurchaseOrder_Edit = "PurchaseOrder.Edit";
+        public const string PurchaseOrder_Delete = "PurchaseOrder.Delete";
     }
 }

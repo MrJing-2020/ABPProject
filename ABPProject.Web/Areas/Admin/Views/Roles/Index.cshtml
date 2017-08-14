@@ -40,7 +40,7 @@
                             <a href="#itemlist" data-toggle="tab">列表</a>
                         </li>
                         <li id="tab-edit">
-                            <a href="#createItem" data-toggle="tab">新增角色</a>
+                            <a href="#createItem" data-toggle="tab">新增/编辑角色</a>
                         </li>
                         <li id="tab-permisssion" style="display:none" class="tab-hidden">
                             <a href="#setPermission" data-toggle="tab">权限设置</a>
@@ -70,7 +70,7 @@
                         </div>
                         <div id="createItem" class="tab-pane fade">
                             <div class="panel panel-primary">
-                                <div class="panel-heading">创建新角色</div>
+                                <div class="panel-heading">编辑角色</div>
                                 <div class="panel-body pan">
                                     <form name="editItemForm" id="editItemForm" role="form" novalidate class="form-validation form-horizontal">
                                         <input v-model="formItem.id" class="form-control" type="hidden" name="id" id="id">
@@ -111,37 +111,26 @@
                                 <div class="panel-body pan">
                                     <form action="#" class="form-horizontal form-seperated">
                                         <div class="form-body pal">
-                                            @*<div class="form-group mbn">
-                                                <label for="inputContent" class="col-md-2 control-label">权限</label>
-                                                <div class="col-md-9">
-                                                    <div class="row">
-                                                        <div class="col-md-4" v-for="permission of allPermissons">
-                                                            <input :id="permission.name" v-model="rolePermissions" :value="permission.name" class="checkbox-custom" type="checkbox">
-                                                            <label :for="permission.name" style="width:100%" class="checkbox-lable-custom">{{permission.displayName}}（{{permission.name}}）</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>*@
-                                            <div class="form-group mbn" v-for="permission of allPermissons">
-                                                <div  class="col-md-3">
+                                            <div class="form-group mbn" v-for="permission in allPermissons">
+                                                <div  class="col-md-2">
                                                     <div class="row">
                                                         <div class="col-md-10">
                                                             <input :id="permission.name" v-model="rolePermissions" :value="permission.name" class="checkbox-custom" type="checkbox">
-                                                            <label for="permission.name" style="width:100%" class="checkbox-lable-custom">{{permission.displayName}}（{{permission.name}}）:</label>
+                                                            <label :for="permission.name" style="width:100%" class="checkbox-lable-custom">{{permission.displayName}}:</label>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-9">
+                                                <div class="col-md-10">
                                                     <div class="row">
-                                                        <div class="col-md-4" v-for="permissionChild of permission.permissionGroups">
+                                                        <div class="col-md-2" v-for="permissionChild of permission.permissionGroups">
                                                             <input :id="permissionChild.name" v-model="rolePermissions" :value="permissionChild.name" class="checkbox-custom" type="checkbox">
-                                                            <label :for="permissionChild.name" style="width:100%" class="checkbox-lable-custom">{{permissionChild.displayName}}（{{permissionChild.name}}）</label>
+                                                            <label :for="permissionChild.name" style="width:100%" class="checkbox-lable-custom">{{permissionChild.displayName}}</label>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-actions">
+                                        <div class="form-actions text-right">
                                             <div class="col-md-offset-2 col-md-10">
                                                 <button onclick="submitCancel()" type="button" class="btn btn-default submit-cancel">取消</button>
                                                 <button v-on:click="subSetPermission" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>

@@ -133,6 +133,8 @@
     <Compile Include="Authorization\Roles\Role.cs" />
     <Compile Include="Authorization\Roles\RoleManager.cs" />
     <Compile Include="Authorization\Roles\RoleStore.cs" />
+    <Compile Include="PurchaseOrders\PurchaseOrder.cs" />
+    <Compile Include="PurchaseOrders\PurchaseOrderItem.cs" />
     <Compile Include="SalesOrders\SalesOrder.cs" />
     <Compile Include="SalesOrders\SalesOrderItem.cs" />
     <Compile Include="SalesOrders\SalesOrderManager.cs" />

@@ -9,6 +9,6 @@ $(function () {
     });
 
     $(".back").on("click", function () {
-        funs.goPage("../Product/IndexMain");
+        location.href = "../Product/Index";
     })
 })

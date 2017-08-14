@@ -316,6 +316,7 @@
     <Content Include="Areas\Admin\Views\Home\index.js" />
     <Content Include="Areas\Admin\Views\Product\index.js" />
     <Content Include="Areas\Admin\Views\Project\index.js" />
+    <Content Include="Areas\Admin\Views\PurchaseOrder\index.js" />
     <Content Include="Areas\Admin\Views\Roles\index.js" />
     <Content Include="Areas\Admin\Views\SalesOrder\index.js" />
     <Content Include="Areas\Admin\Views\Tenants\Index.js" />
@@ -430,9 +431,13 @@
     <Content Include="Content\vendors\bootstrap-clockface\js\clockface.js" />
     <Content Include="Content\vendors\bootstrap-colorpicker\css\colorpicker.css" />
     <Content Include="Content\vendors\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
+    <Content Include="Content\vendors\bootstrap-datepicker\css\bootstrap-datepicker.min.css" />
+    <Content Include="Content\vendors\bootstrap-datepicker\css\bootstrap-datepicker3.min.css" />
     <Content Include="Content\vendors\bootstrap-datepicker\css\datepicker.css" />
     <Content Include="Content\vendors\bootstrap-datepicker\css\datepicker3.css" />
     <Content Include="Content\vendors\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="Content\vendors\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
+    <Content Include="Content\vendors\bootstrap-datepicker\js\bootstrap-datepicker.zh-CN.min.js" />
     <Content Include="Content\vendors\bootstrap-daterangepicker\daterangepicker-bs3.css" />
     <Content Include="Content\vendors\bootstrap-daterangepicker\daterangepicker.js" />
     <Content Include="Content\vendors\bootstrap-datetimepicker\build\css\bootstrap-datetimepicker.min.css" />
@@ -804,7 +809,6 @@
     <Content Include="css\layui\css\modules\layer\default\loading-0.gif" />
     <Content Include="css\layui\css\modules\layer\default\loading-1.gif" />
     <Content Include="css\layui\css\modules\layer\default\loading-2.gif" />
-    <Content Include="css\layui\font\iconfont.svg" />
     <Content Include="css\layui\images\face\0.gif" />
     <Content Include="css\layui\images\face\1.gif" />
     <Content Include="css\layui\images\face\10.gif" />
@@ -900,7 +904,7 @@
     <Content Include="css\main.min.css">
       <DependentUpon>main.css</DependentUpon>
     </Content>
-    <Content Include="css\orange-blue.css" />
+    <Content Include="css\orange.css" />
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\owl.theme.css" />
     <Content Include="css\swiper.min.css" />
@@ -998,6 +1002,7 @@
     <Content Include="css\font-awesome\4.5.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="css\font-awesome\4.5.0\fonts\fontawesome-webfont.woff" />
     <Content Include="css\font-awesome\4.5.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Admin\Views\PurchaseOrder\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap-table-editable.js" />
     <Content Include="Scripts\bootstrap-table-export.js" />
@@ -1057,6 +1062,7 @@
     <Content Include="Views\Detail\index.js" />
     <Content Include="Views\Home\index.css" />
     <Content Include="Views\Home\index.js" />
+    <Content Include="Views\Product\indexMain.js" />
     <Content Include="Views\Product\product.js" />
     <Content Include="Views\Product\index.css" />
     <Content Include="Views\Product\index.js" />
@@ -1078,6 +1084,7 @@
     <Compile Include="Areas\Admin\Controllers\LayoutController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProjectController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PurchaseOrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\SalesOrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\TenantsController.cs" />

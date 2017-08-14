@@ -1,4 +1,13 @@
-$(function (){
+var funs = {
+    goPage: function (pageName) {
+        $("#mainWrap").load(pageName, function () {
+
+        })
+    }
+}
+
+
+$(function () {
 	
 	/*增加筛选条件*/
 	$(".breedInner > a > span").click(function (){
@@ -28,10 +37,10 @@ $(function (){
     })
 
     /*洽谈*/
-    $(".proBtn").click(function () {
+    $("#mainWrap").on("click", ".proBtn", function () {
         $(".chatBox").show();
     })
-    $(".closeChat").click(function () {
+    $(".closeChat").on("click", function () {
         $(".chatBox").hide();
     })
 
@@ -61,7 +70,7 @@ $(function (){
 
                 var element = "";
                 element += "<li class='out'>";
-                element += "<img class='avatar' src='https://s3.amazonaws.com/uifaces/faces/twitter/mijustin/128.jpg'>";
+                element += "<img class='avatar' src='../../images/128.jpg'>";
                 element += "<div class='message'>";
                 element += "<span class='chat-arrow'></span>";
                 element += "<a class='chat-name' href='#'>Admin &nbsp;</a>";
@@ -101,7 +110,7 @@ $(function (){
 
             var element = "";
             element += "<li class='out'>";
-            element += "<img class='avatar' src='https://s3.amazonaws.com/uifaces/faces/twitter/mijustin/128.jpg'>";
+            element += "<img class='avatar' src='../../images/128.jpg'>";
             element += "<div class='message'>";
             element += "<span class='chat-arrow'></span>";
             element += "<a class='chat-name' href='#'>Admin &nbsp;</a>";
@@ -123,16 +132,9 @@ $(function (){
             });
         }
     });
-
-    var funs = {
-        goPage: function (pageName) {
-            $("#mainWrap").load(pageName, function () {
-
-            })
-        }
-    }
-    $(".productName").on("click", function () {
-        funs.goPage("../Detail/Index");
+    
+    $("#mainWrap").on("click", ".productName", function () {
+        location.href = "../Detail/Index";
     })
 
 })

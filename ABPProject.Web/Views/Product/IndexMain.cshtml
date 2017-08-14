@@ -3,6 +3,19 @@
 @{
     ViewBag.Title = "IndexMain";
 }
+
+
+@section styles
+{
+    @Styles.Render("~/Product/css")
+}
+
+@section scripts
+{
+    @*@Scripts.Render("~/Product/js")*@
+    @Html.IncludeScript("~/Views/Product/indexMain.js")
+}
+
 <h3 class="wrapTitle">自营商城</h3>
 <form action="javascript:;">
     <div class="breed">

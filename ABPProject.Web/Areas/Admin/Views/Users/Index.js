@@ -6,8 +6,6 @@
                 formItem: {},
                 abpService: abp.services.app.user,
                 abpRoleService: abp.services.app.role,
-                $table: $('#table-data'),
-                $remove: $('#table-remove'),
                 deleteId: null,
                 allRoles: [],
                 selectedRoles: [],
@@ -98,11 +96,11 @@
                 getUserById(id) {
                     var that = this
                     var postData = { "id": id }
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     this.abpService.getUserById(postData).done(function (res) {
                         that.formItem = res;
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                     });
                 },
 
@@ -110,11 +108,11 @@
                 deleteItem(params) {
                     var that = this
                     var postData = { "ids": params.ids }
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     that.abpService.deleteUser(postData).done(function (res) {
                         params.callBack()
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                         $(".del-confirm").modal('hide');
                     });
                 },
@@ -146,11 +144,11 @@
                         return;
                     }
                     var postData = this.formItem;
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     this.abpService.createUser(postData).done(function () {
                         location.reload(true);
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                     });
                 },
 
@@ -164,23 +162,23 @@
                 getRolesByUser(id) {
                     var that = this
                     var postData = { "id": id }
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     this.abpRoleService.getRolesByUser(postData).done(function (res) {
                         that.allRoles = res.allRoles;
                         that.selectedRoles = res.inRoles
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                     });
                 },
                 subSetRoles() {
                     var that = this
                     var postData = { "key": that.setRoleUserId, "values": that.selectedRoles }
-                    abp.ui.setBusy($("html"));
+                    abp.ui.setBusy($("#vue-app"));
                     this.abpService.addToRoles(postData).done(function () {
                         that.setRoleUserId = null
                         submitCancel();
                     }).always(function () {
-                        abp.ui.clearBusy($("html"));
+                        abp.ui.clearBusy($("#vue-app"));
                     });
                 }
             }

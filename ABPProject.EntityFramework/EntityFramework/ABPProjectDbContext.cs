@@ -7,6 +7,7 @@ using ABPProject.Products;
 using System.Data.Entity;
 using ABPProject.Projects;
 using ABPProject.SalesOrders;
+using ABPProject.PurchaseOrders;
 
 namespace ABPProject.EntityFramework
 {
@@ -17,6 +18,8 @@ namespace ABPProject.EntityFramework
         public IDbSet<Project> Projects { get; set; }
         public IDbSet<SalesOrder> SalesOrders { get; set; }
         public IDbSet<SalesOrderItem> SalesOrderItems { get; set; }
+        public IDbSet<PurchaseOrder> PurchaseOrders { get; set; }
+        public IDbSet<PurchaseOrderItem> PurchaseOrderItems { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.

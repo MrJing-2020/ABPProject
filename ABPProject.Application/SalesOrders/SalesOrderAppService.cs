@@ -16,7 +16,7 @@ using Abp.Authorization;
 
 namespace ABPProject.SalesOrders
 {
-    //[AbpAuthorize(PermissionNames.SalesOrder)]
+    [AbpAuthorize(PermissionNames.SalesOrder)]
     public class SalesOrderAppService: ABPProjectAppServiceBase, ISalesOrderAppService
     {
         private readonly SalesOrderManager _salesOrderManager;
@@ -78,9 +78,13 @@ namespace ABPProject.SalesOrders
         public async Task EditSalesOrder(EditSalesOrderInput input)
         {
            var salesOrder = input.MapTo<SalesOrder>();
-           var salesOrderItems = input.SalesOrderItems.MapTo<SalesOrderItem>();
+           salesOrder.DeliveryDate = DateTime.Now;
+           var salesOrderItems = input.SalesOrderItems.MapTo<List<SalesOrderItem>>();
            await _salesOrderRepository.InsertOrUpdateAsync(salesOrder);
-           await _salesOrderItemRepository.InsertOrUpdateAsync(salesOrderItems);
+            foreach (var item in salesOrderItems)
+            {
+                await _salesOrderItemRepository.InsertOrUpdateAsync(item);
+            }
         }
 
         [UnitOfWork]

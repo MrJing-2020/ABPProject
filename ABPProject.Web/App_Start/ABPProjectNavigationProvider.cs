@@ -67,6 +67,15 @@ namespace ABPProject.Web
                         requiresAuthentication: true,
                         requiredPermissionName: PermissionNames.SalesOrder
                         )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        "PurchaseOrder",
+                        L("PurchaseOrder"),
+                        url: "Admin/PurchaseOrder",
+                        icon: "fa fa-barcode",
+                        requiresAuthentication: true,
+                        requiredPermissionName: PermissionNames.PurchaseOrder
+                        )
                 )
               //  .AddItem(
               //      new MenuItemDefinition(

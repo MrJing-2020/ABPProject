@@ -74,6 +74,5 @@ D:\项目\GitRepository\ABPProject\ABPProject.Core\bin\Debug\Nito.AsyncEx.Concur
 D:\项目\GitRepository\ABPProject\ABPProject.Core\bin\Debug\Nito.AsyncEx.Enlightenment.xml
 D:\项目\GitRepository\ABPProject\ABPProject.Core\bin\Debug\System.Collections.Immutable.xml
 D:\项目\GitRepository\ABPProject\ABPProject.Core\bin\Debug\System.Linq.Dynamic.Core.xml
-D:\项目\GitRepository\ABPProject\ABPProject.Core\obj\Debug\ABPProject.Core.csprojResolveAssemblyReference.cache
 D:\项目\GitRepository\ABPProject\ABPProject.Core\obj\Debug\ABPProject.Core.dll
 D:\项目\GitRepository\ABPProject\ABPProject.Core\obj\Debug\ABPProject.Core.pdb

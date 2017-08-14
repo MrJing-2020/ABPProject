@@ -15,5 +15,6 @@ namespace ABPProject.SalesOrders
         PagedResultDto<SalesOrderListDto> GetPagedSalesOrder(PageParams pageArg);
         Task DeleteSalesOrder(ArrayParams param);
         EditSalesOrderInput GetSalesOrderById(OneParam param);
+        Task EditSalesOrder(EditSalesOrderInput input);
     }
 }
