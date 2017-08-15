@@ -178,6 +178,14 @@
     <Compile Include="Migrations\201708140535027_AddPurchaseOrder.Designer.cs">
       <DependentUpon>201708140535027_AddPurchaseOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708150535054_ChangeProduct1.cs" />
+    <Compile Include="Migrations\201708150535054_ChangeProduct1.Designer.cs">
+      <DependentUpon>201708150535054_ChangeProduct1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708150758440_AddUnit.cs" />
+    <Compile Include="Migrations\201708150758440_AddUnit.Designer.cs">
+      <DependentUpon>201708150758440_AddUnit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ABPProjectDataModule.cs" />
@@ -233,6 +241,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708140535027_AddPurchaseOrder.resx">
       <DependentUpon>201708140535027_AddPurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708150535054_ChangeProduct1.resx">
+      <DependentUpon>201708150535054_ChangeProduct1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708150758440_AddUnit.resx">
+      <DependentUpon>201708150758440_AddUnit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

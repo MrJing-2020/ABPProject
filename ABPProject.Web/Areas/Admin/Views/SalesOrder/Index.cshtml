@@ -40,7 +40,7 @@
                         <a href="#itemlist" data-toggle="tab">列表</a>
                     </li>
                     <li id="tab-edit">
-                        <a href="#createItem" data-toggle="tab">新增销售订单</a>
+                        <a href="#editItem" data-toggle="tab">新增销售订单</a>
                     </li>
                 </ul>
                 <div id="myCloseableTabContent" class="tab-content pan mtl mbn responsive ">
@@ -65,7 +65,7 @@
                                data-side-pagination="server"
                                data-url="/Admin/SalesOrder/PagedList"></table>
                     </div>
-                    <div id="createItem" class="tab-pane fade">
+                    <div id="editItem" class="tab-pane fade">
                         <div class="panel panel-primary">
                             <div class="panel-heading">创建销售订单</div>
                             <div class="panel-body pan">
@@ -226,7 +226,7 @@
                                     </div>
                                     <div class="form-actions text-right">
                                         <div class="col-md-offset-2 col-md-10">
-                                            <button onclick="submitCancel()" type="button" class="btn btn-default submit-cancel">取消</button>
+                                            <button onclick="submitCancel(this)" target="tab-edit" type="button" class="btn btn-default submit-cancel">取消</button>
                                             <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
                                         </div>
                                     </div>

@@ -41,7 +41,7 @@
                         <a href="#itemlist" data-toggle="tab">列表</a>
                     </li>
                     <li id="tab-edit">
-                        <a href="#createItem" data-toggle="tab">新增/编辑产品</a>
+                        <a href="#editItem" data-toggle="tab">新增/编辑产品</a>
                     </li>
                 </ul>
                 <div id="myCloseableTabContent" class="tab-content pan mtl mbn responsive ">
@@ -66,29 +66,110 @@
                                data-side-pagination="server"
                                data-url="/Admin/Product/PagedList"></table>
                     </div>
-                    <div id="createItem" class="tab-pane fade">
+                    <div id="editItem" class="tab-pane fade">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">编辑产品</div>
+                            <div class="panel-heading">新增/编辑产品</div>
                             <div class="panel-body pan">
-                                <form name="editItemForm" id="editItemForm" role="form" novalidate class="form-validation form-horizontal">
-                                    <input v-model="formItem.id" class="form-control" type="hidden" name="id" id="id">
+                                <form name="editItemForm" id="editItemForm" role="form" class="form-validation form-horizontal">
                                     <div class="form-body pal">
-                                        <div class="form-group">
-                                            <label class="col-md-2 control-label">名称</label>
-                                            <div class="col-md-9">
-                                                <input v-model="formItem.name" class="form-control" type="text" required maxlength="@AbpRoleBase.MaxDisplayNameLength" minlength="2">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        名称 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <input v-model="formItem.name"  name="name" type="text" class="form-control" required/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        简称 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <input v-model="formItem.nameAlias" name="nameAlias" type="text" class="form-control" required/>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-2 control-label">描述</label>
-                                            <div class="col-md-9">
-                                                <textarea v-model="formItem.description" type="text" class="form-control" required maxlength="@AbpRoleBase.MaxNameLength" minlength="3"></textarea>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        产品类别 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <select v-model="formItem.category" class="form-control cannot-change" name="category" required>
+                                                            <option v-for="option in productCategory" v-bind:value="option">
+                                                                {{ option }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        销售单位 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <select v-model="formItem.salesUnit" class="form-control cannot-change" name="salesUnit" required>
+                                                            <option v-for="option in unitList" v-bind:value="option">
+                                                                {{ option }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        库存单位 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <select v-model="formItem.inventoryUnit" class="form-control cannot-change" name="inventoryUnit" required>
+                                                            <option v-for="option in unitList" v-bind:value="option">
+                                                                {{ option }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        采购单位 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <select v-model="formItem.purchaseUnit" class="form-control cannot-change" name="purchaseUnit" required>
+                                                            <option v-for="option in unitList" v-bind:value="option">
+                                                                {{ option }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        说明
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <textarea v-model="formItem.description" type="text" class="form-control"></textarea>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-actions">
+                                    <div class="form-actions text-right">
                                         <div class="col-md-offset-2 col-md-10">
-                                            <button onclick="submitCancel()" type="button" class="btn btn-default submit-cancel">取消</button>
+                                            <button v-on:click="submitCancel(this)" target="tab-edit" type="button" class="btn btn-default submit-cancel">取消</button>
                                             <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
                                         </div>
                                     </div>

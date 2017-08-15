@@ -35,6 +35,8 @@ namespace ABPProject.Web
                 new ScriptBundle("~/Bundles/vendor/js/bottom")
                     .Include(
                         "~/Scripts/vue.js",
+                        //"~/Scripts/iview.min.js",
+
                         "~/Scripts/json2.min.js",
                         "~/Content/js/jquery-1.10.2.min.js",
                         //"~/Scripts/jquery-2.2.0.min.js",
@@ -78,6 +80,8 @@ namespace ABPProject.Web
                     "~/Content/vendors/jquery-notific8/jquery.notific8.min.css",
                     "~/Content/vendors/bootstrap-datepicker/css/bootstrap-datepicker.min.css",
                     "~/Content/vendors/bootstrap-daterangepicker/daterangepicker-bs3.css",
+                    "~/Content/vendors/bootstrap-switch/css/bootstrap-switch.css",
+                    //"~/css/iview.css",
                     "~/css/main-custom.css"
                     )
                 );
@@ -103,6 +107,8 @@ namespace ABPProject.Web
                     "~/Content/vendors/moment/moment.js",
                     "~/Content/vendors/bootstrap-datepicker/js/bootstrap-datepicker.js",
                     "~/Content/vendors/bootstrap-datepicker/js/bootstrap-datepicker.zh-CN.min.js",
+                    "~/Content/vendors/bootstrap-switch/js/bootstrap-switch.min.js",
+
                     "~/Content/vendors/bootstrap-daterangepicker/daterangepicker.js",
                     "~/Content/js/main.js",
                     "~/Content/vendors/intro.js/intro.js",

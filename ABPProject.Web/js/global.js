@@ -96,8 +96,12 @@ function initCheckBox() {
         increaseArea: '10%'
     });
 }
-function submitCancel() {
+function submitCancel(e) {
+    var $targetEle = $("#" + $(e).attr("target"));
+    if ($targetEle.hasClass("tab-hidden")) {
+        $targetEle.css("display", "none");
+    }
     $("#tab-list a:first").trigger("click");
-    $(".tab-hidden").css("display", "none");
+    //$(".tab-hidden").css("display", "none");
 }
 ;

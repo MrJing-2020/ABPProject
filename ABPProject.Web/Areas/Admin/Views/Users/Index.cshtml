@@ -40,7 +40,7 @@
                         <a href="#itemlist" data-toggle="tab">列表</a>
                     </li>
                     <li id="tab-edit">
-                        <a href="#createItem" data-toggle="tab">新增/编辑用户</a>
+                        <a href="#editItem" data-toggle="tab">新增/编辑用户</a>
                     </li>
                     <li id="tab-roles" style="display:none" class="tab-hidden">
                         <a href="#setRoles" data-toggle="tab">分配角色</a>
@@ -71,7 +71,7 @@
                                data-side-pagination="server"
                                data-url="/Admin/Users/PagedList"></table>
                     </div>
-                    <div id="createItem" class="tab-pane fade">
+                    <div id="editItem" class="tab-pane fade">
                         <div class="panel panel-primary">
                             <div class="panel-heading">编辑用户</div>
                             <div class="panel-body pan">
@@ -81,25 +81,25 @@
                                         <div class="form-group">
                                             <label class="col-md-2 control-label">用户名</label>
                                             <div class="col-md-9">
-                                                <input v-model="formItem.userName" class="form-control" type="text" required maxlength="@AbpUserBase.MaxUserNameLength" minlength="2">
+                                                <input v-model="formItem.userName" name="userName" class="form-control" type="text" maxlength="@AbpUserBase.MaxUserNameLength" minlength="2" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-2 control-label">密码</label>
                                             <div class="col-md-9">
-                                                <input v-model="formItem.password" type="password" class="form-control" required maxlength="@ABPProject.Users.User.MaxPlainPasswordLength">
+                                                <input v-model="formItem.password" name="password" type="password" class="form-control"  maxlength="@ABPProject.Users.User.MaxPlainPasswordLength" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-2 control-label">名字</label>
                                             <div class="col-md-9">
-                                                <input v-model="formItem.name" type="text" class="form-control" required maxlength="@ABPProject.Users.User.MaxNameLength" minlength="2">
+                                                <input v-model="formItem.name" name="name" type="text" class="form-control"  maxlength="@ABPProject.Users.User.MaxNameLength" minlength="2" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-2 control-label">邮箱</label>
                                             <div class="col-md-9">
-                                                <input v-model="formItem.emailAddress" type="email" class="form-control" maxlength="@AbpUserBase.MaxEmailAddressLength">
+                                                <input v-model="formItem.emailAddress" name="emailAddress" type="email" class="form-control"  maxlength="@AbpUserBase.MaxEmailAddressLength" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -112,7 +112,7 @@
                                     </div>
                                     <div class="form-actions">
                                         <div class="col-md-offset-2 col-md-10">
-                                            <button onclick="submitCancel()" type="button" class="btn btn-default submit-cancel">取消</button>
+                                            <button onclick="submitCancel(this)" target="tab-edit" type="button" class="btn btn-default submit-cancel">取消</button>
                                             <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
                                         </div>
                                     </div>
@@ -140,7 +140,7 @@
                                     </div>
                                     <div class="form-actions">
                                         <div class="col-md-offset-2 col-md-10">
-                                            <button onclick="submitCancel()" type="button" class="btn btn-default submit-cancel">取消</button>
+                                            <button onclick="submitCancel(this)" target="tab-roles" type="button" class="btn btn-default submit-cancel">取消</button>
                                             <button v-on:click="subSetRoles" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
                                         </div>
                                     </div>
@@ -150,7 +150,7 @@
                     </div>
                     <div id="setPermission" class="tab-pane fade">
                         设置权限
-                        <button onclick="submitCancel()" type="button" class="btn btn-default submit-cancel">取消</button>
+                        <button onclick="submitCancel(this)" target="tab-permission" type="button" class="btn btn-default submit-cancel">取消</button>
                     </div>
                 </div>
             </div>

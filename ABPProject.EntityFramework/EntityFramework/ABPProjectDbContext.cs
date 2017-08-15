@@ -20,6 +20,8 @@ namespace ABPProject.EntityFramework
         public IDbSet<SalesOrderItem> SalesOrderItems { get; set; }
         public IDbSet<PurchaseOrder> PurchaseOrders { get; set; }
         public IDbSet<PurchaseOrderItem> PurchaseOrderItems { get; set; }
+        public IDbSet<UnitOfMeasureTranslation> UnitOfMeasureTranslations { get; set; }
+
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.

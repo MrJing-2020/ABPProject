@@ -12,6 +12,8 @@ using Abp.AutoMapper;
 using ABPProject.Products.Dto;
 using Abp.Authorization;
 using ABPProject.Authorization;
+using Abp.UI;
+using ABPProject.Projects;
 
 namespace ABPProject.Products
 {
@@ -20,10 +22,12 @@ namespace ABPProject.Products
     {
         private readonly ProductManager _productManager;
         private readonly IRepository<Product, int> _productRepository;
-        public ProductAppService(ProductManager productManager, IRepository<Product, int> productRepository)
+        private readonly IRepository<UnitOfMeasureTranslation, int> _unitRepository;
+        public ProductAppService(ProductManager productManager, IRepository<Product, int> productRepository, IRepository<UnitOfMeasureTranslation, int> unitRepository)
         {
             _productManager = productManager;
             _productRepository = productRepository;
+            _unitRepository = unitRepository;
         }
 
         public PagedResultDto<ProductListDto> GetPagedProduct(PageParams pageArg)
@@ -59,7 +63,30 @@ namespace ABPProject.Products
         public async Task<EditProductInput> GetProductById(OneParam param)
         {
             var product = await _productRepository.GetAsync(param.Id);
+            var unitList = await _unitRepository.GetAllListAsync();
             return product.MapTo<EditProductInput>();
+        }
+
+        public async Task<string[]> GetUnitList()
+        {
+            var unitList = await _unitRepository.GetAllListAsync();
+            return unitList.Select(m => m.Description).ToArray();
+        }
+
+        /// <summary>
+        /// 判断产品名是否重复
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public bool NameIsExist(string name)
+        {
+            bool isExist = false;
+            var count = _productRepository.GetAllList(m => m.Name == name).Count();
+            if (count > 0)
+            {
+                isExist = true;
+            }
+            return isExist;
         }
 
         public async Task EditProduct(EditProductInput input)
@@ -67,16 +94,38 @@ namespace ABPProject.Products
             var id = input.Id;
             if (id == null)
             {
+                var count = _productRepository.GetAllList(m => m.Name == input.Name).Count();
+                if (count > 0)
+                {
+                    throw new UserFriendlyException(string.Format("产品名 {0} 已经存在", input.Name));
+                }
                 var product = input.MapTo<Product>();
                 await _productRepository.InsertAsync(product);
             }
             else
             {
-                var oldProduct = await _productRepository.GetAsync((int)id);
-                oldProduct.Name = input.Name;
-                oldProduct.Description = input.Description;
-                await _productRepository.UpdateAsync(oldProduct);
+                var count = _productRepository.GetAllList(m => m.Name == input.Name && m.Id != id).Count();
+                if (count > 0)
+                {
+                    throw new UserFriendlyException(string.Format("产品名 {0} 已经存在", input.Name));
+                }
+                var product = await _productRepository.GetAsync((int)id);
+                //oldProduct.Name = input.Name;
+                //oldProduct.Description = input.Description;
+                product = input.MapTo<EditProductInput, Product>(product);
+                await _productRepository.UpdateAsync(product);
             }
+        }
+
+        public async Task CreateProduct(EditProductInput input)
+        {
+            var count = _productRepository.GetAllList(m => m.Name == input.Name).Count();
+            if (count > 0)
+            {
+                throw new UserFriendlyException(string.Format("产品名 {0} 已经存在", input.Name));
+            }
+            var product = input.MapTo<Product>();
+            await _productRepository.InsertAsync(product);
         }
 
         public async Task DeleteProduct(ArrayParams param)

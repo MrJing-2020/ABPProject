@@ -1,10 +1,6 @@
 ﻿using Abp.AutoMapper;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ABPProject.Products.Dto
 {
@@ -15,8 +11,24 @@ namespace ABPProject.Products.Dto
 
         [Required]
         public string Name { get; set; }
-
         [Required]
+        public string Category { get; set; }
+        /// <summary>
+        /// 单位
+        /// </summary>
+        [Required]
+        public string InventoryUnit { get; set; }
+        [Required]
+        public string PurchaseUnit { get; set; }
+        [Required]
+        public string SalesUnit { get; set; }
+        /// <summary>
+        /// 简称
+        /// </summary>
+        [Required]
+        public string NameAlias { get; set; }
         public string Description { get; set; }
+
+        public DateTime CreationTime { get; set; }
     }
 }

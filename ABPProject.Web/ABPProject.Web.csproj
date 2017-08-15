@@ -789,6 +789,7 @@
     <Content Include="css\common.css" />
     <Content Include="css\font-awesome\4.5.0\css\font-awesome.min.css" />
     <Content Include="css\font-awesome\4.5.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="css\iview.css" />
     <Content Include="css\layer\layer.js" />
     <Content Include="css\layer\mobile\layer.js" />
     <Content Include="css\layer\mobile\need\layer.css" />
@@ -1013,6 +1014,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-2.2.0-vsdoc.js" />
     <Content Include="Scripts\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\iview.min.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -1128,6 +1130,7 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Detail\Index.cshtml" />
     <Content Include="Views\Product\IndexMain.cshtml" />
+    <Content Include="StaticData\ProductCategory.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

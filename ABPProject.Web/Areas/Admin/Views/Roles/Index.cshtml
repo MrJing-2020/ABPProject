@@ -40,7 +40,7 @@
                             <a href="#itemlist" data-toggle="tab">列表</a>
                         </li>
                         <li id="tab-edit">
-                            <a href="#createItem" data-toggle="tab">新增/编辑角色</a>
+                            <a href="#editItem" data-toggle="tab">新增/编辑角色</a>
                         </li>
                         <li id="tab-permisssion" style="display:none" class="tab-hidden">
                             <a href="#setPermission" data-toggle="tab">权限设置</a>
@@ -68,12 +68,11 @@
                                    data-side-pagination="server"
                                    data-url="/Admin/Roles/PagedList"></table>
                         </div>
-                        <div id="createItem" class="tab-pane fade">
+                        <div id="editItem" class="tab-pane fade">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">编辑角色</div>
                                 <div class="panel-body pan">
-                                    <form name="editItemForm" id="editItemForm" role="form" novalidate class="form-validation form-horizontal">
-                                        <input v-model="formItem.id" class="form-control" type="hidden" name="id" id="id">
+                                    <form name="editItemForm" id="editItemForm" role="form" class="form-validation form-horizontal">
                                         <div class="form-body pal">
                                             <div class="form-group">
                                                 <label class="col-md-2 control-label">名称</label>
@@ -97,7 +96,7 @@
                                         </div>
                                         <div class="form-actions">
                                             <div class="col-md-offset-2 col-md-10">
-                                                <button onclick="submitCancel()" type="button" class="btn btn-default submit-cancel">取消</button>
+                                                <button onclick="submitCancel(this)" target="tab-edit" type="button" class="btn btn-default submit-cancel">取消</button>
                                                 <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
                                             </div>
                                         </div>
@@ -132,7 +131,7 @@
                                         </div>
                                         <div class="form-actions text-right">
                                             <div class="col-md-offset-2 col-md-10">
-                                                <button onclick="submitCancel()" type="button" class="btn btn-default submit-cancel">取消</button>
+                                                <button onclick="submitCancel(this)" target="tab-permisssion" type="button" class="btn btn-default submit-cancel">取消</button>
                                                 <button v-on:click="subSetPermission" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
                                             </div>
                                         </div>

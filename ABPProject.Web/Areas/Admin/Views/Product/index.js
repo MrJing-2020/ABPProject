@@ -5,7 +5,11 @@
             data: {
                 formItem: {},
                 abpService: abp.services.app.product,
-                deleteId: null
+                deleteId: null,
+                //产品分类下拉框数据（从json文件中获取）
+                productCategory: [],
+                //单位下拉框数据
+                unitList:[]
             },
             //生命周期钩子（vue替换dom完成之后执行）
             mounted() {
@@ -22,58 +26,63 @@
                         //批量删除弹窗确认按钮
                         delConfirmed: $('#deleleAll-confirmed'),
                         columns: [
-                            [
-                                {
-                                    field: 'state',
-                                    checkbox: true,
-                                    rowspan: 2,
-                                    align: 'center',
-                                    valign: 'middle'
-                                },
-                                {
-                                    title: 'ID',
-                                    field: 'id',
-                                    rowspan: 2,
-                                    align: 'center',
-                                    valign: 'middle',
-                                },
-                                {
-                                    title: '产品详情',
-                                    colspan: 4,
-                                    align: 'center'
+                            {
+                                field: 'state',
+                                checkbox: true,
+                                align: 'center',
+                                valign: 'middle'
+                            },
+                            {
+                                field: 'name',
+                                title: '名称',
+                                align: 'center'
+                            },
+                            {
+                                field: 'nameAlias',
+                                title: '简称',
+                                align: 'center'
+                            },
+                            {
+                                field: 'category',
+                                title: '分类',
+                                sortable: true,
+                                align: 'center'
+                            },
+                            {
+                                field: 'description',
+                                title: '描述',
+                                align: 'center'
+                            },
+                            {
+                                field: 'creationTime',
+                                title: '创建时间',
+                                sortable: true,
+                                align: 'center',
+                                formatter: function (value, row, index) {
+                                    return value.replace("T", " ").substring(0, value.lastIndexOf("."));
                                 }
-                            ],
-                            [
-                                {
-                                    field: 'name',
-                                    title: '名称',
-                                    sortable: true,
-                                    align: 'center'
-                                },
-                                {
-                                    field: 'description',
-                                    title: '描述',
-                                    align: 'center'
-                                },
-                                {
-                                    field: 'creationTime',
-                                    title: '创建时间',
-                                    sortable: true,
-                                    align: 'center'
-                                },
-                                {
-                                    field: 'option',
-                                    title: '操作',
-                                    align: 'center',
-                                    events: params.operateEvents,
-                                    formatter: function (value, row, index) {
-                                        return [
-                                            '<button type="button" class="btn btn-info btn-xs edit-item">编辑</button>',
-                                            '<button type="button" data-toggle="modal" data-target="#del-confirm" class="btn btn-danger btn-xs remove-item">删除</button>'
-                                        ].join('');
-                                    }
+                            },
+                            {
+                                field: 'stopped',
+                                title: '是否启用',
+                                align: 'center',
+                                events: {},
+                                formatter: function (value, row, index) {
+                                    return ''
                                 }
-                            ]
+                            },
+                            {
+                                field: 'option',
+                                title: '操作',
+                                align: 'center',
+                                events: params.operateEvents,
+                                formatter: function (value, row, index) {
+                                    return [
+                                        '<button type="button" class="btn btn-info btn-xs edit-item">编辑</button>',
+                                        '<button type="button" data-toggle="modal" data-target="#del-confirm" class="btn btn-danger btn-xs remove-item">删除</button>'
+                                    ].join('');
+                                }
+                            }
                         ],
                         delete: params.deleteItem
                     });
@@ -85,6 +94,7 @@
                     var operateEvents = {
                         'click .edit-item': function (e, value, row, index) {
                             that.getProductById(row.id);
+                            $(".cannot-change").prop('disabled', true);
                             $("#tab-edit a:first").trigger("click");
                         },
                         'click .remove-item': function (e, value, row, index) {
@@ -95,6 +105,12 @@
                         operateEvents: operateEvents,
                         deleteItem: that.deleteItem
                     });
+                    $.getJSON("/StaticData/ProductCategory.json", function (data) {
+                        that.productCategory = data
+                    });
+                    this.abpService.getUnitList().done(function (res) {
+                        that.unitList = res
+                    })
                 },
 
                 //根据id获取详情
@@ -128,6 +144,11 @@
                     }).always(function () {
                         abp.ui.clearBusy($("#vue-app"));
                     });
+                },
+                submitCancel(e) {
+                    submitCancel(e);
+                    this.formItem = {};
+                    $(".cannot-change").prop('disabled', false);
                 },
 
                 //删除一到多项
