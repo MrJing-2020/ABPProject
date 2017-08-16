@@ -79,7 +79,11 @@
                                                         客户 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.salesName" type="text"  class="form-control" />
+                                                        <select v-model="formItem.clientId" class="form-control" name="clientId" required>
+                                                            <option v-for="option in client" v-bind:value="option.id">
+                                                                {{ option.name }}
+                                                            </option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -89,7 +93,11 @@
                                                         销售合同 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.salesContractNum" type="text"  class="form-control" />
+                                                        <select v-model="formItem.salesContractNum" class="form-control" name="salesContractNum" required>
+                                                            <option v-for="option in contract" v-bind:value="option.id">
+                                                                {{ option.name }}
+                                                            </option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -101,7 +109,11 @@
                                                         站点 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.inventSite" type="text"  class="form-control" />
+                                                        <select v-model="formItem.inventSite" v-on:change="inventSiteChange" class="form-control" name="inventSite" required>
+                                                            <option v-for="option in inventSite" v-bind:value="option.id">
+                                                                {{ option.name }}
+                                                            </option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -111,7 +123,11 @@
                                                         仓库 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.inventLocation" type="text" class="form-control" />
+                                                        <select v-model="formItem.inventLocation" class="form-control cannot-change" name="inventLocation" required>
+                                                            <option v-for="option in inventLocations" v-bind:value="option.id">
+                                                                {{ option.name }}
+                                                            </option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -119,35 +135,17 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="inputBirthday" class="col-md-3 control-label">收货人</label>
+                                                    <label for="inputBirthday" class="col-md-3 control-label">收货人 <span class='require'>*</span></label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.consignee" type="text" class="form-control" />
+                                                        <input v-model="formItem.consignee" name="consignee" type="text" class="form-control" required/>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="inputPhone" class="col-md-3 control-label">收货地址</label>
+                                                    <label for="inputPhone" class="col-md-3 control-label">收货地址 <span class='require'>*</span></label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.deliveryAddress" type="text" class="form-control" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="inputBirthday" class="col-md-3 control-label">邮编</label>
-                                                    <div class="col-md-9">
-                                                        <input v-model="formItem.postCode" type="text" class="form-control" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="inputPhone" class="col-md-3 control-label">手机号码</label>
-                                                    <div class="col-md-9">
-                                                        <input v-model="formItem.mobilePhone" type="text"  class="form-control" />
+                                                        <input v-model="formItem.deliveryAddress" name="deliveryAddress" type="text" class="form-control" required/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -155,17 +153,17 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="inputBirthday" class="col-md-3 control-label">配送方式</label>
+                                                    <label for="inputBirthday" class="col-md-3 control-label">邮编 <span class='require'>*</span></label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.distributionMode" type="text" class="form-control" />
+                                                        <input v-model="formItem.postCode" name="postCode" type="text" class="form-control" required/>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="inputPhone" class="col-md-3 control-label">付款方式</label>
+                                                    <label class="col-md-3 control-label">手机号码 <span class='require'>*</span></label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.paymentMethod" type="text" placeholder="" class="form-control" />
+                                                        <input v-model="formItem.mobilePhone" name="mobilePhone" type="text"  class="form-control" required/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -173,9 +171,27 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="inputBirthday" class="col-md-3 control-label">附加说明</label>
+                                                    <label class="col-md-3 control-label">配送方式 <span class='require'>*</span></label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.instructions" type="text" class="form-control" />
+                                                        <input v-model="formItem.distributionMode" name="distributionMode" type="text" class="form-control" required/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">付款方式 <span class='require'>*</span></label>
+                                                    <div class="col-md-9">
+                                                        <input v-model="formItem.paymentMethod" name="paymentMethod" type="text" class="form-control" required/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">附加说明</label>
+                                                    <div class="col-md-9">
+                                                        <textarea v-model="formItem.instructions" type="text" class="form-control"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -189,15 +205,15 @@
                                                             产品编号 <span class='require'>*</span>
                                                         </label>
                                                         <div class="col-md-9">
-                                                            <input v-model="salesOrderItem.inventId" type="text" class="form-control" />
+                                                            <input v-model="salesOrderItem.inventId" name="inventId"  type="text" class="form-control" required/>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="inputAddress2" class="col-md-3 control-label">批次号</label>
+                                                        <label for="inputAddress2" class="col-md-3 control-label">批次号 <span class='require'>*</span></label>
                                                         <div class="col-md-9">
-                                                            <input v-model="salesOrderItem.inventBatch" type="text" placeholder="" class="form-control" />
+                                                            <input v-model="salesOrderItem.inventBatch" name="inventBatch" type="text" class="form-control" required/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -205,9 +221,9 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="inputStates" class="col-md-3 control-label">销售单价</label>
+                                                        <label for="inputStates" class="col-md-3 control-label">销售单价 <span class='require'>*</span></label>
                                                         <div class="col-md-9">
-                                                            <input v-model="salesOrderItem.purchCount" type="text" class="form-control" />
+                                                            <input v-model="salesOrderItem.purchCount" name="purchCount" type="text" class="form-control" required/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -217,7 +233,7 @@
                                                             数量 <span class='require'>*</span>
                                                         </label>
                                                         <div class="col-md-9">
-                                                            <input v-model="salesOrderItem.purchPrice" type="text" class="form-control" />
+                                                            <input v-model="salesOrderItem.purchPrice" name="purchPrice" type="text" class="form-control" required/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -226,7 +242,7 @@
                                     </div>
                                     <div class="form-actions text-right">
                                         <div class="col-md-offset-2 col-md-10">
-                                            <button onclick="submitCancel(this)" target="tab-edit" type="button" class="btn btn-default submit-cancel">取消</button>
+                                            <button v-on:click="submitCancel(this)" target="tab-edit" type="button" class="btn btn-default submit-cancel">取消</button>
                                             <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
                                         </div>
                                     </div>

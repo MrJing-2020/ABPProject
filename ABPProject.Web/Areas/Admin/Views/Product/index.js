@@ -66,9 +66,20 @@
                                 field: 'stopped',
                                 title: '是否启用',
                                 align: 'center',
-                                events: {},
+                                events: {
+                                    'change #isUsered': function (e, value, row, index) {
+                                        console.log(row)
+                                        that.stopProduct(row.id);
+                                    }
+                                },
                                 formatter: function (value, row, index) {
-                                    return ''
+                                    var html = '';
+                                    if (value == false) {
+                                        html = '<input type="checkbox" id="isUsered" class="chooseBtn" checked/><label for="isUsered" class="choose-label" ></label>';
+                                    } else {
+                                        html = '<input type="checkbox" id="isUsered" class="chooseBtn" /><label for="isUsered" class="choose-label" ></label>';
+                                    }
+                                    return html;
                                 }
                             },
                             {
@@ -78,8 +89,8 @@
                                 events: params.operateEvents,
                                 formatter: function (value, row, index) {
                                     return [
-                                        '<button type="button" class="btn btn-info btn-xs edit-item">编辑</button>',
-                                        '<button type="button" data-toggle="modal" data-target="#del-confirm" class="btn btn-danger btn-xs remove-item">删除</button>'
+                                        '<button type="button" class="btn btn-info btn-xs edit-item table-btn">编辑</button>',
+                                        '<button type="button" data-toggle="modal" data-target="#del-confirm" class="btn btn-danger btn-xs remove-item table-btn">删除</button>'
                                     ].join('');
                                 }
                             }
@@ -176,6 +187,16 @@
                             }
                         }
                     )
+                },
+
+                stopProduct(id) {
+                    var that = this
+                    var postData = { "id": id }
+                    abp.ui.setBusy($("#vue-app"));
+                    this.abpService.stopProduct(postData).done(function (res) {
+                    }).always(function () {
+                        abp.ui.clearBusy($("#vue-app"));
+                    });
                 }
             }
         })

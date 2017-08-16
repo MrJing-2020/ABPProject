@@ -1,5 +1,6 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
+using ABPProject.Clients;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,12 @@ namespace ABPProject.SalesOrders.Dto
     public class SalesOrderListDto: EntityDto<int>
     {
         public string SalesId { get; set; }
-        public string SalesName { get; set; }
+        //public string SalesName { get; set; }
         /// <summary>
         /// 客户编号
         /// </summary>
-        public string ClientId { get; set; }
+        public int ClientId { get; set; }
+        public string ClientName { get; set; }
         /// <summary>
         /// 产品站点
         /// </summary>
@@ -65,6 +67,7 @@ namespace ABPProject.SalesOrders.Dto
         /// 付款方式
         /// </summary>
         public string PaymentMethod { get; set; }
+        public int State { get; set; }
         public List<SalesOrderItemListDto> SalesOrderItems { get; set; }
     }
 }

@@ -5,7 +5,11 @@
             data: {
                 formItem: { salesOrderItems :[{}] },
                 abpService: abp.services.app.salesOrder,
-                deleteId: null
+                deleteId: null,
+                inventSite: [],
+                client: [],
+                contract: [],
+                inventLocations:[]
             },
             //生命周期钩子（vue替换dom完成之后执行）
             mounted() {
@@ -31,14 +35,17 @@
                             {
                                 field: 'salesId',
                                 title: '订单编号',
-                                sortable: true,
+                                //sortable: true,
                                 align: 'center'
                             },
                             {
-                                field: 'salesName',
+                                field: 'clientId',
                                 title: '客户',
                                 sortable: true,
-                                align: 'center'
+                                align: 'center',
+                                formatter: function (value, row, index) {
+                                    return row.clientName;
+                                }
                             },
                             {
                                 field: 'salesContractNum',
@@ -48,6 +55,7 @@
                             {
                                 field: 'deliveryDate',
                                 title: '提交日期',
+                                sortable: true,
                                 align: 'center',
                                 formatter: function (value, row, index) {
                                     return value.replace("T", " ").substring(0, value.lastIndexOf("."));
@@ -60,9 +68,9 @@
                                 events: params.operateEvents,
                                 formatter: function (value, row, index) {
                                     return [
-                                        '<button type="button" class="btn btn-info btn-xs edit-item">编辑</button>',
-                                        '<button type="button" class="btn btn-green btn-xs detail-item">查看</button>',
-                                        '<button type="button" data-toggle="modal" data-target="#del-confirm" class="btn btn-danger btn-xs remove-item">删除</button>'
+                                        '<button type="button" class="btn btn-info btn-xs table-btn edit-item">编辑</button>',
+                                        '<button type="button" class="btn btn-green btn-xs table-btn detail-item">查看</button>',
+                                        '<button type="button" data-toggle="modal" data-target="#del-confirm" class="btn btn-danger btn-xs table-btn remove-item">删除</button>'
                                     ].join('');
                                 }
                             }
@@ -103,7 +111,11 @@
                         deleteItem: that.deleteItem,
                         detailFormatter: detailFormatter
                     });
-                    console.log(that.formItem)
+                    this.abpService.getSelectList().done(function (res) {
+                        that.client = res.client;
+                        that.contract = res.contract;
+                        that.inventSite = res.inventSite;
+                    })
                 },
 
                 //根据id获取详情
@@ -113,6 +125,7 @@
                     abp.ui.setBusy($("#vue-app"));
                     this.abpService.getSalesOrderById(postData).done(function (res) {
                         that.formItem = res;
+                        that.inventSiteChange();
                     }).always(function () {
                         abp.ui.clearBusy($("#vue-app"));
                     });
@@ -138,6 +151,18 @@
                     }).always(function () {
                         abp.ui.clearBusy($("#vue-app"));
                     });
+                },
+                submitCancel(e) {
+                    submitCancel(e);
+                    this.formItem = { salesOrderItems: [{}]};
+                },
+                inventSiteChange() {
+                    var that = this;
+                    for (var key in that.inventSite) {
+                        if (that.inventSite[key].id == that.formItem.inventSite) {
+                            that.inventLocations = that.inventSite[key].inventLocations;
+                        }
+                    }
                 },
 
                 //删除一到多项

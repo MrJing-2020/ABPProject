@@ -8,6 +8,9 @@ using System.Data.Entity;
 using ABPProject.Projects;
 using ABPProject.SalesOrders;
 using ABPProject.PurchaseOrders;
+using ABPProject.Clients;
+using ABPProject.InventSites;
+using ABPProject.Contracts;
 
 namespace ABPProject.EntityFramework
 {
@@ -21,6 +24,12 @@ namespace ABPProject.EntityFramework
         public IDbSet<PurchaseOrder> PurchaseOrders { get; set; }
         public IDbSet<PurchaseOrderItem> PurchaseOrderItems { get; set; }
         public IDbSet<UnitOfMeasureTranslation> UnitOfMeasureTranslations { get; set; }
+
+        public IDbSet<Client> Clients { get; set; }
+        public IDbSet<InventSite> InventSites { get; set; }
+        public IDbSet<InventLocation> InventLocations { get; set; }
+        public IDbSet<Contract> Contracts { get; set; }
+
 
 
         /* NOTE: 

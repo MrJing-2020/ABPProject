@@ -12,11 +12,11 @@ namespace ABPProject.SalesOrders.Dto
     {
         public int? Id { get; set; }
         public  string SalesId { get; set; }
-        public  string SalesName { get; set; }
+        //public  string SalesName { get; set; }
         /// <summary>
         /// 客户编号
         /// </summary>
-        public  string ClientId { get; set; }
+        public  int ClientId { get; set; }
         /// <summary>
         /// 产品站点
         /// </summary>

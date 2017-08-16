@@ -17,5 +17,6 @@ namespace ABPProject.Products
         Task EditProduct(EditProductInput input);
         Task DeleteProduct(ArrayParams param);
         Task<string[]> GetUnitList();
+        Task StopProduct(OneParam param);
     }
 }

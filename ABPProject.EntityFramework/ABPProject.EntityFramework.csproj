@@ -186,6 +186,14 @@
     <Compile Include="Migrations\201708150758440_AddUnit.Designer.cs">
       <DependentUpon>201708150758440_AddUnit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708160546106_AddInventSite.cs" />
+    <Compile Include="Migrations\201708160546106_AddInventSite.Designer.cs">
+      <DependentUpon>201708160546106_AddInventSite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708160732468_ChangeSalesOrder3.cs" />
+    <Compile Include="Migrations\201708160732468_ChangeSalesOrder3.Designer.cs">
+      <DependentUpon>201708160732468_ChangeSalesOrder3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ABPProjectDataModule.cs" />
@@ -247,6 +255,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708150758440_AddUnit.resx">
       <DependentUpon>201708150758440_AddUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708160546106_AddInventSite.resx">
+      <DependentUpon>201708160546106_AddInventSite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708160732468_ChangeSalesOrder3.resx">
+      <DependentUpon>201708160732468_ChangeSalesOrder3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

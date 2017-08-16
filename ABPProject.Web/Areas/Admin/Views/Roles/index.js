@@ -71,9 +71,9 @@
                                     events: params.operateEvents,
                                     formatter: function (value, row, index) {
                                         return [
-                                            '<button type="button" class="btn btn-info btn-xs edit-item">编辑</button>',
-                                            '<button type="button" class="btn btn-green btn-xs permission-item">权限</button>',
-                                            '<button type="button" data-toggle="modal" data-target="#del-confirm" class="btn btn-danger btn-xs remove-item">删除</button>'
+                                            '<button type="button" class="btn btn-info btn-xs table-btn edit-item">编辑</button>',
+                                            '<button type="button" class="btn btn-green btn-xs table-btn permission-item">权限</button>',
+                                            '<button type="button" data-toggle="modal" data-target="#del-confirm" class="btn btn-danger btn-xs table-btn remove-item">删除</button>'
                                         ].join('');
                                     }
                                 }

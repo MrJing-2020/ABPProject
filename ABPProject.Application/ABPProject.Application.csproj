@@ -157,6 +157,8 @@
     <Compile Include="Roles\Dto\UpdateRolePermissionsInput.cs" />
     <Compile Include="SalesOrders\Dto\EditSalesOrderInput.cs" />
     <Compile Include="SalesOrders\Dto\EditSalesOrderItemDto.cs" />
+    <Compile Include="SalesOrders\Dto\InventLocationDto.cs" />
+    <Compile Include="SalesOrders\Dto\InventSiteDto.cs" />
     <Compile Include="SalesOrders\Dto\SalesOrderItemListDto.cs" />
     <Compile Include="SalesOrders\Dto\SalesOrderListDto.cs" />
     <Compile Include="SalesOrders\ISalesOrderAppService.cs" />

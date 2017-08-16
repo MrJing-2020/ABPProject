@@ -16,5 +16,6 @@ namespace ABPProject.SalesOrders
         Task DeleteSalesOrder(ArrayParams param);
         EditSalesOrderInput GetSalesOrderById(OneParam param);
         Task EditSalesOrder(EditSalesOrderInput input);
+        Task<object> GetSelectList();
     }
 }

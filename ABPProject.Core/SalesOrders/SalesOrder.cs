@@ -10,15 +10,26 @@ namespace ABPProject.SalesOrders
     [Table("SalesOrder")]
     public class SalesOrder : Entity, IMayHaveTenant, IMayHaveOrganizationUnit, IHasCreationTime, ICreationAudited, ISoftDelete, IModificationAudited
     {
+        public virtual int? TenantId { get; set; }
+        public virtual long? OrganizationUnitId { get; set; }
+        public virtual DateTime CreationTime { get; set; }
+        public virtual long? CreatorUserId { get; set; }
+        public virtual bool IsDeleted { get; set; }
+        public virtual DateTime? LastModificationTime { get; set; }
+        public virtual long? LastModifierUserId { get; set; }
+
+
+
+
         /// <summary>
         /// 销售订单编号
         /// </summary>
         public virtual string SalesId { get; set; }
-        public virtual string SalesName { get; set; }
+        //public virtual string SalesName { get; set; }
         /// <summary>
         /// 客户编号
         /// </summary>
-        public virtual string ClientId { get; set; }
+        public virtual int ClientId { get; set; }
         /// <summary>
         /// 产品站点
         /// </summary>
@@ -67,15 +78,14 @@ namespace ABPProject.SalesOrders
         /// 付款方式
         /// </summary>
         public virtual string PaymentMethod { get; set; }
+        /// <summary>
+        /// 订单状态
+        /// </summary>
+        public virtual int State { get; set; }
 
-        public virtual int? TenantId { get; set; }
-        public virtual long? OrganizationUnitId { get; set; }
-        public virtual DateTime CreationTime { get; set; }
-        public virtual long? CreatorUserId { get; set; }
-        public virtual bool IsDeleted { get; set; }
-        public virtual DateTime? LastModificationTime { get; set; }
-        public virtual long? LastModifierUserId { get; set; }
-
+        /// <summary>
+        /// 订单行
+        /// </summary>
         public virtual ICollection<SalesOrderItem> SalesOrderItem { get; set; }
     }
 }

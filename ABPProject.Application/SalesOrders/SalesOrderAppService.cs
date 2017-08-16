@@ -6,31 +6,44 @@ using ABPProject.CommonDto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using ABPProject.Extend;
 using ABPProject.SalesOrders.Dto;
 using Abp.Domain.Uow;
 using ABPProject.Authorization;
 using Abp.Authorization;
+using ABPProject.InventSites;
+using ABPProject.Contracts;
+using ABPProject.Clients;
 
 namespace ABPProject.SalesOrders
 {
-    [AbpAuthorize(PermissionNames.SalesOrder)]
+    //[AbpAuthorize(PermissionNames.SalesOrder)]
     public class SalesOrderAppService: ABPProjectAppServiceBase, ISalesOrderAppService
     {
         private readonly SalesOrderManager _salesOrderManager;
         private readonly IRepository<SalesOrder, int> _salesOrderRepository;
         private readonly IRepository<SalesOrderItem, int> _salesOrderItemRepository;
+        private readonly IRepository<InventSite, int> _inventSiteRepository;
+        private readonly IRepository<Contract, int> _contractRepository;
+        private readonly IRepository<Client, int> _clientRepository;
+
 
         public SalesOrderAppService(
             SalesOrderManager salesOrderManager, 
             IRepository<SalesOrder, int> salesOrderRepository,
-            IRepository<SalesOrderItem, int> salesOrderItemRepository)
+            IRepository<SalesOrderItem, int> salesOrderItemRepository,
+            IRepository<InventSite, int> inventSiteRepository,
+            IRepository<Contract, int> contractRepository,
+            IRepository<Client, int> clientRepository
+            )
         {
             _salesOrderManager = salesOrderManager;
             _salesOrderRepository = salesOrderRepository;
             _salesOrderItemRepository = salesOrderItemRepository;
+            _inventSiteRepository = inventSiteRepository;
+            _contractRepository = contractRepository;
+            _clientRepository = clientRepository;
         }
 
         public PagedResultDto<SalesOrderListDto> GetPagedSalesOrder(PageParams pageArg)
@@ -38,15 +51,17 @@ namespace ABPProject.SalesOrders
             PageArgDto input = new PageArgDto(pageArg);
             int count = 0;
             IQueryable<SalesOrder> salesOrder = _salesOrderRepository.GetAllIncluding(m => m.SalesOrderItem);
+            //字段搜索
             if (!string.IsNullOrEmpty(input.SearchText))
             {
-                salesOrder = salesOrder.Where(m => m.SalesName.Contains(input.SearchText) || m.SalesId.Contains(input.SearchText));
+                salesOrder = salesOrder.Where(m => m.SalesId.Contains(input.SearchText));
                 count = salesOrder.Count();
             }
             else
             {
                 count = _salesOrderRepository.Count();
             }
+            //字段排序（支持主表中的所有字段）
             if (!string.IsNullOrEmpty(input.SortName))
             {
                 //将首字母转成大写
@@ -59,12 +74,48 @@ namespace ABPProject.SalesOrders
                 //默认按时间降序
                 salesOrder = salesOrder.OrderByDescending(m => m.CreationTime).PageBy(input.PageInput);
             }
-            var resultList = salesOrder.ToList().MapTo<List<SalesOrderListDto>>();
+            //连表查询
+            var resultList = (from order in salesOrder
+                              join client in _clientRepository.GetAll()
+                              on order.ClientId equals client.Id
+                              select new SalesOrderListDto
+                              {
+                                  Id = order.Id,
+                                  SalesId = order.SalesId,
+                                  ClientName = client.Name,
+                                  ClientId = order.ClientId,
+                                  InventSite = order.InventSite,
+                                  InventLocation = order.InventLocation,
+                                  SalesContractNum = order.SalesContractNum,
+                                  DeliveryDate = order.DeliveryDate,
+                                  Consignee = order.Consignee,
+                                  DeliveryAddress = order.DeliveryAddress,
+                                  PostCode = order.PostCode,
+                                  DistributionMode = order.DistributionMode,
+                                  MobilePhone = order.MobilePhone,
+                                  InvoiceHeader = order.InvoiceHeader,
+                                  Instructions = order.Instructions,
+                                  PaymentMethod = order.PaymentMethod
+                              }).ToList();
+            //附表数据映射
             foreach (var item in resultList)
             {
                 item.SalesOrderItems = salesOrder.Where(m => m.Id == item.Id).FirstOrDefault().SalesOrderItem.MapTo<List<SalesOrderItemListDto>>();
             }
             return new PagedResultDto<SalesOrderListDto>(count, resultList);
+        }
+
+        public async Task<object> GetSelectList()
+        {
+            var client = await _clientRepository.GetAllListAsync();
+            var contract = await _contractRepository.GetAllListAsync();
+            var inventSiteList = _inventSiteRepository.GetAllIncluding(m => m.InventLocation).ToList();
+            var inventSite = inventSiteList.MapTo<List<InventSiteDto>>();
+            foreach (var item in inventSite)
+            {
+                item.InventLocations = inventSiteList.Where(m => m.Id == item.Id).FirstOrDefault().InventLocation.MapTo<List<InventLocationDto>>();
+            }
+            return new { client = client, contract = contract, inventSite = inventSite };
         }
 
         public EditSalesOrderInput GetSalesOrderById(OneParam param)

@@ -132,5 +132,19 @@ namespace ABPProject.Products
         {
             await _productRepository.DeleteAsync(m => param.Ids.Any(n => n == m.Id));
         }
+
+        public async Task StopProduct(OneParam param)
+        {
+            var product = await _productRepository.GetAsync(param.Id);
+            if (product.Stopped)
+            {
+                product.Stopped = false;
+            }
+            else
+            {
+                product.Stopped = true;
+            }
+            await _productRepository.UpdateAsync(product);
+        }
     }
 }

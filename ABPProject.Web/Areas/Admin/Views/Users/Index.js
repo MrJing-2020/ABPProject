@@ -62,9 +62,9 @@
                                     events: params.operateEvents,
                                     formatter: function (value, row, index) {
                                         return [
-                                            '<button type="button" class="btn btn-orange btn-xs role-item">角色</button>',
-                                            '<button type="button" class="btn btn-green btn-xs permission-item">权限</button>',
-                                            '<button type="button" data-toggle="modal" data-target="#del-confirm" class="btn btn-danger btn-xs remove-item">删除</button>'
+                                            '<button type="button" class="btn btn-orange btn-xs role-item table-btn">角色</button>',
+                                            '<button type="button" class="btn btn-green btn-xs permission-item table-btn">权限</button>',
+                                            '<button type="button" data-toggle="modal" data-target="#del-confirm" class="btn btn-danger btn-xs remove-item table-btn">删除</button>'
                                         ].join('');
                                     }
                                 }

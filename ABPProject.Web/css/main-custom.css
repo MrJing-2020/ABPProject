@@ -70,3 +70,76 @@ html, body {
 .daterangepicker {
     top: 91px !important;
 }
+
+.chooseBtn {
+    display: none;
+}
+.choose-label {
+    box-shadow: #ccc 0px 0px 0px 1px;
+    width: 20px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 10px;
+    position: relative;
+    background-color: #bdbdbd;
+    overflow: hidden;
+    margin-bottom: 0px;
+}
+
+    .choose-label:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        border-radius: 10px;
+        background-color: #fff;
+        z-index: 20;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+
+.chooseBtn:checked + label.choose-label:before {
+    left: 10px;
+}
+
+.chooseBtn:checked + label.choose-label {
+    background-color: #51ccee;
+}
+
+.table-btn {
+    line-height:1.2;
+}
+.fixed-table-container input[type=checkbox] {
+    top: 2px;
+    position: relative;
+}
+.fixed-table-container {
+    border-radius: 0px !important;
+}
+
+.sidebar-collapse.menu-scroll {
+    height: 100% !important;
+    overflow: auto
+}
+
+    .sidebar-collapse.menu-scroll::-webkit-scrollbar {
+        width: 5px;
+        height: 16px;
+        background-color: #374d63;
+        /*display:none*/
+    }
+/*定义滚动条的轨道，内阴影及圆角*/
+    .sidebar-collapse.menu-scroll::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #374d63;
+    }
+/*定义滑块，内阴影及圆角*/
+    .sidebar-collapse.menu-scroll::-webkit-scrollbar-thumb {
+        /*width: 10px;*/
+        height: 20px;
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #808080;
+    }
