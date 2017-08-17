@@ -18,7 +18,7 @@ using ABPProject.Clients;
 
 namespace ABPProject.SalesOrders
 {
-    //[AbpAuthorize(PermissionNames.SalesOrder)]
+    [AbpAuthorize(PermissionNames.SalesOrder)]
     public class SalesOrderAppService: ABPProjectAppServiceBase, ISalesOrderAppService
     {
         private readonly SalesOrderManager _salesOrderManager;
@@ -54,7 +54,7 @@ namespace ABPProject.SalesOrders
             //字段搜索
             if (!string.IsNullOrEmpty(input.SearchText))
             {
-                salesOrder = salesOrder.Where(m => m.SalesId.Contains(input.SearchText));
+                salesOrder = salesOrder.Where(m => m.SalesNum.Contains(input.SearchText));
                 count = salesOrder.Count();
             }
             else
@@ -81,12 +81,12 @@ namespace ABPProject.SalesOrders
                               select new SalesOrderListDto
                               {
                                   Id = order.Id,
-                                  SalesId = order.SalesId,
+                                  SalesNum = order.SalesNum,
                                   ClientName = client.Name,
                                   ClientId = order.ClientId,
-                                  InventSite = order.InventSite,
-                                  InventLocation = order.InventLocation,
-                                  SalesContractNum = order.SalesContractNum,
+                                  InventSiteId = order.InventSiteId,
+                                  InventLocationId = order.InventLocationId,
+                                  SalesContractId = order.SalesContractId,
                                   DeliveryDate = order.DeliveryDate,
                                   Consignee = order.Consignee,
                                   DeliveryAddress = order.DeliveryAddress,
@@ -107,8 +107,8 @@ namespace ABPProject.SalesOrders
 
         public async Task<object> GetSelectList()
         {
-            var client = await _clientRepository.GetAllListAsync();
-            var contract = await _contractRepository.GetAllListAsync();
+            var client = (await _clientRepository.GetAllListAsync()).Select(m => new { Id = m.Id, Name = m.Name });
+            var contract = (await _contractRepository.GetAllListAsync()).Select(m => new { Id = m.Id, Name = m.Name });
             var inventSiteList = _inventSiteRepository.GetAllIncluding(m => m.InventLocation).ToList();
             var inventSite = inventSiteList.MapTo<List<InventSiteDto>>();
             foreach (var item in inventSite)

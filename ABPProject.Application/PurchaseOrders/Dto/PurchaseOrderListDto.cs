@@ -2,22 +2,37 @@
 using Abp.AutoMapper;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ABPProject.PurchaseOrders.Dto
 {
     [AutoMapFrom(typeof(PurchaseOrder))]
     public class PurchaseOrderListDto: EntityDto<int>
     {
-        public virtual string PurchId { get; set; }
-        public virtual string PurchName { get; set; }
-        public virtual string InventSite { get; set; }
-        public virtual string InventLocation { get; set; }
-        public virtual DateTime DeliveryDate { get; set; }
-        public virtual string PurchSecontractNum { get; set; }
-        public virtual DateTime CreationTime { get; set; }
+        /// <summary>
+        /// 销售订单编号
+        /// </summary>
+        public string PurchNum { get; set; }
+        /// <summary>
+        /// 供应商
+        /// </summary>
+        public string SupplierName { get; set; }
+        /// <summary>
+        /// 合同编号
+        /// </summary>
+        public string ContractNum { get; set; }
+        /// <summary>
+        /// 提交时间
+        /// </summary>
+        public DateTime DeliveryDate { get; set; }
+        /// <summary>
+        /// 状态
+        /// </summary>
+        public int State { get; set; }
         public List<PurchaseOrderItemListDto> PurchaseOrderItems { get; set; }
+
+        /// <summary>
+        /// 默认排序字段
+        /// </summary>
+        public DateTime CreationTime { get; set; }
     }
 }

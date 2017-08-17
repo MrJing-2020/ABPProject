@@ -112,7 +112,7 @@
                                     </div>
                                     <div class="form-actions">
                                         <div class="col-md-offset-2 col-md-10">
-                                            <button onclick="submitCancel(this)" target="tab-edit" type="button" class="btn btn-default submit-cancel">取消</button>
+                                            <button v-on:click="submitCancel($event)" target="tab-edit" type="button" class="btn btn-default submit-cancel">取消</button>
                                             <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
                                         </div>
                                     </div>
@@ -140,7 +140,7 @@
                                     </div>
                                     <div class="form-actions">
                                         <div class="col-md-offset-2 col-md-10">
-                                            <button onclick="submitCancel(this)" target="tab-roles" type="button" class="btn btn-default submit-cancel">取消</button>
+                                            <button v-on:click="submitCancel($event)" target="tab-roles" type="button" class="btn btn-default submit-cancel">取消</button>
                                             <button v-on:click="subSetRoles" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
                                         </div>
                                     </div>
@@ -150,7 +150,7 @@
                     </div>
                     <div id="setPermission" class="tab-pane fade">
                         设置权限
-                        <button onclick="submitCancel(this)" target="tab-permission" type="button" class="btn btn-default submit-cancel">取消</button>
+                        <button v-on:click="submitCancel($event)" target="tab-permission" type="button" class="btn btn-default submit-cancel">取消</button>
                     </div>
                 </div>
             </div>

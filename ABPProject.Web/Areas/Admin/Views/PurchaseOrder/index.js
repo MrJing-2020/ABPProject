@@ -5,7 +5,11 @@
             data: {
                 formItem: { purchaseOrderItems: [{}] },
                 abpService: abp.services.app.purchaseOrder,
-                deleteId: null
+                deleteId: null,
+                inventSite: [],
+                supplier: [],
+                contract: [],
+                inventLocations: []
             },
             //生命周期钩子（vue替换dom完成之后执行）
             mounted() {
@@ -29,20 +33,20 @@
                                 valign: 'middle'
                             },
                             {
-                                field: 'purchId',
+                                field: 'purchNum',
                                 title: '订单编号',
                                 sortable: true,
                                 align: 'center'
                             },
                             {
-                                field: 'purchName',
+                                field: 'supplierName',
                                 title: '供应商',
                                 sortable: true,
                                 align: 'center'
                             },
                             {
-                                field: 'purchSecontractNum',
-                                title: '合同号',
+                                field: 'contractNum',
+                                title: '合同编号',
                                 align: 'center'
                             },
                             {
@@ -90,8 +94,8 @@
                     }
                     function detailFormatter(index, row) {
                         html = [];
-                        $.map(row.salesOrderItems, function (obj, index) {
-                            html.push('<h4>订单行' + parseInt(index + 1) + '：</h4>')
+                        $.map(row.purchaseOrderItems, function (obj, index) {
+                            html.push('<h4>采购订单行' + parseInt(index + 1) + '：</h4>')
                             $.each(obj, function (key, value) {
                                 html.push('<p><b>' + key + ':</b> ' + value + '</p>');
                             })
@@ -103,6 +107,11 @@
                         deleteItem: that.deleteItem,
                         detailFormatter: detailFormatter
                     });
+                    this.abpService.getSelectList().done(function (res) {
+                        that.supplier = res.supplier;
+                        that.contract = res.contract;
+                        that.inventSite = res.inventSite;
+                    })
                 },
 
                 //根据id获取详情
@@ -112,6 +121,7 @@
                     abp.ui.setBusy($("#vue-app"));
                     this.abpService.getPurchaseOrderById(postData).done(function (res) {
                         that.formItem = res;
+                        that.inventSiteChange();
                     }).always(function () {
                         abp.ui.clearBusy($("#vue-app"));
                     });
@@ -137,6 +147,20 @@
                     }).always(function () {
                         abp.ui.clearBusy($("#vue-app"));
                     });
+                },
+                submitCancel(e) {
+                    submitCancel(e.target);
+                    if ($(e.target).attr("target") == "tab-edit") {
+                        this.formItem = { purchaseOrderItems: [{}] };
+                    }
+                },
+                inventSiteChange() {
+                    var that = this;
+                    for (var key in that.inventSite) {
+                        if (that.inventSite[key].id == that.formItem.inventSiteId) {
+                            that.inventLocations = that.inventSite[key].inventLocations;
+                        }
+                    }
                 },
 
                 //删除一到多项

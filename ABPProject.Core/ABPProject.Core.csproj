@@ -143,6 +143,7 @@
     <Compile Include="SalesOrders\SalesOrder.cs" />
     <Compile Include="SalesOrders\SalesOrderItem.cs" />
     <Compile Include="SalesOrders\SalesOrderManager.cs" />
+    <Compile Include="Suppliers\Supplier.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserManager.cs" />
     <Compile Include="Users\UserStore.cs" />

@@ -79,7 +79,11 @@
                                                         供应商 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.purchName" type="text" class="form-control" />
+                                                        <select v-model="formItem.supplierId" class="form-control" name="supplierId" required>
+                                                            <option v-for="option in supplier" v-bind:value="option.id">
+                                                                {{ option.name }}
+                                                            </option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -89,7 +93,11 @@
                                                         销售合同 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.purchSecontractNum" type="text" class="form-control" />
+                                                        <select v-model="formItem.contractId" class="form-control" name="ContractId" required>
+                                                            <option v-for="option in contract" v-bind:value="option.id">
+                                                                {{ option.name }}
+                                                            </option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -101,7 +109,11 @@
                                                         站点 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.inventSite" type="text" class="form-control" />
+                                                        <select v-model="formItem.inventSiteId" v-on:change="inventSiteChange" class="form-control" name="inventSiteId" required>
+                                                            <option v-for="option in inventSite" v-bind:value="option.id">
+                                                                {{ option.name }}
+                                                            </option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -111,7 +123,11 @@
                                                         仓库 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.inventLocation" type="text" class="form-control" />
+                                                        <select v-model="formItem.inventLocationId" class="form-control cannot-change" name="inventLocationId" required>
+                                                            <option v-for="option in inventLocations" v-bind:value="option.id">
+                                                                {{ option.name }}
+                                                            </option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -162,7 +178,7 @@
                                     </div>
                                     <div class="form-actions text-right">
                                         <div class="col-md-offset-2 col-md-10">
-                                            <button onclick="submitCancel(this)" target="tab-edit" type="button" class="btn btn-default submit-cancel">取消</button>
+                                            <button v-on:click="submitCancel($event)" target="tab-edit" type="button" class="btn btn-default submit-cancel">取消</button>
                                             <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
                                         </div>
                                     </div>

@@ -11,6 +11,7 @@ using ABPProject.PurchaseOrders;
 using ABPProject.Clients;
 using ABPProject.InventSites;
 using ABPProject.Contracts;
+using ABPProject.Suppliers;
 
 namespace ABPProject.EntityFramework
 {
@@ -29,6 +30,8 @@ namespace ABPProject.EntityFramework
         public IDbSet<InventSite> InventSites { get; set; }
         public IDbSet<InventLocation> InventLocations { get; set; }
         public IDbSet<Contract> Contracts { get; set; }
+        public IDbSet<Supplier> Suppliers { get; set; }
+
 
 
 

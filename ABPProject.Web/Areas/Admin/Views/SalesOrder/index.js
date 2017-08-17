@@ -33,7 +33,7 @@
                                 valign: 'middle'
                             },
                             {
-                                field: 'salesId',
+                                field: 'salesNum',
                                 title: '订单编号',
                                 //sortable: true,
                                 align: 'center'
@@ -153,13 +153,15 @@
                     });
                 },
                 submitCancel(e) {
-                    submitCancel(e);
-                    this.formItem = { salesOrderItems: [{}]};
+                    submitCancel(e.target);
+                    if ($(e.target).attr("target") == "tab-edit") {
+                        this.formItem = { salesOrderItems: [{}] };
+                    }
                 },
                 inventSiteChange() {
                     var that = this;
                     for (var key in that.inventSite) {
-                        if (that.inventSite[key].id == that.formItem.inventSite) {
+                        if (that.inventSite[key].id == that.formItem.inventSiteId) {
                             that.inventLocations = that.inventSite[key].inventLocations;
                         }
                     }

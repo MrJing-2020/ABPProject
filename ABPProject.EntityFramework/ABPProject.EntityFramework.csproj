@@ -194,6 +194,10 @@
     <Compile Include="Migrations\201708160732468_ChangeSalesOrder3.Designer.cs">
       <DependentUpon>201708160732468_ChangeSalesOrder3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708170742561_ChangPurchase.cs" />
+    <Compile Include="Migrations\201708170742561_ChangPurchase.Designer.cs">
+      <DependentUpon>201708170742561_ChangPurchase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ABPProjectDataModule.cs" />
@@ -261,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708160732468_ChangeSalesOrder3.resx">
       <DependentUpon>201708160732468_ChangeSalesOrder3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708170742561_ChangPurchase.resx">
+      <DependentUpon>201708170742561_ChangPurchase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

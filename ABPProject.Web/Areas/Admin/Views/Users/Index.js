@@ -151,6 +151,12 @@
                         abp.ui.clearBusy($("#vue-app"));
                     });
                 },
+                submitCancel(e) {
+                    submitCancel(e.target);
+                    if ($(e.target).attr("target") == "tab-edit") {
+                        this.formItem = {};
+                    }
+                },
 
                 //角色分配
                 setRoles(id) {

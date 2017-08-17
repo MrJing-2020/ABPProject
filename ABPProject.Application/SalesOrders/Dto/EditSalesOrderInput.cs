@@ -11,7 +11,7 @@ namespace ABPProject.SalesOrders.Dto
     public class EditSalesOrderInput
     {
         public int? Id { get; set; }
-        public  string SalesId { get; set; }
+        public  string SalesNum { get; set; }
         //public  string SalesName { get; set; }
         /// <summary>
         /// 客户编号
@@ -20,15 +20,15 @@ namespace ABPProject.SalesOrders.Dto
         /// <summary>
         /// 产品站点
         /// </summary>
-        public  string InventSite { get; set; }
+        public  int InventSiteId { get; set; }
         /// <summary>
         /// 站点仓库
         /// </summary>
-        public  string InventLocation { get; set; }
+        public  int InventLocationId { get; set; }
         /// <summary>
-        /// 销售合同编号
+        /// 销售合同Id
         /// </summary>
-        public  string SalesContractNum { get; set; }
+        public  int SalesContractId { get; set; }
         /// <summary>
         /// 提交日期
         /// </summary>
@@ -66,9 +66,11 @@ namespace ABPProject.SalesOrders.Dto
         /// </summary>
         public  string PaymentMethod { get; set; }
 
-        #region 方便修改操作提交数据
+        #region 方便修改操作提交数据(不用显示出来)
         public long? CreatorUserId { get; set; }
-        public DateTime CreationTime { get; set; } 
+        public DateTime CreationTime { get; set; }
+        public virtual int? TenantId { get; set; }
+        public virtual long? OrganizationUnitId { get; set; }
         #endregion
 
         public List<EditSalesOrderItemDto> SalesOrderItems { get; set; }

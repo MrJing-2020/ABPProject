@@ -75,7 +75,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="inputFirstName" class="col-md-3 control-label">
+                                                    <label class="col-md-3 control-label">
                                                         客户 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
@@ -89,11 +89,11 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="inputLastName" class="col-md-3 control-label">
+                                                    <label class="col-md-3 control-label">
                                                         销售合同 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <select v-model="formItem.salesContractNum" class="form-control" name="salesContractNum" required>
+                                                        <select v-model="formItem.salesContractId" class="form-control" name="salesContractId" required>
                                                             <option v-for="option in contract" v-bind:value="option.id">
                                                                 {{ option.name }}
                                                             </option>
@@ -109,7 +109,7 @@
                                                         站点 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <select v-model="formItem.inventSite" v-on:change="inventSiteChange" class="form-control" name="inventSite" required>
+                                                        <select v-model="formItem.inventSiteId" v-on:change="inventSiteChange" class="form-control" name="inventSiteId" required>
                                                             <option v-for="option in inventSite" v-bind:value="option.id">
                                                                 {{ option.name }}
                                                             </option>
@@ -123,7 +123,7 @@
                                                         仓库 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <select v-model="formItem.inventLocation" class="form-control cannot-change" name="inventLocation" required>
+                                                        <select v-model="formItem.inventLocationId" class="form-control cannot-change" name="inventLocationId" required>
                                                             <option v-for="option in inventLocations" v-bind:value="option.id">
                                                                 {{ option.name }}
                                                             </option>
@@ -242,7 +242,7 @@
                                     </div>
                                     <div class="form-actions text-right">
                                         <div class="col-md-offset-2 col-md-10">
-                                            <button v-on:click="submitCancel(this)" target="tab-edit" type="button" class="btn btn-default submit-cancel">取消</button>
+                                            <button v-on:click="submitCancel($event)" target="tab-edit" type="button" class="btn btn-default submit-cancel">取消</button>
                                             <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
                                         </div>
                                     </div>

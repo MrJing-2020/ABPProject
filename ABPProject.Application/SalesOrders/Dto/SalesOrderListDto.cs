@@ -12,7 +12,10 @@ namespace ABPProject.SalesOrders.Dto
     [AutoMapFrom(typeof(SalesOrder))]
     public class SalesOrderListDto: EntityDto<int>
     {
-        public string SalesId { get; set; }
+        /// <summary>
+        /// 销售订单编号
+        /// </summary>
+        public string SalesNum { get; set; }
         //public string SalesName { get; set; }
         /// <summary>
         /// 客户编号
@@ -22,15 +25,15 @@ namespace ABPProject.SalesOrders.Dto
         /// <summary>
         /// 产品站点
         /// </summary>
-        public string InventSite { get; set; }
+        public int InventSiteId { get; set; }
         /// <summary>
         /// 站点仓库
         /// </summary>
-        public string InventLocation { get; set; }
+        public int InventLocationId { get; set; }
         /// <summary>
-        /// 销售合同编号
+        /// 销售合同Id
         /// </summary>
-        public string SalesContractNum { get; set; }
+        public int SalesContractId { get; set; }
         /// <summary>
         /// 提交日期
         /// </summary>

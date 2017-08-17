@@ -157,9 +157,11 @@
                     });
                 },
                 submitCancel(e) {
-                    submitCancel(e);
-                    this.formItem = {};
-                    $(".cannot-change").prop('disabled', false);
+                    submitCancel(e.target);
+                    if ($(e.target).attr("target") == "tab-edit") {
+                        this.formItem = {};
+                        $(".cannot-change").prop('disabled', false);
+                    }
                 },
 
                 //删除一到多项

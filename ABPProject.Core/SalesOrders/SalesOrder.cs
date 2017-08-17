@@ -24,7 +24,7 @@ namespace ABPProject.SalesOrders
         /// <summary>
         /// 销售订单编号
         /// </summary>
-        public virtual string SalesId { get; set; }
+        public virtual string SalesNum { get; set; }
         //public virtual string SalesName { get; set; }
         /// <summary>
         /// 客户编号
@@ -33,15 +33,15 @@ namespace ABPProject.SalesOrders
         /// <summary>
         /// 产品站点
         /// </summary>
-        public virtual string InventSite { get; set; }
+        public virtual int InventSiteId { get; set; }
         /// <summary>
         /// 站点仓库
         /// </summary>
-        public virtual string InventLocation { get; set; }
+        public virtual int InventLocationId { get; set; }
         /// <summary>
-        /// 销售合同编号
+        /// 销售合同Id
         /// </summary>
-        public virtual string SalesContractNum { get; set; }
+        public virtual int SalesContractId { get; set; }
         /// <summary>
         /// 提交日期
         /// </summary>

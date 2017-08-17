@@ -11,13 +11,20 @@ namespace ABPProject.PurchaseOrders.Dto
     public class EditPurchaseOrderInput
     {
         public int? Id { get; set; }
-        public virtual string PurchId { get; set; }
-        public virtual string PurchName { get; set; }
-        public virtual string InventSite { get; set; }
-        public virtual string InventLocation { get; set; }
-        public virtual DateTime DeliveryDate { get; set; }
-        public virtual string PurchSecontractNum { get; set; }
-        public virtual DateTime CreationTime { get; set; }
+        public string PurchNum { get; set; }
+        //public virtual string PurchName { get; set; }
+        public int SupplierId { get; set; }
+        public string InventSiteId { get; set; }
+        public string InventLocationId { get; set; }
+        public DateTime DeliveryDate { get; set; }
+        public string ContractId { get; set; }
         public List<EditPurchaseOrderItemDto> PurchaseOrderItems { get; set; }
+
+        #region 方便修改操作提交数据(不用显示出来)
+        public DateTime CreationTime { get; set; }
+        public long? CreatorUserId { get; set; }
+        public virtual int? TenantId { get; set; }
+        public virtual long? OrganizationUnitId { get; set; } 
+        #endregion
     }
 }

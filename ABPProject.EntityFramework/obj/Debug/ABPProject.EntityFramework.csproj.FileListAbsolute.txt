@@ -126,3 +126,4 @@ D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProje
 D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.EntityFramework.csproj.GenerateResource.Cache
 D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.EntityFramework.dll
 D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.EntityFramework.pdb
+D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.ChangPurchase.resources

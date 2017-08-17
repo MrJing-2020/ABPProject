@@ -132,6 +132,12 @@
                         abp.ui.clearBusy($("#vue-app"));
                     });
                 },
+                submitCancel(e) {
+                    submitCancel(e.target);
+                    if ($(e.target).attr("target") == "tab-edit") {
+                        this.formItem = {};
+                    }
+                },
 
                 //删除一到多项
                 deleteItem(params) {
