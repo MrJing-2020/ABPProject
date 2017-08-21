@@ -130,9 +130,7 @@
                         that.product = res.product;
                     })
                     that.formItem = { salesOrderItems: [] };
-                    var index = Math.random();
-                    that.formItem.salesOrderItems.push({ index: index });
-                    that.newInventBatch[index] = [];
+                    that.formItem.salesOrderItems.push({ index: Math.random(), newInventBatch: []});
                 },
 
                 //根据id获取详情
@@ -201,21 +199,15 @@
                     };
                     for (var key in that.product) {
                         if (that.product[key].id == targetItem.productId) {
-                            //that.newInventBatch[index] = that.product[key].inventBatchs;
-                            Vue.set(that.newInventBatch, index, that.product[key].inventBatchs)
-                            console.log(that.newInventBatch);
+                            console.log(that.formItem.salesOrderItems[itemKey]);
+                            that.formItem.salesOrderItems[itemKey].newInventBatch = that.product[key].inventBatchs;
+                            //Vue.set(that.formItem.salesOrderItems[itemKey], newInventBatch, that.product[key].inventBatchs)
                         }
                     }
                 },
-                changeInventBatch: function (index) {
-                    console.log(index)
-                    return this.newInventBatch[index];
-                },
                 addProduct: function () {
                     var that = this
-                    var index = Math.random();
-                    that.newInventBatch[index] = [];
-                    that.formItem.salesOrderItems.push({ index: index });
+                    that.formItem.salesOrderItems.push({ index: Math.random(), newInventBatch:[] });
                 },
 
                 //删除一到多项
