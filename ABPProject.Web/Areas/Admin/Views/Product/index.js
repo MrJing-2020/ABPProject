@@ -7,16 +7,18 @@
                 abpService: abp.services.app.product,
                 deleteId: null,
                 //产品分类下拉框数据（从json文件中获取）
+                allProductCategory: [],
                 productCategory: [],
                 //单位下拉框数据
-                unitList:[]
+                unitList: [],
+                projectList:[]
             },
             //生命周期钩子（vue替换dom完成之后执行）
-            mounted() {
+            mounted: function() {
                 this.init()
             },
             methods: {
-                initTableData(params) {
+                initTableData: function(params) {
                     var that = this;
                     initTable({
                         //表格
@@ -99,7 +101,7 @@
                     });
                 },
                 //初始化页面
-                init() {
+                init: function() {
                     var that = this;
                     //按钮事件
                     var operateEvents = {
@@ -117,31 +119,33 @@
                         deleteItem: that.deleteItem
                     });
                     $.getJSON("/StaticData/ProductCategory.json", function (data) {
-                        that.productCategory = data
+                        that.allProductCategory = data
                     });
-                    this.abpService.getUnitList().done(function (res) {
-                        that.unitList = res
+                    this.abpService.getSelectList().done(function (res) {
+                        that.unitList = res.unitList
+                        that.projectList = res.projectList
                     })
                 },
 
                 //根据id获取详情
-                getProductById(id) {
+                getProductById: function(id) {
                     var that = this
                     var postData = { "id": id }
                     abp.ui.setBusy($("#vue-app"));
                     this.abpService.getProductById(postData).done(function (res) {
                         that.formItem = res;
+                        that.projectIdChange();
                     }).always(function () {
                         abp.ui.clearBusy($("#vue-app"));
                     });
                 },
 
                 //编辑和新增
-                createItem() {
+                createItem: function() {
                     this.formItem = {};
                     $("#tab-edit a:first").trigger("click");
                 },
-                subFormData(e) {
+                subFormData: function(e) {
                     e.preventDefault();
                     var _$form = $("#editItemForm");
                     _$form.validate();
@@ -156,16 +160,26 @@
                         abp.ui.clearBusy($("#vue-app"));
                     });
                 },
-                submitCancel(e) {
+                submitCancel: function (e) {
+                    var that = this;
                     submitCancel(e.target);
                     if ($(e.target).attr("target") == "tab-edit") {
-                        this.formItem = {};
+                        that.formItem = {};
+                        that.productCategory = [];
                         $(".cannot-change").prop('disabled', false);
+                    }
+                },
+                projectIdChange: function () {
+                    var that = this
+                    for (var key in that.projectList) {
+                        if (that.projectList[key].id == that.formItem.projectId) {
+                            that.productCategory = that.allProductCategory[that.projectList[key].axProjectId];
+                        }
                     }
                 },
 
                 //删除一到多项
-                deleteItem(params) {
+                deleteItem: function(params) {
                     var that = this
                     var postData = { "ids": params.ids }
                     abp.ui.setBusy($("#vue-app"));
@@ -176,7 +190,7 @@
                         $(".del-confirm").modal('hide');
                     });
                 },
-                delConfirmed() {
+                delConfirmed: function() {
                     var that = this;
                     that.deleteItem(
                         {
@@ -191,7 +205,7 @@
                     )
                 },
 
-                stopProduct(id) {
+                stopProduct: function(id) {
                     var that = this
                     var postData = { "id": id }
                     abp.ui.setBusy($("#vue-app"));

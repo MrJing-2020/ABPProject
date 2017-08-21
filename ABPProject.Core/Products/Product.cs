@@ -2,6 +2,7 @@
 using Abp.Domain.Entities.Auditing;
 using Abp.Organizations;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ABPProject.Products
@@ -31,6 +32,9 @@ namespace ABPProject.Products
         public virtual string SalesUnit { get; set; }
         public virtual int CompanyId { get; set; }
         public virtual int DepartmentId { get; set; }
+        public virtual int ProjectId { get; set; }
         public virtual bool Stopped { get; set; }
+
+        public virtual ICollection<InventBatch> InventBatch { get; set; }
     }
 }

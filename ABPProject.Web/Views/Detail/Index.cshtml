@@ -21,14 +21,14 @@
         <div class="wrap" id="mainWrap">
 
             <div class="detail">
-                <h3 class="detailName"><span><a href="javascript:;">详情页</a></span>&nbsp;/&nbsp;<span><a href="javascript:;">商品名</a></span></h3>
+                <h3 class="detailName"><span><a href="javascript:;">详情页</a></span>&nbsp;/&nbsp;<span><a href="javascript:;">商品信息</a></span></h3>
                 <div class="detailWrap">
                     <div class="imgWrap clearfix">
                         <div class="imgLeft f_left">
                             <div class="swiper-container">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide"><a href="javascript:;"><img src="../../images/sw (1).jpg" alt="Alternate Text" /></a></div>
-                                    <div class="swiper-slide"><a href="javascript:;"><img src="../../images/sw (2).jpg" alt="Alternate Text" /></a></div>
+                                    <div class="swiper-slide" v-for="item in slideImg"><a v-bind:href="item.href"><img v-bind:src="item.imgSrc" alt="Alternate Text" /></a></div>
+                                    @*<div class="swiper-slide"><a href="javascript:;"><img src="../../images/sw (2).jpg" alt="Alternate Text" /></a></div>*@
                                 </div>
                                 <!-- Add Pagination -->
                                 <div class="swiper-pagination"></div>
@@ -40,21 +40,21 @@
                                     <a href="javascript:;">
                                         <img src="../../images/detail (1).jpg" alt="Alternate Text" />
                                         <div class="mask"></div>
-                                        <p>最新 最全 最好的就是它</p>
+                                        <p class="hideBack">最新 最全 最好的就是它</p>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript:;">
                                         <img src="../../images/detail (2).jpg" alt="Alternate Text" />
                                         <div class="mask"></div>
-                                        <p>最新 最全 最好的就是它</p>
+                                        <p class="hideBack">最新 最全 最好的就是它</p>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript:;">
                                         <img src="../../images/detail (3).jpg" alt="Alternate Text" />
                                         <div class="mask"></div>
-                                        <p>最新 最全 最好的就是它</p>
+                                        <p class="hideBack">最新 最全 最好的就是它</p>
                                     </a>
                                 </li>
                             </ul>

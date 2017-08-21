@@ -11,13 +11,13 @@ namespace ABPProject.SalesOrders
     {
         public virtual int SalesOrderId { get; set; }
         /// <summary>
-        /// 产品编号
+        /// 产品Id
         /// </summary>
-        public virtual string InventId { get; set; }
+        public virtual int ProductId { get; set; }
         /// <summary>
         /// 产品批次
         /// </summary>
-        public virtual string InventBatch { get; set; }
+        public virtual int InventBatchId { get; set; }
         /// <summary>
         /// 购买数量
         /// </summary>

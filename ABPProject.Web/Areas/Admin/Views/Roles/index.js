@@ -11,11 +11,11 @@
                 rolePermissions:[]
             },
             //生命周期钩子（vue替换dom完成之后执行）
-            mounted() {
+            mounted: function() {
                 this.init()
             },
             methods: {
-                initTableData(params) {
+                initTableData: function(params) {
                     var that = this;
                     initTable({
                         //表格
@@ -83,7 +83,7 @@
                     });
                 },
                 //初始化页面
-                init() {
+                init: function() {
                     var that = this;
                     //按钮事件
                     var operateEvents = {
@@ -106,7 +106,7 @@
                 },
 
                 //根据id获取详情
-                getRoleById(id) {
+                getRoleById: function(id) {
                     var that = this
                     var postData = { "id": id }
                     abp.ui.setBusy($("#vue-app"));
@@ -118,11 +118,11 @@
                 },
 
                 //编辑和新增
-                createItem() {
+                createItem: function() {
                     this.formItem = {};
                     $("#tab-edit a:first").trigger("click");
                 },
-                subFormData(e) {
+                subFormData: function(e) {
                     e.preventDefault();
                     var _$form = $("#editItemForm");
                     _$form.validate();
@@ -137,7 +137,7 @@
                         abp.ui.clearBusy($("#vue-app"));
                     });
                 },
-                submitCancel(e) {
+                submitCancel: function(e) {
                     submitCancel(e.target);
                     if ($(e.target).attr("target") == "tab-edit") {
                         this.formItem = {};
@@ -145,7 +145,7 @@
                 },
 
                 //删除一到多项
-                deleteItem(params) {
+                deleteItem: function(params) {
                     var that = this
                     var postData = { "ids": params.ids }
                     abp.ui.setBusy($("#vue-app"));
@@ -156,7 +156,7 @@
                         $(".del-confirm").modal('hide');
                     });
                 },
-                delConfirmed() {
+                delConfirmed: function() {
                     var that = this;
                     that.deleteItem(
                         {
@@ -172,13 +172,13 @@
                 },
 
                 //权限设置
-                setPermission(id) {
+                setPermission: function(id) {
                     var that = this;
                     $("#tab-permisssion").css("display", "").find("a:first").trigger("click");
                     that.setPermissionRoleId = id;
                     that.getPermissionsByRole(id)
                 },
-                getPermissionsByRole(id) {
+                getPermissionsByRole: function(id) {
                     var that = this
                     var postData = { "id": id }
                     abp.ui.setBusy($("#vue-app"));
@@ -189,7 +189,7 @@
                         abp.ui.clearBusy($("#vue-app"));
                     });
                 },
-                subSetPermission() {
+                subSetPermission: function() {
                     var that = this
                     var postData = { "RoleId": that.setPermissionRoleId, "GrantedPermissionNames": that.rolePermissions }
                     abp.ui.setBusy($("#vue-app"));

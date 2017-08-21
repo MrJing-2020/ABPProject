@@ -11,23 +11,31 @@ namespace ABPProject.Projects
     {
         public virtual int? TenantId { get; set; }
         public virtual long? OrganizationUnitId { get; set; }
-        public virtual string Name { get; set; }
-        public virtual string Description { get; set; }
         public virtual DateTime CreationTime { get; set; }
         public virtual long? CreatorUserId { get; set; }
         public virtual bool IsDeleted { get; set; }
         public DateTime? LastModificationTime { get; set; }
         public virtual long? LastModifierUserId { get; set; }
-        //public Project() { }
 
-
-        //public Project(int tenantId, long organizationUnitId,string name,string description)
-        //{
-        //    this.TenantId = tenantId;
-        //    this.OrganizationUnitId = organizationUnitId;
-        //    this.Name = name;
-        //    this.Description = description;
-        //}
-
+        public virtual string Name { get; set; }
+        public virtual string Description { get; set; }
+        public virtual int AXProjectId { get; set; }
+        public virtual DateTime BeginDate { get; set; }
+        /// <summary>
+        /// 风险
+        /// </summary>
+        public virtual string Risk { get; set; }
+        /// <summary>
+        /// 买入方式
+        /// </summary>
+        public virtual string BuyMethod { get; set; }
+        /// <summary>
+        /// 赎回方式
+        /// </summary>
+        public virtual string RedeemMethod { get; set; }
+        /// <summary>
+        /// 收益率
+        /// </summary>
+        public virtual decimal Yield { get; set; }
     }
 }

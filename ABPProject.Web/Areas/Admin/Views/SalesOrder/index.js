@@ -3,20 +3,23 @@
         var app = new Vue({
             el: '#vue-app',
             data: {
-                formItem: { salesOrderItems :[{}] },
+                formItem: {},
                 abpService: abp.services.app.salesOrder,
                 deleteId: null,
                 inventSite: [],
                 client: [],
                 contract: [],
-                inventLocations:[]
+                inventLocations: [],
+                product: [],
+                inventBatch: [],
+                newInventBatch: {}
             },
             //生命周期钩子（vue替换dom完成之后执行）
-            mounted() {
+            mounted: function () {
                 this.init()
             },
             methods: {
-                initTableData(params) {
+                initTableData :function(params) {
                     var that = this;
                     initTable({
                         //表格
@@ -39,7 +42,7 @@
                                 align: 'center'
                             },
                             {
-                                field: 'clientId',
+                                field: 'clientName',
                                 title: '客户',
                                 sortable: true,
                                 align: 'center',
@@ -48,17 +51,26 @@
                                 }
                             },
                             {
-                                field: 'salesContractNum',
+                                field: 'contractNum',
                                 title: '合同号',
                                 align: 'center'
                             },
                             {
-                                field: 'deliveryDate',
+                                field: 'creationTime',
                                 title: '提交日期',
                                 sortable: true,
                                 align: 'center',
                                 formatter: function (value, row, index) {
                                     return value.replace("T", " ").substring(0, value.lastIndexOf("."));
+                                }
+                            },
+                            {
+                                field: 'state',
+                                title: '状态',
+                                sortable: true,
+                                align: 'center',
+                                formatter: function (value, row, index) {
+                                    return '<span class="badge badge-green">新添加</span>';
                                 }
                             },
                             {
@@ -80,7 +92,7 @@
                     });
                 },
                 //初始化页面
-                init() {
+                init: function () {
                     var that = this;
                     //按钮事件
                     var operateEvents = {
@@ -115,29 +127,36 @@
                         that.client = res.client;
                         that.contract = res.contract;
                         that.inventSite = res.inventSite;
+                        that.product = res.product;
                     })
+                    that.formItem = { salesOrderItems: [] };
+                    var index = Math.random();
+                    that.formItem.salesOrderItems.push({ index: index });
+                    that.newInventBatch[index] = [];
                 },
 
                 //根据id获取详情
-                getSalesOrderById(id) {
+                getSalesOrderById: function (id) {
                     var that = this
                     var postData = { "id": id }
                     abp.ui.setBusy($("#vue-app"));
                     this.abpService.getSalesOrderById(postData).done(function (res) {
                         that.formItem = res;
                         that.inventSiteChange();
+                        //that.productChange();
                     }).always(function () {
                         abp.ui.clearBusy($("#vue-app"));
                     });
                 },
 
                 //编辑和新增
-                createItem() {
-                    this.formItem = {};
-                    this.formItem.salesOrderItems = [{}];
+                createItem: function () {
+                    var that = this
+                    that.formItem = { salesOrderItems: [] };
+                    that.formItem.salesOrderItems.push({ index: Math.random()});
                     $("#tab-edit a:first").trigger("click");
                 },
-                subFormData(e) {
+                subFormData: function(e) {
                     e.preventDefault();
                     var _$form = $("#editItemForm");
                     _$form.validate();
@@ -152,13 +171,15 @@
                         abp.ui.clearBusy($("#vue-app"));
                     });
                 },
-                submitCancel(e) {
+                submitCancel: function (e) {
+                    var that = this
                     submitCancel(e.target);
                     if ($(e.target).attr("target") == "tab-edit") {
-                        this.formItem = { salesOrderItems: [{}] };
+                        that.formItem = { salesOrderItems: [] };
+                        that.formItem.salesOrderItems.push({ index: Math.random()});
                     }
                 },
-                inventSiteChange() {
+                inventSiteChange: function() {
                     var that = this;
                     for (var key in that.inventSite) {
                         if (that.inventSite[key].id == that.formItem.inventSiteId) {
@@ -166,9 +187,39 @@
                         }
                     }
                 },
+                productChange: function (e) {
+                    var index= $(e.target).attr("target")
+                    var that = this;
+                    orderitems = that.formItem.salesOrderItems;
+                    var targetItem = {};
+                    var itemKey;
+                    for (var key in orderitems) {
+                        if (orderitems[key].index == $(e.target).attr("target")) {
+                            targetItem = orderitems[key];
+                            itemKey = key;
+                        }
+                    };
+                    for (var key in that.product) {
+                        if (that.product[key].id == targetItem.productId) {
+                            //that.newInventBatch[index] = that.product[key].inventBatchs;
+                            Vue.set(that.newInventBatch, index, that.product[key].inventBatchs)
+                            console.log(that.newInventBatch);
+                        }
+                    }
+                },
+                changeInventBatch: function (index) {
+                    console.log(index)
+                    return this.newInventBatch[index];
+                },
+                addProduct: function () {
+                    var that = this
+                    var index = Math.random();
+                    that.newInventBatch[index] = [];
+                    that.formItem.salesOrderItems.push({ index: index });
+                },
 
                 //删除一到多项
-                deleteItem(params) {
+                deleteItem: function(params) {
                     var that = this
                     var postData = { "ids": params.ids }
                     abp.ui.setBusy($("#vue-app"));
@@ -179,7 +230,7 @@
                         $(".del-confirm").modal('hide');
                     });
                 },
-                delConfirmed() {
+                delConfirmed: function() {
                     var that = this;
                     that.deleteItem(
                         {

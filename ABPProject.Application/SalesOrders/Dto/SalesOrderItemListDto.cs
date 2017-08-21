@@ -8,18 +8,18 @@ namespace ABPProject.SalesOrders.Dto
         /// <summary>
         /// 产品编号
         /// </summary>
-        public virtual string InventId { get; set; }
+        public int ProductId { get; set; }
         /// <summary>
         /// 产品批次
         /// </summary>
-        public virtual string InventBatch { get; set; }
+        public int InventBatchId { get; set; }
         /// <summary>
         /// 购买数量
         /// </summary>
-        public virtual int PurchCount { get; set; }
+        public int PurchCount { get; set; }
         /// <summary>
         /// 产品单价
         /// </summary>
-        public virtual int PurchPrice { get; set; }
+        public int PurchPrice { get; set; }
     }
 }

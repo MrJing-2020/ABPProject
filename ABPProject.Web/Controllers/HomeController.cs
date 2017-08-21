@@ -10,5 +10,15 @@ namespace ABPProject.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult HomeHead()
+        {
+            return View();
+        }
+
+        public ActionResult HomeFooter()
+        {
+            return View();
+        }
 	}
 }

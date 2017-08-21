@@ -922,12 +922,16 @@
     <Content Include="Global.asax" />
     <Content Include="images\back.png" />
     <Content Include="images\btn.png" />
+    <Content Include="images\code.jpg" />
     <Content Include="images\crrc.png" />
     <Content Include="images\detail %281%29.jpg" />
     <Content Include="images\detail %282%29.jpg" />
     <Content Include="images\detail %283%29.jpg" />
     <Content Include="images\fastlink.png" />
+    <Content Include="images\foot.png" />
     <Content Include="images\loadings.gif" />
+    <Content Include="images\logoImg.png" />
+    <Content Include="images\logos.jpg" />
     <Content Include="images\logos.png" />
     <Content Include="images\myicon.png" />
     <Content Include="images\next.png" />
@@ -942,6 +946,7 @@
     <Content Include="images\sw %281%29.jpg" />
     <Content Include="images\sw %282%29.jpg" />
     <Content Include="images\uico.png" />
+    <Content Include="images\xinlang.png" />
     <Content Include="index.html" />
     <Content Include="js\common.js" />
     <Content Include="js\global.js" />
@@ -1004,6 +1009,8 @@
     <Content Include="css\font-awesome\4.5.0\fonts\fontawesome-webfont.woff" />
     <Content Include="css\font-awesome\4.5.0\fonts\fontawesome-webfont.woff2" />
     <Content Include="Areas\Admin\Views\PurchaseOrder\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap-table-editable.js" />
     <Content Include="Scripts\bootstrap-table-export.js" />
@@ -1131,6 +1138,12 @@
     <Content Include="Views\Detail\Index.cshtml" />
     <Content Include="Views\Product\IndexMain.cshtml" />
     <Content Include="StaticData\ProductCategory.json" />
+    <Content Include="Views\Home\HomeHead.cshtml" />
+    <Content Include="Views\Layout\_Chat.cshtml" />
+    <Content Include="Views\Layout\_ProductTop.cshtml" />
+    <Content Include="Views\Shared\_LayoutMain.cshtml" />
+    <Content Include="StaticData\AboutProject.json" />
+    <Content Include="Views\Home\HomeFooter.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -23,41 +23,44 @@ namespace ABPProject.Products
         private readonly ProductManager _productManager;
         private readonly IRepository<Product, int> _productRepository;
         private readonly IRepository<UnitOfMeasureTranslation, int> _unitRepository;
-        public ProductAppService(ProductManager productManager, IRepository<Product, int> productRepository, IRepository<UnitOfMeasureTranslation, int> unitRepository)
+        private readonly IRepository<Project, int> _projectRepository;
+        public ProductAppService(ProductManager productManager, 
+            IRepository<Product, int> productRepository, 
+            IRepository<UnitOfMeasureTranslation, int> unitRepository,
+            IRepository<Project, int> projectRepository)
         {
             _productManager = productManager;
             _productRepository = productRepository;
             _unitRepository = unitRepository;
+            _projectRepository = projectRepository;
         }
 
         public PagedResultDto<ProductListDto> GetPagedProduct(PageParams pageArg)
         {
             PageArgDto input = new PageArgDto(pageArg);
-            int count = 0;
-            IQueryable<Product> product = null;
-            if (!string.IsNullOrEmpty(input.SearchText))
-            {
-                product = _productRepository.GetAll().Where(m => m.Name.Contains(input.SearchText) || m.Description.Contains(input.SearchText));
-                count = product.Count();
-            }
-            else
-            {
-                product = _productRepository.GetAll();
-                count = _productRepository.Count();
-            }
-            if (!string.IsNullOrEmpty(input.SortName))
-            {
-                //将首字母转成大写
-                input.SortName = input.SortName.Substring(0, 1).ToUpper() + input.SortName.Substring(1);
-                product = input.SortOrder == "desc" ? product.OrderBy(input.SortName, true).PageBy(input.PageInput) :
-                product.OrderBy(input.SortName).PageBy(input.PageInput);
-            }
-            else
-            {
-                //默认按时间降序
-                product = product.OrderByDescending(m => m.CreationTime).PageBy(input.PageInput);
-            }
-            return new PagedResultDto<ProductListDto>(count, product.MapTo<List<ProductListDto>>());
+            bool isSearch = !string.IsNullOrEmpty(input.SearchText);
+            IQueryable<Product> product = _productRepository.GetAll();
+            bool orderByDesc = input.SortOrder == "desc" ? true : false;
+            string sortName = !string.IsNullOrEmpty(input.SortName) ? input.SortName.Substring(0, 1).ToUpper() + input.SortName.Substring(1) : "CreationTime";
+            //连表查询
+            var list = (from productItem in product
+                        join project in _projectRepository.GetAll() on productItem.ProjectId equals project.Id
+                        where (isSearch ? productItem.Name.Contains(input.SearchText) || project.Name.Contains(input.SearchText) : true)
+                        select new ProductListDto
+                        {
+                            Id = productItem.Id,
+                            Name = productItem.Name,
+                            ProjectName = project.Name,
+                            NameAlias = productItem.NameAlias,
+                            Category = productItem.Category,
+                            Description = productItem.Description,
+                            Stopped = productItem.Stopped,
+                            SalesUnit = productItem.SalesUnit,
+                            CreationTime = productItem.CreationTime
+                        }).OrderBy(sortName, orderByDesc);
+            int count = list.Count();
+            var resultList = list.PageBy(input.PageInput).ToList();
+            return new PagedResultDto<ProductListDto>(count, resultList);
         }
 
         public async Task<EditProductInput> GetProductById(OneParam param)
@@ -67,10 +70,11 @@ namespace ABPProject.Products
             return product.MapTo<EditProductInput>();
         }
 
-        public async Task<string[]> GetUnitList()
+        public async Task<object> GetSelectList()
         {
             var unitList = await _unitRepository.GetAllListAsync();
-            return unitList.Select(m => m.Description).ToArray();
+            var projectList = await _projectRepository.GetAllListAsync();
+            return new { unitList = unitList.Select(m => m.Description).ToArray(), projectList = projectList.Select(m => new { Id = m.Id, Name = m.Name, AXProjectId = m.AXProjectId }) };
         }
 
         /// <summary>
@@ -115,17 +119,6 @@ namespace ABPProject.Products
                 product = input.MapTo<EditProductInput, Product>(product);
                 await _productRepository.UpdateAsync(product);
             }
-        }
-
-        public async Task CreateProduct(EditProductInput input)
-        {
-            var count = _productRepository.GetAllList(m => m.Name == input.Name).Count();
-            if (count > 0)
-            {
-                throw new UserFriendlyException(string.Format("产品名 {0} 已经存在", input.Name));
-            }
-            var product = input.MapTo<Product>();
-            await _productRepository.InsertAsync(product);
         }
 
         public async Task DeleteProduct(ArrayParams param)

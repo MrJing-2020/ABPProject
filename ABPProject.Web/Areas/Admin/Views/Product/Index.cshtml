@@ -2,7 +2,6 @@
     ViewBag.ActiveMenu = "Product"; //The menu item will be active for this page.
     //IsGranted("权限名");//返回bool值，用来判断是否有某个权限，可用来控制按钮的显示
 }
-@using Abp.Authorization.Roles
 @using Abp.Web.Mvc.Extensions
 @using ABPProject.Authorization
 @using System.Web.Optimization
@@ -98,12 +97,12 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label">
-                                                        产品类别 <span class='require'>*</span>
+                                                        项目 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <select v-model="formItem.category" class="form-control cannot-change" name="category" required>
-                                                            <option v-for="option in productCategory" v-bind:value="option">
-                                                                {{ option }}
+                                                        <select v-model="formItem.projectId" v-on:change="projectIdChange" class="form-control cannot-change" name="projectId" required>
+                                                            <option v-for="option in projectList" v-bind:value="option.id">
+                                                                {{ option.name }}
                                                             </option>
                                                         </select>
                                                     </div>
@@ -112,11 +111,11 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label">
-                                                        销售单位 <span class='require'>*</span>
+                                                        产品类别 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <select v-model="formItem.salesUnit" class="form-control cannot-change" name="salesUnit" required>
-                                                            <option v-for="option in unitList" v-bind:value="option">
+                                                        <select v-model="formItem.category" class="form-control cannot-change" name="category" required>
+                                                            <option v-for="option in productCategory" v-bind:value="option">
                                                                 {{ option }}
                                                             </option>
                                                         </select>
@@ -155,6 +154,20 @@
                                             </div>
                                         </div>
                                         <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        销售单位 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <select v-model="formItem.salesUnit" class="form-control cannot-change" name="salesUnit" required>
+                                                            <option v-for="option in unitList" v-bind:value="option">
+                                                                {{ option }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label">

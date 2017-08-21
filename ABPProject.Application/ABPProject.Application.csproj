@@ -126,6 +126,8 @@
     <Compile Include="CommonDto\PageArgDto.cs" />
     <Compile Include="CommonDto\PagedInputDto.cs" />
     <Compile Include="CommonDto\PageParams.cs" />
+    <Compile Include="DtoMapping\IDtoMapping.cs" />
+    <Compile Include="DtoMapping\ProjectMapping.cs" />
     <Compile Include="Extend\QueryableExtensions.cs" />
     <Compile Include="MultiTenancy\Dto\CreateTenantInput.cs" />
     <Compile Include="MultiTenancy\ITenantAppService.cs" />
@@ -139,6 +141,8 @@
     <Compile Include="Products\IProductAppService.cs" />
     <Compile Include="Products\ProductAppService.cs" />
     <Compile Include="Projects\Dto\EditProjectInput.cs" />
+    <Compile Include="Products\Dto\InventBatchDto.cs" />
+    <Compile Include="Products\Dto\ProductSelectList.cs" />
     <Compile Include="Projects\Dto\ProjectListDto.cs" />
     <Compile Include="Projects\IProjectAppService.cs" />
     <Compile Include="Projects\ProjectAppService.cs" />

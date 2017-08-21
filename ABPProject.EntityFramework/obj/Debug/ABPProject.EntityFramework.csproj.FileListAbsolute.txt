@@ -123,7 +123,14 @@ D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProje
 D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.AddUnit.resources
 D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.AddInventSite.resources
 D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.ChangeSalesOrder3.resources
+D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.ChangPurchase.resources
+D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.AddInventBatch.resources
+D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.ChangeInventBatch.resources
+D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.ChangeSalesItem.resources
+D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.ChangeSalesItem1.resources
+D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.ChangeSalesItem2.resources
+D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.ChangeProject.resources
+D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.ChangeProduct2.resources
 D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.EntityFramework.csproj.GenerateResource.Cache
 D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.EntityFramework.dll
 D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.EntityFramework.pdb
-D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.ChangPurchase.resources

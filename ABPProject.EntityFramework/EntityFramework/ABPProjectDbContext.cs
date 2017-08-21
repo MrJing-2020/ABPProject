@@ -31,6 +31,7 @@ namespace ABPProject.EntityFramework
         public IDbSet<InventLocation> InventLocations { get; set; }
         public IDbSet<Contract> Contracts { get; set; }
         public IDbSet<Supplier> Suppliers { get; set; }
+        public IDbSet<InventBatch> InventBatchs { get; set; }
 
 
 

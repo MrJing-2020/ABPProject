@@ -198,6 +198,34 @@
     <Compile Include="Migrations\201708170742561_ChangPurchase.Designer.cs">
       <DependentUpon>201708170742561_ChangPurchase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708180554328_AddInventBatch.cs" />
+    <Compile Include="Migrations\201708180554328_AddInventBatch.Designer.cs">
+      <DependentUpon>201708180554328_AddInventBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708180602084_ChangeInventBatch.cs" />
+    <Compile Include="Migrations\201708180602084_ChangeInventBatch.Designer.cs">
+      <DependentUpon>201708180602084_ChangeInventBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708180618528_ChangeSalesItem.cs" />
+    <Compile Include="Migrations\201708180618528_ChangeSalesItem.Designer.cs">
+      <DependentUpon>201708180618528_ChangeSalesItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708180628374_ChangeSalesItem1.cs" />
+    <Compile Include="Migrations\201708180628374_ChangeSalesItem1.Designer.cs">
+      <DependentUpon>201708180628374_ChangeSalesItem1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708180631297_ChangeSalesItem2.cs" />
+    <Compile Include="Migrations\201708180631297_ChangeSalesItem2.Designer.cs">
+      <DependentUpon>201708180631297_ChangeSalesItem2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708180845585_ChangeProject.cs" />
+    <Compile Include="Migrations\201708180845585_ChangeProject.Designer.cs">
+      <DependentUpon>201708180845585_ChangeProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708210503469_ChangeProduct2.cs" />
+    <Compile Include="Migrations\201708210503469_ChangeProduct2.Designer.cs">
+      <DependentUpon>201708210503469_ChangeProduct2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ABPProjectDataModule.cs" />
@@ -268,6 +296,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708170742561_ChangPurchase.resx">
       <DependentUpon>201708170742561_ChangPurchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708180554328_AddInventBatch.resx">
+      <DependentUpon>201708180554328_AddInventBatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708180602084_ChangeInventBatch.resx">
+      <DependentUpon>201708180602084_ChangeInventBatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708180618528_ChangeSalesItem.resx">
+      <DependentUpon>201708180618528_ChangeSalesItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708180628374_ChangeSalesItem1.resx">
+      <DependentUpon>201708180628374_ChangeSalesItem1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708180631297_ChangeSalesItem2.resx">
+      <DependentUpon>201708180631297_ChangeSalesItem2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708180845585_ChangeProject.resx">
+      <DependentUpon>201708180845585_ChangeProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708210503469_ChangeProduct2.resx">
+      <DependentUpon>201708210503469_ChangeProduct2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

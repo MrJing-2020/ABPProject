@@ -38,31 +38,17 @@ namespace ABPProject.Projects
         public PagedResultDto<ProjectListDto> GetPagedProject(PageParams pageArg)
         {
             PageArgDto input = new PageArgDto(pageArg);
-            int count = 0;
-            IQueryable<Project> project = null;
-            if (!string.IsNullOrEmpty(input.SearchText))
-            {
-                project = _projectRepository.GetAll().Where(m => m.Name.Contains(input.SearchText) || m.Description.Contains(input.SearchText));
-                count = project.Count();
-            }
-            else
-            {
-                project = _projectRepository.GetAll();
-                count = _projectRepository.Count();
-            }
-            if (!string.IsNullOrEmpty(input.SortName))
-            {
-                //将首字母转成大写
-                input.SortName = input.SortName.Substring(0, 1).ToUpper() + input.SortName.Substring(1);
-                project = input.SortOrder == "desc" ? project.OrderBy(input.SortName, true).PageBy(input.PageInput) :
-                project.OrderBy(input.SortName).PageBy(input.PageInput);
-            }
-            else
-            {
-                //默认按时间降序
-                project = project.OrderByDescending(m => m.CreationTime).PageBy(input.PageInput);
-            }
-            return new PagedResultDto<ProjectListDto>(count, project.MapTo<List<ProjectListDto>>());
+            bool isSearch = !string.IsNullOrEmpty(input.SearchText);
+            IQueryable<Project> project = _projectRepository.GetAll();
+            bool orderByDesc = input.SortOrder == "desc" ? true : false;
+            string sortName = !string.IsNullOrEmpty(input.SortName) ? input.SortName.Substring(0, 1).ToUpper() + input.SortName.Substring(1) : "CreationTime";
+            //连表查询
+            var list = (from projectItem in project
+                        where (isSearch ? projectItem.Name.Contains(input.SearchText) || projectItem.Description.Contains(input.SearchText) : true)
+                        select projectItem).OrderBy(sortName, orderByDesc);
+            int count = list.Count();
+            var resultList = list.PageBy(input.PageInput).ToList();
+            return new PagedResultDto<ProjectListDto>(count, resultList.MapTo<List<ProjectListDto>>());
         }
 
         public async Task<EditProjectInput> GetProjectById(OneParam param)
@@ -73,6 +59,8 @@ namespace ABPProject.Projects
 
         public async Task EditProject(EditProjectInput input)
         {
+            //加上时区差
+            input.BeginDate = input.BeginDate.AddHours(8);
             var project = input.MapTo<Project>();
             await _projectRepository.InsertOrUpdateAsync(project);
 

@@ -1,0 +1,157 @@
+﻿
+@{
+    ViewBag.Title = "HomeHead";
+    Layout = null;
+}
+
+@using System.Web.Optimization
+
+@section styles
+{
+    @Styles.Render("~/Home/css")
+}
+
+@section scripts
+{
+    @Styles.Render("~/Home/js")
+}
+
+<div class="notes" id="notes">
+    <div class="noteWrap clearfix">
+        <div class="f_left noteWelcome">
+            欢迎光临恒瑞麟
+            <a href="javascript:;">【<span>登录</span>】</a>
+            <a href="javascript:;">【<span>注册</span>】</a>
+        </div>
+        <div class="f_right noteClockWrap">
+            <i class="uico noteClock"></i>
+            <span>09:00-17:00</span>
+        </div>
+        <ul class="f_right clearfix noteNav">
+            <li>
+                <a href="javascript:;">我的首页</a>
+            </li>
+            <li class="noteNetNav">
+                <a href="javascript:;" class="navigation">
+                    <i class="uico"></i>
+                    网站导航
+                </a>
+                <div class="navBox">
+                    <h6>
+                        <i class="uico"></i>
+                        网站导航
+                    </h6>
+                    <ul class="navList clearfix">
+                        <li v-for="item in liShort" v-bind:class="[item.isLong ? 'liLong' : 'liShort']">
+                            <h6>{{ item.title}}</h6>
+                            <span v-for="itemInner in item.liInfo"><a v-bind:href="itemInner.href" > {{ itemInner.info }}</a></span>
+                            
+                        </li>
+                        @*<li class="liShort">
+                            <h6>煤炭交易</h6>
+                            <span><a href="javascript:;">煤炭现货</a></span>
+                            <span><a href="javascript:;">煤炭供求</a></span>
+                        </li>
+                        <li class="liShort">
+                            <h6>钢铁交易</h6>
+                            <span><a href="javascript:;">钢铁现货</a></span>
+                            <span><a href="javascript:;">钢铁供求</a></span>
+                        </li>
+                        <li class="liLong">
+                            <h6>仓储货运</h6>
+                            <span><a href="javascript:;">货运追踪</a></span>
+                            <span><a href="javascript:;">运能查询</a></span>
+                            <span><a href="javascript:;">运费试算</a></span>
+                            <span><a href="javascript:;">业务知识</a></span>
+                            <span><a href="javascript:;">货运网点</a></span>
+                            <span><a href="javascript:;">品牌推介</a></span>
+                        </li>
+                        <li class="liLong">
+                            <h6>在线融资</h6>
+                            <span><a href="javascript:;">业务指南</a></span>
+                            <span><a href="javascript:;">金融机构</a></span>
+                            <span><a href="javascript:;">监管仓库</a></span>
+                            <span><a href="javascript:;">支持品种</a></span>
+                        </li>
+                        <li class="liLong">
+                            <h6>信息咨询</h6>
+                            <span><a href="javascript:;">行业咨询</a></span>
+                            <span><a href="javascript:;">金融动态</a></span>
+                            <span><a href="javascript:;">价格中心</a></span>
+                            <span><a href="javascript:;">专家访谈</a></span>
+                            <span><a href="javascript:;">储运服务</a></span>
+                            <span><a href="javascript:;">展会信息</a></span>
+                        </li>
+                        <li class="liMiddle">
+                            <h6>京铁货运中心</h6>
+                            <span><a href="javascript:;">邯郸货运站</a></span>
+                        </li>*@
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="javascript:;">帮助中心</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="heads">
+    <div class="headTop clearfix">
+        <h1 class="f_left logoWrap">
+            <a href="javascript:;"><img src="../../images/logos.jpg" /></a>
+        </h1>
+        <div class="searchBox f_left">
+            <div>
+                <form action="javascript:;" class="clearfix">
+                    <div class="searchInfo f_left">
+                        <div class="searchType">
+                            <span>
+                                <span class="f_left">
+                                    产品
+                                </span>
+                                <i class="f_right uico"></i>
+                            </span>
+                            <div class="searchToggle">
+                                <a href="javascript:;">咨询</a>
+                            </div>
+                        </div>
+                        <div class="searchIpt">
+                            <input type="text" value="请输入搜索内容" onblur="if(this.value=='')this.value='请输入搜索内容';" onfocus="if(this.value=='请输入搜索内容')this.value='';">
+                        </div>
+                    </div>
+                    <input type="button" value="搜索" class="goSearch f_left" />
+                </form>
+            </div>
+            <div class="hotWord">
+                <a href="javascript:;" class="active">聚丙烯</a>
+                <a href="javascript:;">电脑</a>
+                <a href="javascript:;">无纺布</a>
+            </div>
+        </div>
+        <ul class="headLink f_right clearfix">
+            <li><a href="javascript:;"><i class="linkI01"></i><span>阳光交易</span></a></li>
+            <li><a href="javascript:;"><i class="linkI02"></i><span>绿色储运</span></a></li>
+            <li><a href="javascript:;"><i class="linkI03"></i><span>智慧融资</span></a></li>
+        </ul>
+
+    </div>
+</div>
+
+<div class="navs">
+    <div class="navsWrap clearfix">
+        <ul class="f_left List">
+            <li class="active"><a href="javascript:;">首页</a></li>
+            <li><a href="../Product/index">聚丙烯</a></li>
+            <li><a href="javascript:;">电脑</a></li>
+            <li><a href="javascript:;">仓储货运</a></li>
+            <li><a href="javascript:;">在线融资</a></li>
+            <li><a href="javascript:;">信息咨询</a></li>
+        </ul>
+        <span class="f_right phoneNum">
+            <i class=""></i>
+            <span>010-00000</span>
+        </span>
+    </div>
+</div>
+

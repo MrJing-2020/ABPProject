@@ -196,24 +196,34 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <h3>商品</h3>
-                                        <div v-for="salesOrderItem in formItem.salesOrderItems">
+                                        <h3>
+                                        商品 <span class="badge badge-green add-product" v-on:click="addProduct" name="addProduct" style="cursor:pointer"><i class="fa fa-plus"></i>添加商品</span>
+                                        </h3>
+                                        <div v-for="salesOrderItem in formItem.salesOrderItems" class="sales-item">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="inputAddress1" class="col-md-3 control-label">
-                                                            产品编号 <span class='require'>*</span>
+                                                        <label class="col-md-3 control-label">
+                                                            产品 <span class='require'>*</span>
                                                         </label>
                                                         <div class="col-md-9">
-                                                            <input v-model="salesOrderItem.inventId" name="inventId"  type="text" class="form-control" required/>
+                                                            <select v-model="salesOrderItem.productId" v-on:change="productChange($event)" v-bind:target="salesOrderItem.index" class="form-control" name="productId" required>
+                                                                <option v-for="option in product" v-bind:value="option.id">
+                                                                    {{ option.name }}
+                                                                </option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="inputAddress2" class="col-md-3 control-label">批次号 <span class='require'>*</span></label>
+                                                        <label class="col-md-3 control-label">批次号 <span class='require'>*</span></label>
                                                         <div class="col-md-9">
-                                                            <input v-model="salesOrderItem.inventBatch" name="inventBatch" type="text" class="form-control" required/>
+                                                            <select v-model="salesOrderItem.inventBatchId" v-bind:productId="salesOrderItem.productId" class="form-control" name="inventBatchId" required>
+                                                                <option v-for="option in changeInventBatch(salesOrderItem.index)" v-bind:value="option.id">
+                                                                    {{ option }}
+                                                                </option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -233,7 +243,7 @@
                                                             数量 <span class='require'>*</span>
                                                         </label>
                                                         <div class="col-md-9">
-                                                            <input v-model="salesOrderItem.purchPrice" name="purchPrice" type="text" class="form-control" required/>
+                                                            <input v-model="salesOrderItem.purchPrice" type="number" name="purchPrice" class="form-control" required/>
                                                         </div>
                                                     </div>
                                                 </div>

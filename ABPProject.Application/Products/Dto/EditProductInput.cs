@@ -29,6 +29,8 @@ namespace ABPProject.Products.Dto
         public string NameAlias { get; set; }
         public string Description { get; set; }
 
+        public int ProjectId { get; set; }
+
         public DateTime CreationTime { get; set; }
     }
 }

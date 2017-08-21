@@ -9,6 +9,7 @@
 	line-height: 41px;
 	background: #eee;
 	border-bottom: 1px solid #e0e0e0;
+    min-width: 1200px;
 }
 .topWrap{
 	width: 1190px;
@@ -131,8 +132,11 @@
 .logWrap{
 	height: 86px;
 }
-.logWrap > a{
-	display: block;
+.logWrap > a {
+    display: block;
+    width: 248px;
+    height: 86px;
+    margin-right: 80px;
 }
 .logWrap > a > img{
 	width: 248px;
@@ -182,6 +186,7 @@
 	color: #fff;
 	background-color: #0070dc;
 	line-height: 40px;
+    cursor: pointer;
 }
 .launch{
 	display: inline-block;

@@ -97,7 +97,6 @@ function initCheckBox() {
     });
 }
 function submitCancel(e) {
-    console.log($(e).attr("target"))
     var $targetEle = $("#" + $(e).attr("target"));
     if ($targetEle.hasClass("tab-hidden")) {
         $targetEle.css("display", "none");

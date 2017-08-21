@@ -338,7 +338,13 @@ if ( typeof Object.create !== "function" ) {
 
 		calculateWidth : function(){
 			var base = this;
-			base.itemWidth = Math.round(base.$elem.width()/base.options.items)
+            //base.itemWidth = Math.round(base.$elem.width() / base.options.items)
+            //console.log(base.$elem.width())
+            if (base.$elem.width() < 1000) {
+                base.itemWidth = 1000;
+            } else {
+                base.itemWidth = base.$elem.width();
+            }
 		},
 
 		max : function(){

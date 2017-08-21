@@ -129,6 +129,7 @@
     <Compile Include="InventSites\InventSite.cs" />
     <Compile Include="MultiTenancy\Tenant.cs" />
     <Compile Include="MultiTenancy\TenantManager.cs" />
+    <Compile Include="Products\InventBatch.cs" />
     <Compile Include="Products\Product.cs" />
     <Compile Include="Products\ProductManager.cs" />
     <Compile Include="Projects\Project.cs" />

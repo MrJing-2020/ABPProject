@@ -1,28 +1,30 @@
-$(function (){
-	function fmoney(s, n) {
-	    n = n > 0 && n <= 20 ? n : 3;
-	    s = parseFloat((s + "").replace(/[^\d\.-]/g, "")).toFixed(n) + "";
-	    if (s < 0) {
-	        s = parseFloat(Math.abs(s));
-	        s = parseFloat(s).toFixed(3);
-	        var l = s.split(".")[0].split("").reverse(),
-	        r = s.split(".")[1];
-	        t = "";
-	        for (i = 0; i < l.length; i++) {
-	            t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
-	        }
-	        return "-" + t.split("").reverse().join("") + "." + r;
-	    }
+function fmoney(s, n) {
+    n = n > 0 && n <= 20 ? n : 3;
+    s = parseFloat((s + "").replace(/[^\d\.-]/g, "")).toFixed(n) + "";
+    if (s < 0) {
+        s = parseFloat(Math.abs(s));
+        s = parseFloat(s).toFixed(3);
+        var l = s.split(".")[0].split("").reverse(),
+            r = s.split(".")[1];
+        t = "";
+        for (i = 0; i < l.length; i++) {
+            t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
+        }
+        return "-" + t.split("").reverse().join("") + "." + r;
+    }
+
+    var l = s.split(".")[0].split("").reverse(),
+        r = s.split(".")[1];
+
+    t = "";
+    for (i = 0; i < l.length; i++) {
+        t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
+    }
+    return t.split("").reverse().join("") + "." + r;
+}
+
+$(function () {
 	
-	    var l = s.split(".")[0].split("").reverse(),
-	    r = s.split(".")[1];
-	
-	    t = "";
-	    for (i = 0; i < l.length; i++) {
-	        t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
-	    }
-	    return t.split("").reverse().join("") + "." + r;
-	}
 	
 	$(".member").hover(function (){
 		$(".personalList").show();
@@ -44,35 +46,6 @@ $(function (){
 		$(this).find(".barSub").hide();
 	})
 	
-	
-	/*多选    确定    取消*/
-	$(".breedInner a input").hide();
-	$(".breedCheck button").click(function (){
-		$(this).parent().hide();
-		var breedWrap = $(this).parent().parent();//.breedWrap
-		breedWrap.find(".breedInner a input").show();
-		breedWrap.find(".breedSure").show();
-	})
-	$(".buttonClose").click(function (){
-		var breedWrap = $(this).parent().parent().parent();//.breedWrap
-		breedWrap.find(".breedInner a input").hide();
-		breedWrap.find(".breedSure").hide();
-		breedWrap.find(".breedCheck").show();
-	})
-	
-	
-	/*属性    牌号    价格*/
-	$(".productList .productLi").hover(function (){
-		$(this).find(".litips").show();
-		$(this).css({
-			backgroundColor: "#eef8ff"
-		})
-	},function (){
-		$(this).find(".litips").hide();
-		$(this).css({
-			backgroundColor: "#fff"
-		})
-	})
 	
 	/*navlist 切换*/
 	$(".navList > li").click(function (){
@@ -133,50 +106,24 @@ $(function (){
 		},1000)
 	}
 	
-	/*每页显示*/
-	$(".changeCount > a").click(function (){
-		$(this).addClass("active").siblings().removeClass("active");
-	})
-	
-	$(".countRange > button").click(function (){
-		var val = parseFloat($(this).siblings("input").val());
-		if($(this).index()==0){
-			if(val <= 20){
-				$(this).attr("disabled",true);
-				$(this).find("i").css("color","#999");
-			}else{
-				$(this).attr("disabled",false);
-				$(this).find("i").css("color","#000");
-				val -= 20;
-				if(val <= 20){
-					$(this).attr("disabled",true);
-					$(this).find("i").css("color","#999");
-					$(this).siblings("input").val(fmoney(20));
-				}else{
-					$(this).siblings("input").val(fmoney(val));
-				}
-				
-			}
-		}else if($(this).index()==2){
-			$(this).siblings("button").attr("disabled",false);
-			$(this).siblings("button").find("i").css("color","#000");
-			val += 20;
-			$(this).siblings("input").val(fmoney(val));
-		}
-	})
 	
 	/*搜索*/
-	$(".searchWrap > input").focus(function (){
-		$(this).next().hide();
-	})
-	.blur(function (){
-		if($(this).val() == ""){
-			$(this).next().show();
-		}else {
-			$(this).next().hide();
-		}
-	})
-	
-	
+    $(".searchWrap > input")
+        .focus(function () {
+            $(this).css({
+                border: "2px solid #0070dc"
+            })
+		    $(this).next().hide();
+	    })
+        .blur(function () {
+            $(this).css({
+                border: "1px solid #ccc"
+            })
+		    if($(this).val() == ""){
+			    $(this).next().show();
+		    }else {
+			    $(this).next().hide();
+		    }
+	    })
 	
 })

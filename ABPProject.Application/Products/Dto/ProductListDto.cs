@@ -8,6 +8,7 @@ namespace ABPProject.Products.Dto
     public class ProductListDto: EntityDto<int>
     {
         public string Name { get; set; }
+        public string ProjectName { get; set; }
         public string NameAlias { get; set; }
         public string SalesUnit { get; set; }
         public string Category { get; set; }

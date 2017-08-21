@@ -5,14 +5,17 @@
             data: {
                 formItem: {},
                 abpService: abp.services.app.project,
-                deleteId: null
+                deleteId: null,
+                axProject: [],
+                buyMethod: [],
+                redeemMethod: []
             },
             //生命周期钩子（vue替换dom完成之后执行）
-            mounted() {
+            mounted: function() {
                 this.init()
             },
             methods: {
-                initTableData(params) {
+                initTableData: function(params) {
                     var that = this;
                     initTable({
                         //表格
@@ -82,7 +85,7 @@
                     });
                 },
                 //初始化页面
-                init() {
+                init: function() {
                     var that = this;
                     //按钮事件
                     var operateEvents = {
@@ -98,26 +101,37 @@
                         operateEvents: operateEvents,
                         deleteItem: that.deleteItem
                     });
+                    $.getJSON("/StaticData/AboutProject.json", function (data) {
+                        that.axProject = data.axProject;
+                        that.buyMethod = data.buyMethod
+                        that.redeemMethod = data.redeemMethod
+                    });
+                    $('.datepicker-default').datepicker({
+                        language: 'zh-CN'
+                    }).on('changeDate', function (ev) {
+                        that.formItem.beginDate = ev.date;
+                    });
                 },
 
                 //根据id获取详情
-                getProjectById(id) {
+                getProjectById: function(id) {
                     var that = this
                     var postData = { "id": id }
                     abp.ui.setBusy($("#vue-app"));
                     this.abpService.getProjectById(postData).done(function (res) {
                         that.formItem = res;
+                        that.formItem.beginDate = that.formItem.beginDate.substring(0, that.formItem.beginDate.lastIndexOf("T"));
                     }).always(function () {
                         abp.ui.clearBusy($("#vue-app"));
                     });
                 },
 
                 //编辑和新增
-                createItem() {
+                createItem: function() {
                     this.formItem = {};
                     $("#tab-edit a:first").trigger("click");
                 },
-                subFormData(e) {
+                subFormData: function(e) {
                     e.preventDefault();
                     var _$form = $("#editItemForm");
                     _$form.validate();
@@ -132,7 +146,7 @@
                         abp.ui.clearBusy($("#vue-app"));
                     });
                 },
-                submitCancel(e) {
+                submitCancel: function(e) {
                     submitCancel(e.target);
                     if ($(e.target).attr("target") == "tab-edit") {
                         this.formItem = {};
@@ -140,7 +154,7 @@
                 },
 
                 //删除一到多项
-                deleteItem(params) {
+                deleteItem: function(params) {
                     var that = this
                     var postData = { "ids": params.ids }
                     abp.ui.setBusy($("#vue-app"));
@@ -151,7 +165,7 @@
                         $(".del-confirm").modal('hide');
                     });
                 },
-                delConfirmed() {
+                delConfirmed: function() {
                     var that = this;
                     that.deleteItem(
                         {

@@ -2,8 +2,8 @@
 @using Abp.Web.Mvc.Extensions
 @{
     ViewBag.Title = "IndexMain";
+    Layout = null;
 }
-
 
 @section styles
 {
@@ -11,26 +11,25 @@
 }
 
 @section scripts
-{
-    @*@Scripts.Render("~/Product/js")*@
+{   
     @Html.IncludeScript("~/Views/Product/indexMain.js")
 }
 
 <h3 class="wrapTitle">自营商城</h3>
-<form action="javascript:;">
+<form action="javascript:;" id="forms">
     <div class="breed">
-        <div class="breedRow clearfix">
+        <div class="breedRow clearfix" v-for="item in screenList">
             <div class="breedTit f_left">
-                品&nbsp;种
+                {{ item.screenName }}
             </div>
             <div class="f_left breedWrap clearfix">
                 <div class="f_left breedItem">
                     <div class="breedInner">
-                        <a href="javascript:;">
+                        <a href="javascript:;" v-for="itemInner in item.screenItem" v-bind:class="{hideBack: itemInner.isHide}">
                             <input type="checkbox" />
-                            <span>LEDF</span>
+                            <span>{{ itemInner.items }}</span>
                         </a>
-                        <a href="javascript:;">
+                        @*<a href="javascript:;">
                             <input type="checkbox" />
                             <span>LEDF23</span>
                         </a>
@@ -97,7 +96,7 @@
                         <a href="javascript:;">
                             <input class="hideBack" type="checkbox" />
                             <span>LEDF76767</span>
-                        </a>
+                        </a>*@
                     </div>
                     <div class="breedSure hideBack">
                         <button class="breedButton buttonSure">确定</button>
@@ -113,7 +112,7 @@
             </div>
         </div>
 
-        <div class="breedRow clearfix">
+        @*<div class="breedRow clearfix">
             <div class="breedTit f_left">
                 应&nbsp;用
             </div>
@@ -233,15 +232,15 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div>*@
 
         <div class="filter">
             <div class="filterTit">
                 <span>筛选条件:</span>
-                <!--<em>
-                    LPOJ
+                @*<em>
+                    <input disabled type="text" value="LEDF" />
                     <i></i>
-                </em>-->
+                </em>*@
             </div>
             <div class="filterList clearfix">
                 <span>品种</span>
@@ -269,12 +268,12 @@
     <div class="lineBlue"></div>
 
     <div class="condition">
-        <span class="borderRight">
+        <span class="borderRight dealTime">
             <a href="javascript:;">
                 <span class="txtBlue">时间</span>
             </a>
         </span>
-        <span class="borderRight">
+        <span class="borderRight dealPrice">
             <a href="javascript:;">
                 <span class="txtBlue">价格</span>
             </a>
@@ -313,25 +312,25 @@
             <span class="col4">认购数量</span>
             <span class="col5">操作</span>
         </li>
-        <li class="productLi">
+        <li class="productLi" v-for="item in productInfo">
             <span class="col1">
-                <span class="productName qihuo">
-                    <em>期货</em>
-                    <em>LDRP</em>
-                    <em>上海鲨鱼</em>
+                <span class="productName" v-bind:class='[item.isQihuo ? "qihuo" : "xianhuo"]'>
+                    <em>{{ item.type }}</em>
+                    <em>{{ item.name }}</em>
+                    <em>{{ item.companyName }}</em>
                 </span>
             </span>
             <span class="col2">
-                <span class="colName">赛科线性聚乙烯0220KJ</span>
+                <span class="colName">{{ item.tradeMark }}</span>
                 <a class="icon proCollect" href="javascript:;"></a>
             </span>
             <span class="col3">
-                <em class="org">999.00</em>
+                <em class="org">{{ item.price }}</em>
             </span>
-            <span class="col3">0.000</span>
-            <span class="col3">杭州</span>
-            <span class="col3">1天前</span>
-            <span class="col3">2017-7-20</span>
+            <span class="col3">{{ item.amount }}</span>
+            <span class="col3">{{ item.site }}</span>
+            <span class="col3">{{ item.launchTime }}</span>
+            <span class="col3">{{ item.dealTime }}</span>
             <span class="col4 countRange">
                 <button><i class="fa fa-minus" aria-hidden="true"></i></button>
                 <input type="text" value="20.000" />
@@ -344,11 +343,11 @@
                 </button>
             </span>
             <div class="litips hideBack">
-                <span>交货地点: <em>杭州</em></span>
-                <span>最低起订量: <em>20.000</em></span>
+                <span>交货地点: <em>{{ item.dealPlace }}</em></span>
+                <span>最低起订量: <em>{{ item.minAmount }}</em></span>
             </div>
         </li>
-        <li class="productLi">
+        @*<li class="productLi">
             <span class="col1">
                 <span class="productName xianhuo">
                     <em>现货</em>
@@ -417,7 +416,7 @@
                 <span>交货地点: <em>杭州</em></span>
                 <span>最低起订量: <em>20.000</em></span>
             </div>
-        </li>
+        </li>*@
     </ul>
 </div>
 @* pages *@
