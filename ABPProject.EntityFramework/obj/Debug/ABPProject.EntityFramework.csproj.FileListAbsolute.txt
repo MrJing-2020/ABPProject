@@ -131,6 +131,10 @@ D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProje
 D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.ChangeSalesItem2.resources
 D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.ChangeProject.resources
 D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.ChangeProduct2.resources
+D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.ChangePurchaseOrder.resources
+D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.ChangePurchaseOrder1.resources
+D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.AddReceipt.resources
+D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.Migrations.AddBankAccout.resources
 D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.EntityFramework.csproj.GenerateResource.Cache
 D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.EntityFramework.dll
 D:\项目\GitRepository\ABPProject\ABPProject.EntityFramework\obj\Debug\ABPProject.EntityFramework.pdb

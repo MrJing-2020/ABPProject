@@ -126,6 +126,8 @@
     <Compile Include="CommonDto\PageArgDto.cs" />
     <Compile Include="CommonDto\PagedInputDto.cs" />
     <Compile Include="CommonDto\PageParams.cs" />
+    <Compile Include="Delivers\DeliverAppService.cs" />
+    <Compile Include="Delivers\IDeliverAppService.cs" />
     <Compile Include="DtoMapping\IDtoMapping.cs" />
     <Compile Include="DtoMapping\ProjectMapping.cs" />
     <Compile Include="Extend\QueryableExtensions.cs" />
@@ -153,6 +155,10 @@
     <Compile Include="PurchaseOrders\Dto\PurchaseOrderListDto.cs" />
     <Compile Include="PurchaseOrders\IPurchaseOrderAppService.cs" />
     <Compile Include="PurchaseOrders\PurchaseOrderAppService.cs" />
+    <Compile Include="Receipts\Dto\EditReceiptInput.cs" />
+    <Compile Include="Receipts\Dto\ReceiptListDto.cs" />
+    <Compile Include="Receipts\IReceiptAppService.cs" />
+    <Compile Include="Receipts\ReceiptAppService.cs" />
     <Compile Include="Roles\Dto\EditUserInput.cs" />
     <Compile Include="Roles\Dto\PermissionGroupDto.cs" />
     <Compile Include="Roles\Dto\PermissionListDto.cs" />

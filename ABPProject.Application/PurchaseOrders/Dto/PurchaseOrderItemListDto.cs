@@ -13,11 +13,11 @@ namespace ABPProject.PurchaseOrders.Dto
         /// <summary>
         /// 产品编号
         /// </summary>
-        public string InventId { get; set; }
+        public string ProductId { get; set; }
         /// <summary>
         /// 产品批次
         /// </summary>
-        public string InventBatch { get; set; }
+        public string InventBatchId { get; set; }
         /// <summary>
         /// 购买数量
         /// </summary>

@@ -1,0 +1,327 @@
+﻿@{
+    ViewBag.ActiveMenu = "Receipt";
+}
+@using Abp.Web.Mvc.Extensions
+@using System.Web.Optimization
+
+@section styles
+{
+    @Styles.Render("~/Table/css")
+}
+@section scripts
+{
+    @Scripts.Render("~/Table/js")
+    @Html.IncludeScript("~/Areas/Admin/Views/Receipt/Index.js")
+}
+<div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+    <div class="page-header pull-left">
+        <div class="page-title">收款单</div>
+    </div>
+    <ol class="breadcrumb page-breadcrumb pull-left">
+        <li><i class="fa fa-home"></i>&nbsp;<a href="/Admin/Home/index">主页</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="hidden"><a href="#">收款单</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="active">收款单</li>
+    </ol>
+    <div class="btn btn-blue reportrange">
+        <i class="fa fa-calendar"></i>&nbsp;<span></span>&nbsp;report&nbsp;<i class="fa fa-angle-down"></i>
+        <input type="hidden" name="datestart" />
+        <input type="hidden" name="endstart" />
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="page-content" id="vue-app">
+    <div id="tab-general">
+        <div class="panel">
+            <div class="panel-body">
+                <ul id="content-tab" class="nav ul-edit nav-tabs">
+                    <li id="tab-list" class="active">
+                        <a href="#itemlist" data-toggle="tab">列表</a>
+                    </li>
+                    <li id="tab-edit">
+                        <a href="#editItem" data-toggle="tab">新增/编辑收款单</a>
+                    </li>
+                </ul>
+                <div id="myCloseableTabContent" class="tab-content pan mtl mbn responsive ">
+                    <div id="itemlist" class="tab-pane fade in active">
+                        <div id="toolbar">
+                            <button data-toggle="modal" data-target="#deleleAll-confirm" id="table-remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> 删除</button>
+                            <button data-toggle="modal" v-on:click="createItem" id="createNewItem" class="btn btn-primary"><i class="fa fa-plus"></i> 创建收款单</button>
+                        </div>
+                        <table id="table-data"
+                               data-toolbar="#toolbar"
+                               data-search="true"
+                               data-show-refresh="true"
+                               data-show-toggle="true"
+                               data-show-columns="true"
+                               data-show-export="true"
+                               data-detail-view="true"
+                               data-minimum-count-columns="2"
+                               data-pagination="true"
+                               data-id-field="id"
+                               data-page-list="[10, 25, 50, 100, ALL]"
+                               data-show-footer="false"
+                               data-side-pagination="server"
+                               data-url="/Admin/Receipt/PagedList"></table>
+                    </div>
+                    <div id="editItem" class="tab-pane fade">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">新增/编辑产品</div>
+                            <div class="panel-body pan">
+                                <form name="editItemForm" id="editItemForm" role="form" class="form-validation form-horizontal">
+                                    <div class="form-body pal">
+                                        <h3>基本信息</h3>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        客户 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <select v-model="formItem.clientId" name="clientId" class="form-control" required>
+                                                            <option v-for="option in client" v-bind:value="option.id">
+                                                                {{ option.name }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        销售订单 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <select v-model="formItem.salesOrderId" name="salesOrderId" class="form-control" required>
+                                                            <option v-for="option in salesOrder" v-bind:value="option.id">
+                                                                {{ option.salesNum }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        收款方式 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <select v-model="formItem.receiptWay" class="form-control" name="receiptWay" required>
+                                                            <option v-for="option in receiptWay" v-bind:value="option.id">
+                                                                {{ option.name }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        支付方式 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <select v-model="formItem.paymentMethod" class="form-control" name="paymentMethod" required>
+                                                            <option v-for="option in paymentMethod" v-bind:value="option">
+                                                                {{ option }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        日记账 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <select v-model="formItem.journalName" class="form-control" name="journalName" required>
+                                                            <option v-for="option in journalName" v-bind:value="option">
+                                                                {{ option }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        过账模板 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <select v-model="formItem.postingProfile" name="postingProfile" class="form-control" required>
+                                                            <option v-for="option in postingProfile" v-bind:value="option">
+                                                                {{ option }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        收款银行 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <select v-model="formItem.bankName" name="bankName" class="form-control" required>
+                                                            <option v-for="option in bank" v-bind:value="option.accountId">
+                                                                {{ option.bankName }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        收款账号 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <input v-model="formItem.accountId" name="accountId" type="text" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        金额 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <input v-model="formItem.journalBalance" name="journalBalance" type="text" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        大写金额 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <input v-model="formItem.lineAmountCaps" name="lineAmountCaps" type="text" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3>详细信息</h3>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        货币 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <input v-model="formItem.currency" name="currency" type="text" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        银行流水号 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <input v-model="formItem.bankTransactionNum" name="bankTransactionNum" type="text" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        收款日期 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <input v-model="formItem.receiptDate" name="receiptDate" type="text" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        合同编号 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <select v-model="formItem.contractNum" class="form-control" name="contractNum" required>
+                                                            <option v-for="option in contract" v-bind:value="option.id">
+                                                                {{ option.name }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        摘要 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <textarea v-model="formItem.receiptAbstract" name="receiptAbstract" type="text" class="form-control" required></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        备注 <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <textarea v-model="formItem.remark" name="remark" type="text" class="form-control" required></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions text-right">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <button v-on:click="submitCancel($event)" target="tab-edit" type="button" class="btn btn-default submit-cancel">取消</button>
+                                            <button v-on:click="subFormData" class="btn btn-primary blue"><i class="fa fa-save"></i> <span>保存</span></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="del-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-default-label" aria-hidden="true" class="modal fade del-confirm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+                    <h4 id="modal-default-label" class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body">确认删除吗？</div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+                    <button v-on:click="delConfirmed" type="button" id="del-confirmed" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="deleleAll-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-default-label" aria-hidden="true" class="modal fade del-confirm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+                    <h4 id="modal-default-label" class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body">您确认删除所有选中项吗？</div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+                    <button type="button" id="deleleAll-confirmed" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

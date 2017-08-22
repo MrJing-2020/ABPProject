@@ -132,16 +132,22 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <h3>商品</h3>
-                                        <div v-for="purchaseOrderItem in formItem.purchaseOrderItems">
+                                        <h3>
+                                        商品 <span class="btn btn-green btn-sm add-product" v-on:click="addProduct" name="addProduct" style="font-size: 14px !important"><i class="fa fa-plus"></i> 添加商品</span>
+                                        </h3>
+                                        <div v-for="purchaseOrderItem in formItem.purchaseOrderItems" class="sales-item">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="col-md-3 control-label">
-                                                            产品编号 <span class='require'>*</span>
+                                                            产品 <span class='require'>*</span>
                                                         </label>
                                                         <div class="col-md-9">
-                                                            <input v-model="purchaseOrderItem.inventId" type="text" class="form-control" />
+                                                            <select v-model="purchaseOrderItem.productId" v-on:change="productChange($event)" v-bind:target="purchaseOrderItem.index" class="form-control" name="productId" required>
+                                                                <option v-for="option in product" v-bind:value="option.id">
+                                                                    {{ option.name }}
+                                                                </option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -149,7 +155,11 @@
                                                     <div class="form-group">
                                                         <label class="col-md-3 control-label">批次号</label>
                                                         <div class="col-md-9">
-                                                            <input v-model="purchaseOrderItem.inventBatch" type="text" placeholder="" class="form-control" />
+                                                            <select v-model="purchaseOrderItem.inventBatchId" class="form-control" name="inventBatchId" required>
+                                                                <option v-for="option in purchaseOrderItem.inventBatch" v-bind:value="option.id">
+                                                                    {{ option.inventBatchNum }}
+                                                                </option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -173,6 +183,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="row text-right" style="padding-right: 16px">
+                                                <span v-on:click="delProduct($event)" v-bind:target="purchaseOrderItem.index" class="btn btn-danger btn-xs">删除</span>
                                             </div>
                                         </div>
                                     </div>

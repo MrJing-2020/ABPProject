@@ -10,9 +10,7 @@
                 client: [],
                 contract: [],
                 inventLocations: [],
-                product: [],
-                inventBatch: [],
-                newInventBatch: {}
+                product: []
             },
             //生命周期钩子（vue替换dom完成之后执行）
             mounted: function () {
@@ -130,7 +128,7 @@
                         that.product = res.product;
                     })
                     that.formItem = { salesOrderItems: [] };
-                    that.formItem.salesOrderItems.push({ index: Math.random(), newInventBatch: []});
+                    that.formItem.salesOrderItems.push({ index: Math.random(), inventBatch: []});
                 },
 
                 //根据id获取详情
@@ -140,8 +138,12 @@
                     abp.ui.setBusy($("#vue-app"));
                     this.abpService.getSalesOrderById(postData).done(function (res) {
                         that.formItem = res;
+                        for (var key in that.formItem.salesOrderItems) {
+                            var index = Math.random();
+                            that.formItem.salesOrderItems[key].index = index;
+                            that.changeInventBatch(index);
+                        }
                         that.inventSiteChange();
-                        //that.productChange();
                     }).always(function () {
                         abp.ui.clearBusy($("#vue-app"));
                     });
@@ -151,10 +153,12 @@
                 createItem: function () {
                     var that = this
                     that.formItem = { salesOrderItems: [] };
-                    that.formItem.salesOrderItems.push({ index: Math.random()});
+                    that.formItem.salesOrderItems.push({ index: Math.random(), inventBatch: []});
                     $("#tab-edit a:first").trigger("click");
                 },
-                subFormData: function(e) {
+                //提交表单数据
+                subFormData: function (e) {
+                    var that = this;
                     e.preventDefault();
                     var _$form = $("#editItemForm");
                     _$form.validate();
@@ -164,19 +168,23 @@
                     var postData = this.formItem;
                     abp.ui.setBusy($("#vue-app"));
                     this.abpService.editSalesOrder(postData).done(function () {
+                        that.formItem = { salesOrderItems: [] };
+                        that.formItem.salesOrderItems.push({ index: Math.random(), inventBatch: [] });
                         location.reload(true);
                     }).always(function () {
                         abp.ui.clearBusy($("#vue-app"));
                     });
                 },
+                //取消提交表单
                 submitCancel: function (e) {
                     var that = this
                     submitCancel(e.target);
                     if ($(e.target).attr("target") == "tab-edit") {
                         that.formItem = { salesOrderItems: [] };
-                        that.formItem.salesOrderItems.push({ index: Math.random()});
+                        that.formItem.salesOrderItems.push({ index: Math.random(), inventBatch: []});
                     }
                 },
+                //站点change事件
                 inventSiteChange: function() {
                     var that = this;
                     for (var key in that.inventSite) {
@@ -185,29 +193,43 @@
                         }
                     }
                 },
+                //产品change事件
                 productChange: function (e) {
-                    var index= $(e.target).attr("target")
+                    var index = $(e.target).attr("target");
+                    this.changeInventBatch(index);
+                },
+                changeInventBatch: function (index) {
                     var that = this;
                     orderitems = that.formItem.salesOrderItems;
                     var targetItem = {};
                     var itemKey;
                     for (var key in orderitems) {
-                        if (orderitems[key].index == $(e.target).attr("target")) {
+                        if (orderitems[key].index == index) {
                             targetItem = orderitems[key];
                             itemKey = key;
                         }
                     };
                     for (var key in that.product) {
                         if (that.product[key].id == targetItem.productId) {
-                            console.log(that.formItem.salesOrderItems[itemKey]);
-                            that.formItem.salesOrderItems[itemKey].newInventBatch = that.product[key].inventBatchs;
-                            //Vue.set(that.formItem.salesOrderItems[itemKey], newInventBatch, that.product[key].inventBatchs)
+                            that.formItem.salesOrderItems[itemKey].inventBatch = that.product[key].inventBatchs;
+                            //Vue.set(that.formItem.salesOrderItems[itemKey], inventBatch, that.product[key].inventBatchs)
                         }
                     }
                 },
+                //添加产品
                 addProduct: function () {
                     var that = this
-                    that.formItem.salesOrderItems.push({ index: Math.random(), newInventBatch:[] });
+                    that.formItem.salesOrderItems.push({ index: Math.random(), inventBatch:[] });
+                },
+                //删除产品
+                delProduct: function (e) {
+                    var that = this;
+                    var index = $(e.target).attr("target");
+                    for (var key in that.formItem.salesOrderItems) {
+                        if (that.formItem.salesOrderItems[key].index == index) {
+                            that.formItem.salesOrderItems.splice(key, 1); 
+                        }
+                    }
                 },
 
                 //删除一到多项

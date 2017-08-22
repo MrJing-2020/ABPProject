@@ -151,3 +151,10 @@ html, body {
     border-bottom: 1px solid #f7f7f7;
     margin-bottom: 13px
 }
+.add-product {
+    cursor: pointer !important;
+    margin-bottom: 4px !important;
+    font-size: 14px !important;
+    height: 25px !important;
+    line-height:1.1 !important;
+}

@@ -12,6 +12,8 @@ using ABPProject.Clients;
 using ABPProject.InventSites;
 using ABPProject.Contracts;
 using ABPProject.Suppliers;
+using ABPProject.Receipts;
+using ABPProject.SimEntitys;
 
 namespace ABPProject.EntityFramework
 {
@@ -25,16 +27,14 @@ namespace ABPProject.EntityFramework
         public IDbSet<PurchaseOrder> PurchaseOrders { get; set; }
         public IDbSet<PurchaseOrderItem> PurchaseOrderItems { get; set; }
         public IDbSet<UnitOfMeasureTranslation> UnitOfMeasureTranslations { get; set; }
-
         public IDbSet<Client> Clients { get; set; }
         public IDbSet<InventSite> InventSites { get; set; }
         public IDbSet<InventLocation> InventLocations { get; set; }
         public IDbSet<Contract> Contracts { get; set; }
         public IDbSet<Supplier> Suppliers { get; set; }
         public IDbSet<InventBatch> InventBatchs { get; set; }
-
-
-
+        public IDbSet<Receipt> Receipts { get; set; }
+        public IDbSet<BankAccout> BankAccouts { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.

@@ -13,13 +13,13 @@ namespace ABPProject.PurchaseOrders
     {
         public virtual int PurchaseOrderId { get; set; }
         /// <summary>
-        /// 产品编号
+        /// 产品Id
         /// </summary>
-        public virtual string InventId { get; set; }
+        public virtual string ProductId { get; set; }
         /// <summary>
-        /// 产品批次
+        /// 产品批次Id
         /// </summary>
-        public virtual string InventBatch { get; set; }
+        public virtual string InventBatchId { get; set; }
         /// <summary>
         /// 购买数量
         /// </summary>

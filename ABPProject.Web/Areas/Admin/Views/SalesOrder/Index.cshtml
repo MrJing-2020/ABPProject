@@ -197,7 +197,7 @@
                                             </div>
                                         </div>
                                         <h3>
-                                        商品 <span class="badge badge-green add-product" v-on:click="addProduct" name="addProduct" style="cursor:pointer"><i class="fa fa-plus"></i>添加商品</span>
+                                        商品 <span class="btn btn-green btn-sm add-product" v-on:click="addProduct" name="addProduct" style="font-size: 14px !important"><i class="fa fa-plus"></i> 添加商品</span>
                                         </h3>
                                         <div v-for="salesOrderItem in formItem.salesOrderItems" class="sales-item">
                                             <div class="row">
@@ -220,7 +220,7 @@
                                                         <label class="col-md-3 control-label">批次号 <span class='require'>*</span></label>
                                                         <div class="col-md-9">
                                                             <select v-model="salesOrderItem.inventBatchId" v-bind:productId="salesOrderItem.productId" class="form-control" name="inventBatchId" required>
-                                                                <option v-for="option in salesOrderItem.newInventBatch" v-bind:value="option.id">
+                                                                <option v-for="option in salesOrderItem.inventBatch" v-bind:value="option.id">
                                                                     {{ option.inventBatchNum }}
                                                                 </option>
                                                             </select>
@@ -247,6 +247,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="row text-right" style="padding-right: 16px">
+                                                <span v-on:click="delProduct($event)" v-bind:target="salesOrderItem.index" class="btn btn-danger btn-xs">删除</span>
                                             </div>
                                         </div>
                                     </div>

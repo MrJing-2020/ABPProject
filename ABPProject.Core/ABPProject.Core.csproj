@@ -123,6 +123,7 @@
     <Compile Include="ChatMessages\ChatMessage.cs" />
     <Compile Include="Clients\Client.cs" />
     <Compile Include="Contracts\Contract.cs" />
+    <Compile Include="Delivers\Deliver.cs" />
     <Compile Include="Editions\EditionManager.cs" />
     <Compile Include="Features\FeatureValueStore.cs" />
     <Compile Include="InventSites\InventLocation.cs" />
@@ -134,13 +135,15 @@
     <Compile Include="Products\ProductManager.cs" />
     <Compile Include="Projects\Project.cs" />
     <Compile Include="Projects\ProjectManager.cs" />
-    <Compile Include="Projects\UnitOfMeasureTranslation.cs" />
+    <Compile Include="Products\UnitOfMeasureTranslation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Authorization\Roles\Role.cs" />
     <Compile Include="Authorization\Roles\RoleManager.cs" />
     <Compile Include="Authorization\Roles\RoleStore.cs" />
     <Compile Include="PurchaseOrders\PurchaseOrder.cs" />
     <Compile Include="PurchaseOrders\PurchaseOrderItem.cs" />
+    <Compile Include="SimEntitys\BankAccout.cs" />
+    <Compile Include="Receipts\Receipt.cs" />
     <Compile Include="SalesOrders\SalesOrder.cs" />
     <Compile Include="SalesOrders\SalesOrderItem.cs" />
     <Compile Include="SalesOrders\SalesOrderManager.cs" />

@@ -1,0 +1,25 @@
+﻿{
+  "receiptWay": [
+    {
+      "id": 0,
+      "name": "普通收款"
+    },
+    {
+      "id": 1,
+      "name": "大额收款"
+    }
+  ],
+  "paymentMethod": [
+    "电汇",
+    "现金",
+    "支票",
+    "汇票"
+  ],
+  "journalName": [
+    "银收"
+  ],
+  "postingProfile": [
+    "应收账款",
+    "预收账款"
+  ]
+}

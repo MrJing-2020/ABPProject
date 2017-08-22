@@ -13,15 +13,6 @@ namespace ABPProject.Web
         public override void SetNavigation(INavigationProviderContext context)
         {
             context.Manager.MainMenu
-                //.AddItem(
-                //    new MenuItemDefinition(
-                //        "Index",
-                //        L("HomePage"),
-                //        url: "",
-                //        icon: "fa fa-home",
-                //        requiresAuthentication: true
-                //        )
-                //)
                 .AddItem(
                     new MenuItemDefinition(
                         "Roles",
@@ -63,7 +54,7 @@ namespace ABPProject.Web
                         "SalesOrder",
                         L("SalesOrder"),
                         url: "Admin/SalesOrder",
-                        icon: "fa fa-barcode",
+                        icon: "fa fa-arrow-circle-o-right",
                         requiresAuthentication: true,
                         requiredPermissionName: PermissionNames.SalesOrder
                         )
@@ -72,7 +63,25 @@ namespace ABPProject.Web
                         "PurchaseOrder",
                         L("PurchaseOrder"),
                         url: "Admin/PurchaseOrder",
-                        icon: "fa fa-barcode",
+                        icon: "fa fa-arrow-circle-o-left",
+                        requiresAuthentication: true,
+                        requiredPermissionName: PermissionNames.PurchaseOrder
+                        )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        "Receipt",
+                        L("Receipt"),
+                        url: "Admin/Receipt",
+                        icon: "fa fa-money",
+                        requiresAuthentication: true,
+                        requiredPermissionName: PermissionNames.PurchaseOrder
+                        )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        "Deliver",
+                        L("Deliver"),
+                        url: "Admin/Deliver",
+                        icon: "fa fa-rocket",
                         requiresAuthentication: true,
                         requiredPermissionName: PermissionNames.PurchaseOrder
                         )

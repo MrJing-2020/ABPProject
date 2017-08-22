@@ -4,7 +4,6 @@ using ABPProject.CommonDto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using ABPProject.Extend;
 using Abp.Linq.Extensions;
@@ -17,6 +16,8 @@ using ABPProject.Suppliers;
 using ABPProject.Contracts;
 using ABPProject.InventSites;
 using ABPProject.SalesOrders.Dto;
+using ABPProject.Products;
+using ABPProject.Products.Dto;
 
 namespace ABPProject.PurchaseOrders
 {
@@ -28,6 +29,7 @@ namespace ABPProject.PurchaseOrders
         private readonly IRepository<Supplier, int> _supplierRepository;
         private readonly IRepository<Contract, int> _contractRepository;
         private readonly IRepository<InventSite, int> _inventSiteRepository;
+        private readonly IRepository<Product, int> _productRepository;
 
 
         public PurchaseOrderAppService(
@@ -35,13 +37,15 @@ namespace ABPProject.PurchaseOrders
             IRepository<PurchaseOrderItem, int> purchaseOrderItemRepository,
             IRepository<Supplier, int> supplierRepository,
             IRepository<Contract, int> contractRepository,
-            IRepository<InventSite, int> inventSiteRepository)
+            IRepository<InventSite, int> inventSiteRepository,
+            IRepository<Product, int> productRepository)
         {
             _purchaseOrderRepository = purchaseOrderRepository;
             _purchaseOrderItemRepository = purchaseOrderItemRepository;
             _supplierRepository = supplierRepository;
             _contractRepository = contractRepository;
             _inventSiteRepository = inventSiteRepository;
+            _productRepository = productRepository;
         }
 
         /// <summary>
@@ -86,11 +90,13 @@ namespace ABPProject.PurchaseOrders
             var contract = (await _contractRepository.GetAllListAsync()).Select(m=>new { Id=m.Id,Name=m.Name});
             var inventSiteList = _inventSiteRepository.GetAllIncluding(m => m.InventLocation).ToList();
             var inventSite = inventSiteList.MapTo<List<InventSiteDto>>();
+            var productList = _productRepository.GetAllIncluding(m => m.InventBatch).ToList();
+            var product = productList.Select(m => new ProductSelectList { Id = m.Id, Name = m.Name, InventBatchs = m.InventBatch.MapTo<List<InventBatchDto>>() });
             foreach (var item in inventSite)
             {
                 item.InventLocations = inventSiteList.Where(m => m.Id == item.Id).FirstOrDefault().InventLocation.MapTo<List<InventLocationDto>>();
             }
-            return new { supplier = supplier, contract = contract, inventSite = inventSite };
+            return new { supplier = supplier, contract = contract, inventSite = inventSite, product = product };
         }
 
         public EditPurchaseOrderInput GetPurchaseOrderById(OneParam param)

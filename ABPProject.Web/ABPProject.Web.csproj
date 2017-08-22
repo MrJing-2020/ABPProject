@@ -313,10 +313,12 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css" />
     <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
+    <Content Include="Areas\Admin\Views\Deliver\index.js" />
     <Content Include="Areas\Admin\Views\Home\index.js" />
     <Content Include="Areas\Admin\Views\Product\index.js" />
     <Content Include="Areas\Admin\Views\Project\index.js" />
     <Content Include="Areas\Admin\Views\PurchaseOrder\index.js" />
+    <Content Include="Areas\Admin\Views\Receipt\index.js" />
     <Content Include="Areas\Admin\Views\Roles\index.js" />
     <Content Include="Areas\Admin\Views\SalesOrder\index.js" />
     <Content Include="Areas\Admin\Views\Tenants\Index.js" />
@@ -1009,6 +1011,8 @@
     <Content Include="css\font-awesome\4.5.0\fonts\fontawesome-webfont.woff" />
     <Content Include="css\font-awesome\4.5.0\fonts\fontawesome-webfont.woff2" />
     <Content Include="Areas\Admin\Views\PurchaseOrder\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Receipt\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Deliver\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
@@ -1089,11 +1093,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DeliverController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LayoutController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProjectController.cs" />
     <Compile Include="Areas\Admin\Controllers\PurchaseOrderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReceiptController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\SalesOrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\TenantsController.cs" />
@@ -1144,6 +1150,7 @@
     <Content Include="Views\Shared\_LayoutMain.cshtml" />
     <Content Include="StaticData\AboutProject.json" />
     <Content Include="Views\Home\HomeFooter.cshtml" />
+    <Content Include="StaticData\AboutReceipt.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -226,6 +226,22 @@
     <Compile Include="Migrations\201708210503469_ChangeProduct2.Designer.cs">
       <DependentUpon>201708210503469_ChangeProduct2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708220150040_ChangePurchaseOrder.cs" />
+    <Compile Include="Migrations\201708220150040_ChangePurchaseOrder.Designer.cs">
+      <DependentUpon>201708220150040_ChangePurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708220202560_ChangePurchaseOrder1.cs" />
+    <Compile Include="Migrations\201708220202560_ChangePurchaseOrder1.Designer.cs">
+      <DependentUpon>201708220202560_ChangePurchaseOrder1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708220658143_AddReceipt.cs" />
+    <Compile Include="Migrations\201708220658143_AddReceipt.Designer.cs">
+      <DependentUpon>201708220658143_AddReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708220807549_AddBankAccout.cs" />
+    <Compile Include="Migrations\201708220807549_AddBankAccout.Designer.cs">
+      <DependentUpon>201708220807549_AddBankAccout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ABPProjectDataModule.cs" />
@@ -317,6 +333,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708210503469_ChangeProduct2.resx">
       <DependentUpon>201708210503469_ChangeProduct2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708220150040_ChangePurchaseOrder.resx">
+      <DependentUpon>201708220150040_ChangePurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708220202560_ChangePurchaseOrder1.resx">
+      <DependentUpon>201708220202560_ChangePurchaseOrder1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708220658143_AddReceipt.resx">
+      <DependentUpon>201708220658143_AddReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708220807549_AddBankAccout.resx">
+      <DependentUpon>201708220807549_AddBankAccout.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
