@@ -31,5 +31,10 @@ namespace ABPProject.Web.Areas.Admin.Controllers
             var result = _salesOrderAppService.GetPagedSalesOrder(pageArg);
             return Json(result);
         }
+
+        public ActionResult Detail(int id = 3)
+        {
+            return View();
+        }
     }
 }

@@ -3,7 +3,6 @@ using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
 using ABPProject.CommonDto;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -27,20 +26,22 @@ namespace ABPProject.SalesOrders
         private readonly IRepository<SalesOrder, int> _salesOrderRepository;
         private readonly IRepository<SalesOrderItem, int> _salesOrderItemRepository;
         private readonly IRepository<InventSite, int> _inventSiteRepository;
+        private readonly IRepository<InventLocation, int> _inventLocationRepository;
+        private readonly IRepository<InventBatch, int> _inventBatchRepository;
         private readonly IRepository<Contract, int> _contractRepository;
         private readonly IRepository<Client, int> _clientRepository;
         private readonly IRepository<Product, int> _productRepository;
 
-
-
         public SalesOrderAppService(
-            SalesOrderManager salesOrderManager, 
+            SalesOrderManager salesOrderManager,
             IRepository<SalesOrder, int> salesOrderRepository,
             IRepository<SalesOrderItem, int> salesOrderItemRepository,
             IRepository<InventSite, int> inventSiteRepository,
             IRepository<Contract, int> contractRepository,
             IRepository<Client, int> clientRepository,
-            IRepository<Product, int> productRepository
+            IRepository<Product, int> productRepository,
+            IRepository<InventLocation, int> inventLocationRepository,
+            IRepository<InventBatch, int> inventBatchRepository
             )
         {
             _salesOrderManager = salesOrderManager;
@@ -50,6 +51,8 @@ namespace ABPProject.SalesOrders
             _contractRepository = contractRepository;
             _clientRepository = clientRepository;
             _productRepository = productRepository;
+            _inventLocationRepository = inventLocationRepository;
+            _inventBatchRepository = inventBatchRepository;
         }
 
         public PagedResultDto<SalesOrderListDto> GetPagedSalesOrder(PageParams pageArg)
@@ -108,7 +111,6 @@ namespace ABPProject.SalesOrders
         public async Task EditSalesOrder(EditSalesOrderInput input)
         {
            var salesOrder = input.MapTo<SalesOrder>();
-           salesOrder.DeliveryDate = DateTime.Now;
            var salesOrderItems = input.SalesOrderItems.MapTo<List<SalesOrderItem>>();
            var salesOrderUpdate= await _salesOrderRepository.InsertOrUpdateAsync(salesOrder);
             foreach (var item in salesOrderItems)
@@ -116,6 +118,51 @@ namespace ABPProject.SalesOrders
                 item.SalesOrderId = salesOrderUpdate.Id;
                 await _salesOrderItemRepository.InsertOrUpdateAsync(item);
             }
+        }
+
+        public async Task<SalesOrderDetailDto> SalesOrderDetail(int id)
+        {
+            var salesOrderDetail = (from salesOrder in _salesOrderRepository.GetAll()
+                                    join client in _clientRepository.GetAll() on salesOrder.ClientId equals client.Id
+                                    join contract in _contractRepository.GetAll() on salesOrder.SalesContractId equals contract.Id
+                                    join inventSite in _inventSiteRepository.GetAll() on salesOrder.InventSiteId equals inventSite.Id
+                                    join inventLocation in _inventLocationRepository.GetAll() on salesOrder.InventLocationId equals inventLocation.Id
+                                    where salesOrder.Id == id
+                                    select new SalesOrderDetailDto
+                                    {
+                                        Id = salesOrder.Id,
+                                        SalesNum = salesOrder.SalesNum,
+                                        ClientName = client.Name,
+                                        InventSiteName = inventSite.Name,
+                                        InventLocationName = inventLocation.Name,
+                                        SalesContractNum = contract.Name,
+                                        Consignee = salesOrder.Consignee,
+                                        DeliveryAddress = salesOrder.DeliveryAddress,
+                                        PostCode = salesOrder.PostCode,
+                                        DistributionMode = salesOrder.DistributionMode,
+                                        MobilePhone = salesOrder.MobilePhone,
+                                        InvoiceHeader = salesOrder.InvoiceHeader,
+                                        Instructions = salesOrder.Instructions,
+                                        PaymentMethod = salesOrder.PaymentMethod,
+                                        State = salesOrder.State,
+                                        CreationTime = salesOrder.CreationTime,
+                                        CreateUserId = salesOrder.CreatorUserId
+                                    }).FirstOrDefault();
+            var user = await UserManager.GetUserByIdAsync((long)salesOrderDetail.CreateUserId);
+            salesOrderDetail.CreatorUserName = user.UserName;
+            var salesOrderItems = (from salesOrderItem in _salesOrderItemRepository.GetAll()
+                                  join product in _productRepository.GetAll() on salesOrderItem.ProductId equals product.Id
+                                  join inventBatchItem in _inventBatchRepository.GetAll() on salesOrderItem.InventBatchId equals inventBatchItem.Id
+                                  where salesOrderItem.SalesOrderId == salesOrderDetail.Id
+                                  select new SalesOrderItemDetailDto
+                                  {
+                                      ProductName = product.Name,
+                                      InventBatchNum = inventBatchItem.InventBatchNum,
+                                      PurchCount = salesOrderItem.PurchCount,
+                                      PurchPrice = salesOrderItem.PurchPrice
+                                  }).ToList();
+            salesOrderDetail.SalesOrderItems = salesOrderItems;
+            return salesOrderDetail;
         }
 
         [UnitOfWork]

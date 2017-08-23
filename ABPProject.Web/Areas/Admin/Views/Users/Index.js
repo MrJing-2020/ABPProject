@@ -28,7 +28,7 @@
                         delConfirmed: $('#deleleAll-confirmed'),
                         columns: [
                                 {
-                                    field: 'state',
+                                field: 'selectState',
                                     checkbox: true,
                                     align: 'center',
                                     valign: 'middle'

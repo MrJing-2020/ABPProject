@@ -242,6 +242,26 @@
     <Compile Include="Migrations\201708220807549_AddBankAccout.Designer.cs">
       <DependentUpon>201708220807549_AddBankAccout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708230203499_AddDeliver.cs" />
+    <Compile Include="Migrations\201708230203499_AddDeliver.Designer.cs">
+      <DependentUpon>201708230203499_AddDeliver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708230612196_ChangeReceipt.cs" />
+    <Compile Include="Migrations\201708230612196_ChangeReceipt.Designer.cs">
+      <DependentUpon>201708230612196_ChangeReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708230647308_ChangeUserTest.cs" />
+    <Compile Include="Migrations\201708230647308_ChangeUserTest.Designer.cs">
+      <DependentUpon>201708230647308_ChangeUserTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708230651426_ChangeUserTest1.cs" />
+    <Compile Include="Migrations\201708230651426_ChangeUserTest1.Designer.cs">
+      <DependentUpon>201708230651426_ChangeUserTest1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708230837118_ChangeSalesOrder4.cs" />
+    <Compile Include="Migrations\201708230837118_ChangeSalesOrder4.Designer.cs">
+      <DependentUpon>201708230837118_ChangeSalesOrder4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ABPProjectDataModule.cs" />
@@ -345,6 +365,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708220807549_AddBankAccout.resx">
       <DependentUpon>201708220807549_AddBankAccout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708230203499_AddDeliver.resx">
+      <DependentUpon>201708230203499_AddDeliver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708230612196_ChangeReceipt.resx">
+      <DependentUpon>201708230612196_ChangeReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708230647308_ChangeUserTest.resx">
+      <DependentUpon>201708230647308_ChangeUserTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708230651426_ChangeUserTest1.resx">
+      <DependentUpon>201708230651426_ChangeUserTest1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708230837118_ChangeSalesOrder4.resx">
+      <DependentUpon>201708230837118_ChangeSalesOrder4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

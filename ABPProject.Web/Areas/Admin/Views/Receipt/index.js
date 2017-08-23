@@ -3,7 +3,7 @@
         var app = new Vue({
             el: '#vue-app',
             data: {
-                formItem: {},
+                formItem: { journalBalanceNum:""},
                 abpService: abp.services.app.receipt,
                 deleteId: null,
                 client: [],
@@ -31,7 +31,7 @@
                         delConfirmed: $('#deleleAll-confirmed'),
                         columns: [
                             {
-                                field: 'state',
+                                field: 'selectState',
                                 checkbox: true,
                                 align: 'center',
                                 valign: 'middle'
@@ -58,7 +58,7 @@
                                 sortable: true,
                                 align: 'center',
                                 formatter: function (value, row, index) {
-                                    return value.replace("T", " ").substring(0, value.lastIndexOf("."));
+                                    return value.substring(0, value.lastIndexOf("T"));
                                 }
                             },
                             {
@@ -89,7 +89,7 @@
                     //按钮事件
                     var operateEvents = {
                         'click .edit-item': function (e, value, row, index) {
-                            that.getProjectById(row.id);
+                            that.getReceiptById(row.id);
                             $("#tab-edit a:first").trigger("click");
                         },
                         'click .remove-item': function (e, value, row, index) {
@@ -120,13 +120,13 @@
                 },
 
                 //根据id获取详情
-                getProjectById: function (id) {
+                getReceiptById: function (id) {
                     var that = this
                     var postData = { "id": id }
                     abp.ui.setBusy($("#vue-app"));
-                    this.abpService.getProjectById(postData).done(function (res) {
+                    this.abpService.getReceiptById(postData).done(function (res) {
                         that.formItem = res;
-                        that.formItem.beginDate = that.formItem.beginDate.substring(0, that.formItem.beginDate.lastIndexOf("T"));
+                        that.formItem.receiptDate = that.formItem.receiptDate.substring(0, that.formItem.receiptDate.lastIndexOf("T"));
                     }).always(function () {
                         abp.ui.clearBusy($("#vue-app"));
                     });
@@ -134,7 +134,7 @@
 
                 //编辑和新增
                 createItem: function () {
-                    this.formItem = {};
+                    this.formItem = { journalBalanceNum: ""};
                     $("#tab-edit a:first").trigger("click");
                 },
                 subFormData: function (e) {
@@ -146,7 +146,7 @@
                     }
                     var postData = this.formItem;
                     abp.ui.setBusy($("#vue-app"));
-                    this.abpService.editProject(postData).done(function () {
+                    this.abpService.editReceipt(postData).done(function () {
                         location.reload(true);
                     }).always(function () {
                         abp.ui.clearBusy($("#vue-app"));
@@ -155,7 +155,16 @@
                 submitCancel: function (e) {
                     submitCancel(e.target);
                     if ($(e.target).attr("target") == "tab-edit") {
-                        this.formItem = {};
+                        this.formItem = { journalBalanceNum: ""};
+                    }
+                },
+                bankChange: function () {
+                    var that = this;
+                    var bankName = that.formItem.bankName;
+                    for (var key in that.bank) {
+                        if (that.bank[key].bankName == bankName) {
+                            that.formItem.journalBalanceNum = that.bank[key].accountId;
+                        }
                     }
                 },
 
@@ -164,7 +173,7 @@
                     var that = this
                     var postData = { "ids": params.ids }
                     abp.ui.setBusy($("#vue-app"));
-                    that.abpService.deleteProject(postData).done(function (res) {
+                    that.abpService.deleteReceipt(postData).done(function (res) {
                         params.callBack()
                     }).always(function () {
                         abp.ui.clearBusy($("#vue-app"));

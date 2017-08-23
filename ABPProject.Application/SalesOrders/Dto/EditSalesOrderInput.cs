@@ -1,9 +1,7 @@
 ﻿using Abp.AutoMapper;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace ABPProject.SalesOrders.Dto
 {
@@ -12,10 +10,10 @@ namespace ABPProject.SalesOrders.Dto
     {
         public int? Id { get; set; }
         public  string SalesNum { get; set; }
-        //public  string SalesName { get; set; }
         /// <summary>
         /// 客户编号
         /// </summary>
+        [Required]
         public  int ClientId { get; set; }
         /// <summary>
         /// 产品站点
@@ -30,16 +28,14 @@ namespace ABPProject.SalesOrders.Dto
         /// </summary>
         public  int SalesContractId { get; set; }
         /// <summary>
-        /// 提交日期
-        /// </summary>
-        public  DateTime DeliveryDate { get; set; }
-        /// <summary>
         /// 收货人
         /// </summary>
+        [Required]
         public  string Consignee { get; set; }
         /// <summary>
         /// 收货地址
         /// </summary>
+        [Required]
         public  string DeliveryAddress { get; set; }
         /// <summary>
         /// 邮编
@@ -52,6 +48,7 @@ namespace ABPProject.SalesOrders.Dto
         /// <summary>
         /// 手机
         /// </summary>
+        [Required]
         public  string MobilePhone { get; set; }
         /// <summary>
         /// 发票抬头
@@ -71,6 +68,7 @@ namespace ABPProject.SalesOrders.Dto
         public DateTime CreationTime { get; set; }
         public virtual int? TenantId { get; set; }
         public virtual long? OrganizationUnitId { get; set; }
+        public int State { get; set; }
         #endregion
 
         public List<EditSalesOrderItemDto> SalesOrderItems { get; set; }

@@ -38,6 +38,7 @@ namespace ABPProject.Web.SignalHub
 
         public async override Task OnConnected()
         {
+            //每次有新客户端连接，删除旧的，缓存新connectionId
             var loginInformations = AsyncHelper.RunSync(() => _sessionAppService.GetCurrentLoginInformations());
             _cacheManager.GetCache("connectionUser").Remove(loginInformations.User.Id.ToString());
             _cacheManager.GetCache("connectionUser").Set(loginInformations.User.Id.ToString(), new ConnUserViewModel { ConnectionId = Context.ConnectionId, UserInfo = loginInformations.User });
@@ -47,6 +48,8 @@ namespace ABPProject.Web.SignalHub
 
         public async override Task OnDisconnected(bool stopCalled)
         {
+            var loginInformations = AsyncHelper.RunSync(() => _sessionAppService.GetCurrentLoginInformations());
+            _cacheManager.GetCache("connectionUser").Remove(loginInformations.User.Id.ToString());
             await base.OnDisconnected(stopCalled);
             //Logger.Debug("A client disconnected from MainHub: " + Context.ConnectionId);
         }

@@ -14,6 +14,7 @@ using ABPProject.Contracts;
 using ABPProject.Suppliers;
 using ABPProject.Receipts;
 using ABPProject.SimEntitys;
+using ABPProject.Delivers;
 
 namespace ABPProject.EntityFramework
 {
@@ -35,6 +36,8 @@ namespace ABPProject.EntityFramework
         public IDbSet<InventBatch> InventBatchs { get; set; }
         public IDbSet<Receipt> Receipts { get; set; }
         public IDbSet<BankAccout> BankAccouts { get; set; }
+        public IDbSet<Deliver> Delivers { get; set; }
+
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.

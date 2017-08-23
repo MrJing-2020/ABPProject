@@ -25,7 +25,6 @@ namespace ABPProject.SalesOrders
         /// 销售订单编号
         /// </summary>
         public virtual string SalesNum { get; set; }
-        //public virtual string SalesName { get; set; }
         /// <summary>
         /// 客户编号
         /// </summary>
@@ -42,10 +41,6 @@ namespace ABPProject.SalesOrders
         /// 销售合同Id
         /// </summary>
         public virtual int SalesContractId { get; set; }
-        /// <summary>
-        /// 提交日期
-        /// </summary>
-        public virtual DateTime DeliveryDate { get; set; }
         /// <summary>
         /// 收货人
         /// </summary>

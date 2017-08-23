@@ -127,6 +127,8 @@
     <Compile Include="CommonDto\PagedInputDto.cs" />
     <Compile Include="CommonDto\PageParams.cs" />
     <Compile Include="Delivers\DeliverAppService.cs" />
+    <Compile Include="Delivers\Dto\DeliverListDto.cs" />
+    <Compile Include="Delivers\Dto\EditDeliverInput.cs" />
     <Compile Include="Delivers\IDeliverAppService.cs" />
     <Compile Include="DtoMapping\IDtoMapping.cs" />
     <Compile Include="DtoMapping\ProjectMapping.cs" />
@@ -169,6 +171,8 @@
     <Compile Include="SalesOrders\Dto\EditSalesOrderItemDto.cs" />
     <Compile Include="SalesOrders\Dto\InventLocationDto.cs" />
     <Compile Include="SalesOrders\Dto\InventSiteDto.cs" />
+    <Compile Include="SalesOrders\Dto\SalesOrderDetailDto.cs" />
+    <Compile Include="SalesOrders\Dto\SalesOrderItemDetailDto.cs" />
     <Compile Include="SalesOrders\Dto\SalesOrderItemListDto.cs" />
     <Compile Include="SalesOrders\Dto\SalesOrderListDto.cs" />
     <Compile Include="SalesOrders\ISalesOrderAppService.cs" />

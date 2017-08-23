@@ -1,9 +1,5 @@
 ﻿using Abp.AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace ABPProject.PurchaseOrders.Dto
 {
@@ -15,18 +11,22 @@ namespace ABPProject.PurchaseOrders.Dto
         /// <summary>
         /// 产品编号
         /// </summary>
+        [Required]
         public virtual string ProductId { get; set; }
         /// <summary>
         /// 产品批次
         /// </summary>
+        [Required]
         public virtual string InventBatchId { get; set; }
         /// <summary>
         /// 购买数量
         /// </summary>
+        [Required]
         public virtual int PurchCount { get; set; }
         /// <summary>
         /// 产品单价
         /// </summary>
+        [Required]
         public virtual int PurchPrice { get; set; }
     }
 }

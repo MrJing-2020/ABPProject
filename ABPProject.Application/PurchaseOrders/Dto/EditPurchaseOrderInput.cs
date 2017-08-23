@@ -1,9 +1,7 @@
 ﻿using Abp.AutoMapper;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace ABPProject.PurchaseOrders.Dto
 {
@@ -13,6 +11,7 @@ namespace ABPProject.PurchaseOrders.Dto
         public int? Id { get; set; }
         public string PurchNum { get; set; }
         //public virtual string PurchName { get; set; }
+        [Required]
         public int SupplierId { get; set; }
         public string InventSiteId { get; set; }
         public string InventLocationId { get; set; }

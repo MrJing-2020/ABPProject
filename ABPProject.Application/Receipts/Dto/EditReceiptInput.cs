@@ -1,5 +1,6 @@
 ﻿using Abp.AutoMapper;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ABPProject.Receipts.Dto
 {
@@ -9,49 +10,62 @@ namespace ABPProject.Receipts.Dto
         public DateTime CreationTime { get; set; }
         public long? CreatorUserId { get; set; }
 
+        public int? Id { get; set; }
         /// <summary>
         /// 客户Id
         /// </summary>
+        [Required]
         public int ClientId { get; set; }
         /// <summary>
         /// 销售订单Id
         /// </summary>
+        [Required]
         public int SalesOrderId { get; set; }
         /// <summary>
         /// 收款方式
         /// </summary>
+        [Required]
         public string ReceiptWay { get; set; }
         /// <summary>
         /// 支付方式
         /// </summary>
+        [Required]
         public string PaymentMethod { get; set; }
         /// <summary>
         /// 收款日期
         /// </summary>
+        [Required]
+        [DataType(DataType.DateTime)]
         public DateTime ReceiptDate { get; set; }
         /// <summary>
         /// 日记账名称
         /// </summary>
+        [Required]
         public string JournalName { get; set; }
         /// <summary>
         /// 过账模板
         /// </summary>
+        [Required]
         public string PostingProfile { get; set; }
         /// <summary>
         /// 银行
         /// </summary>
-        public int BankName { get; set; }
+        [Required]
+        public string BankName { get; set; }
         /// <summary>
         /// 银行账号
         /// </summary>
+        [Required]
         public string JournalBalanceNum { get; set; }
         /// <summary>
         /// 金额
         /// </summary>
+        [Required]
         public decimal JournalBalance { get; set; }
         /// <summary>
         /// 金额大写
         /// </summary>
+        [Required]
         public string LineAmountCaps { get; set; }
         /// <summary>
         /// 银行流水号
@@ -60,10 +74,12 @@ namespace ABPProject.Receipts.Dto
         /// <summary>
         /// 货源
         /// </summary>
+        [Required]
         public string SupplyOfGoods { get; set; }
         /// <summary>
         /// 合同编号
         /// </summary>
+        [Required]
         public string ContractNum { get; set; }
         /// <summary>
         /// 备注

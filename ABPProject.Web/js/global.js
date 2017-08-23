@@ -26,7 +26,7 @@ function initTable(tableParams) {
                 "rows": res.result.items
             }
             $.each(data.rows, function (i, row) {
-                row.state = false
+                row.selectState = false
             });
             return data
         },

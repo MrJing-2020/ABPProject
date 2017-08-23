@@ -82,11 +82,11 @@ namespace ABPProject.Receipts
             var client = (await _clientRepository.GetAllListAsync()).Select(m => new { Id = m.Id, Name = m.Name });
             var contract = (await _contractRepository.GetAllListAsync()).Select(m => new { Id = m.Id, Name = m.Name });
             var salesOrder = (await _salesOrderRepository.GetAllListAsync()).Select(m => new { Id = m.Id, SalesNum = m.SalesNum });
-            var bank = (await _bankAccoutRepository.GetAllListAsync()).Select(m => new { Id = m.BankName, Name = m.AccountId });
+            var bank = (await _bankAccoutRepository.GetAllListAsync()).Select(m => new { BankName = m.BankName, AccountId = m.AccountId });
             return new { client = client, contract = contract, salesOrder = salesOrder, bank = bank };
         }
 
-        public async Task<EditReceiptInput> GetSalesOrderById(OneParam param)
+        public async Task<EditReceiptInput> GetReceiptById(OneParam param)
         {
             var receipt = await _receiptRepository.GetAsync(param.Id);
             var receiptDto = receipt.MapTo<EditReceiptInput>();

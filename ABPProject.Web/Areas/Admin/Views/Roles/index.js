@@ -27,7 +27,7 @@
                         columns: [
                             [
                                 {
-                                    field: 'state',
+                                    field: 'selectState',
                                     checkbox: true,
                                     rowspan: 2,
                                     align: 'center',

@@ -1,18 +1,21 @@
-﻿using Abp.AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ABPProject.SalesOrders.Dto
 {
-    [AutoMap(typeof(SalesOrderItem))]
-    public class SalesOrderItemListDto
+    public class SalesOrderItemDetailDto
     {
         /// <summary>
-        /// 产品Id
+        /// 产品名
         /// </summary>
-        public int ProductId { get; set; }
+        public string ProductName { get; set; }
         /// <summary>
-        /// 产品批次
+        /// 产品批次编号
         /// </summary>
-        public int InventBatchId { get; set; }
+        public string InventBatchNum { get; set; }
         /// <summary>
         /// 购买数量
         /// </summary>

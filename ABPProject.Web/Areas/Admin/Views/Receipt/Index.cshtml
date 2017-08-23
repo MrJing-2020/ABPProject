@@ -167,8 +167,8 @@
                                                         收款银行 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <select v-model="formItem.bankName" name="bankName" class="form-control" required>
-                                                            <option v-for="option in bank" v-bind:value="option.accountId">
+                                                        <select v-model="formItem.bankName" v-on:change="bankChange" name="bankName" class="form-control" required>
+                                                            <option v-for="option in bank" v-bind:value="option.bankName">
                                                                 {{ option.bankName }}
                                                             </option>
                                                         </select>
@@ -181,7 +181,7 @@
                                                         收款账号 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.accountId" name="accountId" type="text" class="form-control" required />
+                                                        <input v-model="formItem.journalBalanceNum" name="journalBalanceNum" type="text" class="form-control" required disabled />
                                                     </div>
                                                 </div>
                                             </div>
@@ -238,7 +238,7 @@
                                                         收款日期 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.receiptDate" name="receiptDate" type="text" class="form-control" required />
+                                                        <input v-model="formItem.receiptDate" name="receiptDate" type="text" data-date-format="yyyy-mm-dd"  class="datepicker-default form-control" required />
                                                     </div>
                                                 </div>
                                             </div>
