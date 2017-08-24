@@ -56,7 +56,6 @@ namespace ABPProject.SalesOrders.Dto
         /// </summary>
         public string PaymentMethod { get; set; }
         public string CreatorUserName { get; set; }
-        public long? CreateUserId { get; set; }
         public DateTime CreationTime { get; set; }
         public int State { get; set; }
         public decimal TotalPrices { get; set; }

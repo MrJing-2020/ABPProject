@@ -43,10 +43,7 @@
                                 field: 'clientName',
                                 title: '客户',
                                 sortable: true,
-                                align: 'center',
-                                formatter: function (value, row, index) {
-                                    return row.clientName;
-                                }
+                                align: 'center'
                             },
                             {
                                 field: 'contractNum',
@@ -99,8 +96,7 @@
                             $("#tab-edit a:first").trigger("click");
                         },
                         'click .detail-item': function (e, value, row, index) {
-                            that.getSalesOrderById(row.id);
-                            $("#tab-edit a:first").trigger("click");
+                            window.location.href = "/Admin/SalesOrder/Detail?id=" + row.id;
                         },
                         'click .remove-item': function (e, value, row, index) {
                             that.deleteId = [row.id]

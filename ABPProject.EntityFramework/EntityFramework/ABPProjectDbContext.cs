@@ -15,12 +15,12 @@ using ABPProject.Suppliers;
 using ABPProject.Receipts;
 using ABPProject.SimEntitys;
 using ABPProject.Delivers;
+using ABPProject.ClientPayments;
 
 namespace ABPProject.EntityFramework
 {
     public class ABPProjectDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
-        //TODO: Define an IDbSet for your Entities...
         public IDbSet<Product> Products { get; set; }
         public IDbSet<Project> Projects { get; set; }
         public IDbSet<SalesOrder> SalesOrders { get; set; }
@@ -37,6 +37,8 @@ namespace ABPProject.EntityFramework
         public IDbSet<Receipt> Receipts { get; set; }
         public IDbSet<BankAccout> BankAccouts { get; set; }
         public IDbSet<Deliver> Delivers { get; set; }
+        public IDbSet<ClientPayment> ClientPayments { get; set; }
+
 
 
         /* NOTE: 

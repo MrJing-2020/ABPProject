@@ -1,19 +1,14 @@
 ﻿@using System.Web.Optimization
-
 @section styles
 {
     @Styles.Render("~/Home/css")
 }
-
 @section scripts
 {
     @Scripts.Render("~/Home/js")
 }
-
 <div class="wrapper" id="homeWrapper">
-    
     @Html.Action("HomeHead","Home")
-
     <div class="slides">
         <div id="owl-demo" class="owl-carousel">
             <div class="item"><img src="../../images/slide (1).jpg" alt="slideImage"></div>
@@ -43,7 +38,6 @@
             </div>
         </div>
     </div>
-
     <div class="main">
         <ul class="fastLink clearfix">
             <li>
@@ -101,6 +95,5 @@
             </li>
         </ul>
     </div>
-
     @Html.Action("HomeFooter", "Home")
 </div>

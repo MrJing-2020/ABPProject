@@ -69,6 +69,15 @@ namespace ABPProject.Web
                         )
                 ).AddItem(
                     new MenuItemDefinition(
+                        "ClientPayment",
+                        L("ClientPayment"),
+                        url: "Admin/ClientPayment",
+                        icon: "fa fa-money",
+                        requiresAuthentication: true,
+                        requiredPermissionName: PermissionNames.PurchaseOrder
+                        )
+                ).AddItem(
+                    new MenuItemDefinition(
                         "Receipt",
                         L("Receipt"),
                         url: "Admin/Receipt",

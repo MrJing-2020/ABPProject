@@ -5,6 +5,8 @@
         //public const string Pages = "Pages";
         //public const string Pages_Tenants = "Pages.Tenants";
         //public const string Pages_Users = "Pages.Users";
+        public const string Admin = "Admin";
+        public const string Admin_Page = "Admin.Page";
 
         public const string User = "User";
         public const string User_Create = "User.Create";

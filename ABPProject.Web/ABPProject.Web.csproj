@@ -313,6 +313,7 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css" />
     <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
+    <Content Include="Areas\Admin\Views\ClientPayment\index.js" />
     <Content Include="Areas\Admin\Views\Deliver\index.js" />
     <Content Include="Areas\Admin\Views\Home\index.js" />
     <Content Include="Areas\Admin\Views\Product\index.js" />
@@ -1014,6 +1015,8 @@
     <Content Include="Areas\Admin\Views\Receipt\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Deliver\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SalesOrder\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\ClientPayment\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ClientPayment\Detail.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
@@ -1094,6 +1097,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ClientPaymentController.cs" />
     <Compile Include="Areas\Admin\Controllers\DeliverController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LayoutController.cs" />
@@ -1110,6 +1114,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
+    <Compile Include="Controllers\UserCenterController.cs" />
     <Compile Include="Models\Account\LoginFormViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\Account\RegisterResultViewModel.cs" />
@@ -1138,20 +1143,18 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\RegisterResult.cshtml" />
     <Content Include="Views\Account\TenantSelection.cshtml" />
-    <Content Include="Views\Layout\_Nav.cshtml" />
     <Content Include="Views\Layout\_Right.cshtml" />
-    <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Detail\Index.cshtml" />
     <Content Include="Views\Product\IndexMain.cshtml" />
     <Content Include="StaticData\ProductCategory.json" />
     <Content Include="Views\Home\HomeHead.cshtml" />
-    <Content Include="Views\Layout\_Chat.cshtml" />
     <Content Include="Views\Layout\_ProductTop.cshtml" />
-    <Content Include="Views\Shared\_LayoutMain.cshtml" />
     <Content Include="StaticData\AboutProject.json" />
     <Content Include="Views\Home\HomeFooter.cshtml" />
     <Content Include="StaticData\AboutReceipt.json" />
+    <Content Include="Views\Layout\_Chat.cshtml" />
+    <Content Include="Views\UserCenter\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1181,6 +1184,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Content\vendors\jquery-ui-1.10.3.custom\css\ui-lightness\" />
+    <Folder Include="Views\ClientPayment\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

@@ -32,9 +32,10 @@ namespace ABPProject.Web.Areas.Admin.Controllers
             return Json(result);
         }
 
-        public ActionResult Detail(int id = 3)
+        public ActionResult Detail(int id)
         {
-            return View();
+            var salesOrderDetail = _salesOrderAppService.SalesOrderDetail(new OneParam { Id = id });
+            return View(salesOrderDetail);
         }
     }
 }

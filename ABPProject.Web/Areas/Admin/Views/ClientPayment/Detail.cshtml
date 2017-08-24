@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.ActiveMenu = "ClientPayment";
+}
+@model ABPProject.ClientPayments.Dto.ClientPaymentDto
+@using System.Globalization;
+
+<div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+    <ol class="breadcrumb page-breadcrumb pull-left">
+        <li><i class="fa fa-home"></i>&nbsp;<a href="/Admin/Home/index">主页</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li><a href="/Admin/ClientPayment/index">客户付款</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="active">客户付款详情</li>
+    </ol>
+    <div class="clearfix"></div>
+</div>
+<div class="page-content" id="vue-app">
+    <div id="invoice-page" class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="invoice-title">
+                        <h2>客户付款状态</h2>
+                        <p class="mbn text-left"><span class="badge badge-green">等待确认</span></p>
+                    </div>
+                    <div class="pull-left">
+                        <h2 class="text-green logo">订单详情</h2>
+                        <address class="mbn detail-title">
+                        订单号 ： @Model.SalesOrderNum<br />
+                        客户 ： @Model.ClientName<br />
+                        时间 ： @Model.CreationTime.ToLocalTime()</address>
+                    </div>
+                    <div class="clearfix"></div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <address class="detail-content"><strong>付款信息:</strong><br />付款银行：@Model.PaymentBank<br />银行流水号： @Model.BankTransactionNum</address>
+                        </div>
+                        <div class="col-md-3">
+                            <address class="detail-content"><strong>收款信息:</strong><br />收款银行：@Model.ReceiptBank<br />收款账号：@Model.ReceiptAccountId</address>
+                        </div>
+                        <div class="col-md-3">
+                            <address class="detail-content"><strong>其他信息:</strong><br />提交人：@Model.CreatorUserName</address>
+                        </div>
+                        <div class="col-md-3">
+                            <address class="detail-content"><strong>金额:</strong><br /><h2 class="text-green mtn"><strong>@Model.PaymentSum.ToString("c", new CultureInfo("zh-CN"))</strong></h2></address>
+                        </div>
+                    </div>
+                    <hr class="mbm" />
+                    <button onclick="history.back()" type="button" class="btn btn-default"><i class="fa fa-undo"></i> 返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

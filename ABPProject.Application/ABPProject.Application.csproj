@@ -120,6 +120,9 @@
   <ItemGroup>
     <Compile Include="ABPProjectApplicationModule.cs" />
     <Compile Include="ABPProjectAppServiceBase.cs" />
+    <Compile Include="ClientPayments\ClientPaymentAppService.cs" />
+    <Compile Include="ClientPayments\Dto\ClientPaymentListDto.cs" />
+    <Compile Include="ClientPayments\IClientPaymentAppService.cs" />
     <Compile Include="CommonDto\ArrayParams.cs" />
     <Compile Include="CommonDto\KeyValuesParam.cs" />
     <Compile Include="CommonDto\OneParam.cs" />
@@ -177,6 +180,8 @@
     <Compile Include="SalesOrders\Dto\SalesOrderListDto.cs" />
     <Compile Include="SalesOrders\ISalesOrderAppService.cs" />
     <Compile Include="SalesOrders\SalesOrderAppService.cs" />
+    <Compile Include="UserCenter\IUserCenterAppService.cs" />
+    <Compile Include="UserCenter\UserCenterAppService.cs" />
     <Compile Include="Users\Dto\CreateUserInput.cs" />
     <Compile Include="Users\IUserAppService.cs" />
     <Compile Include="Roles\RoleAppService.cs" />

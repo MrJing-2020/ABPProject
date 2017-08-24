@@ -16,6 +16,7 @@ using ABPProject.Contracts;
 using ABPProject.Clients;
 using ABPProject.Products;
 using ABPProject.Products.Dto;
+using ABPProject.Users;
 
 namespace ABPProject.SalesOrders
 {
@@ -31,6 +32,7 @@ namespace ABPProject.SalesOrders
         private readonly IRepository<Contract, int> _contractRepository;
         private readonly IRepository<Client, int> _clientRepository;
         private readonly IRepository<Product, int> _productRepository;
+        private readonly IRepository<User, long> _userRepository;
 
         public SalesOrderAppService(
             SalesOrderManager salesOrderManager,
@@ -41,7 +43,8 @@ namespace ABPProject.SalesOrders
             IRepository<Client, int> clientRepository,
             IRepository<Product, int> productRepository,
             IRepository<InventLocation, int> inventLocationRepository,
-            IRepository<InventBatch, int> inventBatchRepository
+            IRepository<InventBatch, int> inventBatchRepository,
+            IRepository<User, long> userRepository
             )
         {
             _salesOrderManager = salesOrderManager;
@@ -53,6 +56,7 @@ namespace ABPProject.SalesOrders
             _productRepository = productRepository;
             _inventLocationRepository = inventLocationRepository;
             _inventBatchRepository = inventBatchRepository;
+            _userRepository = userRepository;
         }
 
         public PagedResultDto<SalesOrderListDto> GetPagedSalesOrder(PageParams pageArg)
@@ -120,14 +124,16 @@ namespace ABPProject.SalesOrders
             }
         }
 
-        public async Task<SalesOrderDetailDto> SalesOrderDetail(int id)
+        public SalesOrderDetailDto SalesOrderDetail(OneParam param)
         {
+            //订单详情
             var salesOrderDetail = (from salesOrder in _salesOrderRepository.GetAll()
                                     join client in _clientRepository.GetAll() on salesOrder.ClientId equals client.Id
                                     join contract in _contractRepository.GetAll() on salesOrder.SalesContractId equals contract.Id
                                     join inventSite in _inventSiteRepository.GetAll() on salesOrder.InventSiteId equals inventSite.Id
                                     join inventLocation in _inventLocationRepository.GetAll() on salesOrder.InventLocationId equals inventLocation.Id
-                                    where salesOrder.Id == id
+                                    join userInfo in _userRepository.GetAll() on salesOrder.CreatorUserId equals userInfo.Id
+                                    where salesOrder.Id == param.Id
                                     select new SalesOrderDetailDto
                                     {
                                         Id = salesOrder.Id,
@@ -135,7 +141,7 @@ namespace ABPProject.SalesOrders
                                         ClientName = client.Name,
                                         InventSiteName = inventSite.Name,
                                         InventLocationName = inventLocation.Name,
-                                        SalesContractNum = contract.Name,
+                                        SalesContractNum = contract.ContractNum,
                                         Consignee = salesOrder.Consignee,
                                         DeliveryAddress = salesOrder.DeliveryAddress,
                                         PostCode = salesOrder.PostCode,
@@ -146,10 +152,9 @@ namespace ABPProject.SalesOrders
                                         PaymentMethod = salesOrder.PaymentMethod,
                                         State = salesOrder.State,
                                         CreationTime = salesOrder.CreationTime,
-                                        CreateUserId = salesOrder.CreatorUserId
+                                        CreatorUserName = userInfo.UserName
                                     }).FirstOrDefault();
-            var user = await UserManager.GetUserByIdAsync((long)salesOrderDetail.CreateUserId);
-            salesOrderDetail.CreatorUserName = user.UserName;
+            //订单行
             var salesOrderItems = (from salesOrderItem in _salesOrderItemRepository.GetAll()
                                   join product in _productRepository.GetAll() on salesOrderItem.ProductId equals product.Id
                                   join inventBatchItem in _inventBatchRepository.GetAll() on salesOrderItem.InventBatchId equals inventBatchItem.Id
@@ -162,6 +167,8 @@ namespace ABPProject.SalesOrders
                                       PurchPrice = salesOrderItem.PurchPrice
                                   }).ToList();
             salesOrderDetail.SalesOrderItems = salesOrderItems;
+            //商品总价
+            salesOrderDetail.TotalPrices = salesOrderItems.Sum(m => (m.PurchCount) * (m.PurchPrice));
             return salesOrderDetail;
         }
 

@@ -3,9 +3,9 @@
   <texts>
     <!--<text name="HomePage" value="Home page" />
     <text name="About" value="About" />
-    <text name="WellcomeMessage" value="Welcome to ABPProject!" />-->
-    <!--<text name="Users" value="Users" />-->
-    <!--<text name="Tenants" value="Tenants" />-->
+    <text name="WellcomeMessage" value="Welcome to ABPProject!" />
+    <text name="Users" value="Users" />
+    <text name="Tenants" value="Tenants" />-->
     
     <text name="FormIsNotValidMessage" value="Form is not valid. Please check and fix errors." />
     <text name="TenantNameCanNotBeEmpty" value="Tenant name can not be empty" />
@@ -71,9 +71,12 @@
     <text name="Product" value="产品" />
     <text name="SalesOrder" value="销售订单" />
     <text name="PurchaseOrder" value="采购订单" />
+    <text name="ClientPayment" value="客户付款" />
     <text name="Receipt" value="收款单" />
     <text name="Deliver" value="发货单" />
 
+    <text name="P_Admin" value="管理员" />
+    <text name="P_AdminPage" value="后台管理" />
 
     <text name="P_User" value="用户管理" />
     <text name="P_UserCreate" value="用户创建" />

@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.ActiveMenu = "ClientPayment";
+}
+@using Abp.Web.Mvc.Extensions
+@using System.Web.Optimization
+
+@section styles
+{
+    @Styles.Render("~/Table/css")
+}
+@section scripts
+{
+    @Scripts.Render("~/Table/js")
+    @Html.IncludeScript("~/Areas/Admin/Views/ClientPayment/Index.js")
+}
+<div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+    <div class="page-header pull-left">
+        <div class="page-title">客户付款</div>
+    </div>
+    <ol class="breadcrumb page-breadcrumb pull-left">
+        <li><i class="fa fa-home"></i>&nbsp;<a href="/Admin/Home/index">主页</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="active">客户付款</li>
+    </ol>
+    <div class="btn btn-blue reportrange">
+        <i class="fa fa-calendar"></i>&nbsp;<span></span>&nbsp;report&nbsp;<i class="fa fa-angle-down"></i>
+        <input type="hidden" name="datestart" />
+        <input type="hidden" name="endstart" />
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="page-content" id="vue-app">
+    <div id="tab-general">
+        <div class="panel">
+            <div class="panel-body">
+                <ul id="content-tab" class="nav ul-edit nav-tabs">
+                    <li id="tab-list" class="active">
+                        <a href="#itemlist" data-toggle="tab">列表</a>
+                    </li>
+                </ul>
+                <div id="myCloseableTabContent" class="tab-content pan mtl mbn responsive ">
+                    <div id="itemlist" class="tab-pane fade in active">
+                        <table id="table-data"
+                               data-toolbar="#toolbar"
+                               data-search="true"
+                               data-show-refresh="true"
+                               data-show-toggle="true"
+                               data-show-columns="true"
+                               data-show-export="true"
+                               data-detail-view="true"
+                               data-minimum-count-columns="2"
+                               data-pagination="true"
+                               data-id-field="id"
+                               data-page-list="[10, 25, 50, 100, ALL]"
+                               data-show-footer="false"
+                               data-side-pagination="server"
+                               data-url="/Admin/ClientPayment/PagedList"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -121,6 +121,7 @@
     <Compile Include="Authorization\Roles\AppRoleConfig.cs" />
     <Compile Include="Authorization\Roles\StaticRoleNames.cs" />
     <Compile Include="ChatMessages\ChatMessage.cs" />
+    <Compile Include="ClientPayments\ClientPayment.cs" />
     <Compile Include="Clients\Client.cs" />
     <Compile Include="Contracts\Contract.cs" />
     <Compile Include="Delivers\Deliver.cs" />

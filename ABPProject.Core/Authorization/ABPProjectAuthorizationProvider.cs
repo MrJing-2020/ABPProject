@@ -8,15 +8,12 @@ namespace ABPProject.Authorization
     {
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
-            ////Common permissions
-            //var pages = context.GetPermissionOrNull(PermissionNames.Pages);
-            //if (pages == null)
-            //{
-            //    pages = context.CreatePermission(PermissionNames.Pages, L("Pages"));
-            //}
-            //var users = pages.CreateChildPermission(PermissionNames.Pages_Users, L("Users"));
-            ////Host permissions
-            //var tenants = pages.CreateChildPermission(PermissionNames.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);
+            var admin = context.GetPermissionOrNull(PermissionNames.Admin);
+            if (admin == null)
+            {
+                admin = context.CreatePermission(PermissionNames.Admin, L("P_Admin"));
+            }
+            var adminPage = admin.CreateChildPermission(PermissionNames.Admin_Page, L("P_AdminPage"));
 
             //用户模块相关权限
             var user = context.GetPermissionOrNull(PermissionNames.User);

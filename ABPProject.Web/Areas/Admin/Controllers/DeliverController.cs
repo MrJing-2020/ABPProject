@@ -20,7 +20,6 @@ namespace ABPProject.Web.Areas.Admin.Controllers
             _deliverAppService = deliverAppService;
         }
 
-        // GET: Admin/Project
         public ActionResult Index()
         {
             return View();

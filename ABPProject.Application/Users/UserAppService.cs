@@ -96,7 +96,6 @@ namespace ABPProject.Users
         public async Task CreateUser(CreateUserInput input)
         {
             var user = input.MapTo<User>();
-
             user.TenantId = AbpSession.TenantId;
             user.Password = new PasswordHasher().HashPassword(input.Password);
             user.IsEmailConfirmed = true;

@@ -96,7 +96,6 @@ namespace ABPProject.Roles
                 permissionGroup.Add(tempData);
             }
             return new { allPermissons = permissionGroup, rolePermissions = rolePermissions.Select(m=>m.Name).ToList() };
-            //return new { allPermissons = allPermissons.MapTo<List<PermissionListDto>>(), rolePermissions = rolePermissions.Select(m=>m.Name).ToList() };
         }
 
         /// <summary>

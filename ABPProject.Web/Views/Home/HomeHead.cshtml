@@ -1,16 +1,14 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "HomeHead";
     Layout = null;
 }
-
 @using System.Web.Optimization
-
+@model ABPProject.Sessions.Dto.GetCurrentLoginInformationsOutput
 @section styles
 {
     @Styles.Render("~/Home/css")
-}
 
+}
 @section scripts
 {
     @Styles.Render("~/Home/js")
@@ -19,9 +17,19 @@
 <div class="notes" id="notes">
     <div class="noteWrap clearfix">
         <div class="f_left noteWelcome">
-            欢迎光临恒瑞麟
-            <a href="javascript:;">【<span>登录</span>】</a>
-            <a href="javascript:;">【<span>注册</span>】</a>
+            欢迎光临恒瑞麟 
+            @{
+                if (ViewBag.IsLogin)
+                {
+                   <a href="javascript:;">【@Model.User.UserName】</a>
+                }
+                else
+                {
+                    <a href="/Account/Login">【<span>登录</span>】</a>
+                    <a href="/Account/Register">【<span>注册</span>】</a>
+                }
+            }
+
         </div>
         <div class="f_right noteClockWrap">
             <i class="uico noteClock"></i>
@@ -29,7 +37,7 @@
         </div>
         <ul class="f_right clearfix noteNav">
             <li>
-                <a href="javascript:;">我的首页</a>
+                <a href="UserCenter">我的首页</a>
             </li>
             <li class="noteNetNav">
                 <a href="javascript:;" class="navigation">
@@ -47,51 +55,23 @@
                             <span v-for="itemInner in item.liInfo"><a v-bind:href="itemInner.href" > {{ itemInner.info }}</a></span>
                             
                         </li>
-                        @*<li class="liShort">
-                            <h6>煤炭交易</h6>
-                            <span><a href="javascript:;">煤炭现货</a></span>
-                            <span><a href="javascript:;">煤炭供求</a></span>
-                        </li>
-                        <li class="liShort">
-                            <h6>钢铁交易</h6>
-                            <span><a href="javascript:;">钢铁现货</a></span>
-                            <span><a href="javascript:;">钢铁供求</a></span>
-                        </li>
-                        <li class="liLong">
-                            <h6>仓储货运</h6>
-                            <span><a href="javascript:;">货运追踪</a></span>
-                            <span><a href="javascript:;">运能查询</a></span>
-                            <span><a href="javascript:;">运费试算</a></span>
-                            <span><a href="javascript:;">业务知识</a></span>
-                            <span><a href="javascript:;">货运网点</a></span>
-                            <span><a href="javascript:;">品牌推介</a></span>
-                        </li>
-                        <li class="liLong">
-                            <h6>在线融资</h6>
-                            <span><a href="javascript:;">业务指南</a></span>
-                            <span><a href="javascript:;">金融机构</a></span>
-                            <span><a href="javascript:;">监管仓库</a></span>
-                            <span><a href="javascript:;">支持品种</a></span>
-                        </li>
-                        <li class="liLong">
-                            <h6>信息咨询</h6>
-                            <span><a href="javascript:;">行业咨询</a></span>
-                            <span><a href="javascript:;">金融动态</a></span>
-                            <span><a href="javascript:;">价格中心</a></span>
-                            <span><a href="javascript:;">专家访谈</a></span>
-                            <span><a href="javascript:;">储运服务</a></span>
-                            <span><a href="javascript:;">展会信息</a></span>
-                        </li>
-                        <li class="liMiddle">
-                            <h6>京铁货运中心</h6>
-                            <span><a href="javascript:;">邯郸货运站</a></span>
-                        </li>*@
                     </ul>
                 </div>
             </li>
             <li>
                 <a href="javascript:;">帮助中心</a>
             </li>
+            @{
+                if (ViewBag.IsLogin)
+                {
+                    if (IsGranted("Admin.Page"))
+                    {
+                        <li>
+                            <a href="/Admin/Home">后台管理</a>
+                        </li>
+                    }
+                }
+            }
         </ul>
     </div>
 </div>
