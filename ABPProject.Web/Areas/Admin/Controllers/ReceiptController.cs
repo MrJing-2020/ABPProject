@@ -31,5 +31,11 @@ namespace ABPProject.Web.Areas.Admin.Controllers
             var result = _receiptOrderAppService.GetPagedReceipt(pageArg);
             return Json(result);
         }
+
+        public ActionResult Detail(int id)
+        {
+            var receiptDetail = _receiptOrderAppService.ReceiptDetail(new OneParam { Id = id });
+            return View(receiptDetail);
+        }
     }
 }

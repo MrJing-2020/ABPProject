@@ -2,7 +2,6 @@
 <localizationDictionary culture="zh-CN">
   <texts>
     <text name="HomePage" value="主页" />
-    <text name="About" value="关于我们" />
     <text name="Tenants" value="租户" />
     <text name="Users" value="用户" />
     <text name="Roles" value="角色" />
@@ -24,15 +23,16 @@
 
     <text name="LoginFailed" value="登录失败!" />
     
-    <text name="CapitalPool" value="资金池" />
     <text name="Project" value="项目" />
-    <text name="Capital" value="资金" />
     <text name="Product" value="产品" />
     <text name="SalesOrder" value="销售订单" />
     <text name="PurchaseOrder" value="采购订单" />
     <text name="ClientPayment" value="客户付款" />
     <text name="Receipt" value="收款单" />
     <text name="Deliver" value="发货单" />
+    <text name="Settting" value="系统设置" />
+    <text name="Client" value="客户" />
+    <text name="Supplier" value="供应商" />
 
     <text name="P_Admin" value="管理员" />
     <text name="P_AdminPage" value="后台管理" />

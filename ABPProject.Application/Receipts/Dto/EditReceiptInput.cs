@@ -19,7 +19,6 @@ namespace ABPProject.Receipts.Dto
         /// <summary>
         /// 销售订单Id
         /// </summary>
-        [Required]
         public int SalesOrderId { get; set; }
         /// <summary>
         /// 收款方式
@@ -74,7 +73,6 @@ namespace ABPProject.Receipts.Dto
         /// <summary>
         /// 货源
         /// </summary>
-        [Required]
         public string SupplyOfGoods { get; set; }
         /// <summary>
         /// 合同编号

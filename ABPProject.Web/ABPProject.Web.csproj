@@ -314,6 +314,7 @@
     <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
     <Content Include="Areas\Admin\Views\ClientPayment\index.js" />
+    <Content Include="Areas\Admin\Views\Client\index.js" />
     <Content Include="Areas\Admin\Views\Deliver\index.js" />
     <Content Include="Areas\Admin\Views\Home\index.js" />
     <Content Include="Areas\Admin\Views\Product\index.js" />
@@ -322,6 +323,7 @@
     <Content Include="Areas\Admin\Views\Receipt\index.js" />
     <Content Include="Areas\Admin\Views\Roles\index.js" />
     <Content Include="Areas\Admin\Views\SalesOrder\index.js" />
+    <Content Include="Areas\Admin\Views\Supplier\index.js" />
     <Content Include="Areas\Admin\Views\Tenants\Index.js" />
     <Content Include="Areas\Admin\Views\Users\Index.js" />
     <Content Include="Content\bootstrap-paper.min.css" />
@@ -1017,6 +1019,10 @@
     <Content Include="Areas\Admin\Views\SalesOrder\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\ClientPayment\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ClientPayment\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\PurchaseOrder\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\Receipt\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\Client\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Supplier\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
@@ -1097,6 +1103,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ClientController.cs" />
     <Compile Include="Areas\Admin\Controllers\ClientPaymentController.cs" />
     <Compile Include="Areas\Admin\Controllers\DeliverController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
@@ -1107,6 +1114,7 @@
     <Compile Include="Areas\Admin\Controllers\ReceiptController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\SalesOrderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SupplierController.cs" />
     <Compile Include="Areas\Admin\Controllers\TenantsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />

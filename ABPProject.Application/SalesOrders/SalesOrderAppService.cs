@@ -76,7 +76,7 @@ namespace ABPProject.SalesOrders
                             Id = order.Id,
                             SalesNum = order.SalesNum,
                             ClientName = client.Name,
-                            ContractNum = contract.Name,
+                            ContractNum = contract.ContractNum,
                             CreationTime = order.CreationTime
                         }).OrderBy(sortName, orderByDesc);
             int count = list.Count();
@@ -92,7 +92,7 @@ namespace ABPProject.SalesOrders
         public async Task<object> GetSelectList()
         {
             var client = (await _clientRepository.GetAllListAsync()).Select(m => new { Id = m.Id, Name = m.Name });
-            var contract = (await _contractRepository.GetAllListAsync()).Select(m => new { Id = m.Id, Name = m.Name });
+            var contract = (await _contractRepository.GetAllListAsync()).Select(m => new { Id = m.Id, Name = m.ContractNum });
             var inventSiteList = _inventSiteRepository.GetAllIncluding(m => m.InventLocation).ToList();
             var inventSite = inventSiteList.MapTo<List<InventSiteDto>>();
             var productList = _productRepository.GetAllIncluding(m => m.InventBatch).ToList();
@@ -156,16 +156,16 @@ namespace ABPProject.SalesOrders
                                     }).FirstOrDefault();
             //订单行
             var salesOrderItems = (from salesOrderItem in _salesOrderItemRepository.GetAll()
-                                  join product in _productRepository.GetAll() on salesOrderItem.ProductId equals product.Id
-                                  join inventBatchItem in _inventBatchRepository.GetAll() on salesOrderItem.InventBatchId equals inventBatchItem.Id
-                                  where salesOrderItem.SalesOrderId == salesOrderDetail.Id
-                                  select new SalesOrderItemDetailDto
-                                  {
-                                      ProductName = product.Name,
-                                      InventBatchNum = inventBatchItem.InventBatchNum,
-                                      PurchCount = salesOrderItem.PurchCount,
-                                      PurchPrice = salesOrderItem.PurchPrice
-                                  }).ToList();
+                                   join product in _productRepository.GetAll() on salesOrderItem.ProductId equals product.Id
+                                   join inventBatchItem in _inventBatchRepository.GetAll() on salesOrderItem.InventBatchId equals inventBatchItem.Id
+                                   where salesOrderItem.SalesOrderId == salesOrderDetail.Id
+                                   select new SalesOrderItemDetailDto
+                                   {
+                                       ProductName = product.Name,
+                                       InventBatchNum = inventBatchItem.InventBatchNum,
+                                       PurchCount = salesOrderItem.PurchCount,
+                                       PurchPrice = salesOrderItem.PurchPrice
+                                   }).ToList();
             salesOrderDetail.SalesOrderItems = salesOrderItems;
             //商品总价
             salesOrderDetail.TotalPrices = salesOrderItems.Sum(m => (m.PurchCount) * (m.PurchPrice));

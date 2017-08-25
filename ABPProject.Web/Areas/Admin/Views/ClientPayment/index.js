@@ -33,7 +33,11 @@
                             {
                                 field: 'paymentSum',
                                 title: '金额',
-                                align: 'right'
+                                align: 'right',
+                                halign: 'center',
+                                formatter: function (value, row, index) {
+                                    return moneyFormat(value.toString());
+                                }
                             },
                             {
                                 field: 'creatorUserName',

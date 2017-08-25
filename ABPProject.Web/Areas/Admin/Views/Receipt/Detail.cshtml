@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.ActiveMenu = "Receipt";
+}
+@model ABPProject.Receipts.Dto.ReceiptDedailDto
+@using System.Globalization;
+
+<div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+    <ol class="breadcrumb page-breadcrumb pull-left">
+        <li><i class="fa fa-home"></i>&nbsp;<a href="/Admin/Home/index">主页</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li><a href="/Admin/ClientPayment/index">收款单</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="active">收款单详情</li>
+    </ol>
+    <div class="clearfix"></div>
+</div>
+<div class="page-content" id="vue-app">
+    <div id="invoice-page" class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="invoice-title">
+                        <h2>收款单状态</h2>
+                        <p class="mbn text-left"><span class="badge badge-green">等待付款</span></p>
+                    </div>
+                    <div class="pull-left">
+                        <h2 class="text-green logo">收款单</h2>
+                        <address class="mbn detail-title">
+                            订单号 ： @Model.SalesOrderNum<br />
+                            客户 ： @Model.ClientName<br />
+                            合同编号 ： @Model.ContractNum<br />
+                            创建时间 ： @Model.CreationTime.ToLocalTime()
+                        </address>
+                    </div>
+                    <div class="clearfix"></div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <address class="detail-content">
+                                <strong>收款信息:</strong><br />
+                                收款银行：@Model.BankName<br />
+                                收款账号：@Model.JournalBalanceNum<br />
+                                收款日期：@Model.ReceiptDate.ToShortDateString()<br />
+                                银行流水号： @Model.BankTransactionNum
+                            </address>
+                        </div>
+                        <div class="col-md-3">
+                            <address class="detail-content">
+                                <strong>收款方式:</strong><br />
+                                收款方式：@Model.ReceiptWay<br />
+                                支付方式：@Model.PaymentMethod
+                            </address>
+                        </div>
+                        <div class="col-md-3">
+                            <address class="detail-content">
+                                <strong>其他信息:</strong><br />
+                                日记账：@Model.JournalName<br />
+                                过账模板：@Model.PostingProfile<br />
+                                货源：@Model.SupplyOfGoods<br />
+                                提交人：@Model.CreatorUserName
+                            </address>
+                        </div>
+                        <div class="col-md-3">
+                            <address class="detail-content">
+                                <strong>金额:</strong><br />
+                                <h2 class="text-green mtn"><strong>@Model.JournalBalance.ToString("c", new CultureInfo("zh-CN"))</strong></h2>
+                                @Model.LineAmountCaps
+                            </address>
+                        </div>
+                    </div>
+                    <hr class="mbm" />
+                    <button onclick="history.back()" type="button" class="btn btn-default"><i class="fa fa-undo"></i> 返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

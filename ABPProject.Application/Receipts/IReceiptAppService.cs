@@ -13,5 +13,6 @@ namespace ABPProject.Receipts
         Task EditReceipt(EditReceiptInput input);
         Task DeleteReceipt(ArrayParams param);
         Task<object> GetSelectList();
+        ReceiptDedailDto ReceiptDetail(OneParam param);
     }
 }

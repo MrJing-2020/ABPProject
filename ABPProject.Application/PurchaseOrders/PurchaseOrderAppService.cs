@@ -18,6 +18,7 @@ using ABPProject.InventSites;
 using ABPProject.SalesOrders.Dto;
 using ABPProject.Products;
 using ABPProject.Products.Dto;
+using ABPProject.Users;
 
 namespace ABPProject.PurchaseOrders
 {
@@ -29,7 +30,10 @@ namespace ABPProject.PurchaseOrders
         private readonly IRepository<Supplier, int> _supplierRepository;
         private readonly IRepository<Contract, int> _contractRepository;
         private readonly IRepository<InventSite, int> _inventSiteRepository;
+        private readonly IRepository<InventLocation, int> _inventLocationRepository;
         private readonly IRepository<Product, int> _productRepository;
+        private readonly IRepository<User, long> _userRepository;
+        private readonly IRepository<InventBatch, int> _inventBatchRepository;
 
 
         public PurchaseOrderAppService(
@@ -38,14 +42,20 @@ namespace ABPProject.PurchaseOrders
             IRepository<Supplier, int> supplierRepository,
             IRepository<Contract, int> contractRepository,
             IRepository<InventSite, int> inventSiteRepository,
-            IRepository<Product, int> productRepository)
+            IRepository<InventLocation, int> inventLocationRepository,
+            IRepository<Product, int> productRepository,
+            IRepository<User, long> userRepository,
+            IRepository<InventBatch, int> inventBatchRepository)
         {
             _purchaseOrderRepository = purchaseOrderRepository;
             _purchaseOrderItemRepository = purchaseOrderItemRepository;
             _supplierRepository = supplierRepository;
             _contractRepository = contractRepository;
             _inventSiteRepository = inventSiteRepository;
+            _inventLocationRepository = inventLocationRepository;
             _productRepository = productRepository;
+            _userRepository = userRepository;
+            _inventBatchRepository = inventBatchRepository;
         }
 
         /// <summary>
@@ -87,7 +97,7 @@ namespace ABPProject.PurchaseOrders
         public async Task<object> GetSelectList()
         {
             var supplier = (await _supplierRepository.GetAllListAsync()).Select(m => new { Id = m.Id, Name = m.Name });
-            var contract = (await _contractRepository.GetAllListAsync()).Select(m=>new { Id=m.Id,Name=m.Name});
+            var contract = (await _contractRepository.GetAllListAsync()).Select(m=>new { Id=m.Id,Name=m.ContractNum});
             var inventSiteList = _inventSiteRepository.GetAllIncluding(m => m.InventLocation).ToList();
             var inventSite = inventSiteList.MapTo<List<InventSiteDto>>();
             var productList = _productRepository.GetAllIncluding(m => m.InventBatch).ToList();
@@ -117,6 +127,45 @@ namespace ABPProject.PurchaseOrders
             {
                 await _purchaseOrderItemRepository.InsertOrUpdateAsync(item);
             }
+        }
+        public PurchaseOrderDetailDto PurchaseOrderDetail(OneParam param)
+        {
+            //订单详情
+            var purchaseOrderDetail = (from purchaseOrder in _purchaseOrderRepository.GetAll()
+                                       join contract in _contractRepository.GetAll() on purchaseOrder.ContractId equals contract.Id
+                                       join supplier in _supplierRepository.GetAll() on purchaseOrder.SupplierId equals supplier.Id
+                                       join inventSite in _inventSiteRepository.GetAll() on purchaseOrder.InventSiteId equals inventSite.Id
+                                       join inventLocation in _inventLocationRepository.GetAll() on purchaseOrder.InventLocationId equals inventLocation.Id
+                                       join userInfo in _userRepository.GetAll() on purchaseOrder.CreatorUserId equals userInfo.Id
+                                       where purchaseOrder.Id == param.Id
+                                       select new PurchaseOrderDetailDto
+                                       {
+                                           Id = purchaseOrder.Id,
+                                           PurchNum = purchaseOrder.PurchNum,
+                                           SupplierName = supplier.Name,
+                                           InventSiteName = inventSite.Name,
+                                           InventLocationName = inventLocation.Name,
+                                           ContractNum = contract.ContractNum,
+                                           State = purchaseOrder.State,
+                                           CreationTime = purchaseOrder.CreationTime,
+                                           CreatorUserName = userInfo.UserName
+                                       }).FirstOrDefault();
+            //订单行
+            var purchaseOrderItems = (from purchaseOrderItem in _purchaseOrderItemRepository.GetAll()
+                                      join product in _productRepository.GetAll() on purchaseOrderItem.ProductId equals product.Id
+                                      join inventBatchItem in _inventBatchRepository.GetAll() on purchaseOrderItem.InventBatchId equals inventBatchItem.Id
+                                      where purchaseOrderItem.PurchaseOrderId == purchaseOrderDetail.Id
+                                      select new PurchaseOrderItemDetailDto
+                                      {
+                                          ProductName = product.Name,
+                                          InventBatchNum = inventBatchItem.InventBatchNum,
+                                          PurchCount = purchaseOrderItem.PurchCount,
+                                          PurchPrice = purchaseOrderItem.PurchPrice
+                                      }).ToList();
+            purchaseOrderDetail.PurchaseOrderItems = purchaseOrderItems;
+            //商品总价
+            purchaseOrderDetail.TotalPrices = purchaseOrderItems.Sum(m => (m.PurchCount) * (m.PurchPrice));
+            return purchaseOrderDetail;
         }
 
         [UnitOfWork]

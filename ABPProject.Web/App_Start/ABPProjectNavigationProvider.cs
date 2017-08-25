@@ -15,24 +15,6 @@ namespace ABPProject.Web
             context.Manager.MainMenu
                 .AddItem(
                     new MenuItemDefinition(
-                        "Roles",
-                        L("Roles"),
-                        url: "Admin/Roles",
-                        icon: "fa fa-users",
-                        requiresAuthentication: true,
-                        requiredPermissionName: PermissionNames.User
-                        )
-                ).AddItem(
-                    new MenuItemDefinition(
-                        "Users",
-                        L("Users"),
-                        url: "Admin/Users",
-                        icon: "fa fa-user",
-                        requiresAuthentication: true,
-                        requiredPermissionName: PermissionNames.Role
-                        )
-                ).AddItem(
-                    new MenuItemDefinition(
                         "Project",
                         L("Project"),
                         url: "Admin/Project",
@@ -90,37 +72,53 @@ namespace ABPProject.Web
                         "Deliver",
                         L("Deliver"),
                         url: "Admin/Deliver",
+                        icon: "fa fa-truck",
+                        requiresAuthentication: true,
+                        requiredPermissionName: PermissionNames.PurchaseOrder
+                        )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        "Client",
+                        L("Client"),
+                        url: "Admin/Client",
+                        icon: "fa fa-ticket",
+                        requiresAuthentication: true,
+                        requiredPermissionName: PermissionNames.PurchaseOrder
+                        )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        "Supplier",
+                        L("Supplier"),
+                        url: "Admin/Supplier",
                         icon: "fa fa-rocket",
                         requiresAuthentication: true,
                         requiredPermissionName: PermissionNames.PurchaseOrder
                         )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        "Settting",
+                        L("Settting"),
+                        icon: "fa fa-cog",
+                        requiredPermissionName: PermissionNames.User
+                     ).AddItem(
+                            new MenuItemDefinition(
+                                "Roles",
+                                L("Roles"),
+                                url: "Admin/Roles",
+                                icon: "fa fa-users",
+                                requiredPermissionName: PermissionNames.Role
+                                )
+                     ).AddItem(
+                            new MenuItemDefinition(
+                                "Users",
+                                L("Users"),
+                                url: "Admin/Users",
+                                icon: "fa fa-user",
+                                requiredPermissionName: PermissionNames.User
+                                )
+                        )
                 )
-              //  .AddItem(
-              //      new MenuItemDefinition(
-              //          "Tenants",
-              //          L("CapitalPool"),
-              //          url: "Tenants",
-              //          icon: "fa fa-globe",
-              //          requiredPermissionName: PermissionNames.User
-              //       ).AddItem(
-              //              new MenuItemDefinition(
-              //                  "Tenants",
-              //                  L("Project"),
-              //                  url: "Tenants",
-              //                  icon: "fa fa-globe",
-              //                  requiredPermissionName: PermissionNames.User
-              //                  )
-              //          ).AddItem(
-              //              new MenuItemDefinition(
-              //                  "Tenants",
-              //                  L("Capital"),
-              //                  url: "Tenants",
-              //                  icon: "fa fa-globe",
-              //                  requiredPermissionName: PermissionNames.User
-              //                  )
-              //          )
-              //)
-              ;
+                ;
         }
 
         private static ILocalizableString L(string name)

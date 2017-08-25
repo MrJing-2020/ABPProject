@@ -16,6 +16,7 @@ using ABPProject.Receipts;
 using ABPProject.SimEntitys;
 using ABPProject.Delivers;
 using ABPProject.ClientPayments;
+using ABPProject.Protocols;
 
 namespace ABPProject.EntityFramework
 {
@@ -38,6 +39,8 @@ namespace ABPProject.EntityFramework
         public IDbSet<BankAccout> BankAccouts { get; set; }
         public IDbSet<Deliver> Delivers { get; set; }
         public IDbSet<ClientPayment> ClientPayments { get; set; }
+        public IDbSet<Protocol> Protocols { get; set; }
+
 
 
 

@@ -108,8 +108,8 @@
                                                     </label>
                                                     <div class="col-md-9">
                                                         <select v-model="formItem.receiptWay" class="form-control" name="receiptWay" required>
-                                                            <option v-for="option in receiptWay" v-bind:value="option.id">
-                                                                {{ option.name }}
+                                                            <option v-for="option in receiptWay" v-bind:value="option">
+                                                                {{ option }}
                                                             </option>
                                                         </select>
                                                     </div>
@@ -203,7 +203,7 @@
                                                         大写金额 <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-9">
-                                                        <input v-model="formItem.lineAmountCaps" name="lineAmountCaps" type="text" class="form-control" required />
+                                                        <input :value="lineAmountCaps" name="lineAmountCaps" type="text" class="form-control" required disabled/>
                                                     </div>
                                                 </div>
                                             </div>

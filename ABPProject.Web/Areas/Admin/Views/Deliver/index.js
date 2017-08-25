@@ -51,6 +51,7 @@
                                 sortable: true,
                                 align: 'center',
                                 formatter: function (value, row, index) {
+                                    console.log(value)
                                     return value.substring(0, value.lastIndexOf("T"));
                                 }
                             },

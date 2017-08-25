@@ -24,6 +24,7 @@
                     <div class="pull-left">
                         <h2 class="text-green logo">订单详情</h2>
                         <address class="mbn detail-title">
+                        客户： @Model.ClientName<br />
                         订单号： @Model.SalesNum<br />
                         合同编号：@Model.SalesContractNum<br />
                         时间： @Model.CreationTime.ToLocalTime()</address>
@@ -38,7 +39,7 @@
                             <address class="detail-content"><strong>仓库:</strong><br />站点：@Model.InventSiteName<br />库位：@Model.InventLocationName</address>
                         </div>
                         <div class="col-md-3">
-                            <address class="detail-content"><strong>其他信息:</strong><br />付款方式：@Model.PaymentMethod<br />备注：@Model.Instructions</address>
+                            <address class="detail-content"><strong>其他信息:</strong><br />付款方式：@Model.PaymentMethod<br />提交用户：@Model.CreatorUserName<br />备注：@Model.Instructions</address>
                         </div>
                         <div class="col-md-3">
                             <address class="detail-content"><strong>总金额:</strong><br /><h2 class="text-green mtn"><strong>@Model.TotalPrices.ToString("c", new CultureInfo("zh-CN"))</strong></h2></address>
@@ -70,7 +71,7 @@
                                     <tr>
                                         <td>@item.ProductName</td>
                                         <td class="text-center">@item.InventBatchNum</td>
-                                        <td class="text-center">@item.PurchPrice</td>
+                                        <td class="text-center">@item.PurchPrice.ToString("c", new CultureInfo("zh-CN"))</td>
                                         <td class="text-right">@item.PurchCount</td>
                                     </tr>
                                 }

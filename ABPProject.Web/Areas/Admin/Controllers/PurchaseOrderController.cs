@@ -31,5 +31,10 @@ namespace ABPProject.Web.Areas.Admin.Controllers
             var result = _purchaseOrderAppService.GetPagedPurchaseOrder(pageArg);
             return Json(result);
         }
+        public ActionResult Detail(int id)
+        {
+            var purchaseOrderDetail = _purchaseOrderAppService.PurchaseOrderDetail(new OneParam { Id = id });
+            return View(purchaseOrderDetail);
+        }
     }
 }

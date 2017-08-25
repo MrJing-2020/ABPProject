@@ -266,6 +266,18 @@
     <Compile Include="Migrations\201708240824146_AddClientPayment.Designer.cs">
       <DependentUpon>201708240824146_AddClientPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708250152395_ChangePurchaseOrderItem.cs" />
+    <Compile Include="Migrations\201708250152395_ChangePurchaseOrderItem.Designer.cs">
+      <DependentUpon>201708250152395_ChangePurchaseOrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708250843245_ChangeClient.cs" />
+    <Compile Include="Migrations\201708250843245_ChangeClient.Designer.cs">
+      <DependentUpon>201708250843245_ChangeClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708250950543_ChangeSupplier.cs" />
+    <Compile Include="Migrations\201708250950543_ChangeSupplier.Designer.cs">
+      <DependentUpon>201708250950543_ChangeSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ABPProjectDataModule.cs" />
@@ -387,6 +399,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708240824146_AddClientPayment.resx">
       <DependentUpon>201708240824146_AddClientPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708250152395_ChangePurchaseOrderItem.resx">
+      <DependentUpon>201708250152395_ChangePurchaseOrderItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708250843245_ChangeClient.resx">
+      <DependentUpon>201708250843245_ChangeClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708250950543_ChangeSupplier.resx">
+      <DependentUpon>201708250950543_ChangeSupplier.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

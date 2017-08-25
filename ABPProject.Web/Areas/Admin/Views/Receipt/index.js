@@ -15,6 +15,14 @@
                 journalName: [],
                 postingProfile: []
             },
+            computed: {
+                lineAmountCaps: function () {
+                    var that = this;
+                    var cn = sumcn(that.formItem.journalBalance);
+                    that.formItem.lineAmountCaps = cn;
+                    return cn;
+                }
+            },
             //生命周期钩子（vue替换dom完成之后执行）
             mounted: function () {
                 this.init()
@@ -50,7 +58,11 @@
                                 field: 'journalBalance',
                                 title: '金额',
                                 sortable: true,
-                                align: 'right'
+                                align: 'right',
+                                halign: 'center',
+                                formatter: function (value, row, index) {
+                                    return moneyFormat(value.toString());
+                                }
                             },
                             {
                                 field: 'receiptDate',
@@ -65,6 +77,9 @@
                                 field: 'state',
                                 title: '状态',
                                 align: 'center',
+                                formatter: function (value, row, index) {
+                                    return '<span class="badge badge-green">等待付款</span>';
+                                }
                             },
                             {
                                 field: 'option',
@@ -74,7 +89,7 @@
                                 formatter: function (value, row, index) {
                                     return [
                                         '<button type="button" class="btn btn-info btn-xs edit-item table-btn">编辑</button>',
-                                        '<button type="button" class="btn btn-green btn-xs edit-item table-btn">查看</button>',
+                                        '<button type="button" class="btn btn-green btn-xs detail-item table-btn">查看</button>',
                                         '<button type="button" data-toggle="modal" data-target="#del-confirm" class="btn btn-danger btn-xs remove-item table-btn">删除</button>'
                                     ].join('');
                                 }
@@ -91,6 +106,9 @@
                         'click .edit-item': function (e, value, row, index) {
                             that.getReceiptById(row.id);
                             $("#tab-edit a:first").trigger("click");
+                        },
+                        'click .detail-item': function (e, value, row, index) {
+                            window.location.href = "/Admin/Receipt/Detail?id=" + row.id;
                         },
                         'click .remove-item': function (e, value, row, index) {
                             that.deleteId = [row.id]
@@ -145,6 +163,7 @@
                         return;
                     }
                     var postData = this.formItem;
+                    //postData.lineAmountCaps = this.lineAmountCaps
                     abp.ui.setBusy($("#vue-app"));
                     this.abpService.editReceipt(postData).done(function () {
                         location.reload(true);

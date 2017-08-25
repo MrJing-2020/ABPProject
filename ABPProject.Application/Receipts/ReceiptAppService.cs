@@ -7,16 +7,13 @@ using ABPProject.CommonDto;
 using ABPProject.Contracts;
 using ABPProject.Receipts.Dto;
 using ABPProject.SalesOrders;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using ABPProject.Extend;
 using Abp.Linq.Extensions;
 using Abp.AutoMapper;
-using Abp.Domain.Uow;
 using ABPProject.SimEntitys;
+using ABPProject.Users;
 
 namespace ABPProject.Receipts
 {
@@ -28,16 +25,15 @@ namespace ABPProject.Receipts
         private readonly IRepository<Client, int> _clientRepository;
         private readonly IRepository<Receipt, int> _receiptRepository;
         private readonly IRepository<BankAccout, int> _bankAccoutRepository;
-
-
-
+        private readonly IRepository<User, long> _userRepository;
 
         public ReceiptAppService(
             IRepository<SalesOrder, int> salesOrderRepository,
             IRepository<Contract, int> contractRepository,
             IRepository<Client, int> clientRepository,
             IRepository<Receipt, int> receiptRepository,
-            IRepository<BankAccout, int> bankAccoutRepository
+            IRepository<BankAccout, int> bankAccoutRepository,
+            IRepository<User, long> userRepository
             )
         {
             _salesOrderRepository = salesOrderRepository;
@@ -45,6 +41,7 @@ namespace ABPProject.Receipts
             _clientRepository = clientRepository;
             _receiptRepository = receiptRepository;
             _bankAccoutRepository = bankAccoutRepository;
+            _userRepository = userRepository;
         }
 
         public PagedResultDto<ReceiptListDto> GetPagedReceipt(PageParams pageArg)
@@ -80,7 +77,7 @@ namespace ABPProject.Receipts
         public async Task<object> GetSelectList()
         {
             var client = (await _clientRepository.GetAllListAsync()).Select(m => new { Id = m.Id, Name = m.Name });
-            var contract = (await _contractRepository.GetAllListAsync()).Select(m => new { Id = m.Id, Name = m.Name });
+            var contract = (await _contractRepository.GetAllListAsync()).Select(m => new { Id = m.Id, Name = m.ContractNum });
             var salesOrder = (await _salesOrderRepository.GetAllListAsync()).Select(m => new { Id = m.Id, SalesNum = m.SalesNum });
             var bank = (await _bankAccoutRepository.GetAllListAsync()).Select(m => new { BankName = m.BankName, AccountId = m.AccountId });
             return new { client = client, contract = contract, salesOrder = salesOrder, bank = bank };
@@ -98,6 +95,40 @@ namespace ABPProject.Receipts
             var receipt = input.MapTo<Receipt>();
             receipt.ReceiptDate = receipt.ReceiptDate.AddHours(8);
             var receiptUpdate = await _receiptRepository.InsertOrUpdateAsync(receipt);
+        }
+
+        public ReceiptDedailDto ReceiptDetail(OneParam param)
+        {
+            var receiptDetail = (from receiptItem in _receiptRepository.GetAll()
+                                 join salesOrder in _salesOrderRepository.GetAll() on receiptItem.SalesOrderId equals salesOrder.Id
+                                 join client in _clientRepository.GetAll() on salesOrder.ClientId equals client.Id
+                                 join userInfo in _userRepository.GetAll() on receiptItem.CreatorUserId equals userInfo.Id
+                                 where receiptItem.Id == param.Id
+                                 select new ReceiptDedailDto
+                                 {
+                                     Id = receiptItem.Id,
+                                     ClientName = client.Name,
+                                     SalesOrderNum = salesOrder.SalesNum,
+                                     ReceiptWay = receiptItem.ReceiptWay,
+                                     PaymentMethod = receiptItem.PaymentMethod,
+                                     ReceiptDate = receiptItem.ReceiptDate,
+                                     JournalName = receiptItem.JournalName,
+                                     PostingProfile = receiptItem.PostingProfile,
+                                     BankName = receiptItem.BankName,
+                                     JournalBalanceNum = receiptItem.JournalBalanceNum,
+                                     JournalBalance = receiptItem.JournalBalance,
+                                     LineAmountCaps = receiptItem.LineAmountCaps,
+                                     BankTransactionNum = receiptItem.BankTransactionNum,
+                                     SupplyOfGoods = receiptItem.SupplyOfGoods,
+                                     ContractNum = receiptItem.ContractNum,
+                                     Remark = receiptItem.Remark,
+                                     Currency = receiptItem.Currency,
+                                     ReceiptAbstract = receiptItem.ReceiptAbstract,
+                                     CreatorUserName = userInfo.UserName,
+                                     State = receiptItem.State,
+                                     CreationTime = receiptItem.CreationTime
+                                 }).FirstOrDefault();
+            return receiptDetail;
         }
 
         public async Task DeleteReceipt(ArrayParams param)

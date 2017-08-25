@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.ActiveMenu = "PurchaseOrder";
+}
+@model ABPProject.PurchaseOrders.Dto.PurchaseOrderDetailDto
+@using System.Globalization;
+
+<div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+    <ol class="breadcrumb page-breadcrumb pull-left">
+        <li><i class="fa fa-home"></i>&nbsp;<a href="/Admin/Home/index">主页</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li><a href="/Admin/PurchaseOrder/index">采购订单</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+        <li class="active">采购订单详情</li>
+    </ol>
+    <div class="clearfix"></div>
+</div>
+<div class="page-content" id="vue-app">
+    <div id="invoice-page" class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="invoice-title">
+                        <h2>订单状态</h2>
+                        <p class="mbn text-left"><span class="badge badge-green">等待供应商确认</span></p>
+                    </div>
+                    <div class="pull-left">
+                        <h2 class="text-green logo">订单详情</h2>
+                        <address class="mbn detail-title">
+                            供应商：@Model.SupplierName<br />
+                            订单号： @Model.PurchNum<br />
+                            合同编号：@Model.ContractNum<br />
+                            时间： @Model.CreationTime.ToLocalTime()
+                        </address>
+                    </div>
+                    <div class="clearfix"></div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <address class="detail-content"><strong>仓库:</strong><br />站点：@Model.InventSiteName<br />库位：@Model.InventLocationName</address>
+                        </div>
+                        <div class="col-md-3">
+                            <address class="detail-content"><strong>其他信息:</strong><br />提交用户：@Model.CreatorUserName</address>
+                        </div>
+                        <div class="col-md-3">
+                            <address class="detail-content"><strong>总金额:</strong><br /><h2 class="text-green mtn"><strong>@Model.TotalPrices.ToString("c", new CultureInfo("zh-CN"))</strong></h2></address>
+                        </div>
+                    </div>
+                    <hr />
+                    <h4 class="block-heading">产品信息</h4>
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <td>
+                                        <strong>产品</strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <strong>批次</strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <strong>单价</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <strong>数量</strong>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.PurchaseOrderItems)
+                                {
+                                    <tr>
+                                        <td>@item.ProductName</td>
+                                        <td class="text-center">@item.InventBatchNum</td>
+                                        <td class="text-center">@item.PurchPrice.ToString("c", new CultureInfo("zh-CN"))</td>
+                                        <td class="text-right">@item.PurchCount</td>
+                                    </tr>
+                                }
+                                <tr>
+                                    <td class="no-line"></td>
+                                    <td class="no-line"></td>
+                                    <td class="no-line text-center">
+                                        <strong>共计</strong>
+                                    </td>
+                                    <td class="no-line text-right">@Model.TotalPrices.ToString("c", new CultureInfo("zh-CN"))</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr class="mbm" />
+                    <button onclick="history.back()" type="button" class="btn btn-default"><i class="fa fa-undo"></i> 返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

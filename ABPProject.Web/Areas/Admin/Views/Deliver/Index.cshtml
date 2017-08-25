@@ -20,7 +20,6 @@
     </div>
     <ol class="breadcrumb page-breadcrumb pull-left">
         <li><i class="fa fa-home"></i>&nbsp;<a href="/Admin/Home/index">主页</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-        <li class="hidden"><a href="#">发货单</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
         <li class="active">发货单</li>
     </ol>
     <div class="btn btn-blue reportrange">
@@ -71,7 +70,7 @@
                                 <form name="editItemForm" id="editItemForm" role="form" novalidate class="form-validation form-horizontal">
                                     <div class="form-body pal">
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">销售订单</label>
+                                            <label class="col-md-2 control-label">发货单</label>
                                             <div class="col-md-9">
                                                 <select v-model="formItem.salesOrderId" class="form-control" name="salesOrderId" required>
                                                     <option v-for="option in salesOrder" v-bind:value="option.id">

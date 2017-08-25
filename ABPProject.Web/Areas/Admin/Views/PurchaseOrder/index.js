@@ -86,8 +86,7 @@
                             $("#tab-edit a:first").trigger("click");
                         },
                         'click .detail-item': function (e, value, row, index) {
-                            that.getPurchaseOrderById(row.id);
-                            $("#tab-edit a:first").trigger("click");
+                            window.location.href = "/Admin/PurchaseOrder/Detail?id=" + row.id;
                         },
                         'click .remove-item': function (e, value, row, index) {
                             that.deleteId = [row.id]

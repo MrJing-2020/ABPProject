@@ -13,5 +13,6 @@ namespace ABPProject.PurchaseOrders
         Task EditPurchaseOrder(EditPurchaseOrderInput input);
         Task DeletePurchaseOrder(ArrayParams param);
         Task<object> GetSelectList();
+        PurchaseOrderDetailDto PurchaseOrderDetail(OneParam param);
     }
 }
